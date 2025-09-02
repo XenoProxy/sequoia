@@ -8,6 +8,10 @@
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
+  .product .border-style.custom-section-content {
+    margin: 0;
+  }
+
   .ai-image-content-block-{{ ai_gen_id }} {
     display: flex;
     flex-direction: row;
