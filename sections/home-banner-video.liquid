@@ -95,7 +95,16 @@
 }
 @media screen and (max-width: 767px){
   .parallax__blockWrapper {
-    display: none;
+    height: auto;
+    flex-direction: column;
+    padding: 30px 20px 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
   }
 }
 
@@ -103,8 +112,22 @@
   align-items: flex-end;
   padding: 55px 50px 100px;
 }
+@media screen and (max-width: 767px){
+  .parallax__blockOne {
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+}
 .parallax__blockOne .block__percentageWrapper{
   width: 191px;
+}
+@media screen and (max-width: 767px){
+  .parallax__blockOne .block__percentageWrapper {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 20px;
+  }
 }
 .parallax__blockOne .block__percentageWrapper .block__percentage{
   background: rgba(234, 234, 234, .30);
@@ -133,6 +156,12 @@
   width: calc(100% - 191px);
   padding-left: 30px;
 }
+@media screen and (max-width: 767px){
+  .parallax__blockOne .block__contentWrapper {
+    width: 100%;
+    padding-left: 0;
+  }
+}
 
 .parallax__blockOne .block__contentWrapper .block__content{}
 .parallax__blockOne .block__contentWrapper .block__content h3{
@@ -149,6 +178,13 @@
   color: #ffffff;
   letter-spacing: 0.3px;
   margin: 0 0 20px;
+}
+@media screen and (max-width: 767px){
+  .parallax__blockOne .block__contentWrapper .block__content h1 {
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+  }
 }
 .parallax__blockOne .block__contentWrapper .block__content .icon__button{
   display: inline-flex;
@@ -172,6 +208,11 @@
 .parallax__blockTwo{
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 767px){
+  .parallax__blockTwo {
+    display: none;
+  }
 }
 .parallax__blockTwo .small__videoWrapper{
   width: 469px;
