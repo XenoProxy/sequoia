@@ -1,0 +1,539 @@
+<style>
+  .animated-cards__sectionWrapper {
+    padding: {{ section.settings.padding_top }}px 120px {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    direction: rtl;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .animated-cards__sectionWrapper {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+  }
+  
+  .animated-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+  }
+  
+
+  
+  .animated-card {
+    position: relative;
+    flex: 1 1 calc(50% - 12px);
+    height: 350px;
+    background: {{ section.settings.card_bg_color }};
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .animated-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    flex: 1.2 1 0;
+    transform-origin: center;
+  }
+  
+  .animated-cards-container:hover .animated-card:not(:hover) {
+    flex: 0.8 1 0;
+  }
+  
+  .animated-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .animated-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .animated-card:hover .animated-card__image {
+    transform: scale(1.05);
+  }
+  
+  .animated-card__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    z-index: 2;
+  }
+  
+  .animated-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    pointer-events: none;
+  }
+  
+  .animated-card__price {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  .animated-card__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+  
+  .animated-card__description {
+    display: none; /* Hidden on desktop */
+    font-size: {{ section.settings.description_size }}px;
+    font-weight: 400;
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+  
+  /* Hide mobile elements on desktop */
+  .animated-card__badge--mobile,
+  .animated-card__title-price-row,
+  .animated-card__mobile-overlay,
+  .animated-card__mobile-top,
+  .animated-card__mobile-bottom {
+    display: none;
+  }
+  
+  /* Mobile Responsive */
+  @media screen and (max-width: 767px) {
+    .animated-cards-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .animated-card {
+      flex: 1 1 100% !important;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    /* Disable all hover effects on mobile */
+    .animated-card:hover {
+      flex: 1 1 100% !important;
+      transform: none !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .animated-cards-container:hover .animated-card:not(:hover) {
+      flex: 1 1 100% !important;
+    }
+    
+    .animated-card:hover .animated-card__image {
+      transform: none !important;
+    }
+    
+    .animated-card__image-wrapper {
+      height: 270px;
+      position: relative;
+    }
+    
+    /* Hide desktop badge and content on mobile */
+    .animated-card__badge:not(.animated-card__badge--mobile),
+    .animated-card__content {
+      display: none;
+    }
+    
+    /* Mobile content overlay */
+    .animated-card__mobile-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      z-index: 2;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.1) 100%);
+    }
+    
+    /* Mobile top section */
+    .animated-card__mobile-top {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    
+    /* Show mobile elements */
+    .animated-card__badge--mobile {
+      display: inline-block;
+      position: static;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    
+    .animated-card__mobile-bottom {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .animated-card__title-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%
+    }
+    
+    .animated-card__title {
+      font-size: 20px;
+      flex: 1;
+      text-align: right;
+    }
+    
+    .animated-card__price {
+      font-size: 20px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    
+    .animated-card__description {
+      font-size: 14px;
+      display: block;
+    }
+  }
+  
+  /* Animation for cards appearing */
+  .animated-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .animated-card:nth-child(1) { animation-delay: 0.1s; }
+  .animated-card:nth-child(2) { animation-delay: 0.2s; }
+  .animated-card:nth-child(3) { animation-delay: 0.3s; }
+  .animated-card:nth-child(4) { animation-delay: 0.4s; }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<section id="{{ section.id }}" class="animated-cards__sectionWrapper">
+
+
+  <div class="animated-cards-container">
+    {% for block in section.blocks %}
+      {% assign product = collections[block.settings.collection].products[block.settings.product] | default: block.settings.product %}
+      {% if block.settings.product_handle != blank %}
+        {% assign product = all_products[block.settings.product_handle] %}
+      {% endif %}
+      
+      <a href="{% if product %}{{ product.url }}{% else %}#{% endif %}" 
+         class="animated-card" 
+         id="{{ block.id }}"
+         {% if block.settings.open_in_new_tab %}target="_blank"{% endif %}>
+        
+        <div class="animated-card__image-wrapper">
+          {% if block.settings.custom_image %}
+            <img src="{{ block.settings.custom_image | image_url: width: 600 }}" 
+                 alt="{{ block.settings.custom_title | default: product.title | escape }}"
+                 class="animated-card__image">
+          {% elsif product and product.featured_image %}
+            <img src="{{ product.featured_image | image_url: width: 600 }}" 
+                 alt="{{ product.title | escape }}"
+                 class="animated-card__image">
+          {% else %}
+            <div class="animated-card__image" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999;">
+              <span>{{ 'products.product.no_image' | t | default: 'No Image' }}</span>
+            </div>
+          {% endif %}
+          
+          {% if block.settings.badge_text != blank %}
+            <div class="animated-card__badge">{{ block.settings.badge_text }}</div>
+          {% endif %}
+        </div>
+        
+        <!-- Mobile: Overlay content -->
+        <div class="animated-card__mobile-overlay">
+          <!-- Top content -->
+          <div class="animated-card__mobile-top">
+            <!-- Badge (first row) -->
+            {% if block.settings.badge_text != blank %}
+              <div class="animated-card__badge animated-card__badge--mobile">{{ block.settings.badge_text }}</div>
+            {% endif %}
+            
+            <!-- Title + Price row (second row) -->
+            <div class="animated-card__title-price-row">
+              <h3 class="animated-card__title">
+                {% if block.settings.custom_title != blank %}
+                  {{ block.settings.custom_title }}
+                {% elsif product %}
+                  {{ product.title }}
+                {% else %}
+                  {{ 'products.product.title' | t | default: 'Product Title' }}
+                {% endif %}
+              </h3>
+              
+              {% if block.settings.show_price and product %}
+                <div class="animated-card__price">
+                  {% if product.price_varies %}
+                    {{ 'products.product.from_text_html' | t: price: product.price_min | money }}
+                  {% else %}
+                    {{ product.price | money }}
+                  {% endif %}
+                  {% if product.compare_at_price > product.price %}
+                    <s style="opacity: 0.6; margin-right: 8px;">{{ product.compare_at_price | money }}</s>
+                  {% endif %}
+                </div>
+              {% elsif block.settings.custom_price != blank %}
+                <div class="animated-card__price">{{ block.settings.custom_price }}</div>
+              {% endif %}
+            </div>
+          </div>
+          
+          <!-- Bottom content -->
+          <div class="animated-card__mobile-bottom">
+            <!-- Description (third row) -->
+            <p class="animated-card__description">
+              {% if block.settings.custom_description != blank %}
+                {{ block.settings.custom_description }}
+              {% elsif product and product.description != blank %}
+                {{ product.description | strip_html | truncate: 150 }}
+              {% else %}
+                {{ 'products.product.description' | t | default: 'Product description' }}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+        
+        <!-- Desktop: Bottom overlay content -->
+        <div class="animated-card__content">
+          <h3 class="animated-card__title">
+            {% if block.settings.custom_title != blank %}
+              {{ block.settings.custom_title }}
+            {% elsif product %}
+              {{ product.title }}
+            {% else %}
+              {{ 'products.product.title' | t | default: 'Product Title' }}
+            {% endif %}
+          </h3>
+          
+          {% if block.settings.show_price and product %}
+            <div class="animated-card__price">
+              {% if product.price_varies %}
+                {{ 'products.product.from_text_html' | t: price: product.price_min | money }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
+              {% if product.compare_at_price > product.price %}
+                <s style="opacity: 0.6; margin-right: 8px;">{{ product.compare_at_price | money }}</s>
+              {% endif %}
+            </div>
+          {% elsif block.settings.custom_price != blank %}
+            <div class="animated-card__price">{{ block.settings.custom_price }}</div>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Animated Cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (px)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (px)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60
+    },
+
+
+    {
+      "type": "header",
+      "content": "Card Styling"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card Border Radius (px)",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 12
+    },
+
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description Font Size (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product Selection"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "product_handle",
+          "label": "Or Enter Product Handle",
+          "info": "Alternative way to select product by handle"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "Open product in new tab",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Custom Content (Override Product Data)"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image",
+          "info": "Use this to override the product's featured image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Title",
+          "info": "Leave blank to use product title"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom Price",
+          "info": "Leave blank to use product price"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_description",
+          "label": "Custom Description",
+          "info": "Leave blank to use product description"
+        },
+        {
+          "type": "header",
+          "content": "Card Options"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show Price",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Custom Badge Text",
+          "info": "Enter custom badge text (e.g., 'הכי פופולרי', 'חדש', 'מבצע')",
+          "default": "הכי פופולרי"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Animated Cards",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

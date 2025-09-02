@@ -1,0 +1,803 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_mNppQq": {
+      "type": "hero",
+      "blocks": {
+        "text_zqDiDp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ collection.title }}</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "1.25rem",
+            "line_height": "tight",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": ""
+          },
+          "blocks": {}
+        },
+        "text_6cMiWY": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-subheading--family)",
+            "font_size": "2.5rem",
+            "line_height": "tight",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "balance",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 1,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_zqDiDp",
+        "text_6cMiWY"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "link": "",
+        "open_in_new_tab": false,
+        "media_type_1": "image",
+        "image_1": "{{ collection.image }}",
+        "media_type_2": "image",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-end",
+        "vertical_alignment": "flex-end",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-end",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 51
+      }
+    },
+    "button_filter_VBkHPw": {
+      "type": "button-filter",
+      "blocks": {
+        "button_aU7hXQ": {
+          "type": "button",
+          "settings": {
+            "text": "כל המוצרים",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "button_AXHKgP": {
+          "type": "button",
+          "settings": {
+            "text": "שיער וציפורניים",
+            "link": "shopify://collections/שיער-וציפורניים"
+          }
+        },
+        "button_RHQeCj": {
+          "type": "button",
+          "settings": {
+            "text": "תמיכה במערכת החיסון",
+            "link": "shopify://collections/תמיכה-במערכת-החיסון"
+          }
+        },
+        "button_tW4Ain": {
+          "type": "button",
+          "settings": {
+            "text": "תמיכה במערכת העיכול",
+            "link": "shopify://collections/תמיכה-במערכת-העיכול"
+          }
+        },
+        "button_qFWbMB": {
+          "type": "button",
+          "settings": {
+            "text": "ניקוי רעלים",
+            "link": "shopify://collections/ניקוי-רעלים"
+          }
+        }
+      },
+      "block_order": [
+        "button_aU7hXQ",
+        "button_AXHKgP",
+        "button_RHQeCj",
+        "button_tW4Ain",
+        "button_qFWbMB"
+      ],
+      "custom_css": [
+        "{direction: rtl;}"
+      ],
+      "name": "Button Filter",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 30,
+        "padding-block-end": 0
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "filters": {
+          "type": "filters",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "enable_filtering": true,
+            "filter_style": "vertical",
+            "filter_width": "centered",
+            "text_label_case": "uppercase",
+            "show_swatch_label": false,
+            "show_filter_label": false,
+            "enable_sorting": false,
+            "enable_grid_density": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "facets_margin_bottom": 8,
+            "facets_margin_right": 0
+          },
+          "blocks": {}
+        },
+        "product-card": {
+          "type": "product-card",
+          "static": true,
+          "settings": {
+            "product": "{{ closest.product }}",
+            "product_card_gap": 12,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "card-gallery": {
+              "type": "_product-card-gallery",
+              "settings": {
+                "product": "{{ closest.product }}",
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "group": {
+              "type": "group",
+              "settings": {
+                "link": "",
+                "open_in_new_tab": false,
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "space-between",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "product_title_hgAHWC": {
+                  "type": "product-title",
+                  "name": "t:names.product_title",
+                  "settings": {
+                    "product": "{{ closest.product }}",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "right",
+                    "type_preset": "h5",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price": {
+                  "type": "price",
+                  "settings": {
+                    "product": "{{ closest.product }}",
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "color": "var(--color-foreground)",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "swatches": {
+                  "type": "swatches",
+                  "name": "t:names.swatches",
+                  "disabled": true,
+                  "settings": {
+                    "product": "{{ closest.product }}",
+                    "product_swatches_alignment": "center",
+                    "product_swatches_alignment_mobile": "flex-start",
+                    "hide_padding": false,
+                    "product_swatches_padding_top": 4,
+                    "product_swatches_padding_bottom": 0,
+                    "product_swatches_padding_left": 0,
+                    "product_swatches_padding_right": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "product_title_hgAHWC",
+                "price",
+                "swatches"
+              ]
+            }
+          },
+          "block_order": [
+            "card-gallery",
+            "group"
+          ]
+        }
+      },
+      "custom_css": [
+        "{direction: rtl;}",
+        "@media (max-width: 767px) {.product-grid {grid-template-columns: 1fr; }}"
+      ],
+      "settings": {
+        "layout_type": "grid",
+        "product_card_size": "medium",
+        "mobile_product_card_size": "small",
+        "product_grid_width": "centered",
+        "full_width_on_mobile": true,
+        "columns_gap_horizontal": 16,
+        "columns_gap_vertical": 16,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0,
+        "color_scheme": "scheme-2",
+        "padding-block-start": 68,
+        "padding-block-end": 48
+      }
+    },
+    "section_pEJnCP": {
+      "type": "section",
+      "blocks": {
+        "group_dXtDUV": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "open_in_new_tab": false,
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "custom",
+            "custom_height": 74,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-4",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image": "shopify://shop_images/Frame_1984077419.png",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 40,
+            "padding-block-end": 40,
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
+          },
+          "blocks": {
+            "product_title_wmwYbw": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "product": "a-special-symmetrical-gold-bracelet-in-a-modern-design",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_4V4GA6": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "product": "a-special-symmetrical-gold-bracelet-in-a-modern-design",
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h4",
+                "width": "fit-content",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_title_wmwYbw",
+            "price_4V4GA6"
+          ]
+        },
+        "group_HUJU3D": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "open_in_new_tab": false,
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "custom",
+            "custom_height": 74,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-4",
+            "background_media": "image",
+            "video_position": "cover",
+            "background_image": "shopify://shop_images/Frame_1984077419.png",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 40,
+            "padding-block-end": 40,
+            "padding-inline-start": 40,
+            "padding-inline-end": 40
+          },
+          "blocks": {
+            "product_title_AeW4yn": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "product": "a-special-symmetrical-gold-bracelet-in-a-modern-design",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_ELFHd8": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "product": "a-special-symmetrical-gold-bracelet-in-a-modern-design",
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h4",
+                "width": "fit-content",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_title_AeW4yn",
+            "price_ELFHd8"
+          ]
+        }
+      },
+      "block_order": [
+        "group_dXtDUV",
+        "group_HUJU3D"
+      ],
+      "custom_css": [
+        "{direction: rtl;}"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 26,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-6",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 10,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "custom_css_class": ""
+      }
+    },
+    "section_6kiNzy": {
+      "type": "section",
+      "blocks": {
+        "text_ELDfiV": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>מה הופך את סקויה לבחירה הנכונה עבורכם?</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "right",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": ""
+          },
+          "blocks": {}
+        },
+        "accordion_hn9eBR": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h4",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_YHYxBR": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "open_by_default": true
+              },
+              "blocks": {
+                "text_beK99L": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "loose",
+                    "letter_spacing": "loose",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 15,
+                    "padding-block-end": 15,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_beK99L"
+              ]
+            },
+            "accordion_row_RLwqkx": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "open_by_default": false
+              },
+              "blocks": {
+                "text_BQAzwV": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "loose",
+                    "letter_spacing": "loose",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 15,
+                    "padding-block-end": 15,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_BQAzwV"
+              ]
+            },
+            "accordion_row_8LXVhr": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "open_by_default": false
+              },
+              "blocks": {
+                "text_D3MqFJ": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "loose",
+                    "letter_spacing": "loose",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 15,
+                    "padding-block-end": 15,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_D3MqFJ"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_YHYxBR",
+            "accordion_row_RLwqkx",
+            "accordion_row_8LXVhr"
+          ]
+        }
+      },
+      "block_order": [
+        "text_ELDfiV",
+        "accordion_hn9eBR"
+      ],
+      "custom_css": [
+        "{direction: rtl;}",
+        "@media (max-width: 767px) {.text-block {display: contents; }"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48,
+        "custom_css_class": ""
+      }
+    }
+  },
+  "order": [
+    "hero_mNppQq",
+    "button_filter_VBkHPw",
+    "main",
+    "section_pEJnCP",
+    "section_6kiNzy"
+  ]
+}

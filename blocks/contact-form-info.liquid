@@ -1,0 +1,656 @@
+{% doc %}
+  @prompt
+    shopify contact form with side text contact info heading and address icon email and phone icon, the icons should option to upload custom
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  @media (min-width: 1024px){
+     .ai-contact-form-container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 500px !important;
+    gap: 200px !important;
+    padding: 40px 20px;
+  }
+  }
+  span.color-text {
+    color: #007A73;
+    font-weight: bold;
+}
+  .ai-contact-form-input-{{ ai_gen_id }}::placeholder{
+    color: #A5A8AD;
+  }
+  .ai-contact-form-textarea-{{ ai_gen_id }}::placeholder {
+    color: #A5A8AD;
+  }
+  .ai-contact-form-container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .ai-contact-info-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .ai-contact-info-heading-{{ ai_gen_id }} {
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .ai-contact-info-item-{{ ai_gen_id }} {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: -14px;
+  }
+
+  .ai-contact-info-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    flex-shrink: 0;
+    color: {{ block.settings.icon_color }};
+    margin-top: 2px;
+  }
+
+  .ai-contact-info-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-contact-info-content-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.5;
+  }
+
+  .ai-contact-form-{{ ai_gen_id }} {
+    background-color: {{ block.settings.form_background_color }};
+    padding: 42px;
+    border-radius: {{ block.settings.form_border_radius }}px;
+    border: 1px solid {{ block.settings.form_border_color }};
+  }
+
+  .ai-contact-form-title-{{ ai_gen_id }} {
+    color: {{ block.settings.form_title_color }};
+    font-size: {{ block.settings.form_title_size }}px;
+    margin: 0 0 24px 0;
+  }
+  p.ai-contact-form-subtitle-{{ ai_gen_id }} {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.8;
+}
+p.ai-contact-info-subheading-{{ ai_gen_id }} p {
+    font-weight: 500;
+    font-size: 16px;
+}
+  .ai-contact-form-field-{{ ai_gen_id }} {
+    margin-bottom: 20px;
+  }
+
+  .ai-contact-form-label-{{ ai_gen_id }} {
+    display: block;
+    color: {{ block.settings.label_color }};
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .ai-contact-form-input-{{ ai_gen_id }},
+  .ai-contact-form-textarea-{{ ai_gen_id }} {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    background-color: {{ block.settings.input_background_color }};
+    color: {{ block.settings.input_text_color }};
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    text-align: right;
+  }
+
+  .ai-contact-form-input-{{ ai_gen_id }}:focus,
+  .ai-contact-form-textarea-{{ ai_gen_id }}:focus {
+    outline: none;
+    border-color: {{ block.settings.input_focus_border_color }};
+  }
+
+  .ai-contact-form-textarea-{{ ai_gen_id }} {
+    min-height: 90px;
+    resize: none;
+  }
+
+  .ai-contact-form-button-{{ ai_gen_id }} {
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    padding: 14px 32px;
+    border: none;
+    display: flex;
+    gap: 10px;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* width: 100%; */
+  }
+
+  .ai-contact-form-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+  }
+
+  .ai-contact-form-success-{{ ai_gen_id }} {
+    color: {{ block.settings.success_color }};
+    margin-top: 16px;
+    padding: 12px;
+    background-color: {{ block.settings.success_color }}1a;
+    border-radius: 4px;
+  }
+
+  .ai-contact-form-error-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-contact-form-container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 20px;
+    }
+
+    .ai-contact-info-{{ ai_gen_id }} {
+      order: 1;
+    }
+
+    .ai-contact-form-{{ ai_gen_id }} {
+      order: 2;
+      padding: 24px;
+    }
+    .ai-contact-info-heading-{{ ai_gen_id }} {
+    font-size: 32px;
+  }
+  span.color-text::after {
+    content: "";
+    display: block;
+}
+  }
+{% endstyle %}
+
+<div class="ai-contact-form-container-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-contact-info-{{ ai_gen_id }}">
+    {% if block.settings.contact_heading != blank %}
+      <h2 class="ai-contact-info-heading-{{ ai_gen_id }}">{{ block.settings.contact_heading }}</h2>
+    {% endif %}
+
+     {% if block.settings.contact_subheading != blank %}
+      <p class="ai-contact-info-subheading-{{ ai_gen_id }}">{{ block.settings.contact_subheading }}</p>
+    {% endif %}
+    
+    {% if block.settings.address != blank %}
+      <div class="ai-contact-info-item-{{ ai_gen_id }}">
+        <div class="ai-contact-info-icon-{{ ai_gen_id }}">
+          {% if block.settings.address_icon %}
+            <img src="{{ block.settings.address_icon | image_url: width: 48 }}" alt="Address icon" loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="ai-contact-info-content-{{ ai_gen_id }}">{{ block.settings.address }}</div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.phone != blank %}
+      <div class="ai-contact-info-item-{{ ai_gen_id }}">
+        <div class="ai-contact-info-icon-{{ ai_gen_id }}">
+          {% if block.settings.phone_icon %}
+            <img src="{{ block.settings.phone_icon | image_url: width: 48 }}" alt="Phone icon" loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="ai-contact-info-content-{{ ai_gen_id }}">
+          
+            {{ block.settings.phone }}
+         
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.email != blank %}
+      <div class="ai-contact-info-item-{{ ai_gen_id }}">
+        <div class="ai-contact-info-icon-{{ ai_gen_id }}">
+          {% if block.settings.email_icon %}
+            <img src="{{ block.settings.email_icon | image_url: width: 48 }}" alt="Email icon" loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="ai-contact-info-content-{{ ai_gen_id }}">
+         
+            {{ block.settings.email }}
+        
+        </div>
+      </div>
+    {% endif %}
+
+     {% if block.settings.button_text1 != blank and block.settings.button_link1 != blank %}
+      <a style="background: transparent; display: flex;gap: 10px; align-items: center; color: #323438; font-size: 16px; margin-top: 20px;" href="{{ block.settings.button_link1 }}" class="arrow-button">
+        {{ block.settings.button_text1 }} <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Frame_1984077742.png?v=1750315065" style="width: auto;">
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="ai-contact-form-{{ ai_gen_id }}">
+    {% form 'contact' %}
+      {% if block.settings.form_title != blank %}
+        <h3 class="ai-contact-form-title-{{ ai_gen_id }}">{{ block.settings.form_title }}</h3>
+      {% endif %}
+
+     {% if block.settings.form_subtitle != blank %}
+        <p class="ai-contact-form-subtitle-{{ ai_gen_id }}">{{ block.settings.form_subtitle }}</p>
+      {% endif %}
+
+      <div class="ai-contact-form-field-{{ ai_gen_id }}"> 
+        <input
+          type="text"
+          id="contact-name-{{ ai_gen_id }}"
+          name="contact[name]"
+          placeholder="שם מלא"
+          class="ai-contact-form-input-{{ ai_gen_id }}"
+          value="{{ form.name }}"
+          required
+          {% if form.errors contains 'name' %}
+            aria-invalid="true"
+            aria-describedby="contact-name-error-{{ ai_gen_id }}"
+          {% endif %}
+        >
+        {% if form.errors contains 'name' %}
+          <div id="contact-name-error-{{ ai_gen_id }}" class="ai-contact-form-error-{{ ai_gen_id }}">
+            {{ form.errors.messages.name }}
+          </div>
+        {% endif %}
+      </div>
+
+       <div class="ai-contact-form-field-{{ ai_gen_id }}">
+        
+        <input
+          type="tel"
+          id="contact-phone-{{ ai_gen_id }}"
+          name="contact[phone]"
+          placeholder="טלפון"
+          class="ai-contact-form-input-{{ ai_gen_id }}"
+          value="{{ form.phone }}"
+          autocomplete="tel"
+        >
+      </div>
+
+      <div class="ai-contact-form-field-{{ ai_gen_id }}">
+        
+        <input
+          type="email"
+          id="contact-email-{{ ai_gen_id }}"
+          name="contact[email]"
+          placeholder="דואר אלקטרוני"
+          class="ai-contact-form-input-{{ ai_gen_id }}"
+          value="{{ form.email }}"
+          required
+          autocomplete="email"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="contact-email-error-{{ ai_gen_id }}"
+          {% endif %}
+        >
+        {% if form.errors contains 'email' %}
+          <div id="contact-email-error-{{ ai_gen_id }}" class="ai-contact-form-error-{{ ai_gen_id }}">
+            {{ form.errors.messages.email }}
+          </div>
+        {% endif %}
+      </div>
+
+
+      <div class="ai-contact-form-field-{{ ai_gen_id }}">
+       
+        <textarea
+          id="contact-message-{{ ai_gen_id }}"
+          name="contact[body]"
+          placeholder="ההודעה שלך"
+          class="ai-contact-form-textarea-{{ ai_gen_id }}"
+          required
+          {% if form.errors contains 'body' %}
+            aria-invalid="true"
+            aria-describedby="contact-message-error-{{ ai_gen_id }}"
+          {% endif %}
+        >{{ form.body }}</textarea>
+        {% if form.errors contains 'body' %}
+          <div id="contact-message-error-{{ ai_gen_id }}" class="ai-contact-form-error-{{ ai_gen_id }}">
+            {{ form.errors.messages.body }}
+          </div>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="ai-contact-form-button-{{ ai_gen_id }}">
+        {{ block.settings.button_text }}  <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Vector_3.svg?v=1753014930" style="width: auto;">
+      </button>
+
+      {% if form.posted_successfully? %}
+        <div class="ai-contact-form-success-{{ ai_gen_id }}">
+          {{ block.settings.success_message }}
+        </div>
+      {% endif %}
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form with Info",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "html",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "text",
+      "id": "contact_subheading",
+      "label": "Sub heading",
+      "default": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס."
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "123 Main Street\nNew York, NY 10001\nUnited States"
+    },
+    {
+      "type": "textarea",
+      "id": "phone",
+      "label": "Phone number",
+      "default": "(555) 123-4567"
+    },
+    {
+      "type": "textarea",
+      "id": "email",
+      "label": "Email address",
+      "default": "hello@example.com"
+    },
+        {
+      "type": "text",
+      "id": "button_text1",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link1",
+      "label": "Button link"
+    },
+
+    {
+      "type": "header",
+      "content": "Custom Icons"
+    },
+    {
+      "type": "image_picker",
+      "id": "address_icon",
+      "label": "Address icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "phone_icon",
+      "label": "Phone icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "email_icon",
+      "label": "Email icon"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Contact Form"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form title",
+      "default": "Send us a message"
+    },
+     {
+      "type": "text",
+      "id": "form_subtitle",
+      "label": "Sub title",
+      "default": "מלאו את הטופס ואחד מנציגינו יחזור אליכם בהקדם עם כל המידע שאתם צריכים."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Send Message"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for your message! We'll get back to you soon."
+    },
+    {
+      "type": "header",
+      "content": "Contact Info Styling"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Default icon color",
+      "default": "#000f9f"
+    },
+    {
+      "type": "header",
+      "content": "Form Styling"
+    },
+    {
+      "type": "range",
+      "id": "form_title_size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Form title size",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "form_background_color",
+      "label": "Form background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "form_border_color",
+      "label": "Form border color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "form_title_color",
+      "label": "Form title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "form_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Form border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Input Styling"
+    },
+    {
+      "type": "color",
+      "id": "input_background_color",
+      "label": "Input background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "input_focus_border_color",
+      "label": "Input focus border color",
+      "default": "#000f9f"
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Input border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Button Styling"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#000f9f"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Button border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success message color",
+      "default": "#008060"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error message color",
+      "default": "#D82C0D"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form with Info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,220 @@
+{% schema %}
+{
+  "name": "Internal Page Layout",
+  "settings": [
+    {
+      "type": "text",
+      "id": "override_title",
+      "label": "Page Title",
+      "default": "Page Title"
+    },
+    {
+      "type": "text",
+      "id": "updated_text",
+      "label": "Last Updated Text",
+      "info": "Leave blank to show the automatic last updated date from the page."
+    },
+    {
+      "type": "text",
+      "id": "sidebar_title",
+      "label": "Sidebar Title",
+      "default": "More Pages"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Page Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Page Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Page URL"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Internal Page Layout",
+      "category": "Pages"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.internal-page-wrapper {
+  direction: rtl;
+  padding: 60px 120px;
+}
+@media screen and (max-width: 767px){
+  .internal-page-wrapper {
+    padding: 40px 20px;
+  }
+}
+
+.internal-page-header {
+  margin-bottom: 80px;
+}
+
+.internal-page-title {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.last__updatedWrapper {}
+.last__updatedWrapper p {
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  margin: 0;
+}
+
+.internal-page-body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 40px;
+}
+
+.internal-page-content {
+  position: relative;
+  padding-right: 70px;
+}
+.internal-page-content:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #D0D1D5;
+  width: 1px;
+  height: 100%;
+}
+.internal-page-content h3 {
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+}
+  
+.internal-page-content p {
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+}
+
+.internal-page-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.internal-page-content ul li {
+  position: relative;
+  padding-right: 20px;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  color: #323438;
+  margin-bottom: 8px;
+}
+.internal-page-content li:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #323438;
+}
+
+.internal-page-sidebar {
+  /* background: #f5f5f5;
+  padding: 20px;
+  border-radius: 6px; */
+  padding-left: 70px;
+}
+
+.internal-page-sidebar h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.internal-page-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.internal-page-sidebar li {
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  color: #323438;
+  margin-bottom: 18px;
+}
+
+.internal-page-sidebar a {
+  color: #323438;
+  text-decoration: none;
+}
+
+.internal-page-sidebar a:hover {
+  color: #007A73;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .internal-page-body {
+    grid-template-columns: 1fr;
+  }
+}
+{% endstylesheet %}
+
+<div class="internal-page-wrapper">
+  <div class="internal-page-header">
+    <h1 class="internal-page-title">
+      {{ section.settings.override_title | default: page.title }}
+    </h1>
+    {% if section.settings.updated_text != blank %}
+      <div class="last__updatedWrapper">
+        <p>{{ section.settings.updated_text }}</p>
+      </div>
+    {% else %}
+      <div class="last__updatedWrapper">
+        <p>Last updated on {{ page.updated_at | date: "%B %d, %Y" }}</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="internal-page-body">
+    <aside class="internal-page-sidebar">
+      {% if section.settings.sidebar_title != blank %}
+        <h3>{{ section.settings.sidebar_title }}</h3>
+      {% endif %}
+      <ul>
+        {% for block in section.blocks %}
+          <li>
+            <a href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </aside>
+    <div class="internal-page-content">
+      {{ page.content }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,325 @@
+{% schema %}
+{
+  "name": "SP Tabbed Content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Explore Tabs"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "This section features three tabs with customizable content."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "tab_text_color",
+      "label": "Tab Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_underline_color",
+      "label": "Active Tab Underline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "tab_border_color",
+      "label": "Bottom Border Color",
+      "default": "#eeeeee"
+    },
+    {
+      "type": "range",
+      "id": "tab_spacing",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing Between Tabs",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "tab1_heading",
+      "label": "Tab 1 Heading",
+      "default": "Tab 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab1_bg_image",
+      "label": "Tab 1 Background Image",
+    },
+    {
+      "type": "text",
+      "id": "tab1_title",
+      "label": "Tab 1 Title",
+      "default": "Title for Tab 1"
+    },
+    {
+      "type": "textarea",
+      "id": "tab1_description",
+      "label": "Tab 1 Description",
+      "default": "Content for Tab 1"
+    },
+    {
+      "type": "text",
+      "id": "tab2_heading",
+      "label": "Tab 2 Heading",
+      "default": "Tab 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab2_bg_image",
+      "label": "Tab 2 Background Image",
+    },
+    {
+      "type": "text",
+      "id": "tab2_title",
+      "label": "Tab 2 Title",
+      "default": "Title for Tab 2"
+    },
+    {
+      "type": "textarea",
+      "id": "tab2_description",
+      "label": "Tab 2 Description",
+      "default": "Content for Tab 2"
+    },
+    {
+      "type": "text",
+      "id": "tab3_heading",
+      "label": "Tab 3 Heading",
+      "default": "Tab 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "tab3_bg_image",
+      "label": "Tab 3 Background Image",
+    },
+    {
+      "type": "text",
+      "id": "tab3_title",
+      "label": "Tab 3 Title",
+      "default": "Title for Tab 3"
+    },
+    {
+      "type": "textarea",
+      "id": "tab3_description",
+      "label": "Tab 3 Description",
+      "default": "Content for Tab 3"
+    },
+  ],
+  "presets": [
+    {
+      "name": "SP Tabbed Content",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .tabs-wrapper {
+    max-width: 100%;
+    padding: 40px 120px;
+    font-family: inherit;
+  }
+  @media screen and (max-width: 767px){
+    .tabs-wrapper {
+      padding: 40px 20px;
+    }
+  }
+  .tabs-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .tabs-header h2 {
+    color: {{ section.settings.heading_color }};
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .tabs-header p {
+    color: {{ section.settings.description_color }};
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .tabs-nav {
+    display: flex;
+    gap: {{ section.settings.tab_spacing }}px;
+    justify-content: center;
+    border-top: 2px solid {{ section.settings.tab_border_color }};
+    margin-top: 40px;
+  }
+  .tab-link {
+    flex: 1;
+    padding: 16px 0;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    color: {{ section.settings.tab_text_color }};
+    text-align: center;
+    transition: all ease-in-out 0.3s;
+  }
+  .tab-link.active {
+    color: {{ section.settings.tab_active_underline_color }};
+  }
+  .tab-link::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: transparent;
+    transition: all ease-in-out 0.3s;
+  }
+  .tab-link.active::after {
+    background-color: {{ section.settings.tab_active_underline_color }};
+  }
+  .tab-content {
+    display: none;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    transition: all ease-in-out 0.3s;
+  }
+  .tab-content.active {
+    display: block;
+  }
+
+  .tab__innerContentWrapper{
+    position: relative;
+  }
+  .tab__innerContentWrapper .thumb__wrap{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .tab__innerContentWrapper .thumb__wrap:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ffffff;
+    background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    opacity: 0.4;
+  }
+  .tab__innerContentWrapper .thumb__wrap img{
+    width: 100%;
+    height: auto;
+  }
+  .tab__innerContentWrapper .desc__wrap{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+    width: 100%;
+    max-width: 696px;
+    padding: 0 60px 40px 0;
+    z-index: 2;
+  }
+  .tab__innerContentWrapper .desc__wrap h3{
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .tab__innerContentWrapper .desc__wrap p{
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.63;
+    font-weight: 500;
+    margin: 0;
+  }
+</style>
+
+<div class="tabs-wrapper">
+  <div class="tabs-header">
+    <h2>{{ section.settings.section_heading }}</h2>
+    <p>{{ section.settings.section_description }}</p>
+  </div>
+
+  <div class="tab-content active" data-content="1">
+    <div class="tab__innerContentWrapper">
+      <div class="thumb__wrap">
+        <img src="{{ section.settings.tab1_bg_image | image_url: width: 1200 }}" alt="{{ section.settings.tab1_title }} thumb">
+      </div>
+      <div class="desc__wrap">
+        <h3>{{ section.settings.tab1_title }}</h3>
+        <p>{{ section.settings.tab1_description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" data-content="2">
+    <div class="tab__innerContentWrapper">
+      <div class="thumb__wrap">
+        <img src="{{ section.settings.tab2_bg_image | image_url: width: 1200 }}" alt="{{ section.settings.tab2_title }} thumb">
+      </div>
+      <div class="desc__wrap">
+        <h3>{{ section.settings.tab2_title }}</h3>
+        <p>{{ section.settings.tab2_description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" data-content="3">
+    <div class="tab__innerContentWrapper">
+      <div class="thumb__wrap">
+        <img src="{{ section.settings.tab3_bg_image | image_url: width: 1200 }}" alt="{{ section.settings.tab3_title }} thumb">
+      </div>
+      <div class="desc__wrap">
+        <h3>{{ section.settings.tab3_title }}</h3>
+        <p>{{ section.settings.tab3_description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs-nav">
+    <div class="tab-link active" data-tab="1">{{ section.settings.tab1_heading }}</div>
+    <div class="tab-link" data-tab="2">{{ section.settings.tab2_heading }}</div>
+    <div class="tab-link" data-tab="3">{{ section.settings.tab3_heading }}</div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const idx = tab.getAttribute('data-tab');
+
+        tabs.forEach(t => t.classList.toggle('active', t === tab));
+        contents.forEach(c => c.classList.toggle('active', c.getAttribute('data-content') === idx));
+      });
+    });
+  });
+</script>

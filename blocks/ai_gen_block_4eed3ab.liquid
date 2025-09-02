@@ -1,0 +1,632 @@
+{% doc %}
+  @prompt
+    Create a product carousel section exactly like the SEQUOIA LIPO products image. Include horizontal scrolling product grid with product images, titles, and prices. Add navigation arrows on the left side only (both left and right arrows positioned on the left), arrows should be simple icons without circles and smaller in size. Include a progress bar positioned under the products that moves from left to right as users scroll through the products. The section should be responsive with smooth scrolling animations and match the exact layout and styling of the reference image., להפוך את התמונות לפורטרייט, לייצר מצב שבו נשארת חצי תמונה בצד שמאל בהובר. הבר צריך להיות עד התמונה השלמה בצד שמאל. והחצים צמודים לפס הגלילה, אני רוצה 4 וחצי תמונות. בצד שמאל חצי תמונה. הבר והחצים בדיוק כמו שהם יגיעו עד התמנונה הרביעית. להפוך את כל התנועה מימין לשמאל, עדיין התמונה האחרונה היא לא חצי. צריך לשנות גדלים ושתהיה בדיוק חצי. להחזיר את החצים כמו שהיו ולהוסיף להם קו קן באמצע כמו חץ רגיל. שיהיו עד סוף התמונה הרביעית, החצים צריכים להיות הפוכים ויותר עדינים. למשוך את הבר והחצים עד סוף התמונה הרביעית, להפוך את הכיוון של החצים לעבות קצת את הבר והחצים בהתאמה מלאה, לסדר את הגלילה. לתת קצת רווח בין החצים לבר. החץ השמאלי צריך להיות מודגש ולאפשר תנועה בלחיצה מימין לשמאל., לא מתבצעת גלילה. הפס צריך להיות דק יותר, עדיין שלוחצים על הכפתור השמאלי אין גלילה. לא מתבצעת שום פעולה. הבר צריך להראות התקדמות. להיות בהיר בהתחלה ושחור בהתאם להתקדמות
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .product-carousel-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+    direction: rtl; /* RTL layout */
+  }
+
+  .product-carousel__header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .product-carousel__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 500;
+    margin: 0;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .product-carousel__container-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-carousel__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.product_gap }}px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;padding-bottom: 5px; /* Add padding to prevent cut-off shadows */
+  }
+
+  .product-carousel__track-{{ ai_gen_id }}::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-carousel__product-{{ ai_gen_id }} {
+    flex: 0 0 calc((100% - (4 * {{ block.settings.product_gap }}px)) / 4.5);
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-carousel__product-{{ ai_gen_id }} {
+      flex: 0 0 calc((100% - ({{ block.settings.products_per_row_mobile }} * {{ block.settings.product_gap }}px)) / {{ block.settings.products_per_row_mobile }}.5);
+    }
+  }
+
+  .product-carousel__product-link-{{ ai_gen_id }} {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-carousel__product-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    padding-bottom: 133%; /* Portrait aspect ratio */
+    margin-bottom: 12px;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .product-carousel__product-image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  {% if block.settings.image_hover_effect %}
+  .product-carousel__product-link-{{ ai_gen_id }}:hover .product-carousel__product-image-{{ ai_gen_id }} {
+    transform: scale(1.05);
+  }
+  {% endif %}
+
+  .product-carousel__product-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;}
+
+  .product-carousel__product-placeholder-{{ ai_gen_id }} svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.5;
+  }
+
+  .product-carousel__product-info-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right; /* Align text to right for RTL */
+  }
+
+  .product-carousel__product-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_title_size }}px;
+    font-weight: 400;
+    margin: 0;
+    color: {{ block.settings.product_title_color }};overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .product-carousel__product-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_price_size }}px;
+    font-weight: 500;
+    margin: 0;
+    color: {{ block.settings.product_price_color }};
+  }
+
+  .product-carousel__footer-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: calc(88.9% - {{ block.settings.product_gap }}px); /* Width of exactly 4 products */
+  }
+
+  .product-carousel__nav-{{ ai_gen_id }} {
+    display: flex;
+    gap: 20px; /* Increased gap between arrows */
+    align-items: center;
+    margin-right: 20px; /* Added margin between arrows and progress bar */
+  }
+
+  .product-carousel__nav-button-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: {{ block.settings.arrow_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    width: 20px;
+    height: 20px;}
+
+  .product-carousel__nav-button-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.arrow_hover_color }};
+  }
+
+  .product-carousel__nav-button-{{ ai_gen_id }}:disabled {
+    color: {{ block.settings.arrow_color }};
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* Make the next button (left arrow in RTL) bolder */
+  .product-carousel__next-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2; /* Bolder stroke */
+  }
+
+  .product-carousel__prev-{{ ai_gen_id }} svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.5;
+  }
+
+  .product-carousel__progress-{{ ai_gen_id }} {
+    position: relative;
+    height: 2px; /* Thinner progress bar */
+    background-color: {{ block.settings.progress_bg_color }};
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  .product-carousel__progress-bar-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    right: 0; /* Right aligned for RTL */
+    height: 100%;
+    width: 0;
+    background-color: {{ block.settings.progress_color }};
+    transition: width 0.2s ease;
+  }
+{% endstyle %}
+
+<product-carousel-{{ ai_gen_id }} class="product-carousel-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="product-carousel__header-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h2 class="product-carousel__title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+    {% endif %}</div>
+
+  <div class="product-carousel__container-{{ ai_gen_id }}">
+    <div class="product-carousel__track-{{ ai_gen_id }}">
+      {% if block.settings.collection != blank %}
+        {% for product in block.settings.collection.products limit: block.settings.products_limit %}
+          <div class="product-carousel__product-{{ ai_gen_id }}">
+            <a href="{{ product.url }}" class="product-carousel__product-link-{{ ai_gen_id }}">
+              <div class="product-carousel__product-image-wrapper-{{ ai_gen_id }}">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 500 }}"
+                    alt="{{ product.featured_image.alt | escape }}"
+                    loading="lazy"
+                    class="product-carousel__product-image-{{ ai_gen_id }}"
+                    width="{{ product.featured_image.width }}"
+                    height="{{ product.featured_image.height }}"
+                  >
+                {% else %}
+                  <div class="product-carousel__product-placeholder-{{ ai_gen_id }}">
+                    {{ 'product-apparel-1' | placeholder_svg_tag }}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="product-carousel__product-info-{{ ai_gen_id }}">
+                <h3 class="product-carousel__product-title-{{ ai_gen_id }}">{{ product.title }}</h3>
+                <p class="product-carousel__product-price-{{ ai_gen_id }}">
+                  {% if product.price_varies %}
+                    {{ product.price_min | money_without_trailing_zeros }} - {{ product.price_max | money }}
+                  {% else %}
+                    {{ product.price | money }}
+                  {% endif %}
+                </p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..8) %}
+          <div class="product-carousel__product-{{ ai_gen_id }}">
+            <div class="product-carousel__product-image-wrapper-{{ ai_gen_id }}">
+              <div class="product-carousel__product-placeholder-{{ ai_gen_id }}">
+                {{ 'product-apparel-1' | placeholder_svg_tag }}
+              </div>
+            </div>
+            <div class="product-carousel__product-info-{{ ai_gen_id }}">
+              <h3 class="product-carousel__product-title-{{ ai_gen_id }}">Product title</h3>
+              <p class="product-carousel__product-price-{{ ai_gen_id }}">$19.99</p>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="product-carousel__footer-{{ ai_gen_id }}">
+    <div class="product-carousel__progress-{{ ai_gen_id }}">
+      <div class="product-carousel__progress-bar-{{ ai_gen_id }}"></div>
+    </div>
+    <div class="product-carousel__nav-{{ ai_gen_id }}">
+      <button 
+        class="product-carousel__nav-button-{{ ai_gen_id }} product-carousel__next-{{ ai_gen_id }}" 
+        aria-label="Next products">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+      <button 
+        class="product-carousel__nav-button-{{ ai_gen_id }} product-carousel__prev-{{ ai_gen_id }}" 
+        aria-label="Previous products"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 5 5 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</product-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this.track = this.querySelector('.product-carousel__track-{{ ai_gen_id }}');
+        this.prevButton = this.querySelector('.product-carousel__prev-{{ ai_gen_id }}');
+        this.nextButton = this.querySelector('.product-carousel__next-{{ ai_gen_id }}');
+        this.progressBar = this.querySelector('.product-carousel__progress-bar-{{ ai_gen_id }}');
+        this.products = this.querySelectorAll('.product-carousel__product-{{ ai_gen_id }}');
+        this.scrollAmount = 0;
+        this.maxScroll = 0;
+        this.productWidth = 0;
+        this.gap = parseInt('{{ block.settings.product_gap }}');
+        this.visibleProducts = 4.5; // Exactly 4.5 products}
+
+      connectedCallback() {
+        if (!this.track || this.products.length === 0) return;
+        
+        // Initialize after a short delay to ensure all elements are properly rendered
+        setTimeout(() => {
+          // Calculate dimensions first
+          this.calculateScrollValues();
+          
+          // Initialize progress bar at 0%
+          this.progressBar.style.width = '0%';
+          
+          // For RTL, start at the right end (which is scrollLeft = 0 in RTL mode)
+          this.track.scrollLeft = 0;
+          
+          this.updateButtonStates();
+          
+          this.prevButton.addEventListener('click', this.scrollPrev.bind(this));
+          this.nextButton.addEventListener('click', this.scrollNext.bind(this));
+          this.track.addEventListener('scroll', this.handleScroll.bind(this));
+          
+          window.addEventListener('resize', () => {
+            this.calculateScrollValues();
+            this.updateButtonStates();this.updateProgressBar();
+          });
+        }, 100);
+      }
+
+      calculateScrollValues() {
+        if (!this.products[0]) return;
+        
+        this.productWidth = this.products[0].offsetWidth;
+        
+        // For mobile, adjust the visible products count
+        if (window.innerWidth <= 749) {
+          this.visibleProducts = parseFloat('{{ block.settings.products_per_row_mobile }}') + 0.5;
+        } else {
+          this.visibleProducts =4.5; // Fixed to 4.5 for this design
+        }
+        
+        // Calculate how much to scroll - one product at a time
+        this.scrollStep = this.productWidth + this.gap;
+        // The maximum scroll is the total width minus the visible area
+        this.maxScroll = this.track.scrollWidth - this.track.offsetWidth;
+      }
+
+      scrollPrev() {
+        // For RTL, previous means increasing scrollLeft (moving right)
+        const currentScroll = this.track.scrollLeft;
+        const targetScroll = Math.min(this.maxScroll, currentScroll + this.scrollStep);
+        
+        this.smoothScrollTo(targetScroll);
+      }
+
+      scrollNext() {
+        // For RTL, next means decreasing scrollLeft (moving left)
+        const currentScroll = this.track.scrollLeft;
+        const targetScroll = Math.max(0, currentScroll - this.scrollStep);
+        
+        this.smoothScrollTo(targetScroll);
+      }
+
+      // Custom smooth scroll implementation to ensure it works in all browsers
+      smoothScrollTo(targetScroll) {
+        const startScroll = this.track.scrollLeft;
+        const distance = targetScroll - startScroll;
+        const duration = 300; // ms
+        let startTime = null;
+        
+        const animation = (currentTime) => {
+          if (startTime === null) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          const easeProgress = this.easeInOutQuad(progress);
+          
+          this.track.scrollLeft = startScroll + distance * easeProgress;
+          this.updateProgressBar();
+          
+          if (timeElapsed < duration) {
+            window.requestAnimationFrame(animation);
+          } else {
+            // Ensure we end exactly at the target
+            this.track.scrollLeft = targetScroll;
+            this.updateButtonStates();
+            this.updateProgressBar();
+          }
+        };
+        
+        window.requestAnimationFrame(animation);
+      }
+      
+      // Easing function for smoother animation
+      easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      }
+
+      handleScroll() {
+        this.scrollAmount = this.track.scrollLeft;
+        this.updateButtonStates();
+        this.updateProgressBar();
+      }
+
+      updateButtonStates() {
+        // For RTL, the logic is reversed
+        // In RTL mode, scrollLeft starts at 0 on the right side and increases as you scroll left
+        const atStart = this.scrollAmount <= 5; // Near the right edge
+        const atEnd = this.scrollAmount >= this.maxScroll - 5; // Near the left edge
+        
+        // In RTL, "next" is the left arrow (moving left/forward)
+        this.nextButton.disabled = atStart;
+        
+        // In RTL, "prev" is the right arrow (moving right/backward)
+        this.prevButton.disabled = atEnd;
+      }
+
+      updateProgressBar() {
+        if (this.maxScroll > 0) {
+          // For RTL, progress is0% when at right (scrollLeft = 0) and 100% when at left (scrollLeft = maxScroll)
+          const scrollPercentage = (this.scrollAmount / this.maxScroll) * 100;
+          // Ensure progress bar doesn't exceed 100%
+          const adjustedPercentage = Math.min(100, Math.max(0, scrollPercentage));
+          
+          this.progressBar.style.width = `${adjustedPercentage}%`;
+        } else {
+          this.progressBar.style.width = '0%';
+        }
+      }
+    }
+
+    customElements.define('product-carousel-{{ ai_gen_id }}', ProductCarousel);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product Carousel RTL",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "label": "Maximum products",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Products per row on mobile",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "product_gap",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between products",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Product Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "image_hover_effect",
+      "label": "Enable image zoom on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "product_title_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Product title size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "product_price_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Product price size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "product_title_color",
+      "label": "Product title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "product_price_color",
+      "label": "Product price color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "arrow_hover_color",
+      "label": "Arrow hover color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "progress_bg_color",
+      "label": "Progress bar background",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "progress_color",
+      "label": "Progress bar color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel RTL"
+    }
+  ]
+}
+{% endschema %}

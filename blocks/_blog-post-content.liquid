@@ -1,0 +1,32 @@
+
+
+<div class="blog-post-content rte">
+  <rte-formatter>
+    {{ article.content }}
+  </rte-formatter>
+</div>
+
+{% stylesheet %}
+  .blog-post-content {
+    /* max-width: var(--normal-content-width); */
+    margin: 0 auto;
+  }
+  @media (min-width: 1024px){
+     .blog-post-content {
+    margin: 0 auto;
+     padding: 2rem 4rem;  
+  }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.content",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:names.content"
+    }
+  ]
+}
+{% endschema %}

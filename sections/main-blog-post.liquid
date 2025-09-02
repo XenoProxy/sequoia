@@ -1,0 +1,342 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section color-{{ section.settings.color_scheme }}">
+  <div
+    class="blog-layout-wrapper"
+    style="
+      {% render 'layout-panel-style', settings: section.settings %}
+      {% render 'spacing-style', settings: section.settings %}
+    "
+  >
+    <!-- Sidebar -->
+    <aside class="blog-sidebar" dir="rtl">
+      <nav class="sidebar-nav">
+        <!-- תוכן עניינים דינמי -->
+        <ul id="toc-list"></ul>
+      </nav>
+
+      <div class="sidebar-meta" style="border-bottom: 1px solid #D0D1D5;margin-bottom: 2.5rem;"></div>
+
+      <!-- Share Buttons -->
+      <div class="blog-widget mt-6">
+        <h3 class="text-xl font-semibold mb-2" style="font-size: 22px;" dir="rtl">שתפו את הכתבה</h3>
+        <div class="flex gap-4 rtl:flex-row-reverse">
+          <a href="https://www.tiktok.com/@sequoialipo" target="_blank" aria-label="TikTok">
+            <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Button_circle.svg?v=1753784208" alt="TikTok">
+          </a>
+          <a href="https://www.facebook.com/sequoialipo.il" target="_blank" aria-label="Facebook">
+            <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Button_circle_1.svg?v=1753784203" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/sequoialipo/" target="_blank" aria-label="Instagram">
+            <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Button_circle_2.svg?v=1753784201" alt="Instagram">
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Blog Article Content -->
+    <div class="blog-article" dir="rtl">
+      <header>
+        {%- content_for 'block', id: 'blog-post-title', type: 'text' -%}
+        {%- content_for 'block', id: 'blog-post-details', type: '_blog-post-info-text' -%}
+      </header>
+
+      {%- content_for 'block', id: 'blog-post-image', type: 'image' -%}
+      {%- content_for 'block', id: 'blog-post-content', type: '_blog-post-content' -%}
+
+      {% if blog.comments_enabled? %}
+        <div class="blog-post-comments-container">
+          <h2 class="h3">{{ 'blogs.article.comments_heading' | t: count: article.comments_count }}</h2>
+
+          <div class="blog-post-comments">
+            {% paginate article.comments by 10 %}
+              {% for comment in article.comments %}
+                <div class="blog-post-comment">
+                  {{ comment.content }}
+                  <div class="blog-post-comment__author">
+                    <span class="blog-post-comment__author-name">{{ comment.author }}</span>
+                    <span>{{ 'blogs.article.comment_author_separator' | t }}</span>
+                    <span class="blog-post-comment__date">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                  </div>
+                </div>
+              {% endfor %}
+
+              <div class="blog-post-comments-pagination">
+                {{ paginate | default_pagination }}
+              </div>
+            {% endpaginate %}
+          </div>
+
+          {% render 'blog-comment-form', article: article, section_id: section.id %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- כפתור קפיצה לראש הדף -->
+<button id="scrollTopBtn" aria-label="חזרה לראש הדף">↑</button>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+{% stylesheet %}
+/* ===== Layout כללי (דסקטופ) ===== */
+.blog-layout-wrapper {
+  display: flex;
+  flex-direction: row-reverse; /* RTL */
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.blog-sidebar {
+  flex: 0 0 300px;
+  border-left: 1px solid #D0D1D5;
+  padding: 1rem;
+  border-radius: 8px;
+  direction: rtl;
+  position: sticky;   /* דביק בגלילה בדסקטופ */
+  top: 80px;          /* עדכן לפי גובה ההדר שלך */
+}
+
+.blog-article {
+  flex: 1;
+  max-width: 100%;
+  text-align: right;
+}
+
+/* ===== TOC ===== */
+#toc-list { list-style: none; padding: 0; margin: 0; }
+#toc-list li { margin-bottom: 1rem; }
+#toc-list li.toc-depth-3 { margin-inline-start: 1rem; } /* הזחה ל-H3 */
+#toc-list a {
+  color: #323438;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+#toc-list a:hover { text-decoration: underline; }
+#toc-list a.is-active { text-decoration: underline; font-weight: 700; }
+
+/* טיפוגרפיה לכותרות בפוסט */
+.blog-post-content.rte h2 { font-size: 18px; font-weight: 700; }
+
+/* תגובות */
+.blog-post-comments-container { margin-top: 4rem; }
+.blog-post-comments { display: flex; flex-direction: column; gap: 1.5rem; }
+.blog-post-comment__author { font-size: 0.875rem; color: #888; margin-top: 0.5rem; }
+.blog-post-comments-pagination { display: flex; justify-content: center; gap: 0.5rem; }
+.blog-post-comments-pagination .current,
+.blog-post-comments-pagination a:hover { border-bottom: 1px solid var(--color-foreground); }
+
+/* גלילה חלקה כללית */
+html { scroll-behavior: smooth; }
+
+/* ===== כפתור לראש הדף ===== */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #065954;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+  z-index: 9999;
+}
+#scrollTopBtn.show { opacity: 1; visibility: visible; }
+
+/* ===== Mobile fixes ===== */
+@media (max-width: 767px){
+  /* ערימה אנכית: תוכן למעלה, שיתוף למטה */
+  .blog-layout-wrapper {
+    display: flex;
+    flex-direction: column;     /* במקום row-reverse */
+    gap: 1rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  /* ה-sidebar לא תופס רוחב קבוע ולא sticky */
+  .blog-sidebar {
+    flex: 1 1 auto;             /* מבטל 300px קבוע */
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #D0D1D5;
+    padding: 0.75rem 0;
+    border-radius: 0;
+    position: static;           /* מבטל sticky */
+    top: auto;
+  }
+
+  /* מסתירים TOC ומטא במובייל, משאירים שיתוף */
+  .blog-sidebar nav,
+  .blog-sidebar .sidebar-meta {
+    display: none !important;
+  }
+  .blog-sidebar .blog-widget { display: block; }
+
+  /* כפתור לראש הדף - קצת יותר קומפקטי */
+  #scrollTopBtn {
+    bottom: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  /* טיפוגרפיה נעימה יותר במסכים קטנים (אופציונלי) */
+  .blog-post-content.rte h2 { font-size: 20px; }
+  .blog-post-content.rte h3 { font-size: 17px; }
+}
+{% endstylesheet %}
+
+<script>
+/**
+ * תוכן עניינים דינמי מתוך H2/H3 בפוסט
+ * - מוסיף id לכותרות חסרות
+ * - בונה רשימת קישורים בצד (בדסקטופ)
+ * - מדגיש סעיף פעיל בגלילה
+ * - גלילה עם offset (כותרת דביקה)
+ */
+document.addEventListener('DOMContentLoaded', function () {
+  // בחירת שורש התוכן בפוסט
+  const contentRoot =
+    document.querySelector('.blog-article .blog-post-content') ||
+    document.querySelector('.blog-article .rte') ||
+    document.querySelector('.blog-article');
+
+  const tocList = document.getElementById('toc-list');
+  if (contentRoot && tocList) {
+    // רק בדסקטופ נבנה TOC (במובייל הניווט מוסתר ב-CSS)
+    const headings = contentRoot.querySelectorAll('h2, h3');
+    if (headings.length) {
+      const usedIds = new Set();
+      function slugify(text) {
+        let slug = (text || '').toString().trim()
+          .replace(/[\u0591-\u05C7]/g, '')      // ניקוד עברי
+          .replace(/[^\p{L}\p{N}\s-]/gu, '')    // אות/ספרה/רווח/מינוס
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .toLowerCase();
+        if (!slug) slug = 'section';
+        let candidate = slug, i = 2;
+        while (usedIds.has(candidate) || document.getElementById(candidate)) {
+          candidate = `${slug}-${i++}`;
+        }
+        usedIds.add(candidate);
+        return candidate;
+      }
+
+      headings.forEach(h => {
+        if (!h.id) h.id = slugify(h.textContent);
+        const li = document.createElement('li');
+        li.className = `toc-depth-${h.tagName === 'H3' ? '3' : '2'}`;
+        const a = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent.trim();
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      const links = Array.from(tocList.querySelectorAll('a'));
+      const idToLink = new Map(links.map(a => [decodeURIComponent(a.hash.slice(1)), a]));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          const link = idToLink.get(id);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('is-active'));
+            link.classList.add('is-active');
+          }
+        });
+      }, { rootMargin: '0px 0px -60% 0px', threshold: 0.4 });
+      headings.forEach(h => observer.observe(h));
+
+      const HEADER_OFFSET = 80; // עדכן לפי גובה ההדר הדביק שלך
+      tocList.addEventListener('click', function (e) {
+        const a = e.target.closest('a');
+        if (!a) return;
+        const id = a.hash && decodeURIComponent(a.hash.slice(1));
+        const target = id && document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.pageYOffset - HEADER_OFFSET;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        links.forEach(l => l.classList.remove('is-active'));
+        a.classList.add('is-active');
+        history.replaceState(null, '', `#${id}`);
+      });
+    } else {
+      tocList.closest('.sidebar-nav')?.remove();
+    }
+  }
+
+  /** כפתור לראש הדף **/
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('show');
+    } else {
+      scrollTopBtn.classList.remove('show');
+    }
+  });
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Blog post with sidebar",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Content gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

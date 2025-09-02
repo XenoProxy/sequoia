@@ -1,0 +1,252 @@
+{% schema %}
+{
+  "name": "SP Video Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Watch Our Stories"
+    },
+    {
+      "type": "textarea",
+      "id": "main_description",
+      "label": "Main Description",
+      "default": "Explore our journey through engaging short videos."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "slide_per_view",
+      "label": "Slides Fully Visible",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "slide_visibility",
+      "label": "Next Slide Visibility (%)",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 30
+    },
+    {
+      "type": "checkbox",
+      "id": "rtl_enable",
+      "label": "Enable Right to Left",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "video_aspect_ratio",
+      "label": "Video Aspect Ratio (e.g. 16/9 or 4/3)",
+      "default": "16/9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video Slide",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "SP Video Carousel",
+      "category": "Media",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+
+<style>
+.sp-video-carousel-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  padding-right: 120px;
+}
+.carousel-left {
+  width: 60%;
+}
+.carousel-right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  direction: rtl;
+  padding-left: 30px;
+}
+.carousel-right h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #323438;
+  margin-bottom: 20px;
+}
+.carousel-right p {
+  margin: 0 0 30px;
+  color: #323438;
+}
+.carousel-right .icon__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid #007A73 !important;
+  background: none;
+  color: #007A73;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.glide {
+  width: 100%;
+}
+.glide__slide {
+  overflow: hidden;
+  border-radius: 12px;
+}
+.glide__slide video {
+  width: 100%;
+  aspect-ratio: {{ section.settings.video_aspect_ratio | default: '16/9' }};
+  object-fit: cover;
+}
+.glide__arrows {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+.glide__arrow {
+  background: rgba(255,255,255,0.7);
+  padding: 20px 10px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+}
+.glide__arrow.glide__arrow--left {
+  scale: -1 1;
+}
+@media (max-width: 767px) {
+  .sp-video-carousel-wrapper {
+    flex-direction: column;
+  }
+  .carousel-left,
+  .carousel-right {
+    width: 100%;
+  }
+}
+</style>
+
+<div class="sp-video-carousel-wrapper">
+  <div class="carousel-left">
+    <div class="glide" id="videoCarousel">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          {% for block in section.blocks %}
+            {% if block.settings.video_url != blank %}
+              <li class="glide__slide">
+                <video src="{{ block.settings.video_url }}" muted playsinline loop></video>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+          <svg width="18" height="8" viewBox="0 0 18 8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.625 7.125L1.5 4M1.5 4L4.625 0.875M1.5 4H16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+          <svg width="18" height="8" viewBox="0 0 18 8" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.625 7.125L1.5 4M1.5 4L4.625 0.875M1.5 4H16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-right">
+    <h2>{{ section.settings.main_title }}</h2>
+    <p>{{ section.settings.main_description }}</p>
+    {% if section.settings.button_label and section.settings.button_link %}
+    <div class="btn__wrapper">
+      <a href="{{ section.settings.button_link }}" class="icon__button">
+        <span class="btn__icon">
+          <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.75 8.75L1 5M1 5L4.75 1.25M1 5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <span class="btn__text">
+          {{ section.settings.button_label }}
+        </span>
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const rtl = {{ section.settings.rtl_enable | json }};
+    const slideCount = {{ section.settings.slide_per_view | default: 1 }};
+    const slideOffset = {{ section.settings.slide_visibility | default: 0 }};
+    const perView = slideCount + (slideOffset / 100);
+
+    new Glide('#videoCarousel', {
+      type: 'slider',
+      startAt: 0,
+      perView: perView,
+      focusAt: 'center',
+      gap: 20,
+      direction: rtl ? 'rtl' : 'ltr',
+      breakpoints: {
+        768: {
+          perView: 1
+        }
+      }
+    }).mount();
+  });
+</script>

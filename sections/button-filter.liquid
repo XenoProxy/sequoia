@@ -1,0 +1,160 @@
+<div
+  class="product-grid-container section section--{{ section.settings.section_width }} spacing-style {% if section.settings.color_scheme != blank %}color-{{ section.settings.color_scheme }}{% endif %}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+<div class="button-filter-wrapper">
+  <div class="button-scroll">
+    {% for block in section.blocks %}
+      {% assign current_path = request.path | split: '?' | first %}
+      {% assign target_path = block.settings.link | split: '?' | first %}
+      {% assign active = false %}
+      {% if current_path == target_path %}
+        {% assign active = true %}
+      {% endif %}
+
+      <a href="{{ block.settings.link }}"
+         class="filter-button {% if active %}active{% endif %}">
+        {{ block.settings.text }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Button Filter",
+  "settings": [
+      {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button Filter",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "button",
+          "settings": {
+            "text": "כל המוצרים",
+            "link": "/collections/all"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+<style>
+.button-filter-wrapper {
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.button-scroll {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.filter-button {
+padding: 10px 16px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d9d9d9;
+    background-color: #f7f6f2;
+    color: #222;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .3s ease;
+    white-space: nowrap;
+    border-radius: 8px;
+}
+
+.filter-button.active {
+  background-color: #005e43; /* Green active state */
+  color: white;
+}
+
+/* Mobile scroll style */
+@media (max-width: 768px) {
+  .button-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .button-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>

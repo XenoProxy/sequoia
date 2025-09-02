@@ -1,0 +1,167 @@
+{%- doc -%}
+  Renders arrow controls for a slideshow component.
+  Assumes arrows are placed on top of media.
+  When icon shape is 'none', component uses mixed-blend-mode to ensure visibility.
+
+  @param {string} [class] - The class name to apply to the slideshow-arrows component
+  @param {string} [icon_style] - The style of the icon, defaults to 'arrow'
+  @param {string} [icon_shape] - The shape of the icons background, defaults to 'none'
+  @param {string} [arrows_position] - { 'left' | 'center' | 'right' } The position of the arrows, defaults to 'center'
+
+  @example
+  {%- render 'slideshow-arrows' -%}
+{%- enddoc -%}
+
+{%- liquid
+  if arrows_position == null
+    assign arrows_position = 'center'
+  endif
+-%}
+
+<slideshow-arrows
+  position="{{ arrows_position }}"
+  shape="{{ icon_shape | default: 'none' }}"
+  {% if class %}
+    class="{{ class }}"
+  {% endif %}
+>
+  {%- render 'slideshow-arrow', action: 'previous', icon_style: icon_style, icon_shape: icon_shape -%}
+  {%- render 'slideshow-arrow', action: 'next', icon_style: icon_style, icon_shape: icon_shape -%}
+</slideshow-arrows>
+
+<div class="progress__barWrapper">
+  <div class="carousel__progressWrapper" dir="rtl">
+    <div class="carousel__progressBar" dir="rtl"></div>
+  </div>
+</div>
+ 
+<style>
+  .progress__barWrapper{
+    --cursor-previous: w-resize;
+    --cursor-next: e-resize;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* bottom: -25px; */
+    bottom: -8.5%;
+    left: 0;
+    display: flex;
+    z-index: var(--layer-heightened);
+    pointer-events: none;
+    mix-blend-mode: unset;
+    align-items: flex-end;
+  }
+  .carousel__progressWrapper {
+    /* flex: 1; */
+    height: 2px;
+    background-color: #D0D1D5;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 45px 0 12px;
+    width: 80%;
+  }
+  @media screen and (max-width: 767px){
+    .carousel__progressWrapper {
+      margin: 0 20px 0 0;
+      width: 70%;
+    }
+  }
+  
+  .carousel__progressBar {
+    height: 100%;
+    width: 0%;
+    background-color: #616266;
+    transition: width 0.3s ease-out;
+  }
+
+  .slideshow__arrowsWrapper .svg-wrapper {
+    /* color: #323438; */
+    position: relative;
+  }
+  /* .slideshow__arrowsWrapper:hover .svg-wrapper,
+  .slideshow__arrowsWrapper[disabled] .svg-wrapper {
+    color: #cccccc;
+  } */
+  .slideshow__arrowsWrapper[disabled] .svg-wrapper svg{
+    color: #A5A8AD;
+  }
+  .slideshow__arrowsWrapper .svg-wrapper svg{
+    transition: all ease-in-out 0.3s;
+    color: #323438;
+    filter: invert(1);
+  }
+  .slideshow__arrowsWrapper:hover .svg-wrapper svg{
+    color: #596172;
+  }
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slideshow = document.querySelector("slideshow-component");
+    const progressBar = document.querySelector(".carousel__progressBar");
+
+    if (!slideshow || !progressBar) return;
+
+    const updateProgress = () => {
+      // const slides = slideshow.slides || document.querySelectorAll("slideshow-slide").length;
+      const slides = slideshow.slides || slideshow.querySelectorAll("slideshow-slide");
+      const currentIndex = slideshow.current || 0;
+      const total = slides.length;
+
+      if(window.innerWidth > 767){
+        // Desktop Logic
+        if (currentIndex >= 3){
+          const percentage = ((currentIndex + 1) / total) * 100;
+          progressBar.style.width = `${percentage}%`;
+          // console.log('Percentage 1:', percentage);
+          // console.log('Current Index 1:', currentIndex);
+          // console.log('Total 1:', total);
+        }else{
+          const percentage = ((currentIndex + 5) / total) * 100;
+          progressBar.style.width = `${percentage}%`;
+          // console.log('Percentage 2:', percentage);
+          // console.log('Current Index 2:', currentIndex);
+          // console.log('Total 2:', total);
+        }
+      }else{
+        if (currentIndex >= 0){
+          const percentage = ((currentIndex + 1) / total) * 100;
+          progressBar.style.width = `${percentage}%`;
+          // console.log('Percentage 3:', percentage);
+          // console.log('Current Index 3:', currentIndex);
+          // console.log('Total 3:', total);
+        }else{
+          const percentage = ((currentIndex + 2) / total) * 100;
+          progressBar.style.width = `${percentage}%`;
+          // console.log('Percentage 4:', percentage);
+          // console.log('Current Index 4:', currentIndex);
+          // console.log('Total 4:', total);
+        }
+      }
+      // if (currentIndex >= 4){
+      //   const percentage = ((currentIndex + 1) / total) * 100;
+      //   progressBar.style.width = `${percentage}%`;
+      // }else{
+      //   const percentage = ((currentIndex + 4) / total) * 100;
+      //   progressBar.style.width = `${percentage}%`;
+      // }
+
+    };
+
+    // Update initially
+    updateProgress();
+
+    // Update whenever slide changes via custom event
+    slideshow.addEventListener("slideshow:select", updateProgress);
+
+    // Also manually hook into arrow clicks as backup (optional)
+    slideshow.querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // delay slightly to wait for transition
+        setTimeout(updateProgress, 100);
+      });
+    });
+  });
+
+</script>

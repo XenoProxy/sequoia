@@ -1,0 +1,293 @@
+<div class="home__parallaxVideoBannerWrapper">
+  <div class="parallax__videoWrapper">
+    <!-- {{section.settings.main_video | video_tag: image_size: '1920x', autoplay: true, loop: true, controls: false, muted: true, class: 'slide__video'}} -->
+    {{section.settings.main_video | video_tag: autoplay: true, loop: true, controls: false, muted: true, class: 'slide__video'}}
+  </div>
+
+  <div class="parallax__blockWrapper parallax__blockOne">
+    <div class="block__percentageWrapper">
+      <div class="block__percentage">
+        {% if section.settings.group1_digit != blank %}
+          <div class="digit">{{ section.settings.group1_digit }}</div>
+        {% endif %}
+        {% if section.settings.group1_description != blank %}
+          <p>{{ section.settings.group1_description }}</p>
+        {% endif %}
+      </div>
+    </div>
+  
+    <div class="block__contentWrapper" dir="rtl">
+      <div class="block__content">
+        {% if section.settings.group2_subtitle != blank %}
+          <h3>{{ section.settings.group2_subtitle }}</h3>
+        {% endif %}
+        {% if section.settings.group2_title != blank %}
+          <h1>{{ section.settings.group2_title }}</h1>
+        {% endif %}
+        {% if section.settings.group2_button_link != blank and section.settings.group2_button_text != blank %}
+          <a href="{{ section.settings.group2_button_link }}" class="icon__button">
+            <span class="btn__icon">
+              <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.75 8.75L1 5M1 5L4.75 1.25M1 5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <span class="btn__text">
+              {{ section.settings.group2_button_text }}
+            </span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax__blockWrapper parallax__blockTwo">
+    <div class="small__videoWrapper">
+      <div class="small__videoWrap">
+        {% if section.settings.group3_video != blank %}
+          {{section.settings.group3_video | video_tag: image_size: '800x', autoplay: true, loop: true, controls: false, muted: true, class: 'slide__video'}}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+.home__parallaxVideoBannerWrapper {
+  padding: 40px 0;
+  background: #f9f9f9;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+@media screen and (max-width: 767px){
+  .home__parallaxVideoBannerWrapper {
+    height: 80vh;
+  }
+} 
+.home__parallaxVideoBannerWrapper .parallax__videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+@media screen and (max-width: 767px){
+  .home__parallaxVideoBannerWrapper .parallax__videoWrapper {
+    height: 100%;
+  }
+} 
+.home__parallaxVideoBannerWrapper .parallax__videoWrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.parallax__blockWrapper{
+  height: 100vh;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+@media screen and (max-width: 767px){
+  .parallax__blockWrapper {
+    display: none;
+  }
+}
+
+.parallax__blockOne{
+  align-items: flex-end;
+  padding: 55px 50px 100px;
+}
+.parallax__blockOne .block__percentageWrapper{
+  width: 191px;
+}
+.parallax__blockOne .block__percentageWrapper .block__percentage{
+  background: rgba(234, 234, 234, .30);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 40px 32px;
+}
+.parallax__blockOne .block__percentageWrapper .block__percentage .digit{
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 48px;
+  color: #ffffff;
+  text-align: right;
+}
+.parallax__blockOne .block__percentageWrapper .block__percentage p{
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+  margin: 0;
+  color: #ffffff;
+  text-align: right;
+}
+
+.parallax__blockOne .block__contentWrapper{
+  width: calc(100% - 191px);
+  padding-left: 30px;
+}
+
+.parallax__blockOne .block__contentWrapper .block__content{}
+.parallax__blockOne .block__contentWrapper .block__content h3{
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.parallax__blockOne .block__contentWrapper .block__content h1{
+  font-size: 48px;
+  line-height: 59px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  margin: 0 0 20px;
+}
+.parallax__blockOne .block__contentWrapper .block__content .icon__button{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #007A73;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.parallax__blockOne .block__contentWrapper .block__content .icon__button .btn__icon{
+  width: 20px;
+}
+
+.parallax__blockTwo{
+  align-items: center;
+  justify-content: center;
+}
+.parallax__blockTwo .small__videoWrapper{
+  width: 469px;
+  height: 469px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.parallax__blockTwo .small__videoWrapper small__videoWrap video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+{% endstyle %}
+
+<!-- <script>
+  document.addEventListener('scroll', function () {
+    const videoWrapper = document.querySelector('.parallax__videoWrapper');
+    const bannerWrapper = document.querySelector('.home__parallaxVideoBannerWrapper');
+
+    if (!videoWrapper || !bannerWrapper) return;
+
+    const rect = bannerWrapper.getBoundingClientRect();
+    const scrollOffset = window.scrollY + rect.top;
+    const scrollPos = window.scrollY;
+
+    // Calculate parallax effect
+    const speed = 0.012; // lower = slower
+    const translateY = (scrollPos - scrollOffset) * speed;
+
+    // Apply transform
+    videoWrapper.style.transform = `translateY(${translateY}px)`;
+  });
+</script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('.home__parallaxVideoBannerWrapper');
+    const videoWrapper = document.querySelector('.parallax__videoWrapper');
+
+    if (section && videoWrapper) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        pin: videoWrapper,
+        pinSpacing: false, // keeps height stable, no extra space
+        scrub: true,
+        markers: false // set to true to debug
+      });
+    }
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Home Video Banner",
+  "tag": "section",
+  "class": "home-video-banner",
+  "settings": [
+    {
+      "type": "video",
+      "id": "main_video",
+      "label": "Main Large Video"
+    },
+    {
+      "type": "text",
+      "id": "group1_digit",
+      "label": "Percentage Count"
+    },
+    {
+      "type": "textarea",
+      "id": "group1_description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "group2_subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "group2_title",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "group2_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "group2_button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "video",
+      "id": "group3_video",
+      "label": "Video Inner"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Video Banner",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

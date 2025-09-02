@@ -1,0 +1,807 @@
+{% doc %}
+  @prompt
+    create a video carasouel in which 4 videos will be shown at the load and change the video on navigation click .. the count of visibility will be 4 , on click of next first slide hide and 5th slide appear..
+    Videos have title and description over it bottom, add a video play button and if the slide does not filled with value, do not show it
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+    .ai-video-carousel-{{ ai_gen_id }} {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+   .ai-video-carousel__title-{{ ai_gen_id }}{
+    font-size: 16px !important;
+  }
+    .ai-video-carousel__container-{{ ai_gen_id }} {
+      position: relative;
+      overflow: hidden;
+    }
+
+     .ai-video-carousel__container-{{ ai_gen_id }}::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 100%;
+      background: linear-gradient(to right, white 0%, transparent 70%);
+      z-index: 2;
+      pointer-events: none;
+  }
+
+    .ai-video-carousel__track-{{ ai_gen_id }} {
+      display: flex;
+      transition: transform 0.3s ease;
+      gap: {{ block.settings.gap }}px;
+      margin-right: 0; /* Ensures right side is clean */
+      margin-left: 80px; /* Push track to leave room on the left */
+    }
+
+    .ai-video-carousel__slide-{{ ai_gen_id }} {
+      flex: 0 0 calc((100% - {{ block.settings.gap | times: 3 }}px) / 4);
+      position: relative;
+      border-radius: {{ block.settings.slide_border_radius }}px;
+      overflow: hidden;
+      background-color: {{ block.settings.slide_background }};
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .ai-video-carousel__video-wrapper-{{ ai_gen_id }} {
+      position: relative;
+      width: 100%;
+      height: {{ block.settings.video_height }}px;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+
+
+     .ai-video-carousel__video-wrapper-{{ ai_gen_id }}::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Adjust opacity here */
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none; /* Allows clicks to pass through */
+      overflow: hidden;
+  }
+
+  .ai-video-carousel__video-wrapper-{{ ai_gen_id }}:hover::after {
+      opacity: 1;
+  }
+
+
+    .ai-video-carousel__video-{{ ai_gen_id }} {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ai-video-carousel__video-placeholder-{{ ai_gen_id }} {
+      width: 100%;
+      height: 100%;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-video-carousel__video-placeholder-{{ ai_gen_id }} svg {
+      width: 60px;
+      height: 60px;
+      opacity: 0.5;
+    }
+
+    .ai-video-carousel__play-button-{{ ai_gen_id }} {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: {{ block.settings.play_button_size }}px;
+      height: {{ block.settings.play_button_size }}px;
+      background-color: #ffffff91;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .ai-video-carousel__play-button-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.play_button_hover_color }};
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .ai-video-carousel__play-icon-{{ ai_gen_id }} {
+      width: calc({{ block.settings.play_button_size }}px * 0.4);
+      height: calc({{ block.settings.play_button_size }}px * 0.4);
+      color: {{ block.settings.play_button_icon_color }};
+      margin-left: 2px;
+    }
+
+    .ai-video-carousel__content-{{ ai_gen_id }} {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: {{ block.settings.text_color }};
+      padding: 30px 15px 15px;
+      text-align: center;
+    }
+
+    .ai-video-carousel__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size }}px;
+      font-weight: 600;
+      margin: 8px 0 0;
+      line-height: 1.2;
+    }
+
+    .ai-video-carousel__description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size }}px;
+      margin: 0;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .ai-video-carousel__nav-{{ ai_gen_id }} {
+      position: absolute;
+      top: -26px;
+      transform: translateY(-50%);
+      background-color: {{ block.settings.nav_button_color }};
+      border: none;
+      width: {{ block.settings.nav_button_size }}px;
+      height: {{ block.settings.nav_button_size }}px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); */
+      z-index: 2;
+    }
+
+    /* .ai-video-carousel__nav-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.nav_button_hover_color }};
+      transform: translateY(-50%) scale(1.1);
+    } */
+
+   .ai-video-carousel__nav-as3dlvxnttja4y1z0caigenblock86c656bq6mdjk svg.arrow-icon {
+      width: 1.3rem;
+      height: 1.3rem;
+  }
+
+    .ai-video-carousel__nav-{{ ai_gen_id }}:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .ai-video-carousel__nav--prev-{{ ai_gen_id }} {
+      left: 50px;
+    }
+
+    .ai-video-carousel__nav--next-{{ ai_gen_id }} {
+      right: -125px;
+    }
+
+    .ai-video-carousel__nav--next-{{ ai_gen_id }} svg {
+      transform: rotate(180deg);
+    }
+
+  .ai-video-carousel__nav--next-{{ ai_gen_id }} svg.arrow-icon {
+      transform: rotate(180deg);
+  }
+
+    .ai-video-carousel__nav-icon-{{ ai_gen_id }} {
+      width: calc({{ block.settings.nav_button_size }}px * 0.4);
+      height: calc({{ block.settings.nav_button_size }}px * 0.4);
+      color: {{ block.settings.nav_button_icon_color }};
+    }
+
+    @media screen and (max-width: 990px) {
+      .ai-video-carousel__slide-{{ ai_gen_id }} {
+        flex: 0 0 calc((100% - {{ block.settings.gap }}px) / 2);
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      .ai-video-carousel__slide-{{ ai_gen_id }} {
+        flex: 0 0 100%;
+      }
+
+      .ai-video-carousel__nav-{{ ai_gen_id }} {
+      bottom: -25px;
+      top: unset;
+      background-color: transparent;
+      width: 92px;
+      height: 36px;
+      left: auto;
+      }
+
+
+       .ai-video-carousel__nav-as3dlvxnttja4y1z0caigenblock86c656bq6mdjk svg.arrow-icon {
+      width: 23px;
+      height: 23px;
+  }
+    .home__videoCarouselWrapper .arrow-nav-btn .ai-video-carousel__nav-{{ ai_gen_id }}{
+    bottom: -25px;
+    width: 50px;
+    left: unset;
+  }
+  .home__videoCarouselWrapper .arrow-nav-btn .ai-video-carousel__nav--prev-{{ ai_gen_id }}{
+    right: 50px;
+  }
+  .home__videoCarouselWrapper .arrow-nav-btn .ai-video-carousel__nav--next-{{ ai_gen_id }}{
+    right: 0;
+  }
+    }
+{% endstyle %}
+
+<video-carousel-{{ ai_gen_id }}
+  class="ai-video-carousel-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-video-carousel__container-{{ ai_gen_id }}">
+    <div class="ai-video-carousel__track-{{ ai_gen_id }}" data-track>
+      {% for i in (1..8) %}
+        {% liquid
+          assign video_key = 'video_' | append: i
+          assign title_key = 'title_' | append: i
+          assign description_key = 'description_' | append: i
+
+          assign video = block.settings[video_key]
+          assign title = block.settings[title_key]
+          assign description = block.settings[description_key]
+        %}
+
+        {% if video != blank or title != blank or description != blank %}
+          <div class="ai-video-carousel__slide-{{ ai_gen_id }}" data-slide="{{ forloop.index0 }}">
+            <div class="ai-video-carousel__video-wrapper-{{ ai_gen_id }}">
+              {% if video != blank %}
+                <video
+                  class="ai-video-carousel__video-{{ ai_gen_id }}"
+                  muted
+                  loop
+                  preload="metadata"
+                  data-video
+                >
+                  <source src="{{ video }}" type="video/mp4">
+                </video>
+              {% else %}
+                <div class="ai-video-carousel__video-placeholder-{{ ai_gen_id }}">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                </div>
+              {% endif %}
+
+              {% if video != blank %}
+                <button class="ai-video-carousel__play-button-{{ ai_gen_id }}" data-play-button>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.66699 8.00221V5.62888C2.66699 2.68221 4.75366 1.47554 7.30699 2.94888L9.36699 4.13554L11.427 5.32221C13.9803 6.79554 13.9803 9.20888 11.427 10.6822L9.36699 11.8689L7.30699 13.0555C4.75366 14.5289 2.66699 13.3222 2.66699 10.3755V8.00221Z" fill="#323438"/>
+                  </svg>
+                </button>
+              {% endif %}
+            </div>
+
+            {% if title != blank or description != blank %}
+              <div class="ai-video-carousel__content-{{ ai_gen_id }}">
+                {% if description != blank %}
+                  <p class="ai-video-carousel__description-{{ ai_gen_id }}">{{ description }}</p>
+                {% endif %}
+                {% if title != blank %}
+                  <h3 class="ai-video-carousel__title-{{ ai_gen_id }}">{{ title }}</h3>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="arrow-nav-btn">
+    <button class="ai-video-carousel__nav-{{ ai_gen_id }} ai-video-carousel__nav--prev-{{ ai_gen_id }}" data-prev>
+      {{- 'arrow-fig.svg' | inline_asset_content -}}
+    </button>
+
+    <button class="ai-video-carousel__nav-{{ ai_gen_id }} ai-video-carousel__nav--next-{{ ai_gen_id }}" data-next>
+      {{- 'arrow-fig.svg' | inline_asset_content -}}
+    </button>
+  </div>
+</video-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function () {
+    class VideoCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.currentIndex = 0;
+        this.visibleSlides = 4;
+        this.slidesPerMove = 1;
+        this.isDragging = false;
+        this.startX = 0;
+        this.currentTranslate = 0;
+        this.prevTranslate = 0;
+        this.animationID = 0;
+      }
+
+      connectedCallback() {
+        this.track = this.querySelector('[data-track]');
+        this.slides = this.querySelectorAll('[data-slide]');
+        this.prevButton = this.querySelector('[data-prev]');
+        this.nextButton = this.querySelector('[data-next]');
+        this.playButtons = this.querySelectorAll('[data-play-button]');
+        this.videos = this.querySelectorAll('[data-video]');
+
+        this.totalSlides = this.slides.length;
+        this.updateVisibleSlides();
+        this.maxIndex = Math.max(0, this.totalSlides - this.visibleSlides);
+        this.currentIndex = this.maxIndex;
+
+        this.setupEventListeners();
+        this.updateCarousel();
+      }
+
+      setupEventListeners() {
+        this.prevButton.addEventListener('click', () => this.goToPrevious());
+        this.nextButton.addEventListener('click', () => this.goToNext());
+
+        this.playButtons.forEach((button, index) => {
+          button.addEventListener('click', () => this.toggleVideo(index));
+        });
+
+        // Add drag listeners
+        this.track.addEventListener('mousedown', this.touchStart.bind(this));
+        this.track.addEventListener('touchstart', this.touchStart.bind(this), { passive: true });
+        this.track.addEventListener('mouseup', this.touchEnd.bind(this));
+        this.track.addEventListener('mouseleave', this.touchEnd.bind(this));
+        this.track.addEventListener('touchend', this.touchEnd.bind(this));
+        this.track.addEventListener('mousemove', this.touchMove.bind(this));
+        this.track.addEventListener('touchmove', this.touchMove.bind(this), { passive: true });
+
+        window.addEventListener('resize', () => this.updateVisibleSlides());
+      }
+
+      updateVisibleSlides() {
+        const width = window.innerWidth;
+        if (width <= 749) {
+          this.visibleSlides = 1;
+        } else if (width <= 990) {
+          this.visibleSlides = 2;
+        } else {
+          this.visibleSlides = 4;
+        }
+        this.maxIndex = Math.max(0, this.totalSlides - this.visibleSlides);
+        this.currentIndex = Math.min(this.currentIndex, this.maxIndex);
+        this.updateCarousel();
+      }
+
+      goToPrevious() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+          this.updateCarousel();
+        }
+      }
+
+      goToNext() {
+        if (this.currentIndex < this.maxIndex) {
+          this.currentIndex++;
+          this.updateCarousel();
+        }
+      }
+
+      updateCarousel() {
+        const slideWidth = this.slides[0].offsetWidth;
+        const gap = parseInt(getComputedStyle(this.track).gap) || 0;
+        const translateX = -(this.currentIndex * (slideWidth + gap));
+
+        this.track.style.transform = `translateX(${translateX}px)`;
+        this.prevTranslate = translateX;
+        this.currentTranslate = translateX;
+        this.updateNavigation();
+      }
+
+      updateNavigation() {
+        this.prevButton.disabled = this.currentIndex === 0;
+        this.nextButton.disabled = this.currentIndex >= this.maxIndex;
+      }
+
+      toggleVideo(index) {
+        const video = this.videos[index];
+        const playButton = this.playButtons[index];
+
+        if (!video) return;
+
+        if (video.paused) {
+          this.pauseAllVideos();
+          video.play();
+          playButton.style.opacity = '0';
+        } else {
+          video.pause();
+          playButton.style.opacity = '1';
+        }
+      }
+
+      pauseAllVideos() {
+        this.videos.forEach((video, index) => {
+          if (!video.paused) {
+            video.pause();
+            this.playButtons[index].style.opacity = '1';
+          }
+        });
+      }
+
+      // 🖱️ Drag / Touch handling
+      touchStart(event) {
+        this.isDragging = true;
+        this.startX = this.getPositionX(event);
+        this.track.style.transition = 'none';
+      }
+
+      touchMove(event) {
+        if (!this.isDragging) return;
+        const currentX = this.getPositionX(event);
+        const dx = currentX - this.startX;
+        this.track.style.transform = `translateX(${this.currentTranslate + dx}px)`;
+      }
+
+      touchEnd(event) {
+        if (!this.isDragging) return;
+        this.isDragging = false;
+        const endX = this.getPositionX(event);
+        const dx = endX - this.startX;
+
+        const threshold = 50; // Minimum swipe distance
+
+        if (dx > threshold && this.currentIndex > 0) {
+          this.currentIndex--;
+        } else if (dx < -threshold && this.currentIndex < this.maxIndex) {
+          this.currentIndex++;
+        }
+
+        this.updateCarousel();
+        this.track.style.transition = ''; // restore smooth transition
+      }
+
+      getPositionX(event) {
+        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+      }
+    }
+
+    customElements.define('video-carousel-{{ ai_gen_id }}', VideoCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Video Carousel",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "video_height",
+      "min": 200,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Video height",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between slides",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Container border radius",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "slide_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Slide border radius",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "slide_background",
+      "label": "Slide background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Play Button"
+    },
+    {
+      "type": "range",
+      "id": "play_button_size",
+      "min": 40,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Play button size",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "play_button_color",
+      "label": "Play button color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "play_button_hover_color",
+      "label": "Play button hover color",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "play_button_icon_color",
+      "label": "Play button icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "range",
+      "id": "nav_button_size",
+      "min": 30,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Navigation button size",
+      "default": 44
+    },
+    {
+      "type": "color",
+      "id": "nav_button_color",
+      "label": "Navigation button color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_hover_color",
+      "label": "Navigation button hover color",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "nav_button_icon_color",
+      "label": "Navigation button icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Description size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Video 1"
+    },
+    {
+      "type": "url",
+      "id": "video_1",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_1",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 2"
+    },
+    {
+      "type": "url",
+      "id": "video_2",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_2",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 3"
+    },
+    {
+      "type": "url",
+      "id": "video_3",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_3",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 4"
+    },
+    {
+      "type": "url",
+      "id": "video_4",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_4",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 5"
+    },
+    {
+      "type": "url",
+      "id": "video_5",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_5",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 6"
+    },
+    {
+      "type": "url",
+      "id": "video_6",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_6",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 7"
+    },
+    {
+      "type": "url",
+      "id": "video_7",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_7",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_7",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Video 8"
+    },
+    {
+      "type": "url",
+      "id": "video_8",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "title_8",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description_8",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Carousel"
+    }
+  ]
+}
+{% endschema %}

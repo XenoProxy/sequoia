@@ -1,0 +1,235 @@
+
+{% schema %}
+{
+  "name": "Jobs Listings Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "We’re Hiring"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Browse our open positions below and become part of our growing team."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "job_card",
+      "name": "Job Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "job_badges",
+          "label": "Job Badges (comma separated)",
+          "default": "עבודה היברידית, משרה מלאה"
+        },
+        {
+          "type": "text",
+          "id": "job_title",
+          "label": "Job Title",
+          "default": "מנהל.ת קהילה ותוכן"
+        },
+        {
+          "type": "text",
+          "id": "job_description",
+          "label": "Job Description",
+          "default": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי קולהע צופעט למרקוח איבן איף."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "לפרטים נוספים"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jobs Listings Grid",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "job_card"
+        },
+        {
+          "type": "job_card"
+        },
+        {
+          "type": "job_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="jobs-grid-section" style="background: {{ section.settings.background_color }};">
+  <div class="jobs-grid__container">
+    <div class="jobs-grid__containerHeader">
+      {% if section.settings.title != blank %}
+        <h2 class="jobs-grid__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="jobs-grid__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    <div class="jobs-grid__cards">
+      {% for block in section.blocks %}
+        <div class="jobs-grid__card">
+          {% if block.settings.job_badges != blank %}
+            <div class="jobs-grid__badges">
+              {% assign badges = block.settings.job_badges | split: ',' %}
+              {% for badge in badges %}
+                <span class="jobs-grid__badge">{{ badge | strip }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="job-grid__card-descWrap">
+            <h3 class="jobs-grid__card-title">{{ block.settings.job_title }}</h3>
+            <p class="jobs-grid__card-description">{{ block.settings.job_description }}</p>
+            {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+              <a href="{{ block.settings.button_link }}" class="jobs-grid__card-button">
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.jobs-grid-section {
+  padding: 60px 120px;
+  direction: rtl;
+}
+@media screen and (max-width: 767px){
+  .jobs-grid-section {
+    padding: 40px 20px;
+  }
+}
+
+.jobs-grid__container .jobs-grid__containerHeader{
+  text-align: center;
+  margin: 0 0 56px;
+}
+
+.jobs-grid__title {
+  color: #323438;
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.jobs-grid__description {
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.jobs-grid__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .jobs-grid__cards {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+
+.jobs-grid__card {
+  background: #F8F8F5;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #D0D1D5;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.jobs-grid__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+
+.jobs-grid__badge {
+  display: inline-block;
+  background-color: transparent;
+  color: #616266;
+  padding: 4px 16px;
+  font-size: 14px;
+  line-height: 1.53;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid #A5A8AD;
+}
+
+.jobs-grid__card-title {
+  color: #323438;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.jobs-grid__card-description {
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  color: #323438;
+  margin-bottom: 32px;
+}
+
+.jobs-grid__card-button {
+  display: inline-block;
+  background-color: #065954;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+
+.jobs-grid__card-button:hover {
+  background-color: #044d47;
+}
+
+@media (max-width: 767px) {
+  .jobs-grid__title {
+    font-size: 28px;
+  }
+  .jobs-grid__description {
+    font-size: 16px;
+  }
+}
+</style>

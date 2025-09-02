@@ -1,0 +1,55 @@
+{%- doc -%}
+  Renders a slideshow arrow control
+
+  @param {string} action - { 'previous' | 'next' } The action to perform when the arrow is clicked.
+  @param {string} [icon_style] - { 'arrow' | 'chevron' } The style of the icon, defaults to 'arrow'.
+  @param {string} [icon_size] - { 'small' | 'medium' | 'large' } The size of the icon, defaults to 'medium'.
+  @param {string} [icon_shape] - { 'circle' | 'square' } The shape of the control, defaults to 'none'.
+
+  @example
+  {%- render 'slideshow-arrow', action: 'previous' -%}
+{%- enddoc -%}
+
+{%- liquid
+  assign icon_name = 'arrow'
+  assign style = icon_style | default: 'arrow'
+
+  if icon_style contains 'chevron'
+    assign icon_name = 'caret'
+  endif
+
+  if icon_style contains 'large'
+    assign icon_size = 'large'
+  endif
+
+  assign shape = icon_shape | default: 'none'
+-%}
+
+<button
+  class="
+    slideshow__arrowsWrapper
+    slideshow-control slideshow-control--{{ action }}
+    {% if icon_size %} slideshow-control--{{ icon_size }}{% endif %}
+    slideshow-control--shape-{{ shape }}
+    slideshow-control--style-{{ style }}
+    button
+    {% if shape == 'none' %} button-unstyled button-unstyled--transparent{% endif %}
+    {% if action == 'previous' %} flip-x{% endif %}
+  "
+  {% # theme-check-disable %}
+  aria-label="{{ 'accessibility.slideshow_' | append: action | t }}"
+  {% # theme-check-enable %}
+  on:click="/{{ action }}"
+  ref="{{ action }}"
+>
+  <span class="svg-wrapper icon-{{ icon_name }}">
+    {%- if icon_name == 'caret' -%}
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    {%- else -%}
+      <!-- {{- 'icon-arrow.svg' | inline_asset_content -}} -->
+      <svg width="18" height="8" viewBox="0 0 18 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.625 7.125L1.5 4M1.5 4L4.625 0.875M1.5 4H16.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    {%- endif -%}
+  </span>
+</button>

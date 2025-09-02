@@ -1,0 +1,668 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "accessibility": {
+    "account": "פתח תפריט חשבון",
+    "cart": "עגלה",
+    "cart_count": "סה\"כ פריטים בעגלה",
+    "close_dialog": "סגור חלון",
+    "country_region": "מדינה / אזור",
+    "country_results_count": "{{ count }} תוצאות",
+    "decrease_quantity": "הקטן כמות",
+    "discount": "החל קוד הנחה",
+    "discount_applied": "קוד הנחה שהוחל: {{ code }}",
+    "filters": "מסננים",
+    "filter_count": {
+      "one": "{{ count }} מסנן בשימוש",
+      "other": "{{ count }} מסננים בשימוש"
+    },
+    "increase_quantity": "הגדל כמות",
+    "inventory_status": "מצב מלאי",
+    "localization_region_and_language": "פתח בורר אזור ושפה",
+    "menu": "תפריט",
+    "new_window": "נפתח בחלון חדש",
+    "open_cart_drawer": "פתח סל",
+    "open_search_modal": "פתח חיפוש",
+    "pause_video": "השהה וידאו",
+    "play_model": "נגן מודל תלת מימד",
+    "play_video": "נגן וידאו",
+    "loading_product_recommendations": "טוען המלצות מוצרים",
+    "remove_item": "הסר {{ title }}",
+    "reset_search": "אפס חיפוש",
+    "scroll_to": "גלול אל {{ title }}",
+    "search_results_count": "{{ count }} תוצאות נמצאו עבור \"{{ query }}\"",
+    "search_results_no_results": "לא נמצאו תוצאות עבור \"{{ query }}\"",
+    "skip_to_product_info": "דלג למידע על המוצר",
+    "skip_to_results_list": "דלג לרשימת תוצאות",
+    "skip_to_text": "דלג לתוכן",
+    "slide_status": "שקופית {{ index }} מתוך {{ length }}",
+    "slideshow_next": "שקופית הבאה",
+    "slideshow_pause": "השהה מצגת",
+    "slideshow_play": "הפעל מצגת",
+    "slideshow_previous": "שקופית קודמת",
+    "unit_price": "מחיר ליחידה",
+    "find_country": "מצא מדינה"
+  },
+  "actions": {
+    "add": "הוסף",
+    "add_to_cart": "הוספה לסל",
+    "added": "התווסף",
+    "apply": "החל",
+    "back": "חזור",
+    "choose": "בחר",
+    "clear": "נקה",
+    "clear_all": "נקה הכל",
+    "close": "סגור",
+    "continue_shopping": "המשך בקנייה",
+    "enter_password": "הזן סיסמה",
+    "log_in_html": "כבר יש לך חשבון? <a href=\"{{ link }}\">התחבר</a> לתשלום מהיר יותר.",
+    "log_in": "התחבר",
+    "log_out": "התנתק",
+    "open_image_in_full_screen": "פתח תמונה במסך מלא",
+    "remove": "הסר",
+    "remove_discount": "הסר הנחה {{ code }}",
+    "show_all_options": "הצג את כל האפשרויות",
+    "see_items": {
+      "one": "הצג {{ count }} פריט",
+      "other": "הצג {{ count }} פריטים"
+    },
+    "show_filters": "סנן",
+    "show_less": "הצג פחות",
+    "show_more": "הצג עוד",
+    "sign_in_options": "אפשרויות התחברות נוספות",
+    "view_in_your_space": "הצג בסביבה שלך",
+    "view_all": "הצג הכל",
+    "more": "עוד",
+    "zoom": "זום",
+    "close_dialog": "סגור חלון",
+    "reset": "איפוס",
+    "enter_using_password": "היכנס באמצעות סיסמה",
+    "sign_up": "הרשמה",
+    "submit": "שלח",
+    "view_store_information": "הצג מידע על החנות",
+    "sort": "מיין"
+  },
+  "blocks": {
+    "contact_form": {
+      "name": "שם",
+      "email": "אימייל",
+      "phone": "טלפון",
+      "comment": "תגובה",
+      "post_success": "תודה שפנית אלינו! נחזור אליך בהקדם.",
+      "error_heading": "אנא תקן את השגיאות הבאות:"
+    },
+    "email_signup": {
+      "label": "אימייל",
+      "placeholder": "כתובת אימייל",
+      "success": "תודה שנרשמת!"
+    },
+    "filter": "סנן",
+    "load_video": "טען וידאו: {{ description }}",
+    "sold_out": "אזל מהמלאי",
+    "unit_price": {
+      "per_item_html": {
+        "one": "{{price}} ל-{{count}} פריט",
+        "other": "{{price}} ל-{{count}} פריטים"
+      },
+      "per_unit_html": {
+        "one": "{{price}}/{{count}}{{unit}}",
+        "other": "{{price}}/{{count}}{{unit}}"
+      },
+      "per_unit_accessibility": {
+        "single": "{{price}} ל{{unit}}",
+        "one": "{{price}} ל{{count}}{{unit}}",
+        "other": "{{price}} ל{{count}}{{unit}}"
+      },
+      "unit": {
+        "mg": "mg",
+        "g": "g",
+        "kg": "kg",
+        "ml": "ml",
+        "cl": "cl",
+        "l": "L",
+        "m3": "m³",
+        "mm": "mm",
+        "cm": "cm",
+        "m": "m",
+        "m2": "m²",
+        "oz": "oz",
+        "lb": "lb",
+        "floz": "fl oz",
+        "pt": "pt",
+        "qt": "qt",
+        "gal": "gal",
+        "in": "in",
+        "ft": "ft",
+        "yd": "yd",
+        "ft2": "ft²",
+        "item": "יחידה"
+      },
+      "per_item_single_html": "{{price}} ליחידה",
+      "per_unit_single_html": "{{price}}/{{unit}}"
+    },
+    "payment_methods": "שיטות תשלום"
+  },
+  "blogs": {
+    "article": {
+      "comments_heading": {
+        "one": "{{ count }} תגובה",
+        "other": "{{ count }} תגובות"
+      },
+      "comment_author_separator": "•"
+    },
+    "comment_form": {
+      "email": "אימייל",
+      "error": "התגובה לא פורסמה, נא תקן את השגיאות הבאות:",
+      "heading": "השאר תגובה",
+      "message": "הודעה",
+      "moderated": "לתשומת לבך, תגובות צריכות להיות מאושרות לפני פרסומן.",
+      "name": "שם",
+      "post": "פרסם תגובה",
+      "success_moderated": "התגובה נשלחה, ממתינה לאישור",
+      "success": "התגובה פורסמה"
+    }
+  },
+  "content": {
+    "discount": "הנחה",
+    "account_title": "חשבון",
+    "account_title_personalized": "שלום {{ first_name }}",
+    "account_orders": "הזמנות",
+    "account_profile": "פרופיל",
+    "blog_details_separator": "|",
+    "cart_estimated_total": "סך הכל משוער",
+    "cart_title": "עגלה",
+    "cart_subtotal": "סכום ביניים",
+    "cart_total": "סך הכל לעגלה",
+    "checkout": "לתשלום",
+    "collection_placeholder": "כותרת אוסף",
+    "discount_code": "קוד הנחה",
+    "shipping_discount_error": "הנחות משלוח מוצגות בעת התשלום לאחר הוספת כתובת",
+    "discount_code_error": "לא ניתן להחיל את קוד ההנחה על העגלה שלך",
+    "discounts": "הנחות",
+    "duties_and_taxes_included": "מכס ומסים כלולים.",
+    "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "מכס ומסים כלולים. הנחות ו<a href=\"{{ link }}\">משלוח</a> מחושבים בקופה.",
+    "duties_and_taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "מכס ומסים כלולים. המשלוח מחושב בקופה.",
+    "duties_and_taxes_included_shipping_at_checkout_without_policy": "מכס ומסים כלולים. הנחות ומשלוח מחושבים בקופה.",
+    "duties_and_taxes_included_shipping_at_checkout_without_policy_without_discounts": "מכס ומסים כלולים. המשלוח מחושב בקופה.",
+    "duties_included": "מכס כלול.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "מכס כלול. מיסים, הנחות ו<a href=\"{{ link }}\">משלוח</a> מחושבים בקופה.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "מכס כלול. משלוח מחושב בקופה.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "מכס כלול. מיסים, הנחות ומשלוח מחושבים בקופה.",
+    "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "מכס כלול. משלוח מחושב בקופה.",
+    "featured_products": "מוצרים מומלצים",
+    "filters": "מסננים",
+    "grid_view": {
+      "default_view": "ברירת מחדל",
+      "grid_fieldset": "רשת עמודות",
+      "single_item": "בודד",
+      "zoom_out": "התרחק"
+    },
+    "inventory_low_stock_show_count": {
+      "one": "{{ count }} נותר",
+      "other": "{{ count }} נותרו"
+    },
+    "inventory_low_stock": "מלאי נמוך",
+    "inventory_in_stock": "במלאי",
+    "inventory_out_of_stock": "לא במלאי",
+    "item_count": {
+      "one": "{{ count }} פריט",
+      "other": "{{ count }} פריטים"
+    },
+    "language": "שפה",
+    "localization_region_and_language": "אזור ושפה",
+    "no_products_found": "לא נמצאו מוצרים.",
+    "no_results_found": "לא נמצאו תוצאות",
+    "page_placeholder_title": "כותרת דף",
+    "page_placeholder_content": "בחר דף כדי להציג את התוכן שלו.",
+    "pickup_available_at_html": "איסוף זמין ב-<b>{{ location }}</b>",
+    "pickup_available_in": "איסוף זמין, {{ pickup_time }}",
+    "pickup_not_available": "איסוף אינו זמין כרגע",
+    "pickup_ready_in": "מוכן לאיסוף בעוד {{ pickup_time }}",
+    "powered_by": "החנות תפעל על ידי",
+    "price": "מחיר",
+    "price_compare_at": "מחיר להשוואה",
+    "price_from": "החל מ{{ price }}",
+    "price_regular": "מחיר רגיל",
+    "price_sale": "מחיר מבצע",
+    "price_filter_html": "המחיר הגבוה ביותר הוא {{ price }}",
+    "product_image": "תמונת מוצר",
+    "product_information": "מידע על המוצר",
+    "product_total": "סה\"כ מוצר",
+    "product_badge_sold_out": "אזל מהמלאי",
+    "product_badge_sale": "מבצע",
+    "product_card_placeholder": "כותרת מוצר",
+    "placeholder_image": "תמונת מציין",
+    "quantity": "כמות",
+    "recently_viewed_products": "נצפו לאחרונה",
+    "reviews": "ביקורות",
+    "read_more": "קרא עוד...",
+    "search_input_label": "חיפוש",
+    "search_input_placeholder": "חיפוש",
+    "search": "חיפוש",
+    "search_results": "תוצאות חיפוש",
+    "search_results_label": "תוצאות חיפוש",
+    "search_results_no_results": "לא נמצאו תוצאות עבור \"{{ terms }}\". נסה חיפוש אחר.",
+    "search_results_no_results_check_spelling": "לא נמצאו תוצאות עבור \"{{ terms }}\". בדוק את האיות או השתמש במילה או ביטוי אחר.",
+    "search_results_resource_articles": "פוסטים בבלוג",
+    "search_results_resource_collections": "אוספים",
+    "search_results_resource_pages": "עמודים",
+    "search_results_resource_products": "מוצרים",
+    "search_results_resource_products_count": {
+      "one": "{{ count }} מוצר",
+      "other": "{{ count }} מוצרים"
+    },
+    "search_results_resource_queries": "הצעות חיפוש",
+    "search_results_view_all": "הצג הכל",
+    "search_results_view_all_button": "הצג הכל",
+    "seller_note": "הוראות מיוחדות",
+    "shipping_policy": "משלוח מחושב בקופה.",
+    "shipping_policy_html": "<a href=\"{{ link }}\">משלוח</a> מחושב בקופה.",
+    "store_owner_link_html": "האם אתה בעל החנות? <a href=\"{{ link }}\">התחבר כאן</a>",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_html": "מיסים, הנחות ו<a href=\"{{ link }}\">משלוח</a> מחושבים בקופה.",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "מיסים ו<a href=\"{{ link }}\">משלוח</a> מחושבים בקופה.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy": "מיסים, הנחות ומשלוח מחושבים בקופה.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "מיסים ומשלוח מחושבים בקופה.",
+    "taxes_included": "מיסים כלולים.",
+    "taxes_included_shipping_at_checkout_with_policy_html": "מיסים כלולים. הנחות ו<a href=\"{{ link }}\">משלוח</a> מחושבים בקופה.",
+    "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "מיסים כלולים. משלוח מחושב בקופה.",
+    "taxes_included_shipping_at_checkout_without_policy": "מיסים כלולים. הנחות ומשלוח מחושבים בקופה.",
+    "taxes_included_shipping_at_checkout_without_policy_without_discounts": "מיסים כלולים. משלוח מחושב בקופה.",
+    "unavailable": "לא זמין",
+    "use_fewer_filters_html": "נסה להשתמש בפחות מסננים, או <a class=\"{{ class }}\" href=\"{{ link }}\">נקה את כל המסננים</a>.",
+    "view_more_details": "צפה בפרטים נוספים",
+    "your_cart_is_empty": "העגלה שלך ריקה",
+    "product_count": "כמות מוצרים",
+    "errors": "שגיאות",
+    "wrong_password": "סיסמה שגויה"
+  },
+  "fields": {
+    "separator": "עד"
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "השתמש בקוד כרטיס המתנה באתר או בקוד QR בחנות",
+      "title": "הנה יתרת כרטיס המתנה שלך בסך {{ value }} עבור {{ shop }}!",
+      "subtext": "כרטיס המתנה שלך",
+      "shop_link": "בקר בחנות המקוונת",
+      "add_to_apple_wallet": "הוסף ל-Apple Wallet",
+      "qr_image_alt": "קוד QR — סרוק כדי לממש את כרטיס המתנה",
+      "copy_code": "העתק קוד כרטיס המתנה",
+      "expiration_date": "פג תוקף ב-{{ expires_on }}",
+      "copy_code_success": "הקוד הועתק בהצלחה",
+      "expired": "פג תוקף"
+    }
+  },
+  "placeholders": {
+    "password": "סיסמה",
+    "search": "חיפוש",
+    "product_title": "כותרת מוצר",
+    "collection_title": "כותרת אוסף"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "הוסף לעגלה",
+      "adding_to_cart": "מוסיף לעגלה...",
+      "added_to_cart": "נוסף לעגלה",
+      "add_to_cart_error": "שגיאה בהוספה לעגלה",
+      "sold_out": "אזל מהמלאי",
+      "unavailable": "לא זמין"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "contact": {
+        "email_label": "אימייל",
+        "email_placeholder": "אימייל",
+        "email_or_phone_label": "אימייל או מספר טלפון",
+        "email_or_phone_placeholder": "אימייל או מספר טלפון",
+        "title": "מידע",
+        "address_title": "כתובת",
+        "delivery_option_title": "שיטת משלוח",
+        "first_name_label": "שם פרטי",
+        "optional_first_name_label": "שם פרטי (אופציונלי)",
+        "last_name_label": "שם משפחה",
+        "company_label": "חברה",
+        "optional_company_label": "חברה (אופציונלי)",
+        "address1_label": "כתובת",
+        "city_label": "עיר",
+        "country_label": "מדינה/מחוז",
+        "phone_label": "מספר טלפון",
+        "optional_phone_label": "מספר טלפון (אופציונלי)",
+        "phone_placeholder": "מספר טלפון",
+        "postal_code_label": "מיקוד",
+        "optional_postal_code_label": "מיקוד (אופציונלי)",
+        "postal_code_placeholder": "מיקוד",
+        "postcode_label": "מיקוד",
+        "optional_postcode_label": "מיקוד (אופציונלי)",
+        "postcode_placeholder": "מיקוד",
+        "address2_label": "דירה, סוויטה וכו'",
+        "optional_address2_label": "דירה, סוויטה וכו' (אופציונלי)",
+        "phone_tooltip": "למקרה שנצטרך ליצור איתך קשר לגבי ההזמנה שלך",
+        "contact_method_title": "פרטי קשר"
+      },
+      "field_errors": {
+        "handle_email_invalid": "הזן אימייל חוקי",
+        "email_invalid": "הזן אימייל חוקי",
+        "email_or_phone_blank": "הזן אימייל או מספר טלפון",
+        "email_or_phone_invalid": "הזן אימייל או מספר טלפון חוקיים",
+        "email_blank": "הזן אימייל",
+        "address_zip_blank": "הזן מיקוד",
+        "address_zip_too_long": "המיקוד שהוזן ארוך מידי (יכול להכיל עד 255 תווים)",
+        "address_zip_invalid_for_country": "הזן מיקוד תקין עבור {{ country }}",
+        "address_zip_invalid_for_province": "הזן מיקוד תקין עבור {{ province }}",
+        "address_zip_invalid_for_country_and_province": "הזן מיקוד תקין עבור {{ province }}, {{ country }}",
+        "address_zip_contains_emojis": "מיקוד לא יכול להכיל אימוג'ים",
+        "address_zip_contains_mathematical_symbols": "מיקוד לא יכול להכיל סימנים מתמטיים",
+        "address_zip_invalid": "הזן מיקוד תקין",
+        "handle_phone_invalid": "הזן מספר טלפון חוקי",
+        "address_phone_blank": "הזן מספר טלפון חוקי",
+        "address_phone_invalid": "הזן מספר טלפון חוקי",
+        "shipping_line_phone_invalid": "הזן מספר טלפון חוקי",
+        "sms_marketing_phone_invalid": "הזן מספר טלפון חוקי",
+        "address_address2_blank": "הזן דירה, סוויטה וכו'",
+        "credit_card_number_invalid": "הזן מספר כרטיס חוקי",
+        "credit_card_number_blank": "הזן מספר כרטיס",
+        "credit_card_expiry_invalid": "הזן תוקף חוקי",
+        "credit_card_month_invalid": "הזן חודש תפוגה חוקי",
+        "credit_card_year_invalid": "הזן שנת תפוגה חוקית"
+      },
+      "customer_account": {
+        "save_my_information_label": "שמור מידע זה לפעם הבאה",
+        "sign_in_link_label": "התחבר",
+        "sign_out_link_label": "התנתק"
+      },
+      "shipping": {
+        "shipping_method_title": "שיטת משלוח",
+        "delivery_title": "משלוח",
+        "duties_and_taxes_options": {
+          "ddp_title": "לתשלום"
+        }
+      },
+      "payment": {
+        "title": "תשלום",
+        "card_security_notice": "כל העסקאות מאובטחות ומוצפנות.",
+        "card_number_label": "מספר כרטיס",
+        "card_number_placeholder": "מספר כרטיס",
+        "edit_credit_card_modal": {
+          "fields": {
+            "card_number": "מספר כרטיס",
+            "expiry": "תוקף",
+            "name": "השם שעל הכרטיס"
+          }
+        },
+        "card_verification_value_label": "CVC",
+        "card_verification_value_placeholder": "CVC",
+        "card_expiry_label": "תוקף (MM/YY)",
+        "card_expiry_placeholder": "תוקף (MM/YY)",
+        "card_expiry_date_explanation": "תאריך תפוגת הכרטיס בפורמט: חודש, חודש, שנה, שנה",
+        "card_expiration_month_label": "חודש תפוגה",
+        "card_expiration_year_label": "שנת תפוגה",
+        "same_billing_address_checkbox_label": "השתמש בכתובת המשלוח ככתובת החיוב",
+        "credit_card_vaulting_sign_in_banner_button_label": "התחבר",
+        "billing_address_title": "כתובת חיוב",
+        "fact_billing_address_label": "כתובת חיוב",
+        "name_on_card_label": "השם שעל הכרטיס",
+        "name_on_card_placeholder": "השם שעל הכרטיס",
+        "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי."
+      },
+      "payment_gateway": {
+        "credit_card_label": "כרטיס אשראי"
+      },
+      "general": {
+        "loading": "טוען...",
+        "continue_button_label": "המשך",
+        "submit": "אשר",
+        "pay_now_button_label": "לתשלום"
+      },
+      "order_summary": {
+        "total_label": "סך הכל",
+        "subtotal_label": "סכום המוצרים",
+        "multiple_shipping_lines_label": "סך הכל משלוח",
+        "subtotal_label_with_quantity": {
+          "one": "סכום ביניים - {{ count }} פריט",
+          "other": "סכום ביניים - {{ count }} פריטים"
+        },
+        "discount_title": "הנחה",
+        "discount_label": "קוד קופון",
+        "apply_discount_button_label": "החל",
+        "estimated_taxes_label": "מיסים",
+        "shipping_label": "משלוח",
+        "free_shipping_total_label": "חינם",
+        "estimated_taxes_finalization_tooltip_content": "המס הסופי והסכום הכולל יאושרו באמצעות אימייל או הודעת טקסט לאחר ביצוע ההזמנה."
+      },
+      "wallets": {
+        "errors": {
+          "unsupported": {
+            "postal_code": "מיקום זה אינו נתמך"
+          },
+          "invalid": {
+            "postal_code": "הזן מיקוד תקין",
+            "billing_zip": "הזן מיקוד תקין של כתובת החיוב",
+            "email": "הזן אימייל חוקי"
+          },
+          "missing": {
+            "zip": "הזן מיקוד",
+            "billing_zip": "הזן מיקוד של כתובת החיוב",
+            "address2": "הזן דירה, סוויטה וכו'",
+            "billing_address2": "הזן דירה, סוויטה וכו' עבור כתובת החיוב"
+          },
+          "formatting": {
+            "postal_code_contains_emoji": "מחק אימוג'ים מהמיקוד"
+          }
+        }
+      },
+      "payment_errors": {
+        "invalid_number": "הזן מספר כרטיס חוקי",
+        "invalid_expiry_date": "הזן תוקף חוקי",
+        "invalid_cvc": "הזן CVC חוקי"
+      },
+      "payment_summary": {
+        "billing_address_title": "כתובת חיוב"
+      },
+      "thank_you": {
+        "billing_address_title": "כתובת חיוב",
+        "return_to_store_link_label": "המשך בקנייה",
+        "order_updates_submit_subscription": "אשר",
+        "breadcrumbs_submitted": "אושר"
+      },
+      "notice_banner": {
+        "individual_violations_title": {
+          "PaymentViolations": "כתובת חיוב"
+        },
+        "all_violations_email_link": "אימייל"
+      },
+      "marketing": {
+        "disclaimer": {
+          "privacy_policy": "מדיניות הפרטיות"
+        },
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "מדיניות הפרטיות"
+          }
+        }
+      },
+      "shop_policies": {
+        "privacy_policy": "מדיניות הפרטיות"
+      },
+      "stock": {
+        "continue_shopping_button_label": "המשך",
+        "continue_cta_label": "המשך לחשבון"
+      },
+      "post_purchase": {
+        "components": {
+          "submit": "אשר"
+        }
+      },
+      "b2b_errors": {
+        "log_out_link_text": "התנתק"
+      },
+      "order_payment_collection": {
+        "pay_now": "לתשלום"
+      }
+    },
+    "addresses": {
+      "postal_code": "מיקוד"
+    },
+    "errors": {
+      "invalid_expiry_year": "שנת התפוגה אינה חוקית"
+    },
+    "attributes": {
+      "email": "אימייל"
+    },
+    "challenge": {
+      "submit_button_text": "אשר"
+    },
+    "checkpoint": {
+      "submit_button_text": "אשר"
+    }
+  },
+  "customer_accounts": {
+    "payment_methods": {
+      "card_fields": {
+        "tooltip": {
+          "card_security_notice": "כל העסקאות מאובטחות ומוצפנות.",
+          "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי."
+        },
+        "card_number_label": "מספר כרטיס",
+        "card_number_placeholder": "מספר כרטיס",
+        "field_errors": {
+          "credit_card_number_invalid": "הזן מספר כרטיס חוקי"
+        },
+        "name_on_card_label": "השם שעל הכרטיס",
+        "name_on_card_placeholder": "השם שעל הכרטיס"
+      },
+      "payment_details": {
+        "billing_title": "כתובת חיוב"
+      },
+      "edit_payment_method": {
+        "billing_address": "כתובת חיוב"
+      },
+      "add_payment_method": {
+        "billing_address": {
+          "title": "כתובת חיוב"
+        }
+      }
+    },
+    "order_details": {
+      "billing_address": "כתובת חיוב"
+    },
+    "addresses": {
+      "billing_address_dropdown_placeholder": "כתובת חיוב"
+    },
+    "B2B": {
+      "addresses": {
+        "billing_address_card_title": "כתובת חיוב"
+      },
+      "locations": {
+        "contact_email": "אימייל"
+      },
+      "location_selection": {
+        "continue_to_store": "המשך לחנות",
+        "selection_continue_button": "המשך"
+      },
+      "draft_order_details": {
+        "payment_status": {
+          "pay_now": "לתשלום"
+        }
+      }
+    },
+    "shop_policies": {
+      "privacy_policy": "מדיניות הפרטיות"
+    },
+    "sign_in": {
+      "step_one": {
+        "heading": "הירשם",
+        "subheading": "הזן את כתובת האימייל שלך ונשלח אליך קוד אימות",
+        "input_field_label": "אימייל",
+        "button": "המשך"
+      },
+      "step_two": {
+        "restart_link": "התחבר עם אימייל אחר",
+        "button": "אשר",
+        "heading": "הזן קוד",
+        "input_field_label": "קוד בן 6 ספרות",
+        "subheading": "-נשלח ל {{email}}"
+      },
+      "error": {
+        "invalid": {
+          "invalid_code": "הזן את הקוד בן 6 הספרות הנכון"
+        }
+      }
+    },
+    "account_information": {
+      "profile_card": {
+        "email_help_text": "לא ניתן לשנות את האימייל שמשמש להתחברות",
+        "email": "אימייל",
+        "cancel": "בטל",
+        "edit": "ערוך"
+      },
+      "verify_new_email_modal": {
+        "one_time_password_label": "קוד בן 6 ספרות",
+        "email_resend_button": "שלח קוד מחדש"
+      }
+    },
+    "orders": {
+      "order_status": {
+        "submitted_label": "אושר"
+      }
+    },
+    "ui_components": {
+      "submit": "אשר"
+    },
+    "navigation_and_structure": {
+      "log_out_link": "התנתק"
+    }
+  }
+}

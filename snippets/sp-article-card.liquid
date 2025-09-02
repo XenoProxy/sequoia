@@ -1,0 +1,155 @@
+<article class="sp__articleCard">
+  <div class="sp__articleThumbWrap">
+    <a href="{{ article.url }}">
+      {% if article.image %}
+        <img src="{{ article.image | img_url: '600x' }}" alt="{{ article.title }}">
+      {% else %}
+        <img src="https://via.placeholder.com/384x334?text=No+Image" alt="Placeholder">
+      {% endif %}
+    </a>
+
+    {% if section.settings.show_tags and article.tags.size > 0 %}
+      <div class="sp__articleTags">
+        {% for tag in article.tags %}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="sp__articleDesc">
+    {% if article.metafields.custom.min_reading %}
+        <span class="sp__readingTime">{{ article.metafields.custom.min_reading }}</span>
+    {% endif %}
+    <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+    {% if section.settings.show_excerpt %}
+        <p>{{ article.excerpt_or_content | strip_html | truncate: section.settings.excerpt_length }}</p>
+    {% endif %}
+
+    {% if section.settings.show_date or section.settings.show_author %}
+      <p class="sp-article-meta">
+        {% if section.settings.show_date %}
+          <span class="sp-date">{{ article.published_at | date: "%b %d, %Y" }}</span>
+        {% endif %}
+        {% if section.settings.show_author %}
+          <span class="sp-author">by {{ article.author }}</span>
+        {% endif %}
+      </p>
+    {% endif %}
+
+  </div>
+  {% if section.settings.show_read_more %}
+    <div class="sp__articleBtnWrapper">
+        <a href="{{ article.url }}" class="sp__readMoreBtn">
+            <span class="btn__text">{{ section.settings.read_more_text }}</span>
+            <span class="btn__icon">
+                <svg width="15" height="6" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.75 8.75L1 5M1 5L4.75 1.25M1 5H19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+        </a>
+    </div>
+    {% endif %}
+</article>
+
+<style>
+    .sp__articleCard {
+        background: #ffffff;
+    }
+    .sp__articleThumbWrap {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .sp__articleThumbWrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .sp__articleTags {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+    @media screen and (max-width: 767px){
+        .sp__articleTags {
+            top: 12px;
+            right: 12px;
+        }
+    }
+    .sp__articleTags a {
+        color: #ffffff;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 8px 16px;
+        background: rgba(204, 194, 194, 0.11);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        margin-left: 4px;
+        text-decoration: none !important;
+    }
+
+    .sp__articleDesc {
+        padding: 16px 0;
+    }
+    .sp__articleDesc .sp__readingTime{
+        color: #323438;
+        display: block;
+        font-size: 14px;
+        line-height: 1.53;
+        font-weight: 500;
+        margin: 0 0 12px;
+    }
+    @media screen and (max-width: 767px){
+        .sp__articleDesc .sp__readingTime{
+            font-size: 12px;
+        }
+    }
+    .sp__articleDesc h3{
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+        margin: 0 0 12px;
+    }
+    .sp__articleDesc h3 a{
+        text-decoration: none !important;
+        color: #323438;
+    }
+    .sp__articleDesc p {
+        text-decoration: none !important;
+        color: #323438;
+        font-size: 16px;
+        line-height: 1.63;
+        font-weight: 500;
+        margin: 0;
+    }
+    .sp__articleBtnWrapper .sp__readMoreBtn {
+        direction: rtl;
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+        border-radius: 8px;
+        color: #323438;
+        text-decoration: none !important;
+    }
+    .sp__articleBtnWrapper .sp__readMoreBtn .btn__icon {
+        background: #FFC942;
+        border-radius: 3px;
+        padding: 6px;
+    }
+    .sp__articleBtnWrapper .sp__readMoreBtn .btn__icon svg{
+        width: 100%;
+        height: auto;
+    }
+    .sp__articleBtnWrapper .sp__readMoreBtn .btn__text {
+        color: #323438;
+        font-size: 16px;
+        line-height: 1.63;
+        font-weight: 500;
+        margin-left: 12px;
+    }
+    
+</style>

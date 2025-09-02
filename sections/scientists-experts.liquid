@@ -1,0 +1,353 @@
+{% schema %}
+{
+  "name": "Scientists Experts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "המומחים סומכים עלינו, גם אתם יכולים"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "scientist_expert",
+      "name": "Scientist Expert",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "expert_image",
+          "label": "Expert Image"
+        },
+        {
+          "type": "text",
+          "id": "expert_name",
+          "label": "Expert Name",
+          "default": "דוקטור אלון ברזילי"
+        },
+        {
+          "type": "text",
+          "id": "expert_title",
+          "label": "Expert Title",
+          "default": "מומחה לביוכימיה"
+        },
+        {
+          "type": "textarea",
+          "id": "expert_description",
+          "label": "Expert Description",
+          "default": "לורם איפסום דולור סיט אמט, קונסקטור אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן לורם איפסום דולור סיט אמט, קולהע צופעט למרקוח איבן אף, ברומץ כלרשם קולהע צופעט למרקוח איבן אף, ברומץ כלרשם מחוזים. קלאצי טחור בלובק."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Scientists Experts",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "scientist_expert",
+          "settings": {
+            "expert_name": "דוקטור אלון ברזילי",
+            "expert_title": "מומחה לביוכימיה",
+            "expert_description": "לורם איפסום דולור סיט אמט, קונסקטור אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן לורם איפסום דולור סיט אמט, קולהע צופעט למרקוח איבן אף, ברומץ כלרשם קולהע צופעט למרקוח איבן אף, ברומץ כלרשם מחוזים. קלאצי טחור בלובק."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.scientists-experts {
+  padding: 60px 120px;
+  background-color: #ffffff;
+  direction: rtl;
+}
+
+.scientists-experts__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #323438;
+  text-align: right;
+  margin-bottom: 60px;
+  line-height: 1.3;
+}
+
+.scientists-experts__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.scientists-experts__grid .scientist-card:nth-child(n+3) {
+  grid-column: span 1;
+}
+
+.scientists-experts__grid .scientist-card:nth-child(3),
+.scientists-experts__grid .scientist-card:nth-child(6) {
+  grid-column: 1;
+}
+
+/* Create 3-column layout starting from the 3rd item */
+@media (min-width: 768px) {
+  .scientists-experts__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+  
+  /* First row: 2 items, each taking 3 columns */
+  .scientists-experts__grid .scientist-card:nth-child(1),
+  .scientists-experts__grid .scientist-card:nth-child(2) {
+    grid-column: span 3;
+  }
+  
+  /* Remaining rows: 3 items per row, each taking 2 columns */
+  .scientists-experts__grid .scientist-card:nth-child(n+3) {
+    grid-column: span 2;
+  }
+}
+
+.scientist-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  aspect-ratio: 1.09;
+  display: flex;
+  align-items: flex-end;
+}
+
+.scientist-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.scientist-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  width: 100%;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Floating content style for all items */
+.scientist-card__content {
+  position: absolute !important;
+  bottom: 8px;
+  right: 8px;
+  left: 8px;
+  width: auto;
+  min-height: auto;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Special width for first row items (desktop only) */
+@media (min-width: 768px) {
+  .scientist-card:nth-child(1) .scientist-card__content,
+  .scientist-card:nth-child(2) .scientist-card__content {
+    width: 66%;
+    left: auto;
+    right: 8px;
+  }
+}
+
+.scientist-card__name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.scientist-card__title {
+  font-size: 16px;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.scientist-card__description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 1s;
+  font-weight: 400;
+}
+
+/* Desktop hover effects */
+@media (min-width: 768px) {
+  .scientist-card:hover .scientist-card__description {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .scientists-experts {
+    padding: 50px 60px;
+  }
+  
+  .scientists-experts__title {
+    font-size: 1.75rem;
+    margin-bottom: 50px;
+  }
+  
+  .scientists-experts__grid {
+    gap: 12px;
+  }
+  
+  .scientist-card__content {
+    bottom: 6px;
+    right: 6px;
+    left: 6px;
+    padding: 16px;
+    border-radius: 6px;
+  }
+  
+  .scientist-card__name {
+    font-size: 14px;
+    margin: 0 0 6px 0;
+  }
+  
+  .scientist-card__title {
+    font-size: 14px;
+    margin: 0 0 12px 0;
+  }
+  
+  .scientist-card__description {
+    font-size: 12px;
+  }
+  
+  /* Special width for first row items on tablet */
+  .scientist-card:nth-child(1) .scientist-card__content,
+  .scientist-card:nth-child(2) .scientist-card__content {
+    width: 70%;
+    right: 6px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .scientists-experts {
+    padding: 40px 16px;
+  }
+  
+  .scientists-experts__title {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .scientists-experts__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .scientist-card__name {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+  
+  .scientist-card__title {
+    font-size: 14px;
+    margin: 0 0 14px 0;
+  }
+  
+  .scientist-card__description {
+    font-size: 14px;
+    opacity: 1;
+    max-height: none;
+    margin-top: 0;
+  }
+  
+  .scientist-card__content {
+    bottom: 7px;
+    right: 7px;
+    left: 7px;
+    padding: 14px;
+  }
+}
+
+/* Fallback for no image */
+.scientist-card__image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-size: 1rem;
+  z-index: 1;
+}
+{% endstylesheet %}
+
+<section class="scientists-experts color-{{ section.settings.color_scheme }}"{% if section.settings.color_scheme %} data-color-scheme="{{ section.settings.color_scheme }}"{% endif %}>
+  {% if section.settings.section_title != blank %}
+    <h2 class="scientists-experts__title">{{ section.settings.section_title }}</h2>
+  {% endif %}
+  
+  <div class="scientists-experts__grid">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'scientist_expert' %}
+          <div class="scientist-card" {{ block.shopify_attributes }}>
+            {% if block.settings.expert_image != blank %}
+              <img 
+                src="{{ block.settings.expert_image | img_url: '600x600' }}" 
+                alt="{{ block.settings.expert_name | escape }}"
+                class="scientist-card__image"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="scientist-card__image-placeholder">
+                <span>תמונת מומחה</span>
+              </div>
+            {% endif %}
+            
+            <div class="scientist-card__content">
+              {% if block.settings.expert_name != blank %}
+                <h3 class="scientist-card__name">{{ block.settings.expert_name }}</h3>
+              {% endif %}
+              
+              {% if block.settings.expert_title != blank %}
+                <p class="scientist-card__title">{{ block.settings.expert_title }}</p>
+              {% endif %}
+              
+              {% if block.settings.expert_description != blank %}
+                <p class="scientist-card__description">{{ block.settings.expert_description }}</p>
+              {% endif %}
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>

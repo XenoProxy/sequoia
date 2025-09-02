@@ -1,0 +1,137 @@
+{% schema %}
+{
+  "name": "About Hero Banner",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner_content",
+      "name": "Banner Content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_image_desktop",
+          "label": "Banner Image Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image_mobile",
+          "label": "Banner Image Mobile"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "default": "Sub Title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Main Heading"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Default"
+    }
+  ]
+}
+{% endschema %}
+
+{% for block in section.blocks %}
+  <div class="about__heroBannerWrapper">
+    <div class="about__heroBlockWrapper">
+      <div class="about__heroBannerImage">
+        {% if block.settings.banner_image_desktop %}
+          <img
+            class="about__banner-image-desktop"
+            src="{{ block.settings.banner_image_desktop | image_url: width: 2000 }}"
+            alt="{{ block.settings.title | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+        
+        {% if block.settings.banner_image_mobile %}
+          <img
+            class="about__banner-image-mobile"
+            src="{{ block.settings.banner_image_mobile | image_url: width: 1000 }}"
+            alt="{{ block.settings.title | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+      </div>
+      <div class="about__heroBannerContent">
+        <span class="about__heroBannerSubtitle">{{ block.settings.sub_title }}</span>
+        <h2 class="about__heroBannerTitle">{{ block.settings.title }}</h2>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+<style>
+  .about__heroBannerWrapper{
+    position: relative;
+    margin-top: -100px;
+    direction: rtl;
+  }
+  @media screen and (max-width: 767px){
+    .about__heroBannerWrapper{
+      margin-top: 0;
+    }
+  }
+  .about__heroBannerContent{
+    position: absolute;
+    bottom: 100px;
+    left: 120px;
+    width: calc(100% - 240px);
+  }
+  @media screen and (max-width: 767px){
+    .about__heroBannerContent{
+      bottom: 60px;
+      left: 20px;
+      width: calc(100% - 40px);
+    }
+  }
+  .about__heroBannerContent .about__heroBannerSubtitle{
+    font-family: 'Greycliff Hebrew CF', sans-serif;
+    font-size: 16px;
+    line-height: 1.63;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .about__heroBannerContent .about__heroBannerTitle{
+    font-family: 'Greycliff Hebrew CF', sans-serif;
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 20px;
+    max-width: 662px;
+  }
+  @media screen and (max-width: 767px){
+    .about__heroBannerContent .about__heroBannerTitle{
+      font-size: 32px;
+      line-height: 1.2;
+      margin-top: 16px;
+    }
+  }
+  
+  .about__banner-image-desktop {
+    display: block;
+  }
+  
+  .about__banner-image-mobile {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .about__banner-image-desktop {
+      display: none;
+    }
+    .about__banner-image-mobile {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,354 @@
+{% schema %}
+{
+  "name": "Info Blocks",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Information Section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_block",
+      "name": "Info Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Block Title",
+          "default": "Block Title"
+        },
+        {
+          "type": "textarea",
+          "id": "block_description",
+          "label": "Block Description",
+          "default": "Add a description for this block."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Info Blocks Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="info__blocksSectionWrapper" data-animate-info>
+  {% if section.settings.section_title != blank %}
+    <div class="info__blockSecHeader">
+      <h2 class="info-blocks-title">{{ section.settings.section_title }}</h2>
+    </div>
+  {% endif %}
+
+  <div class="info__blocksListingWrap">
+    <div class="border__linesWrapper">
+      <div class="dashed__border"></div>
+      <div class="solid__border"></div>
+    </div>
+    {% for block in section.blocks %}
+      <div class="info__block" id="block-{{ block.id }}">
+        <div class="info__blockInner">
+          {% if block.settings.block_title != blank %}
+            <h3 class="info__titleWrap">
+              <span class="bg-layer bg-gray"></span>
+              <span class="bg-layer bg-yellow"></span>
+              <span class="info__titleText">{{ block.settings.block_title }}</span>
+            </h3>
+          {% endif %}
+          {% if block.settings.block_description != blank %}
+            <p>{{ block.settings.block_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .info__blocksSectionWrapper {
+    padding: 40px 120px;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 3;
+  }
+  @media screen and (max-width: 767px){
+    .info__blocksSectionWrapper {
+      padding: 40px 20px 40px;
+    }
+  }
+
+  .info__blockSecHeader {
+    margin-bottom: 50px;
+  }
+
+  .info__blockSecHeader h2 {
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+  }
+  @media screen and (max-width: 767px){
+    .info__blockSecHeader h2 {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+
+  .info__blocksListingWrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 60px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .info__blocksListingWrap {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 20px 0;
+      overflow: visible;
+    }
+  }
+  
+  .info__blocksListingWrap .border__linesWrapper {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    z-index: 1;
+  }
+  @media screen and (max-width: 767px){
+    .info__blocksListingWrap .border__linesWrapper {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3px;
+      height: calc(100% + 50px);
+    }
+  }
+  .info__blocksListingWrap .border__linesWrapper:before,
+  .info__blocksListingWrap .border__linesWrapper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  @media screen and (max-width: 767px){
+    .info__blocksListingWrap .border__linesWrapper:before,
+    .info__blocksListingWrap .border__linesWrapper:after {
+      top: unset;
+      height: 50px;
+      width: 100%;
+    }
+  }
+  .info__blocksListingWrap .border__linesWrapper:before{
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+  }
+  @media screen and (max-width: 767px){
+    .info__blocksListingWrap .border__linesWrapper:before {
+        left: unset;
+        top: 0;
+        background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0));
+    }
+  }
+  .info__blocksListingWrap .border__linesWrapper:after{
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+  }
+  @media screen and (max-width: 767px){
+    .info__blocksListingWrap .border__linesWrapper:after {
+        right: unset;
+        bottom: 0;
+        background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0));
+    }
+  }
+
+  .dashed__border,
+  .solid__border {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+  @media screen and (max-width: 767px){
+    .dashed__border,
+    .solid__border {
+      width: 3px;
+      height: 100%;
+    }
+  }
+  
+  .dashed__border {
+    border-top: 3px dashed #f6f6f6;
+    z-index: 1;
+  }
+  
+  .solid__border {
+    background-color: #FFD05A;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: 2;
+  }
+  @media screen and (max-width: 767px){
+    .solid__border {
+      transform: scaleX(1);
+    }
+  }
+
+  .info__block{
+    position: relative;
+    z-index: 2;
+    padding: 0 15px;
+  }
+  @media screen and (max-width: 767px){
+    .info__block {
+      padding: 15px;
+      background: #ffffff;
+    }
+  }
+  .info__blockInner {
+    text-align: center;
+    position: relative;
+  }
+
+  .info__blockInner h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    margin: 0 0 20px;
+    padding: 8px 12px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info__titleWrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .info__titleText {
+    position: relative;
+    z-index: 3;
+  }
+
+  .bg-layer {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    z-index: 1;
+    transform-origin: right;
+  }
+
+  .bg-gray {
+    background-color: #F8F9FB;
+    z-index: 1;
+    transform: scaleX(1);
+  }
+
+  .bg-yellow {
+    background-color: #FFD05A;
+    z-index: 2;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  @media screen and (max-width: 767px){
+    .bg-yellow {
+      transform: scaleX(1);
+    }
+  }
+
+  .info__blockInner p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 0;
+  }
+</style>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.innerWidth <= 767) return; // Exit on mobile
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector('[data-animate-info]');
+    if (!section) return;
+
+    const borders = gsap.utils.toArray('.solid__border');
+    const yellowBgs = gsap.utils.toArray('.bg-yellow');
+
+    // Set initial states
+    gsap.set(borders, { scaleX: 0, transformOrigin: 'right' });
+    gsap.set(yellowBgs, { scaleX: 0, transformOrigin: 'right' });
+
+    // Animate borders with stagger
+    gsap.to(borders, {
+      scaleX: 1,
+      // duration: 5.5,
+      // ease: "power2.out",
+      duration:7.7,
+      ease: "expoScale(0.5,7,none)",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    // Animate yellow backgrounds with stagger, starting slightly after borders
+    // gsap.to(yellowBgs, {
+    //   scaleX: 1,
+    //   duration: 3.6,
+    //   ease: "power2.out",
+    //   // stagger: {
+    //   //   each: 0.7,
+    //   //   from: "start"
+    //   // },
+    //   stagger: (index, target, list) => {
+    //     // Example: custom delay based on index
+    //     const customDelays = [0.2, 0.8, 1.5, 1.1]; // You can define your own
+    //     return customDelays[index]; // Fallback to index * 0.7
+    //   },
+    //   scrollTrigger: {
+    //     trigger: section,
+    //     start: "top 80%",
+    //     toggleActions: "play none none none"
+    //   },
+    //   delay: 0.5 // slight global delay after borders begin
+    // });
+    gsap.to(yellowBgs, {
+      scaleX: 1,
+      duration: 2,
+      ease: "expoScale(0.5,7,none)",
+      stagger: (index) => {
+        return index * 2; // Delay each element by 3.6s sequentially
+      },
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+  });
+</script>

@@ -1,0 +1,327 @@
+{% schema %}
+{
+  "name": "SP Tabbed FAQ's",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Select a category to see related FAQs."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "General"
+        },
+        {
+          "type": "text",
+          "id": "question_1",
+          "label": "Question 1"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "question_2",
+          "label": "Question 2"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "question_3",
+          "label": "Question 3"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "text",
+          "id": "question_4",
+          "label": "Question 4"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_4",
+          "label": "Answer 4"
+        },
+        {
+          "type": "text",
+          "id": "question_5",
+          "label": "Question 5"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_5",
+          "label": "Answer 5"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "SP Tabbed FAQs",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Shipping"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Returns"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.sp-tabbed-faqs {
+  padding: 60px 120px;
+  background: {{ section.settings.bg_color }};
+}
+
+.sp-tabbed-faqs__wrapper {}
+
+.sp-tabbed-faqs__header {
+  margin-bottom: 40px;
+}
+
+.sp-tabbed-faqs__title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.sp-tabbed-faqs__description {
+  font-size: 18px;
+  color: #555;
+}
+
+.sp-tabbed-faqs__body {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 46px;
+}
+
+.sp-tabbed-faqs__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sp-tabbed-faqs__tab-button {
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  background-color: #D0D1D5;
+  border: 0.5px solid #D0D1D5;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-align: unset;
+}
+
+.sp-tabbed-faqs__tab-button.active {
+  background-color: #065954;
+  border: 0.5px solid #065954;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.sp-tabbed-faqs__content {
+  display: none;
+}
+
+.sp-tabbed-faqs__content.active {
+  display: block;
+}
+
+.sp-tabbed-faqs__content .accordion-group{}
+.sp-tabbed-faqs__content .accordion-group .accordion{
+  border-bottom: 1px solid #EDEDED;
+  margin-bottom: 12px;
+}
+.sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary{
+  position: relative;
+  padding: 20px 0;
+}
+.sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary .accordion__summary--text{
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+}
+.sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary .accordion__icon{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  font-size: 35px;
+  color: #323438;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 300;
+}
+.sp-tabbed-faqs__content .accordion-group .accordion .accordion__content{
+  padding: 10px 0 20px;
+}
+.sp-tabbed-faqs__content .accordion-group .accordion .accordion__content p{
+  color: #323438;
+  font-size: 16px;
+  line-height: 1.63;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sp-tabbed-faqs__faq {
+  margin-bottom: 20px;
+}
+
+.sp-tabbed-faqs__faq-question {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.sp-tabbed-faqs__faq-answer {
+  color: #666;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .sp-tabbed-faqs__body {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-tabbed-faqs__tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+  }
+
+  .sp-tabbed-faqs__tab-button {
+    white-space: nowrap;
+    min-width: 150px;
+    text-align: center;
+  }
+}
+{% endstylesheet %}
+
+<section class="sp-tabbed-faqs">
+  <div class="sp-tabbed-faqs__wrapper">
+    <div class="sp-tabbed-faqs__header">
+      {% if section.settings.title != blank %}
+        <h2 class="sp-tabbed-faqs__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="sp-tabbed-faqs__description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="sp-tabbed-faqs__body">
+      <div class="sp-tabbed-faqs__tabs">
+        {% for block in section.blocks %}
+          <button
+            class="sp-tabbed-faqs__tab-button"
+            data-target="faq-tab-{{ block.id }}"
+          >
+            {{ block.settings.tab_title }}
+          </button>
+        {% endfor %}
+      </div>
+      
+      <div class="sp-tabbed-faqs__contents">
+        {% for block in section.blocks %}
+          <div class="sp-tabbed-faqs__content" id="faq-tab-{{ block.id }}">
+          <div class="accordion-group">
+            {% for i in (1..5) %}
+              {% assign question_key = 'question_' | append: i %}
+              {% assign answer_key = 'answer_' | append: i %}
+              {% assign question = block.settings[question_key] %}
+              {% assign answer = block.settings[answer_key] %}
+              {% if question != blank and answer != blank %}
+                <details class="accordion">
+                  <summary class="accordion__summary">
+                    <span class="accordion__summary--text">{{ question }}</span>
+                    <span class="accordion__icon">+</span>
+                  </summary>
+                  <div class="accordion__content">
+                    <p>{{ answer }}</p>
+                  </div>
+                </details>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".sp-tabbed-faqs__tab-button");
+    const contents = document.querySelectorAll(".sp-tabbed-faqs__content");
+
+    function activateTab(targetId) {
+      contents.forEach(c => c.classList.remove("active"));
+      tabButtons.forEach(b => b.classList.remove("active"));
+
+      const activeContent = document.getElementById(targetId);
+      const activeButton = [...tabButtons].find(btn => btn.dataset.target === targetId);
+
+      if (activeContent) activeContent.classList.add("active");
+      if (activeButton) activeButton.classList.add("active");
+    }
+
+    if (tabButtons.length && contents.length) {
+      activateTab(tabButtons[0].dataset.target); // Activate first tab by default
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          activateTab(btn.dataset.target);
+        });
+      });
+    }
+  });
+</script>

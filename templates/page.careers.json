@@ -1,0 +1,422 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about-hero-banner",
+      "blocks": {
+        "banner_content_D9cm3r": {
+          "type": "banner_content",
+          "settings": {
+            "banner_image_desktop": "shopify://shop_images/careers-banner.png",
+            "banner_image_mobile": "shopify://shop_images/careers-banner-mobile.jpg",
+            "sub_title": "המשרות אצלנו",
+            "title": "מחפשים עבודה עם משמעות?בואו לקחת חלק במהפכת תוספי התזונה"
+          }
+        }
+      },
+      "block_order": [
+        "banner_content_D9cm3r"
+      ],
+      "settings": {}
+    },
+    "section_UEF8KP": {
+      "type": "section",
+      "blocks": {
+        "group_k8cRPW": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_ACJiLM": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h3><strong>הבית של החדשנות</strong></h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "2rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "text_cYTr9g": {
+              "type": "text",
+              "settings": {
+                "text": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק. קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח.</p>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 34,
+                "padding-inline-end": 0,
+                "custom_css_class": "img__descriptionWrapper"
+              },
+              "blocks": {}
+            },
+            "button_WUY6Xe": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_ACJiLM",
+            "text_cYTr9g",
+            "button_WUY6Xe"
+          ]
+        },
+        "image_y8k76m": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/career-info-thumb.png",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 12,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "group_k8cRPW",
+        "image_y8k76m"
+      ],
+      "custom_css": [
+        "{padding: 0 120px; border-radius: 12px 12px 0 0; overflow: hidden; position: relative; z-index: 2; margin-top: -40px;}",
+        ".img__descriptionWrapper p {}",
+        "@media screen and (max-width: 767px) {{padding: 0 20px; border-radius: 12px 12px 0 0; } .about__healthSecOneWrapper .section-content-wrapper {padding-top: 40px; padding-bottom: 38px; gap: 40px; } .about__healthSecOneWrapper .group-block {flex-basis: unset; } .about__healthSecOneWrapper .group-block-content {height: unset; } .about__healthSecOneWrapper .group-block-content .text-block {padding-left: 0; }}"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 82,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-794685bf-6ab5-4147-93f6-2ef40a4b25c2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 100,
+        "custom_css_class": "about__healthSecOneWrapper"
+      }
+    },
+    "section_PUjVtb": {
+      "type": "section",
+      "blocks": {
+        "ai_gen_block_ef9b3bf_NTWkXr": {
+          "type": "ai_gen_block_ef9b3bf",
+          "settings": {
+            "next_slide_visible": 30,
+            "image_border_radius": 8,
+            "nav_button_color": "#ffffff",
+            "nav_button_text_color": "#000000",
+            "nav_button_hover_color": "#000000",
+            "dot_color": "#000000",
+            "heading": "הדברים הקטנים והגדולים שהופכים את סקויה למקום הנכון לעבוד בו",
+            "description": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי.קולהע צופעט למרקוח איבן איף.</p>",
+            "button_text": "",
+            "button_link": "",
+            "heading_size": 32,
+            "text_size": 16,
+            "heading_color": "#323438",
+            "text_color": "#323438",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#333333",
+            "button_border_radius": 4,
+            "image_1": "shopify://shop_images/work-benefits1.png",
+            "title_1": "אנשים טובים ואווירה נעימה",
+            "description_1": "<p>המוצרים שלנו נבחרו בקפידה כדי להעניק לכם את התמיכה הטובה ביותר לבריאות ולחיים מאוזנים. אנו משתמשים במרכיבים טבעיים ואיכותיים בלבד, עם דגש על אפקטיביות, שקיפות ובטיחות מלאה. הצטרפו לאלפי לקוחות מרוצים שכבר נהנים מהשיפור המשמעותי באיכות החיים.</p>",
+            "image_2": "shopify://shop_images/work-benefits2.png",
+            "title_2": "עבודה עם משמעות",
+            "description_2": "<p>המוצרים שלנו נבחרו בקפידה כדי להעניק לכם את התמיכה הטובה ביותר לבריאות ולחיים מאוזנים. אנו משתמשים במרכיבים טבעיים ואיכותיים בלבד, עם דגש על אפקטיביות, שקיפות ובטיחות מלאה. הצטרפו לאלפי לקוחות מרוצים שכבר נהנים מהשיפור המשמעותי באיכות החיים.</p>",
+            "image_3": "shopify://shop_images/work-benefits1.png",
+            "title_3": "אנשים טובים ואווירה נעימה",
+            "description_3": "<p>המוצרים שלנו נבחרו בקפידה כדי להעניק לכם את התמיכה הטובה ביותר לבריאות ולחיים מאוזנים. אנו משתמשים במרכיבים טבעיים ואיכותיים בלבד, עם דגש על אפקטיביות, שקיפות ובטיחות מלאה. הצטרפו לאלפי לקוחות מרוצים שכבר נהנים מהשיפור המשמעותי באיכות החיים.</p>",
+            "image_4": "shopify://shop_images/work-benefits2.png",
+            "title_4": "עבודה עם משמעות",
+            "description_4": "<p>עבודה עם משמעות</p><p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.</p>",
+            "image_5": "shopify://shop_images/work-benefits1.png",
+            "title_5": "אנשים טובים ואווירה נעימה",
+            "description_5": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ef9b3bf_NTWkXr"
+      ],
+      "name": "t:names.custom_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 35,
+        "padding-block-end": 68,
+        "custom_css_class": ""
+      }
+    },
+    "sp_what_we_offer_PbqKaC": {
+      "type": "sp-what-we-offer",
+      "blocks": {
+        "text_column_wJgBCt": {
+          "type": "text_column",
+          "settings": {
+            "number": "92%",
+            "title": "שביעות רצון",
+            "description": "<p>לורם איפסום דולור סיט אמט, קונ סקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח.</p>"
+          }
+        },
+        "text_column_UFNR8y": {
+          "type": "text_column",
+          "settings": {
+            "number": "60%",
+            "title": "מההנהלה - נשים",
+            "description": "<p>לורם איפסום דולור סיט אמט, קונ סקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח.</p>"
+          }
+        },
+        "image_column_WydxUL": {
+          "type": "image_column",
+          "settings": {
+            "image": "shopify://shop_images/what-we-offer-thumb1.jpg"
+          }
+        },
+        "text_column_cPwtKq": {
+          "type": "text_column",
+          "settings": {
+            "number": "8",
+            "title": "צוותים רב-תחומיים",
+            "description": "<p>לורם איפסום דולור סיט אמט, קונ סקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח.</p>"
+          }
+        },
+        "image_column_pVaYBH": {
+          "type": "image_column",
+          "settings": {
+            "image": "shopify://shop_images/wht-we-offer-thumb2.jpg"
+          }
+        },
+        "text_column_iFCn6b": {
+          "type": "text_column",
+          "settings": {
+            "number": "20+",
+            "title": "שותפים אקדמיים וטכנולוגיים",
+            "description": "<p>לורם איפסום דולור סיט אמט, קונ סקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_column_wJgBCt",
+        "text_column_UFNR8y",
+        "image_column_WydxUL",
+        "text_column_cPwtKq",
+        "image_column_pVaYBH",
+        "text_column_iFCn6b"
+      ],
+      "name": "SP What We Offer",
+      "settings": {
+        "title": "",
+        "description": "",
+        "bg_color": "#ffffff",
+        "title_size": 32,
+        "title_color": "#323438",
+        "desc_size": 18,
+        "desc_color": "#323438",
+        "card_bg": "#f8f8f5",
+        "card_title_size": 16,
+        "card_title_color": "#065954",
+        "card_text_size": 16,
+        "card_text_color": "#065954"
+      }
+    },
+    "sp_job_listing_grid_fFY7LR": {
+      "type": "sp-job-listing-grid",
+      "blocks": {
+        "job_card_jz3gdW": {
+          "type": "job_card",
+          "settings": {
+            "job_badges": "עבודה היברידית, משרה מלאה",
+            "job_title": "מנהל.ת קהילה ותוכן",
+            "job_description": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי קולהע צופעט למרקוח איבן איף.</p>",
+            "button_label": "לפרטים נוספים",
+            "button_link": "#"
+          }
+        },
+        "job_card_6zT3ab": {
+          "type": "job_card",
+          "settings": {
+            "job_badges": "עבודה היברידית, משרה מלאה",
+            "job_title": "מנהל.ת קהילה ותוכן",
+            "job_description": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי קולהע צופעט למרקוח איבן איף.</p>",
+            "button_label": "לפרטים נוספים",
+            "button_link": "#"
+          }
+        },
+        "job_card_C9tPiw": {
+          "type": "job_card",
+          "settings": {
+            "job_badges": "עבודה היברידית, משרה מלאה",
+            "job_title": "מנהל.ת קהילה ותוכן",
+            "job_description": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי קולהע צופעט למרקוח איבן איף.</p>",
+            "button_label": "לפרטים נוספים",
+            "button_link": "#"
+          }
+        },
+        "job_card_YdzYqE": {
+          "type": "job_card",
+          "settings": {
+            "job_badges": "עבודה היברידית, משרה מלאה",
+            "job_title": "מנהל.ת קהילה ותוכן",
+            "job_description": "<p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קונדימנטום קורוס בליקרה, נונסטי קלוב רהלך בריקנה סטום, לפריקך תצטריק לרטי קולהע צופעט למרקוח איבן איף.</p>",
+            "button_label": "לפרטים נוספים",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "job_card_jz3gdW",
+        "job_card_6zT3ab",
+        "job_card_C9tPiw",
+        "job_card_YdzYqE"
+      ],
+      "name": "Jobs Listings Grid",
+      "settings": {
+        "title": "ההזדמנות שלכם מתחילה כאן",
+        "description": "",
+        "background_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_UEF8KP",
+    "sp_what_we_offer_PbqKaC",
+    "section_PUjVtb",
+    "sp_job_listing_grid_fFY7LR"
+  ]
+}

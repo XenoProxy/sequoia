@@ -1,0 +1,1096 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "about-hero-banner",
+      "blocks": {
+        "banner_content_D9cm3r": {
+          "type": "banner_content",
+          "settings": {
+            "banner_image_desktop": "shopify://shop_images/banner-about-us.jpg",
+            "banner_image_mobile": "shopify://shop_images/banner-about-us-mobile.jpg",
+            "sub_title": "על סקויה",
+            "title": "החזון שמחבר בין מדע לבריאות, בין טכנולוגיה לחיים טובים יותר"
+          }
+        }
+      },
+      "block_order": [
+        "banner_content_D9cm3r"
+      ],
+      "settings": {}
+    },
+    "section_krfDKw": {
+      "type": "section",
+      "blocks": {
+        "group_bE7rAB": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "group-class": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_gKqKkA": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<p><strong>מדע. ספיגה. תוצאה.<br/><br/></strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "2rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "text_HWNgTa": {
+              "type": "text",
+              "settings": {
+                "text": "<p>טכנולוגיית הליפוזום מדמה את ממברנות התאים, ועוטפת רכיבים פעילים במעטפת שומנית מיקרוסקופית. כך נשמרת יציבותם הביוכימית ומשתפרת הספיגה. התוצאה: הובלה ממוקדת, מבוקרת ויעילה אל התאים.<br/><br/></p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 34,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "button_Gam3Ga": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_gKqKkA",
+            "text_HWNgTa",
+            "button_Gam3Ga"
+          ]
+        },
+        "image_zWj3G6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/health-vision-thumb.jpg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 12,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "group_bE7rAB",
+        "image_zWj3G6"
+      ],
+      "custom_css": [
+        "{padding: 0 120px; border-radius: 12px 12px 0 0; overflow: hidden; position: relative; z-index: 2; margin-top: -40px;}",
+        "@media screen and (max-width: 767px) {{padding: 0 20px; border-radius: 12px 12px 0 0; } .about__healthSecOneWrapper .section-content-wrapper {padding-top: 40px; padding-bottom: 38px; gap: 40px; } .about__healthSecOneWrapper .group-block {flex-basis: unset; } .about__healthSecOneWrapper .group-block-content {height: unset; } .about__healthSecOneWrapper .group-block-content .text-block {padding-left: 0; }}"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 82,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-794685bf-6ab5-4147-93f6-2ef40a4b25c2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 100,
+        "custom_css_class": "about__healthSecOneWrapper"
+      }
+    },
+    "section_fMKYLf": {
+      "type": "section",
+      "blocks": {
+        "text_8YaJHN": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3><strong>מה הופך את סקויה לבחירה הנכונה עבורכם?</strong></h3>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "right",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "2rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": "about__faqSecHeading"
+          },
+          "blocks": {}
+        },
+        "accordion_rNtrjK": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_pYTdEe": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "טכנולוגיה ליפוזומלית חדשנית",
+                "open_by_default": true
+              },
+              "blocks": {
+                "text_ftdMDE": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>פורמולציות מבוססות ליפוזומים בתור מערכת שינוע חכמה, המבוססת על עקרונות ביומימטיים - כלומר, חיקוי של תהליכים טבעיים בגוף. יכולתן להגן על רכיבים פעילים ולשפר את הובלתם דרך מחסומים פיזיולוגיים הופכת אותן לאחד הכלים המתקדמים ביותר כיום בפיתוח תוספי תזונה יעילים.<br/><br/></p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_ftdMDE"
+              ]
+            },
+            "accordion_row_8yrtmq": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "בקרת איכות קפדנית בתנאי ייצור מותאמים לדרישות רגולטוריות מחמירות",
+                "open_by_default": false
+              },
+              "blocks": {
+                "text_8cjHVC": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>הפורמולציות שלנו מפותחות ונבדקות על פי פרוטוקולים מבוססי מדע, בתנאי ייצור נאותים (GMP) ובפיקוח מלא של משרד הבריאות. כל רכיב נבחן על פי פרמטרים נוספים של יציבות, ניקיון ביולוגי, זמינות ביולוגית, ופוטנציאל ספיגה בגוף.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_8cjHVC"
+              ]
+            },
+            "accordion_row_FUm9M7": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_dash_row",
+              "settings": {
+                "heading": "מאחורי כל פורמולציה עומדת גם מחשבה על חוויית המשתמש",
+                "open_by_default": false
+              },
+              "blocks": {
+                "text_kcXMnx": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>טעם נעים, מרקם מאוזן ונוחות יומיומית בלי להתפשר על דיוק או יעילות<br/><br/></p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "right",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "custom_css_class": ""
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_kcXMnx"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_pYTdEe",
+            "accordion_row_8yrtmq",
+            "accordion_row_FUm9M7"
+          ]
+        }
+      },
+      "block_order": [
+        "text_8YaJHN",
+        "accordion_rNtrjK"
+      ],
+      "custom_css": [
+        "{direction: rtl; padding: 0 120px;}",
+        "@media screen and (max-width: 767px) {{padding: 0 20px; }}"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-end",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 40,
+        "custom_css_class": "about__faqsSecWrapper"
+      }
+    },
+    "custom_info_blocks_3UnrGU": {
+      "type": "custom-info-blocks",
+      "blocks": {
+        "info_block_BMgYaJ": {
+          "type": "info_block",
+          "settings": {
+            "block_title": "הגנה ושימור",
+            "block_description": "הליפוזום יוצר מעטפת פוספוליפידית סביב הרכיבים הפעילים, המספקת הגנה סלקטיבית מפני תנאים סביבתיים"
+          }
+        },
+        "info_block_XgYaHr": {
+          "type": "info_block",
+          "settings": {
+            "block_title": "ספיגה אופטימלית",
+            "block_description": "הליפוזום מנצל ספיגה טבעית במעי להעברת רכיבים פעילים ישירות וביעילות לדם, עם שחרור מבוקר וזמינות ביולוגית גבוהה"
+          }
+        },
+        "info_block_Jek6kC": {
+          "type": "info_block",
+          "settings": {
+            "block_title": "שחרור ממוקד",
+            "block_description": "הליפוזום מגן על הרכיבים הפעילים עד לשחרור ממוקד במעי, שם נספגים ביעילות ומספקים אפקט פיזיולוגי מיטבי"
+          }
+        }
+      },
+      "block_order": [
+        "info_block_BMgYaJ",
+        "info_block_XgYaHr",
+        "info_block_Jek6kC"
+      ],
+      "custom_css": [
+        "{direction: rtl;}"
+      ],
+      "name": "Info Blocks Section",
+      "settings": {
+        "section_title": "הכירו את הליפוזום: ספיגה ויעילות מקסימליות"
+      }
+    },
+    "sp_animated_boxes_43wxNQ": {
+      "type": "sp-animated-boxes",
+      "blocks": {
+        "box_ekWFYL": {
+          "type": "box",
+          "settings": {
+            "box_image": "shopify://shop_images/thumb-social-engagement-block.jpg",
+            "title": "ערכים ומעורבות חברתית",
+            "text": "פועלים למען הקהילה, יוזמות, שיתופי פעולה ותמיכה באוכלוסיות מגוונות מתוך מחויבות אמיתית",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff",
+            "title_size": 24,
+            "text_size": 16,
+            "box_padding": 20,
+            "box_radius": 8
+          }
+        },
+        "box_GtiBfR": {
+          "type": "box",
+          "settings": {
+            "box_image": "shopify://shop_images/thumb-scientific-innovation.jpg",
+            "title": "חדשנות מדעית",
+            "text": "חדשנות מדעית המגדירה מחדש את גבולות הבריאות באמצעות טכנולוגיה ליפוזומלית מבוססת ראיות, המאפשרת ספיגה תאית מוגברת, יציבות מולקולרית גבוהה, ופעילות פיזיולוגית יעילה",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff",
+            "title_size": 24,
+            "text_size": 16,
+            "box_padding": 20,
+            "box_radius": 8
+          }
+        }
+      },
+      "block_order": [
+        "box_ekWFYL",
+        "box_GtiBfR"
+      ],
+      "name": "SP Animated Boxes",
+      "settings": {
+        "section_title": "מובילים את העתיד של הבריאות",
+        "section_description": "מובילים את עתיד התזונה המותאמת אישית עם פורמולציות מדויקות שמבוססות על מדע, טכנולוגיה וביולוגיה אשר מספקים פתרונות בריאותיים מערכתיים בעלי השפעה ארוכת טווח",
+        "bg_color": "#ffffff",
+        "padding_top": 40,
+        "padding_sides": 120,
+        "padding_bottom": 40,
+        "gap": 20
+      }
+    },
+    "section_VAmaHm": {
+      "type": "section",
+      "blocks": {
+        "text_nk7W3R": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>הטכנולוגיה הליפוזומלית שלנו מאפשרת חדירה תאית ממוקדת, משפרת את יעילות הרכיבים ומספקת חוויית שימוש בטוחה ומותאמת לגוף<br/><br/></p>",
+            "width": "100%",
+            "max_width": "none",
+            "alignment": "right",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "2rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 40,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": "text__headingWrapper"
+          },
+          "blocks": {}
+        },
+        "group_qJP7EA": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "link": "",
+            "group-class": "",
+            "open_in_new_tab": false,
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_mxpVRU": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>מאחורי המדע</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "icon_CHg6nk": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/arr.png",
+                "width": 30,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_mxpVRU",
+            "icon_CHg6nk"
+          ]
+        }
+      },
+      "block_order": [
+        "text_nk7W3R",
+        "group_qJP7EA"
+      ],
+      "custom_css": [
+        "{direction: rtl; padding: 0 120px;}",
+        "@media screen and (max-width: 767px) {{padding: 0 20px; } .pull__quoteTextWrapper > .custom-section-content > .section-content-wrapper {padding: 15px 0 40px; } .text__headingWrapper {padding: 0; } .text__headingWrapper p {font-size: 24px; } .group-block-content {flex-flow: row nowrap; justify-content: flex-start; display: none; }}"
+      ],
+      "name": "Split Showcase Header",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-end",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-end",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 40,
+        "custom_css_class": "pull__quoteTextWrapper"
+      }
+    },
+    "section_nHqqqJ": {
+      "type": "section",
+      "blocks": {
+        "group_gHHWQ3": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "group-class": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 55,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 0.5,
+            "border_opacity": 37,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#f8f8f5",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 47,
+            "padding-block-end": 24,
+            "padding-inline-start": 47,
+            "padding-inline-end": 24
+          },
+          "blocks": {
+            "text_zeqbXb": {
+              "type": "text",
+              "settings": {
+                "text": "<p><strong>ספיגה גבוהה ויעילות מקסימלית</strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "text_FcPe4B": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>ספיגה ביולוגית מתקדמת ויעילות מערכתית אופטימלית - עם שיעורי ספיגה משןפרים לתאים, בהשוואה לספיגה חלקית ומוגבלת בתוספים רגילים.<br/><br/></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.875rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 14,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_zeqbXb",
+            "text_FcPe4B"
+          ]
+        },
+        "group_8QkdqN": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "group-class": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 55,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 0.5,
+            "border_opacity": 37,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#f8f8f5",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 47,
+            "padding-block-end": 47,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
+          },
+          "blocks": {
+            "text_hWmEyy": {
+              "type": "text",
+              "settings": {
+                "text": "<p><strong>הגנה על הרכיבים הפעילים</strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "text_4NbQqb": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>המעטפת של הליפוזומים יוצרת שכבת הגנה כפולה סביב הרכיבים הפעילים ובידי כך שומרת על יציבותם, מגנה עליהם מפני פירוק מוקדם בידי חומצות במערכת העיכול, ומאפשרת להם להגיע באופן ממוקד לתאים, המטרה האמיתית שלהם.<br/><br/></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.875rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 14,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 10,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_hWmEyy",
+            "text_4NbQqb"
+          ]
+        },
+        "group_jci6Ef": {
+          "type": "group",
+          "settings": {
+            "link": "",
+            "group-class": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-end",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 55,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "solid",
+            "border_width": 0.5,
+            "border_opacity": 37,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#f8f8f5",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "padding-block-start": 47,
+            "padding-block-end": 24,
+            "padding-inline-start": 47,
+            "padding-inline-end": 24
+          },
+          "blocks": {
+            "text_R8enpA": {
+              "type": "text",
+              "settings": {
+                "text": "<p><strong>ידידותי למערכת העיכול</strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "right",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            },
+            "text_9xRLPt": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>המבנה הליפוזומלי מפחית את החשיפה של רכיבי התזונה העדינים לחומציות הקיבה, מצמצם תופעות לוואי גסטרואינטסטינליות במערכת העיכול ומאפשר הובלה בטוחה וממוקדת למעי. כך מושגת ספיגה יעילה לחוויית שימוש מאוזנת ונוחה לגוף.<br/><br/></p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.875rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 14,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 10,
+                "custom_css_class": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_R8enpA",
+            "text_9xRLPt"
+          ]
+        }
+      },
+      "block_order": [
+        "group_gHHWQ3",
+        "group_8QkdqN",
+        "group_jci6Ef"
+      ],
+      "custom_css": [
+        "{direction: rtl; padding: 0 120px;}",
+        "@media screen and (max-width: 767px) {{padding: 0 20px; }}"
+      ],
+      "name": "t:names.split_showcase",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 40,
+        "custom_css_class": "split__showCaseWrapper"
+      }
+    },
+    "sp_tabbed_content_6Efy4F": {
+      "type": "sp-tabbed-content",
+      "name": "SP Tabbed Content",
+      "settings": {
+        "section_heading": "סקויה למען הקהילה",
+        "section_description": "",
+        "heading_color": "#323438",
+        "description_color": "#323438",
+        "tab_text_color": "#a5a8ad",
+        "tab_active_underline_color": "#323438",
+        "tab_border_color": "#a5a8ad",
+        "tab_spacing": 30,
+        "tab1_heading": "בית ספר רנטד",
+        "tab1_bg_image": "shopify://shop_images/tab-1.jpg",
+        "tab1_title": "לורם איפסום דולור",
+        "tab1_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם גדדיש. קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת.",
+        "tab2_heading": "Make a Wish",
+        "tab2_bg_image": "shopify://shop_images/about_make_a_wish_mobile.jpg",
+        "tab2_title": "Make a Wish",
+        "tab2_description": "החברה גאה לשתף פעולה עם עמותת Make-A-Wish Israel, המגשימה משאלות לילדים החולים במחלות מסכנות חיים. בכל רכישה שלכם, אתם תורמים להגשמת חלומותיהם ומעניקים להם ולמשפחותיהם רגעי תקווה ושמחה.",
+        "tab3_heading": "מלגות סטודנטים לרפואה{{ page.title }}",
+        "tab3_bg_image": "shopify://shop_images/tab-1.jpg",
+        "tab3_title": "מלגות סטודנטים לרפואה",
+        "tab3_description": "סקויה תומכת באקדמיה ובחינוך דרך מלגות בטכניון ומחקרים משותפים, כחלק ממחויבותה לאחריות חברתית ובהתאם להנחיות משרד הבריאות."
+      }
+    },
+    "sp_video_carousel_xVJtXp": {
+      "type": "sp-video-carousel",
+      "blocks": {
+        "video_ktiKWe": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "video_CinFzj": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "video_7aBRJK": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "video_pTPa94": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
+            "title": "",
+            "description": ""
+          }
+        },
+        "video_xKqK4U": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_ktiKWe",
+        "video_CinFzj",
+        "video_7aBRJK",
+        "video_pTPa94",
+        "video_xKqK4U"
+      ],
+      "name": "SP Video Carousel",
+      "settings": {
+        "main_title": "מרגישות יופי בערוץ 12",
+        "main_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק. קולהע צופעט למרקוח איבן איף.",
+        "button_label": "לכל המוצרים",
+        "button_link": "#",
+        "slide_per_view": 1,
+        "slide_visibility": 30,
+        "rtl_enable": true,
+        "video_aspect_ratio": "16/9"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_krfDKw",
+    "section_fMKYLf",
+    "custom_info_blocks_3UnrGU",
+    "sp_animated_boxes_43wxNQ",
+    "section_VAmaHm",
+    "section_nHqqqJ",
+    "sp_tabbed_content_6Efy4F",
+    "sp_video_carousel_xVJtXp"
+  ]
+}

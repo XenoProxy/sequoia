@@ -1,0 +1,227 @@
+{% doc %}
+  @prompt
+    create a progress bar, make the bar full width with light grey background and grey scrollbar thumb and make radius of the bar edges sqaure. make the height of the bar and its background 2px and make height adjustable from 1px to 10px., remove the texts from bottom of the bar
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-progress-bar-container-{{ ai_gen_id }} {
+    width: 100%;
+    padding: {{ block.settings.container_padding }}px;
+    background-color: {{ block.settings.container_background }};
+    border-radius: {{ block.settings.container_border_radius }}px;
+  }
+
+  .ai-progress-bar-header-{{ ai_gen_id }} {
+    margin-bottom: 16px;
+  }
+
+  .ai-progress-bar-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_font_size }}px;
+    color: {{ block.settings.title_color }};
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+
+  .ai-progress-bar-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.description_font_size }}px;
+    color: {{ block.settings.description_color }};
+    margin: 0;
+  }
+
+  .ai-progress-bar-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    height: {{ block.settings.bar_height }}px;
+    background-color: #f0f0f0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .ai-progress-bar-fill-{{ ai_gen_id }} {
+    height: 100%;
+    background: #999999;
+    border-radius: 0;
+    transition: width 0.8s ease-in-out;
+    position: relative;
+    width: {% assign progress_percentage = block.settings.current_value | times: 100.0 | divided_by: block.settings.target_value %}{{ progress_percentage }}%;
+    max-width: 100%;
+  }
+
+  {% if block.settings.show_shine_effect %}
+    .ai-progress-bar-fill-{{ ai_gen_id }}::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: ai-progress-shine-{{ ai_gen_id }} 2s infinite;
+    }
+
+    @keyframes ai-progress-shine-{{ ai_gen_id }} {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  {% endif %}
+{% endstyle %}
+
+<div class="ai-progress-bar-container-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.title != blank or block.settings.description != blank %}
+    <div class="ai-progress-bar-header-{{ ai_gen_id }}">
+      {% if block.settings.title != blank %}
+        <h3 class="ai-progress-bar-title-{{ ai_gen_id }}">{{ block.settings.title }}</h3>
+      {% endif %}
+      {% if block.settings.description != blank %}
+        <p class="ai-progress-bar-description-{{ ai_gen_id }}">{{ block.settings.description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="ai-progress-bar-wrapper-{{ ai_gen_id }}">
+    <div class="ai-progress-bar-fill-{{ ai_gen_id }}"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Progress Bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Progress"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "current_value",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Progress percentage",
+      "default": 75
+    },
+    {
+      "type": "range",
+      "id": "target_value",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "label": "Target value (for calculation)",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar Style"
+    },
+    {
+      "type": "range",
+      "id": "bar_height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Bar height",
+      "default": 2
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shine_effect",
+      "label": "Show shine effect",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Container Style"
+    },
+    {
+      "type": "range",
+      "id": "container_padding",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Container padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "container_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Container border radius",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "container_background",
+      "label": "Container background",
+      "default": "rgba(0,0,0,0)"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Title font size",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Description font size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#666666"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Progress Bar"
+    }
+  ]
+}
+{% endschema %}

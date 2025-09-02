@@ -1,0 +1,211 @@
+<style>
+    .animated-box .label-text {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(134.76deg, rgba(204, 194, 194, 0.11) 2.43%, rgba(204, 194, 194, 0.055) 38.66%, rgba(204, 194, 194, 0.11) 74.9%);
+  color: #fff;
+  backdrop-filter: blur(30px);
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  z-index: 3;
+  max-height: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Optional smaller label on mobile */
+@media screen and (max-width: 767px) {
+  .animated-box .label-text {
+    font-size: 12px;
+    padding: 4px 8px;
+    top: -15px !important;
+    right: 0px !important;
+  }
+}
+  .animated-boxes__sectionWrapper {
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_sides }}px {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+  @media screen and (max-width: 767px){
+    .animated-boxes__sectionWrapper {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+  span.box-price {
+    position: absolute;
+    left: 0px;
+    font-size: 20px;
+    font-weight: 400;
+}
+  .animated-boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ section.settings.gap }}px;
+  }
+  .animated-boxes__sectionWrapper .animated-boxes__header {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 650px;
+  }
+  .animated-boxes__sectionWrapper .animated-boxes__header h2{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .animated-boxes__sectionWrapper .animated-boxes__header p{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }
+  .animated-box {
+    position: relative;
+    flex: 1 1 calc(50% - {{ section.settings.gap }}px);
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 30% !important;
+  }
+  @media screen and (max-width: 767px){
+    .animated-box {
+      padding-top: 60% !important;
+    }
+  }
+  .animated-box:hover {
+    flex: 1.2 1 0;
+  }
+  .animated-box:not(:hover) {
+    flex: 0.8 1 0;
+  }
+
+  .animated-box-content {
+    text-align: right;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    width: calc(100% - 80px);
+  }
+
+  @media screen and (max-width: 767px){
+    .animated-box-content {
+      padding: 20px 0;
+      right: 20px;
+      width: calc(100% - 40px);
+    }
+  }
+
+  .animated-box h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+
+  .animated-box p {
+    font-weight: 500;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease-in-out 0.5s;
+  }
+
+  .animated-box:hover p {
+    max-height: 300px;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media screen and (max-width: 767px) {
+    .animated-boxes-container {
+      flex-direction: column;
+    }
+    .animated-box {
+      flex: 1 1 100%;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+    .animated-box-content p {
+      max-height: 300px;
+      overflow: hidden;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+</style>
+<section id="{{ section.id }}" class="animated-boxes__sectionWrapper">
+  {% if section.settings.section_title or section.settings.section_description %}
+    <div class="animated-boxes__header">
+      {% if section.settings.section_title %}
+        <h2>{{ section.settings.section_title }}</h2>
+      {% endif %}
+      {% if section.settings.section_description %}
+        <p>{{ section.settings.section_description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="animated-boxes-container">
+    {% for block in section.blocks %}
+      <div id="{{ block.id }}" class="animated-box" style="background-image: url({{ block.settings.box_image | image_url: width: 1200 }}); border-radius: {{ block.settings.box_radius }}px; padding: {{ block.settings.box_padding }}px;">
+      <p class="label-text desktop">{{ block.settings.label }}</p>  
+        <div class="animated-box-content" style="color: {{ block.settings.text_color }};">
+          <p class="label-text mobile">{{ block.settings.label }}</p>
+          <h3 style="color: {{ block.settings.title_color }}; font-size: {{ block.settings.title_size }}px;">{{ block.settings.title }} <span class="box-price">{{ block.settings.price }}</span></h3>
+          <p style="font-size: {{ block.settings.text_size }}px;">{{ block.settings.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% schema %}
+  {
+    "name": "SP Animated Boxes Pro",
+    "settings": [
+      { "type": "text", "id": "section_title", "label": "Section Title", "default": "Our Feature Boxes" },
+      { "type": "textarea", "id": "section_description", "label": "Section Description", "default": "This is an optional description for the animated boxes section." },
+      { "type": "color", "id": "bg_color", "label": "Section Background", "default": "#ffffff" },
+      { "type": "range", "id": "padding_top", "label": "Padding Top (px)", "min": 0, "max": 200, "step": 5, "default": 40 },
+      { "type": "range", "id": "padding_sides", "label": "Padding Sides (px)", "min": 0, "max": 200, "step": 5, "default": 20 },
+      { "type": "range", "id": "padding_bottom", "label": "Padding Bottom (px)", "min": 0, "max": 200, "step": 5, "default": 40 },
+      { "type": "range", "id": "gap", "label": "Boxes Gap (px)", "min": 0, "max": 100, "step": 1, "default": 20 }
+    ],
+    "blocks": [
+      {
+        "type": "box",
+        "name": "Animated Box",
+        "settings": [
+          { "type": "image_picker", "id": "box_image", "label": "Box Background Image" },
+          { "type": "text", "id": "label", "label": "Label", "default": "הכי פופולרי" },
+          { "type": "html", "id": "title", "label": "Title", "default": "Box Title" },
+          { "type": "text", "id": "price", "label": "Price", "default": "58₪" },
+          { "type": "textarea", "id": "text", "label": "Description", "default": "Box description text." },
+          { "type": "color", "id": "title_color", "label": "Title Color", "default": "#ffffff" },
+          { "type": "color", "id": "text_color", "label": "Text Color", "default": "#ffffff" },
+          { "type": "range", "id": "title_size", "label": "Title Font Size (px)", "min": 12, "max": 48, "step": 1, "default": 24 },
+          { "type": "range", "id": "text_size", "label": "Text Font Size (px)", "min": 10, "max": 32, "step": 1, "default": 16 },
+          { "type": "range", "id": "box_padding", "label": "Box Padding (px)", "min": 0, "max": 100, "step": 5, "default": 20 },
+          { "type": "range", "id": "box_radius", "label": "Box Border Radius (px)", "min": 0, "max": 100, "step": 1, "default": 8 }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "SP Animated Boxes Pro",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+</section>
