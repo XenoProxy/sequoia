@@ -183,10 +183,10 @@
         -webkit-overflow-scrolling: touch;  /* Smooth momentum scrolling */
       }
 
-      .ai-video-carousel__video-wrapper-{{ ai_gen_id }} {
+      /* .ai-video-carousel__video-wrapper-{{ ai_gen_id }} {
         position: relative;
-        z-index: 1;  /* Ensures video layers above gradients */
-      }
+        z-index: 1;  
+      } */
     }
 
     /* .ai-video-carousel__nav-{{ ai_gen_id }}:hover {
@@ -380,6 +380,15 @@
 
         this.setupEventListeners();
         this.updateCarousel();
+
+        this.videos.forEach(video => {
+          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            video.addEventListener('loadedmetadata', () => {
+              video.currentTime = 0.1; // Seek to 0.1s to force frame
+              video.pause();
+            });
+          }
+        });
       }
 
       setupEventListeners() {
