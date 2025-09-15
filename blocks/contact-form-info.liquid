@@ -1,8 +1,3 @@
-{% doc %}
-  @prompt
-    shopify contact form with side text contact info heading and address icon email and phone icon, the icons should option to upload custom
-
-{% enddoc %}
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
@@ -144,7 +139,6 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* width: 100%; */
   }
 
   .ai-contact-form-button-{{ ai_gen_id }}:hover {
@@ -228,9 +222,7 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
           {% endif %}
         </div>
         <div class="ai-contact-info-content-{{ ai_gen_id }}">
-          
-            {{ block.settings.phone }}
-         
+          {{ block.settings.phone }}
         </div>
       </div>
     {% endif %}
@@ -248,14 +240,30 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
           {% endif %}
         </div>
         <div class="ai-contact-info-content-{{ ai_gen_id }}">
-         
-            {{ block.settings.email }}
-        
+          {{ block.settings.email }}
         </div>
       </div>
     {% endif %}
 
-     {% if block.settings.button_text1 != blank and block.settings.button_link1 != blank %}
+    {% if block.settings.whatsapp != blank %}
+      <div class="ai-contact-info-item-{{ ai_gen_id }}">
+        <div class="ai-contact-info-icon-{{ ai_gen_id }}">
+          {% if block.settings.whatsapp_icon %}
+            <img src="{{ block.settings.whatsapp_icon | image_url: width: 48 }}" alt="WhatsApp icon" loading="lazy">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-12.5 7.5l-5.5 1.7 1.7-5.5a8.38 8.38 0 0 1 7.5-12.5A8.38 8.38 0 0 1 21 11.5z"></path>
+              <path d="M15.9 14.3c-.2-.6-1.1-1-2-1.2-.9-.2-1.7-.2-2.4.5-.7.7-.9 1.7-.7 2.4.2.7 1.8 2.7 3.6 3.2 1.8.5 1.8.3 2.2.2.4-.1 1.3-.5 1.5-.9.2-.4.2-.7.1-.8-.1-.1-.3-.2-.5-.3z"></path>
+            </svg>
+          {% endif %}
+        </div>
+        <div class="ai-contact-info-content-{{ ai_gen_id }}">
+          {{ block.settings.whatsapp }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.settings.button_text1 != blank and block.settings.button_link1 != blank %}
       <a style="background: transparent; display: flex;gap: 10px; align-items: center; color: #323438; font-size: 16px; margin-top: 20px;" href="{{ block.settings.button_link1 }}" class="arrow-button">
         {{ block.settings.button_text1 }} <img src="https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Frame_1984077742.png?v=1750315065" style="width: auto;">
       </a>
@@ -268,7 +276,7 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
         <h3 class="ai-contact-form-title-{{ ai_gen_id }}">{{ block.settings.form_title }}</h3>
       {% endif %}
 
-     {% if block.settings.form_subtitle != blank %}
+      {% if block.settings.form_subtitle != blank %}
         <p class="ai-contact-form-subtitle-{{ ai_gen_id }}">{{ block.settings.form_subtitle }}</p>
       {% endif %}
 
@@ -293,8 +301,7 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
         {% endif %}
       </div>
 
-       <div class="ai-contact-form-field-{{ ai_gen_id }}">
-        
+      <div class="ai-contact-form-field-{{ ai_gen_id }}">
         <input
           type="tel"
           id="contact-phone-{{ ai_gen_id }}"
@@ -307,7 +314,6 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
       </div>
 
       <div class="ai-contact-form-field-{{ ai_gen_id }}">
-        
         <input
           type="email"
           id="contact-email-{{ ai_gen_id }}"
@@ -329,9 +335,7 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
         {% endif %}
       </div>
 
-
       <div class="ai-contact-form-field-{{ ai_gen_id }}">
-       
         <textarea
           id="contact-message-{{ ai_gen_id }}"
           name="contact[body]"
@@ -401,7 +405,13 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
       "label": "Email address",
       "default": "hello@example.com"
     },
-        {
+    {
+      "type": "textarea",
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "default": "אנחנו זמינים גם בוואטסאפ 0523017348"
+    },
+    {
       "type": "text",
       "id": "button_text1",
       "label": "Button text",
@@ -412,7 +422,6 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
       "id": "button_link1",
       "label": "Button link"
     },
-
     {
       "type": "header",
       "content": "Custom Icons"
@@ -431,6 +440,11 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
       "type": "image_picker",
       "id": "email_icon",
       "label": "Email icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "whatsapp_icon",
+      "label": "WhatsApp icon"
     },
     {
       "type": "range",
@@ -452,7 +466,7 @@ p.ai-contact-info-subheading-{{ ai_gen_id }} p {
       "label": "Form title",
       "default": "Send us a message"
     },
-     {
+    {
       "type": "text",
       "id": "form_subtitle",
       "label": "Sub title",
