@@ -74,7 +74,7 @@
         "link": "",
         "open_in_new_tab": false,
         "media_type_1": "image",
-        "image_1": "{{ collection.image }}",
+        "image_1": "shopify://shop_images/Frame_1984077788.png",
         "media_type_2": "image",
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -220,6 +220,7 @@
               "type": "group",
               "settings": {
                 "link": "",
+                "group-class": "",
                 "open_in_new_tab": false,
                 "content_direction": "row",
                 "vertical_on_mobile": true,
@@ -359,6 +360,7 @@
           "type": "group",
           "settings": {
             "link": "",
+            "group-class": "",
             "open_in_new_tab": false,
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -454,6 +456,7 @@
           "type": "group",
           "settings": {
             "link": "",
+            "group-class": "",
             "open_in_new_tab": false,
             "content_direction": "row",
             "vertical_on_mobile": true,
@@ -550,6 +553,7 @@
         "group_dXtDUV",
         "group_HUJU3D"
       ],
+      "disabled": true,
       "custom_css": [
         "{direction: rtl;}"
       ],
@@ -613,13 +617,13 @@
           },
           "blocks": {}
         },
-        "accordion_hn9eBR": {
+        "accordion_ifTgtG": {
           "type": "accordion",
           "name": "t:names.accordion",
           "settings": {
             "icon": "plus",
             "dividers": true,
-            "type_preset": "h4",
+            "type_preset": "h5",
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -632,33 +636,33 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "accordion_row_YHYxBR": {
+            "accordion_row_t4RUDi": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "heading": "טכנולוגיה ליפוזומלית מתקדמת",
                 "open_by_default": true
               },
               "blocks": {
-                "text_beK99L": {
+                "text_aikAUf": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "text": "<p><br/>הטכנולוגיה שלנו משפרת את זמינות הרכיבים ומאפשרת ספיגה יעילה יותר בגוף, לתוצאות מורגשות.<br/><br/></p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
-                    "type_preset": "custom",
+                    "type_preset": "rte",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "loose",
-                    "letter_spacing": "loose",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 15,
-                    "padding-block-end": 15,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
                     "custom_css_class": ""
@@ -667,36 +671,36 @@
                 }
               },
               "block_order": [
-                "text_beK99L"
+                "text_aikAUf"
               ]
             },
-            "accordion_row_RLwqkx": {
+            "accordion_row_eYnJpT": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "heading": "מדע שמוביל לחדשנות",
                 "open_by_default": false
               },
               "blocks": {
-                "text_BQAzwV": {
+                "text_FVigNk": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "text": "<p>כל פורמולה מפותחת בשיתוף פעולה עם מיטב החוקרים מהטכניון ורמב\"ם, ומבוססת על נתונים מדעיים עדכניים.</p><h3></h3>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
-                    "type_preset": "custom",
+                    "type_preset": "rte",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "loose",
-                    "letter_spacing": "loose",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 15,
-                    "padding-block-end": 15,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
                     "custom_css_class": ""
@@ -705,36 +709,38 @@
                 }
               },
               "block_order": [
-                "text_BQAzwV"
+                "text_FVigNk"
               ]
             },
-            "accordion_row_8LXVhr": {
+            "accordion_row_XBGTLN": {
               "type": "_accordion-row",
+              "name": "t:names.accordion_dash_row",
               "settings": {
-                "heading": "חדשנות פורצת דרך בטכנולוגיית ליפוזום",
+                "heading": "אחריות ואמינות",
                 "open_by_default": false
               },
               "blocks": {
-                "text_D3MqFJ": {
+                "text_AWr4DA": {
                   "type": "text",
+                  "name": "t:names.text",
                   "settings": {
-                    "text": "<p>ליפוזומים הם מבנים כדוריים מיקרוסקופיים המשמשים כמעטפת המגנה על רכיבים תזונתיים. מבנה זה מאפשר להם לעבור בשלמותם דרך מערכת העיכול אל מחזור הדם, ובכך משפר את ספיגת הרכיבים ואת הזמינות הביולוגית שלהם במוצרים שלנו.</p>",
+                    "text": "<p><br/>המוצרים מיוצרים תחת פיקוח קפדני ובהתאם לאישורי משרד הבריאות, עם מחויבות גם לחינוך, אקדמיה ותרומה לקהילה.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
-                    "type_preset": "custom",
+                    "type_preset": "rte",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "loose",
-                    "letter_spacing": "loose",
+                    "font_size": "",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
-                    "padding-block-start": 15,
-                    "padding-block-end": 15,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0,
                     "custom_css_class": ""
@@ -743,20 +749,20 @@
                 }
               },
               "block_order": [
-                "text_D3MqFJ"
+                "text_AWr4DA"
               ]
             }
           },
           "block_order": [
-            "accordion_row_YHYxBR",
-            "accordion_row_RLwqkx",
-            "accordion_row_8LXVhr"
+            "accordion_row_t4RUDi",
+            "accordion_row_eYnJpT",
+            "accordion_row_XBGTLN"
           ]
         }
       },
       "block_order": [
         "text_ELDfiV",
-        "accordion_hn9eBR"
+        "accordion_ifTgtG"
       ],
       "custom_css": [
         "{direction: rtl;}",

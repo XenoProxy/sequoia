@@ -86,45 +86,29 @@
         "link_wMYGwX": {
           "type": "link",
           "settings": {
-            "link_label": "לורם איפסום דולור סיט אמט",
-            "link": ""
+            "link_label": "תקנון האתר ותנאי השימוש",
+            "link": "shopify://pages/terms"
           }
         },
         "link_3aiMPt": {
           "type": "link",
           "settings": {
-            "link_label": "לורם איפסום דולור סיט אמט",
-            "link": ""
+            "link_label": "מדיניות הפרטיות",
+            "link": "shopify://pages/privacy-policy"
           }
         },
         "link_bYdnaF": {
           "type": "link",
           "settings": {
-            "link_label": "לורם איפסום דולור",
-            "link": ""
-          }
-        },
-        "link_6Abnzn": {
-          "type": "link",
-          "settings": {
-            "link_label": "לורם איפסום דולור סיט אמט",
-            "link": ""
-          }
-        },
-        "link_tLxBzC": {
-          "type": "link",
-          "settings": {
-            "link_label": "לורם איפסום דולור סיט",
-            "link": ""
+            "link_label": "הצהרת נגישות",
+            "link": "shopify://pages/accessibility"
           }
         }
       },
       "block_order": [
         "link_wMYGwX",
         "link_3aiMPt",
-        "link_bYdnaF",
-        "link_6Abnzn",
-        "link_tLxBzC"
+        "link_bYdnaF"
       ],
       "name": "Internal Page Layout",
       "settings": {

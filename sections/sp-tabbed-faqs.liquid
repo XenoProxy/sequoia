@@ -227,20 +227,102 @@
 }
 
 @media (max-width: 768px) {
+  .sp-tabbed-faqs {
+    padding: 40px 20px;
+  }
+
+  .sp-tabbed-faqs__header {
+    margin-bottom: 30px;
+  }
+
+  .sp-tabbed-faqs__title {
+    font-size: 24px;
+    margin: 0 0 12px;
+  }
+
+  .sp-tabbed-faqs__description {
+    font-size: 16px;
+  }
+
   .sp-tabbed-faqs__body {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .sp-tabbed-faqs__tabs {
     flex-direction: row;
     overflow-x: auto;
     gap: 8px;
+    padding-bottom: 5px;
   }
 
   .sp-tabbed-faqs__tab-button {
     white-space: nowrap;
-    min-width: 150px;
+    flex-shrink: 0;
     text-align: center;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary {
+    padding: 16px 0;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary .accordion__summary--text {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 30px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__content {
+    padding: 8px 0 16px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__content p {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 30px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__icon {
+    width: 16px;
+    height: 16px;
+    font-size: 24px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-tabbed-faqs {
+    padding: 30px 16px;
+  }
+
+  .sp-tabbed-faqs__title {
+    font-size: 20px;
+  }
+
+  .sp-tabbed-faqs__description {
+    font-size: 14px;
+  }
+
+  .sp-tabbed-faqs__body {
+    gap: 24px;
+  }
+
+  .sp-tabbed-faqs__tab-button {
+    min-width: 100px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__summary .accordion__summary--text {
+    font-size: 13px;
+    padding-left: 25px;
+  }
+
+  .sp-tabbed-faqs__content .accordion-group .accordion .accordion__content p {
+    font-size: 13px;
+    padding-left: 25px;
   }
 }
 {% endstylesheet %}

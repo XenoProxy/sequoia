@@ -58,8 +58,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 7,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0,
+            "padding-inline-start": 10,
+            "padding-inline-end": 10,
             "custom_css_class": ""
           },
           "blocks": {}
@@ -68,7 +68,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"flex-1\">\n<p>כאן תוכלו למצוא תכנים מעמיקים על טכנולוגיית הליפוזום, חידושים מדעיים וכתבות מקצועיות על רכיבים ותוספי תזונה מתקדמים.זהו מרחב ידע שמאפשר לכם להיחשף למדע, למחקר ולתובנות שמניעים את סקויה קדימה.</p>\n<div style=\"text-align: right;\">\n<span class=\"blog-icon\"><img src=\"https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Frame_1984077742_1.png?v=1750752289\" width=\"10\"></span>\n</div>\n</div>"
+            "custom_liquid": "<div class=\"flex-1\" style=\"padding: 0 10px;\">\n  <p>\n    כאן תוכלו למצוא תכנים מעמיקים על טכנולוגיית הליפוזום, חידושים מדעיים וכתבות מקצועיות על רכיבים ותוספי תזונה מתקדמים.\n    זהו מרחב ידע שמאפשר לכם להיחשף למדע, למחקר ולתובנות שמניעים את סקויה קדימה.\n  </p>\n  <div style=\"text-align: right;\">\n    <span class=\"blog-icon\">\n      <img src=\"https://cdn.shopify.com/s/files/1/0714/5881/6158/files/Frame_1984077742_1.png?v=1750752289\" width=\"10\">\n    </span>\n  </div>\n</div>"
           },
           "blocks": {}
         }
@@ -129,7 +129,7 @@
           "type": "button",
           "settings": {
             "text": "פורמולות ליפוזומליות למצבים רפואיים ספציפיים",
-            "link": "shopify://blogs/טכנולוגיה-ליפוזומלית"
+            "link": "shopify://blogs/פורמולות-ליפוזומליות-למצבים-רפואיים-ספציפיים"
           }
         },
         "button_jEwtPW": {

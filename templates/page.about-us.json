@@ -236,7 +236,7 @@
           },
           "blocks": {}
         },
-        "accordion_rNtrjK": {
+        "accordion_qD4GL6": {
           "type": "accordion",
           "name": "t:names.accordion",
           "settings": {
@@ -255,17 +255,17 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "accordion_row_pYTdEe": {
+            "accordion_row_V9UhAX": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "טכנולוגיה ליפוזומלית חדשנית",
+                "heading": "טכנולוגיה ליפוזומלית מתקדמת",
                 "open_by_default": true
               },
               "blocks": {
-                "text_ftdMDE": {
+                "text_eMFqCa": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>פורמולציות מבוססות ליפוזומים בתור מערכת שינוע חכמה, המבוססת על עקרונות ביומימטיים - כלומר, חיקוי של תהליכים טבעיים בגוף. יכולתן להגן על רכיבים פעילים ולשפר את הובלתם דרך מחסומים פיזיולוגיים הופכת אותן לאחד הכלים המתקדמים ביותר כיום בפיתוח תוספי תזונה יעילים.<br/><br/></p>",
+                    "text": "<p><br/>הטכנולוגיה שלנו משפרת את זמינות הרכיבים ומאפשרת ספיגה יעילה יותר בגוף, לתוצאות מורגשות.<br/><br/></p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
@@ -290,20 +290,20 @@
                 }
               },
               "block_order": [
-                "text_ftdMDE"
+                "text_eMFqCa"
               ]
             },
-            "accordion_row_8yrtmq": {
+            "accordion_row_xdaAEC": {
               "type": "_accordion-row",
               "settings": {
-                "heading": "בקרת איכות קפדנית בתנאי ייצור מותאמים לדרישות רגולטוריות מחמירות",
+                "heading": "מדע שמוביל לחדשנות",
                 "open_by_default": false
               },
               "blocks": {
-                "text_8cjHVC": {
+                "text_JQKPPK": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>הפורמולציות שלנו מפותחות ונבדקות על פי פרוטוקולים מבוססי מדע, בתנאי ייצור נאותים (GMP) ובפיקוח מלא של משרד הבריאות. כל רכיב נבחן על פי פרמטרים נוספים של יציבות, ניקיון ביולוגי, זמינות ביולוגית, ופוטנציאל ספיגה בגוף.</p>",
+                    "text": "<p>כל פורמולה מפותחת בשיתוף פעולה עם מיטב החוקרים מהטכניון ורמב\"ם, ומבוססת על נתונים מדעיים עדכניים.</p><h3></h3>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
@@ -328,22 +328,22 @@
                 }
               },
               "block_order": [
-                "text_8cjHVC"
+                "text_JQKPPK"
               ]
             },
-            "accordion_row_FUm9M7": {
+            "accordion_row_FTA97E": {
               "type": "_accordion-row",
               "name": "t:names.accordion_dash_row",
               "settings": {
-                "heading": "מאחורי כל פורמולציה עומדת גם מחשבה על חוויית המשתמש",
+                "heading": "אחריות ואמינות",
                 "open_by_default": false
               },
               "blocks": {
-                "text_kcXMnx": {
+                "text_NXMBYV": {
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>טעם נעים, מרקם מאוזן ונוחות יומיומית בלי להתפשר על דיוק או יעילות<br/><br/></p>",
+                    "text": "<p><br/>המוצרים מיוצרים תחת פיקוח קפדני ובהתאם לאישורי משרד הבריאות, עם מחויבות גם לחינוך, אקדמיה ותרומה לקהילה.</p>",
                     "width": "100%",
                     "max_width": "none",
                     "alignment": "right",
@@ -368,20 +368,20 @@
                 }
               },
               "block_order": [
-                "text_kcXMnx"
+                "text_NXMBYV"
               ]
             }
           },
           "block_order": [
-            "accordion_row_pYTdEe",
-            "accordion_row_8yrtmq",
-            "accordion_row_FUm9M7"
+            "accordion_row_V9UhAX",
+            "accordion_row_xdaAEC",
+            "accordion_row_FTA97E"
           ]
         }
       },
       "block_order": [
         "text_8YaJHN",
-        "accordion_rNtrjK"
+        "accordion_qD4GL6"
       ],
       "custom_css": [
         "{direction: rtl; padding: 0 120px;}",
@@ -790,8 +790,8 @@
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "padding-block-start": 47,
-            "padding-block-end": 47,
-            "padding-inline-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 47,
             "padding-inline-end": 24
           },
           "blocks": {
@@ -1004,18 +1004,17 @@
         "tab_active_underline_color": "#323438",
         "tab_border_color": "#a5a8ad",
         "tab_spacing": 30,
-        "tab1_heading": "בית ספר רנטד",
-        "tab1_bg_image": "shopify://shop_images/tab-1.jpg",
-        "tab1_title": "לורם איפסום דולור",
-        "tab1_description": "לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם גדדיש. קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת.",
-        "tab2_heading": "Make a Wish",
-        "tab2_bg_image": "shopify://shop_images/about_make_a_wish_mobile.jpg",
-        "tab2_title": "Make a Wish",
-        "tab2_description": "החברה גאה לשתף פעולה עם עמותת Make-A-Wish Israel, המגשימה משאלות לילדים החולים במחלות מסכנות חיים. בכל רכישה שלכם, אתם תורמים להגשמת חלומותיהם ומעניקים להם ולמשפחותיהם רגעי תקווה ושמחה.",
-        "tab3_heading": "מלגות סטודנטים לרפואה{{ page.title }}",
-        "tab3_bg_image": "shopify://shop_images/tab-1.jpg",
-        "tab3_title": "מלגות סטודנטים לרפואה",
-        "tab3_description": "סקויה תומכת באקדמיה ובחינוך דרך מלגות בטכניון ומחקרים משותפים, כחלק ממחויבותה לאחריות חברתית ובהתאם להנחיות משרד הבריאות."
+        "tab1_heading": "Make a Wish",
+        "tab1_bg_image": "shopify://shop_images/about_make_a_wish_mobile_02_2.jpg",
+        "tab1_title": "Make a Wish",
+        "tab1_description": "סקויה גאה לשתף פעולה עם עמותת Make-A-Wish Israel. בכל רכישה אתם שותפים להגשמת חלומות לילדים המתמודדים עם מחלות קשות, ומעניקים להם ולמשפחותיהם רגעי תקווה ושמחה.",
+        "tab2_heading": "מלגות סטודנטים",
+        "tab2_bg_image": "shopify://shop_images/about_make_a_wish_mobile_4_1.jpg",
+        "tab2_title": "מלגות סטודנטים",
+        "tab2_description": "סקויה תומכת באקדמיה ובחינוך דרך מלגות בטכניון ומחקרים משותפים, כחלק ממחויבותה לאחריות חברתית ובהתאם להנחיות משרד הבריאות.",
+        "tab3_heading": "",
+        "tab3_title": "",
+        "tab3_description": ""
       }
     },
     "sp_video_carousel_xVJtXp": {
@@ -1069,6 +1068,7 @@
         "video_pTPa94",
         "video_xKqK4U"
       ],
+      "disabled": true,
       "name": "SP Video Carousel",
       "settings": {
         "main_title": "מרגישות יופי בערוץ 12",

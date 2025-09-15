@@ -201,6 +201,10 @@ button.button.button--tertiary.cart-items__remove {
     padding: 10px;
     background: white;
     border: 1px solid #ccc;
+    font-size: 16px; /* Prevent zoom on iOS */
+    min-height: 44px; /* iOS recommended touch target */
+    -webkit-appearance: none; /* Remove iOS styling */
+    appearance: none;
 }
   .cart-discount-form button {
     padding: 6px 15px;
@@ -208,8 +212,29 @@ button.button.button--tertiary.cart-items__remove {
     color: #A5A8AD;
     border-radius: 8px;
     border: none;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    min-height: 44px; /* iOS recommended touch target */
+    min-width: 80px;
+    -webkit-appearance: none; /* Remove iOS styling */
+    appearance: none;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight */
+  }
+  .cart-discount-form button:disabled {
+    background: #EDEDED;
+    color: #A5A8AD;
+    cursor: not-allowed;
+  }
+  .cart-discount-form button.active,
+  .cart-discount-form button:not(:disabled) {
+    background: #007A73;
+    color: white;
     cursor: pointer;
-}
+  }
+  .cart-discount-form button.active:hover,
+  .cart-discount-form button:not(:disabled):hover {
+    background: #005e43;
+  }
   input#discount-code::placeholder {
     color: #A5A8AD !important;
 }

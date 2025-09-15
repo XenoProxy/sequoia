@@ -697,7 +697,7 @@
           },
           "blocks": {}
         },
-        "ai_gen_block_86c656b_bbkjXf": {
+        "ai_gen_block_86c656b_NgtB88": {
           "type": "ai_gen_block_86c656b",
           "name": "Video Carousel",
           "settings": {
@@ -717,37 +717,37 @@
             "nav_button_icon_color": "#000000",
             "title_size": 16,
             "description_size": 16,
-            "video_1": "https://cdn.shopify.com/videos/c/o/v/084039f8cb48412dbb5c65aa462c8188.mp4",
-            "title_1": "״מצאתי את התוסף שהפסיק לי את הנשירה, אין יותר שערות על הכרית״",
-            "description_1": "<p>ליב זנבי</p>",
-            "video_2": "https://cdn.shopify.com/videos/c/o/v/459a3c9049ab4bb2b434680971350ddb.mp4",
-            "title_2": "\"מטרתם לתמוך בבריאות שלי ובתהליך שלי לאורח חיים בריא\"",
-            "description_2": "<p>שירה לוטסיגר</p>",
-            "video_3": "https://cdn.shopify.com/videos/c/o/v/1e527a5f3dd84448b93a0116fd535cc6.mp4",
-            "title_3": "\"הליפוזום מאפשר ספיגה גבוהה יותר של רכיב הפעולה, מה שגורם לתוצאות מהירות יותר\"",
-            "description_3": "<p>שלי</p>",
-            "video_4": "https://cdn.shopify.com/videos/c/o/v/3f462c045ea04e24aa7bad8f71af7c2e.mp4",
-            "title_4": "\"אני לוקחת כל יום ואני כבר רואה איך השיער שלי ארך\"",
-            "description_4": "<p>מאי דהן</p>",
-            "video_5": "https://cdn.shopify.com/videos/c/o/v/c88516fafcf848b8b488ea9404b9cb91.mp4",
-            "title_5": "\"תוך שלושה שבועות הפסיקה לי הנשירה ואחר חודש ראיתי צמיחה חדשה\"",
-            "description_5": "<p>שקד חודרה</p>",
-            "video_6": "https://cdn.shopify.com/videos/c/o/v/ee81e72537ee4548b75833e76b97c88b.mp4",
-            "title_6": "״לדאוג לשיער שלך יכול להיות ככ פשוט קל וטעים\"",
-            "description_6": "<p>עדי גילאור</p>",
-            "video_7": "https://cdn.shopify.com/videos/c/o/v/3a24c4a4f63a4d7788a18bd10fc75fef.mp4",
-            "title_7": "\"יש ככ הרבה תוספים, אבל בדבר כזה עוד לא נתקלתי\"",
-            "description_7": "<p>מאי ויצמן</p>",
-            "video_8": "https://cdn.shopify.com/videos/c/o/v/94ad690a244c49ba85a537d583882905.mp4",
-            "title_8": "״זה פשוט טעים והתוצאות הן לא הגיוניות״",
-            "description_8": "<p>שחר שוורץ</p>"
+            "video_1": "https://cdn.shopify.com/videos/c/o/v/94ad690a244c49ba85a537d583882905.mp4",
+            "title_1": "“זה פשוט טעים והתוצאות לא הגיוניות”",
+            "description_1": "<p>שחר שוורץ</p>",
+            "video_2": "https://cdn.shopify.com/videos/c/o/v/3a24c4a4f63a4d7788a18bd10fc75fef.mp4",
+            "title_2": "“על כזה דבר עוד לא שמעתי”",
+            "description_2": "<p>מאי ויצמן</p>",
+            "video_3": "https://cdn.shopify.com/videos/c/o/v/8396b9aa62f842e6810145558c6642e1.mp4",
+            "title_3": "“אני לוקחת את זה רק פעם אחת ביום וזה כל הסוד שלי לשיער מושלם”",
+            "description_3": "<p>עדי גלאור</p>",
+            "video_4": "https://cdn.shopify.com/videos/c/o/v/c88516fafcf848b8b488ea9404b9cb91.mp4",
+            "title_4": "“תכירי את הפיתרון המושלם שמצאתי לשיער”",
+            "description_4": "<p>שקד חודרה</p>",
+            "video_5": "https://cdn.shopify.com/videos/c/o/v/1e527a5f3dd84448b93a0116fd535cc6.mp4",
+            "title_5": "“תתחילי את הבוקר שלך עם תוסף התזונה של סקויה”",
+            "description_5": "<p>שלי</p>",
+            "video_6": "https://cdn.shopify.com/videos/c/o/v/084039f8cb48412dbb5c65aa462c8188.mp4",
+            "title_6": "“אני מצאתי את התוסף שהפסיק לי את הנשירה”",
+            "description_6": "<p>ליב גנזי</p>",
+            "video_7": "https://cdn.shopify.com/videos/c/o/v/459a3c9049ab4bb2b434680971350ddb.mp4",
+            "title_7": "“התאהבתי בסקויה ממבט ראשון”",
+            "description_7": "<p>שירה לוטסיגר</p>",
+            "video_8": "https://cdn.shopify.com/videos/c/o/v/3f462c045ea04e24aa7bad8f71af7c2e.mp4",
+            "title_8": "\"אני לוקחת כל יום ואני כבר רואה את השיער שלי ארך\"",
+            "description_8": "<p>מאי דהן</p>"
           },
           "blocks": {}
         }
       },
       "block_order": [
         "text_QYqHQT",
-        "ai_gen_block_86c656b_bbkjXf"
+        "ai_gen_block_86c656b_NgtB88"
       ],
       "custom_css": [
         ".h2.text-block--align-right h2 {font-size: 32px; font-weight: bold !important; color: #3f4144;}",
@@ -1029,8 +1029,8 @@
             "title": "LIPO for me",
             "price": "656₪",
             "text": "הטריו המנצח לחיים בריאים עם שלושה כוכבים מהסדרה שלנו ליצירת חוויית בריאות",
-            "title_color": "#000000",
-            "text_color": "#000000",
+            "title_color": "#ffffff",
+            "text_color": "#ffffff",
             "title_size": 24,
             "text_size": 16,
             "box_padding": 20,
@@ -1045,8 +1045,8 @@
             "title": "LIPO For US",
             "price": "770₪",
             "text": "הכירו את ערכת Lipo for Us ערכה זוגית מושלמת שמביאה אתכם יחד לשמירה על שגרה תזונתית איכותית.",
-            "title_color": "#000000",
-            "text_color": "#000000",
+            "title_color": "#f9f8f6",
+            "text_color": "#ffffff",
             "title_size": 24,
             "text_size": 16,
             "box_padding": 20,
@@ -2711,10 +2711,10 @@
         "read_more_text": "לקריאה"
       }
     },
-    "section_cVtAzU": {
+    "section_CDarht": {
       "type": "section",
       "blocks": {
-        "group_iGKMhM": {
+        "group_nMbyLM": {
           "type": "group",
           "name": "Header",
           "settings": {
@@ -2754,7 +2754,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_XWQXR3": {
+            "text_DEw3T3": {
               "type": "text",
               "name": "t:names.heading",
               "settings": {
@@ -2781,7 +2781,7 @@
               },
               "blocks": {}
             },
-            "button_q7aEBa": {
+            "button_YPKhUw": {
               "type": "button",
               "name": "t:names.button",
               "settings": {
@@ -2799,11 +2799,11 @@
             }
           },
           "block_order": [
-            "text_XWQXR3",
-            "button_q7aEBa"
+            "text_DEw3T3",
+            "button_YPKhUw"
           ]
         },
-        "ai_gen_block_6d1a16f_7PTqh9": {
+        "ai_gen_block_6d1a16f_7N8TRX": {
           "type": "ai_gen_block_6d1a16f",
           "settings": {
             "blog": "הכל-על-הטכנולוגיה-הליפוזומלית",
@@ -2841,8 +2841,8 @@
         }
       },
       "block_order": [
-        "group_iGKMhM",
-        "ai_gen_block_6d1a16f_7PTqh9"
+        "group_nMbyLM",
+        "ai_gen_block_6d1a16f_7N8TRX"
       ],
       "custom_css": [
         "{direction: rtl; padding: 0 16px;}",
@@ -2893,6 +2893,6 @@
     "product_list_WVRdNi",
     "section_fe797b",
     "sp_blog_posts_section_XYdiGw",
-    "section_cVtAzU"
+    "section_CDarht"
   ]
 }

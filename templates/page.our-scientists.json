@@ -273,7 +273,7 @@
             "expert_image": "shopify://shop_images/Frame_58.jpg",
             "expert_name": "פרופ’ איתמר גרוטו",
             "expert_title": "רופא מומחה בבריאות הציבור",
-            "expert_description": "מומחה בבריאות הציבור ולשעבר המשנה למנכ”ל משרד הבריאות. מייעץ לסקויה בנושאי פיתוחים עסקיים, והשקת מוצרים העונים על אמות מידה בינלאומיות."
+            "expert_description": "מייעץ לסקויה בנושאי פיתוחים עסקיים, והשקת מוצרים העונים על אמות מידה בינלאומיות."
           }
         },
         "expert_3": {
@@ -282,7 +282,7 @@
             "expert_image": "shopify://shop_images/Frame_60.jpg",
             "expert_name": "ד”ר אבישי גביש",
             "expert_title": "רופא, בעל PhD בביולוגיה חישובית",
-            "expert_description": "אבישי הוא רופא ובמקביל בעל PhD בביולוגיה חישובית, ומשמש כחוקר בסטנפורד. הוא מומחה בגנומיקה, ויועץ בכיר לפיתוחים מדעיים ועסקיים בסקויה."
+            "expert_description": "משמש כחוקר בסטנפורד. הוא מומחה בגנומיקה, ויועץ בכיר לפיתוחים מדעיים ועסקיים בסקויה."
           }
         },
         "expert_4": {
@@ -291,7 +291,7 @@
             "expert_image": "shopify://shop_images/Frame_63_1.jpg",
             "expert_name": "פרופ’ משה גביש",
             "expert_title": "פרופסור לרפואה בטכניון",
-            "expert_description": "חוקר בטכניון ומומחה לפרמקולוגיה. מוביל מחקר חדשני על ליפוזומים כווקטורים תרופתיים, ובעל ניסיון אקדמי של מעל 40 שנה."
+            "expert_description": "מומחה לפרמקולוגיה, מוביל מחקר חדשני על ליפוזומים כווקטורים תרופתיים, ובעל ניסיון אקדמי של מעל 40 שנה."
           }
         },
         "expert_5": {
@@ -300,7 +300,7 @@
             "expert_image": "shopify://shop_images/Frame_59_1.jpg",
             "expert_name": "פרופ’ אבי וייצמן",
             "expert_title": "פרופסור לפסיכיאטריה",
-            "expert_description": "פסיכיאטר ומומחה עולמי בפסיכופרמקולוגיה. משלב ניסיון קליני ומחקרי להבנת ההשפעות הנוירו-כימיות של רכיבים תזונתיים ותרופתיים."
+            "expert_description": "מומחה עולמי בפסיכופרמקולוגיה, משלב ניסיון קליני ומחקרי להבנת ההשפעות הנוירו-כימיות של רכיבים תזונתיים ותרופתיים."
           }
         },
         "expert_6": {
@@ -309,7 +309,7 @@
             "expert_image": "shopify://shop_images/Frame_65.jpg",
             "expert_name": "רמי מולא",
             "expert_title": "דיאטן קליני מוסמך",
-            "expert_description": "דיאטן קליני מוסמך המתמחה בתזונת ספורט והתאמה אישית של תוכניות תזונה עם שילוב של ניסיון קליני וגישה מדידה לשיפור תפקוד ובריאות."
+            "expert_description": "מתמחה בתזונת ספורט והתאמה אישית של תוכניות תזונה עם שילוב של ניסיון קליני וגישה מדידה לשיפור תפקוד ובריאות."
           }
         },
         "expert_7": {
@@ -318,7 +318,7 @@
             "expert_image": "shopify://shop_images/Frame_61.jpg",
             "expert_name": "ד”ר אמיר אגבאריה",
             "expert_title": "חוקר פרמקולוגיה רב-תחומי",
-            "expert_description": "חוקר פרמקולוגיה ודוקטורנט בטכניון. משלב ידע קליני, מחקרי והוראתי בכדי להנגיש מדע מורכב ולתרגם אותו לפיתוח פורמולציות חדשניות."
+            "expert_description": "משלב ידע קליני, מחקרי והוראתי בכדי להנגיש מדע מורכב ולתרגם אותו לפיתוח פורמולציות חדשניות."
           }
         },
         "expert_8": {
@@ -327,7 +327,7 @@
             "expert_image": "shopify://shop_images/Frame_64.jpg",
             "expert_name": "רון יפה",
             "expert_title": "נטורופת בכיר",
-            "expert_description": "נטורופת בכיר ומרצה בינלאומי המתמחה ברפואה פונקציונלית, ביוכימיה ופרמקולוגיה. מפתח תוספים מותאמים אישית בגישה שמשלבת מדע והוליסטיקה."
+            "expert_description": "מרצה בינלאומי המתמחה ברפואה פונקציונלית, ביוכימיה ופרמקולוגיה. מפתח תוספים מותאמים אישית בגישה שמשלבת מדע והוליסטיקה."
           }
         }
       },
@@ -636,8 +636,8 @@
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "padding-block-start": 47,
-            "padding-block-end": 47,
-            "padding-inline-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 47,
             "padding-inline-end": 24
           },
           "blocks": {
@@ -1087,27 +1087,27 @@
         "product_card_yx3BqC": {
           "type": "product_card",
           "settings": {
-            "product": "ערכת-ליפו-פור-לייף",
+            "product": "lipo-for-me",
             "product_handle": "",
             "open_in_new_tab": false,
-            "custom_image": "shopify://shop_images/Frame_1984077419.png",
+            "custom_image": "shopify://shop_images/RBS02033.jpg",
             "custom_title": "",
             "custom_price": "",
-            "custom_description": "",
+            "custom_description": "הטריו המנצח לחיים בריאים עם שלושה כוכבים מהסדרה שלנו ליצירת חוויית בריאות מקיפה",
             "show_price": true,
-            "badge_text": "חדש"
+            "badge_text": "הכי פופלרי"
           }
         },
         "product_card_yNe66j": {
           "type": "product_card",
           "settings": {
-            "product": "ערכת-ליפו-פור-מי",
+            "product": "lipo-for-us",
             "product_handle": "",
             "open_in_new_tab": false,
-            "custom_image": "shopify://shop_images/Frame_1984077419.png",
-            "custom_title": "",
+            "custom_image": "shopify://shop_images/RBS02037.jpg",
+            "custom_title": "Lipo For US",
             "custom_price": "",
-            "custom_description": "",
+            "custom_description": "הכירו את ערכת Lipo for Us ערכה זוגית מושלמת שמביאה אתכם יחד לשמירה על שגרה",
             "show_price": true,
             "badge_text": "הכי פופולרי"
           }

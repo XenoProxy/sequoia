@@ -1,0 +1,537 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "accessibility": {
+    "account": "قائمة فتح الحساب",
+    "cart": "عربة",
+    "cart_count": "إجمالي العناصر في سلة التسوق",
+    "close_dialog": "إغلاق النافذة",
+    "country_region": "البلد/المنطقة",
+    "country_results_count": "{{ count }} نتائج",
+    "decrease_quantity": "كمية صغيرة",
+    "discount": "تطبيق رمز الخصم",
+    "discount_applied": "تم تطبيق رمز الخصم: {{ code }}",
+    "filters": "المرشحات",
+    "filter_count": {
+      "one": "تم استخدام {{ count }} مرشح",
+      "other": "{{ count }} مرشحات مستخدمة"
+    },
+    "increase_quantity": "زيادة الكمية",
+    "inventory_status": "حالة المخزون",
+    "localization_region_and_language": "فتح محدد المنطقة واللغة",
+    "menu": "قائمة طعام",
+    "new_window": "يفتح في نافذة جديدة",
+    "open_cart_drawer": "سلة مفتوحة",
+    "open_search_modal": "فتح البحث",
+    "pause_video": "إيقاف الفيديو مؤقتًا",
+    "play_model": "مشغل النماذج ثلاثية الأبعاد",
+    "play_video": "مشغل الفيديو",
+    "loading_product_recommendations": "تحميل توصيات المنتج",
+    "remove_item": "إزالة {{ title }}",
+    "reset_search": "بحث صفر",
+    "scroll_to": "انتقل إلى {{ title }}",
+    "search_results_count": "تم العثور على {{ count }} نتيجة لـ \" {{ query }} \"",
+    "search_results_no_results": "لم يتم العثور على نتائج لـ \" {{ query }} \"",
+    "skip_to_product_info": "انتقل إلى معلومات المنتج",
+    "skip_to_results_list": "انتقل إلى قائمة النتائج",
+    "skip_to_text": "انتقل إلى المحتوى",
+    "slide_status": "الشريحة {{ index }} بطول {{ length }}",
+    "slideshow_next": "الشريحة التالية",
+    "slideshow_pause": "إيقاف العرض التقديمي مؤقتًا",
+    "slideshow_play": "تشغيل عرض تقديمي",
+    "slideshow_previous": "الشريحة السابقة",
+    "unit_price": "السعر لكل وحدة",
+    "find_country": "البحث عن بلد"
+  },
+  "actions": {
+    "add": "يضيف",
+    "add_to_cart": "أضف إلى السلة",
+    "added": "تمت الإضافة",
+    "apply": "البدء",
+    "back": "يعود",
+    "choose": "يختار",
+    "clear": "واضح",
+    "clear_all": "مسح الكل",
+    "close": "مغلق",
+    "continue_shopping": "متابعة التسوق",
+    "enter_password": "أدخل كلمة المرور",
+    "log_in_html": "هل لديك حساب بالفعل؟ <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">سجّل الدخول</a> لتسريع عملية الدفع.",
+    "log_in": "تسجيل الدخول",
+    "log_out": "قطع الاتصال",
+    "open_image_in_full_screen": "فتح الصورة في شاشة كاملة",
+    "remove": "يزيل",
+    "remove_discount": "إزالة الخصم {{ code }}",
+    "show_all_options": "إظهار جميع الخيارات",
+    "see_items": {
+      "one": "إظهار {{ count }} عنصر",
+      "other": "عرض {{ count }} عنصرًا"
+    },
+    "show_filters": "فلتر",
+    "show_less": "إظهار أقل",
+    "show_more": "إظهار المزيد",
+    "sign_in_options": "خيارات تسجيل الدخول الإضافية",
+    "view_in_your_space": "عرض في منطقتك",
+    "view_all": "إظهار الكل",
+    "more": "أكثر",
+    "zoom": "تكبير",
+    "close_dialog": "إغلاق النافذة",
+    "reset": "إعادة ضبط",
+    "enter_using_password": "تسجيل الدخول باستخدام كلمة المرور",
+    "sign_up": "التسجيل",
+    "submit": "يرسل",
+    "view_store_information": "عرض معلومات المتجر",
+    "sort": "مين"
+  },
+  "blocks": {
+    "contact_form": {
+      "name": "اسم",
+      "email": "بريد إلكتروني",
+      "phone": "هاتف",
+      "comment": "إجابة",
+      "post_success": "شكرًا لتواصلك معنا! سنتواصل معك في أقرب وقت ممكن.",
+      "error_heading": "يرجى تصحيح الأخطاء التالية:"
+    },
+    "email_signup": {
+      "label": "بريد إلكتروني",
+      "placeholder": "عنوان البريد الإلكتروني",
+      "success": "شكرا لك على التسجيل!"
+    },
+    "filter": "فلتر",
+    "load_video": "تحميل الفيديو: {{ description }}",
+    "sold_out": "إنتهى من المخزن",
+    "unit_price": {
+      "per_item_html": {
+        "one": "{{price}} لـ {{count}} عنصر",
+        "other": "{{price}} لـ {{count}} عنصر"
+      },
+      "unit": {
+        "mg": "ملغ",
+        "kg": "كجم",
+        "ml": "مل",
+        "cl": "كل",
+        "m3": "متر مكعب",
+        "mm": "مم",
+        "cm": "سم",
+        "m2": "متر مربع",
+        "oz": "أونصة",
+        "lb": "رطل",
+        "floz": "أونصة سائلة",
+        "pt": "نقطة",
+        "qt": "كيو تي"
+      }
+    }
+  },
+  "shopify": {
+    "checkpoint": {
+      "submit_button_text": "أيّ"
+    },
+    "checkout": {
+      "contact": {
+        "email_label": "بريد إلكتروني",
+        "email_placeholder": "بريد إلكتروني",
+        "email_or_phone_label": "البريد الإلكتروني أو رقم الهاتف",
+        "email_or_phone_placeholder": "البريد الإلكتروني أو رقم الهاتف",
+        "title": "معلومة",
+        "address_title": "عنوان",
+        "delivery_option_title": "طريقة الشحن",
+        "first_name_label": "الاسم الأول",
+        "optional_first_name_label": "الاسم الأول",
+        "last_name_label": "اسم العائلة",
+        "company_label": "شركة",
+        "optional_company_label": "الشركة (اختياري)",
+        "address1_label": "عنوان",
+        "city_label": "مدينة",
+        "country_label": "الولاية/المقاطعة",
+        "phone_label": "رقم التليفون",
+        "optional_phone_label": "رقم الهاتف (اختياري)",
+        "phone_placeholder": "رقم التليفون",
+        "postal_code_label": "الرمز البريدي",
+        "optional_postal_code_label": "الرمز البريدي (اختياري)",
+        "postal_code_placeholder": "الرمز البريدي",
+        "postcode_label": "الرمز البريدي",
+        "optional_postcode_label": "الرمز البريدي (اختياري)",
+        "postcode_placeholder": "الرمز البريدي",
+        "address2_label": "شقة، جناح، الخ.",
+        "optional_address2_label": "شقة، جناح، وما إلى ذلك (اختياري)",
+        "phone_tooltip": "في حالة احتياجنا إلى الاتصال بك بخصوص طلبك",
+        "contact_method_title": "معلومات الاتصال"
+      },
+      "field_errors": {
+        "handle_email_invalid": "أدخل بريدًا إلكترونيًا صالحًا.",
+        "email_invalid": "أدخل بريدًا إلكترونيًا صالحًا.",
+        "email_or_phone_blank": "أدخل البريد الإلكتروني أو رقم الهاتف",
+        "email_or_phone_invalid": "الرجاء إدخال بريد إلكتروني أو رقم هاتف صالح.",
+        "email_blank": "أدخل البريد الإلكتروني",
+        "address_zip_blank": "أدخل الرمز البريدي",
+        "address_zip_too_long": "الرمز البريدي الذي تم إدخاله طويل جدًا (يمكن أن يحتوي على ما يصل إلى 255 حرفًا)",
+        "address_zip_invalid_for_country": "أدخل الرمز البريدي الصحيح لـ {{ country }}",
+        "address_zip_invalid_for_province": "أدخل الرمز البريدي الصحيح لـ {{ province }}",
+        "address_zip_invalid_for_country_and_province": "أدخل الرمز البريدي الصحيح لـ {{ province }} و {{ country }}",
+        "address_zip_contains_emojis": "لا يمكن للرمز البريدي أن يحتوي على رموز تعبيرية.",
+        "address_zip_contains_mathematical_symbols": "لا يمكن للرمز البريدي أن يحتوي على رموز رياضية.",
+        "address_zip_invalid": "أدخل الرمز البريدي الصحيح.",
+        "handle_phone_invalid": "أدخل رقم هاتف صالحًا.",
+        "address_phone_blank": "أدخل رقم هاتف صالحًا.",
+        "address_phone_invalid": "أدخل رقم هاتف صالحًا.",
+        "shipping_line_phone_invalid": "أدخل رقم هاتف صالحًا.",
+        "sms_marketing_phone_invalid": "أدخل رقم هاتف صالحًا.",
+        "address_address2_blank": "أدخل الشقة أو الجناح أو ما شابه.",
+        "credit_card_number_invalid": "أدخل رقم بطاقة صالحًا.",
+        "credit_card_number_blank": "أدخل رقم البطاقة",
+        "credit_card_expiry_invalid": "أدخل تاريخًا صالحًا.",
+        "credit_card_month_invalid": "أدخل شهر انتهاء الصلاحية الصحيح.",
+        "credit_card_year_invalid": "أدخل سنة انتهاء الصلاحية الصالحة."
+      },
+      "customer_account": {
+        "save_my_information_label": "احتفظ بهذه المعلومات للمرة القادمة.",
+        "sign_in_link_label": "تسجيل الدخول",
+        "sign_out_link_label": "قطع الاتصال"
+      },
+      "shipping": {
+        "shipping_method_title": "طريقة الشحن",
+        "delivery_title": "إرسال",
+        "duties_and_taxes_options": {
+          "ddp_title": "للدفع"
+        }
+      },
+      "payment": {
+        "title": "قسط",
+        "card_security_notice": "جميع المعاملات آمنة ومشفرة.",
+        "card_number_label": "رقم البطاقة",
+        "card_number_placeholder": "رقم البطاقة",
+        "edit_credit_card_modal": {
+          "fields": {
+            "card_number": "رقم البطاقة",
+            "expiry": "صحة",
+            "name": "الاسم الموجود على البطاقة"
+          }
+        },
+        "card_verification_value_label": "رمز التحقق من البطاقة (CVC)",
+        "card_verification_value_placeholder": "رمز التحقق من البطاقة (CVC)",
+        "card_expiry_label": "الصلاحية (شهر/سنة)",
+        "card_expiry_placeholder": "الصلاحية (شهر/سنة)",
+        "card_expiry_date_explanation": "تاريخ انتهاء صلاحية البطاقة بالتنسيق: الشهر، الشهر، السنة، السنة",
+        "card_expiration_month_label": "شهر انتهاء الصلاحية",
+        "card_expiration_year_label": "سنة انتهاء الصلاحية",
+        "same_billing_address_checkbox_label": "استخدم عنوان الشحن كعنوان الفاتورة",
+        "credit_card_vaulting_sign_in_banner_button_label": "تسجيل الدخول",
+        "billing_address_title": "عنوان الفاتورة",
+        "fact_billing_address_label": "عنوان الفاتورة",
+        "name_on_card_label": "الاسم الموجود على البطاقة",
+        "name_on_card_placeholder": "الاسم الموجود على البطاقة",
+        "card_verification_value_explanation": "رمز CVC مكون من ثلاثة أرقام، عادةً ما يكون موجودًا على ظهر البطاقة. تحتوي بطاقات أمريكان إكسبريس على رمز مكون من أربعة أرقام على وجهها."
+      },
+      "payment_gateway": {
+        "credit_card_label": "بطاقة إئتمان"
+      },
+      "general": {
+        "loading": "تحميل...",
+        "continue_button_label": "استمرار",
+        "submit": "أيّ",
+        "pay_now_button_label": "للدفع"
+      },
+      "order_summary": {
+        "total_label": "المجموع",
+        "subtotal_label": "مجموع المنتجات",
+        "multiple_shipping_lines_label": "إجمالي الشحن",
+        "subtotal_label_with_quantity": {
+          "one": "المجموع الفرعي - {{ count }} عنصر",
+          "other": "المجموع الفرعي - {{ count }} عناصر"
+        },
+        "discount_title": "تخفيض",
+        "discount_label": "رمز القسيمة",
+        "apply_discount_button_label": "البدء",
+        "estimated_taxes_label": "الضرائب",
+        "shipping_label": "إرسال",
+        "free_shipping_total_label": "حر",
+        "estimated_taxes_finalization_tooltip_content": "سيتم تأكيد الضريبة النهائية والمبلغ الإجمالي عبر البريد الإلكتروني أو رسالة نصية بعد الحجز."
+      },
+      "wallets": {
+        "errors": {
+          "unsupported": {
+            "postal_code": "هذا الموقع غير مدعوم."
+          },
+          "invalid": {
+            "postal_code": "أدخل الرمز البريدي الصحيح.",
+            "billing_zip": "أدخل الرمز البريدي لعنوان إرسال الفواتير الصحيح.",
+            "email": "أدخل بريدًا إلكترونيًا صالحًا."
+          },
+          "missing": {
+            "zip": "أدخل الرمز البريدي",
+            "billing_zip": "أدخل الرمز البريدي لعنوان الفاتورة",
+            "address2": "أدخل الشقة أو الجناح أو ما شابه.",
+            "billing_address2": "أدخل شقة أو جناحًا أو ما إلى ذلك لعنوان الفاتورة"
+          },
+          "formatting": {
+            "postal_code_contains_emoji": "حذف الرموز التعبيرية من التركيز"
+          }
+        }
+      },
+      "payment_errors": {
+        "invalid_number": "أدخل رقم بطاقة صالحًا.",
+        "invalid_expiry_date": "أدخل تاريخًا صالحًا.",
+        "invalid_cvc": "أدخل رمز CVC صالحًا"
+      },
+      "payment_summary": {
+        "billing_address_title": "عنوان الفاتورة"
+      },
+      "thank_you": {
+        "billing_address_title": "عنوان الفاتورة",
+        "return_to_store_link_label": "متابعة التسوق",
+        "order_updates_submit_subscription": "أيّ",
+        "breadcrumbs_submitted": "سعادة"
+      },
+      "notice_banner": {
+        "individual_violations_title": {
+          "PaymentViolations": "عنوان الفاتورة"
+        },
+        "all_violations_email_link": "بريد إلكتروني"
+      },
+      "marketing": {
+        "disclaimer": {
+          "privacy_policy": "سياسة الخصوصية"
+        },
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "سياسة الخصوصية"
+          }
+        }
+      },
+      "shop_policies": {
+        "privacy_policy": "سياسة الخصوصية"
+      },
+      "stock": {
+        "continue_shopping_button_label": "استمرار",
+        "continue_cta_label": "متابعة الحساب"
+      },
+      "post_purchase": {
+        "components": {
+          "submit": "أيّ"
+        }
+      },
+      "b2b_errors": {
+        "log_out_link_text": "قطع الاتصال"
+      },
+      "order_payment_collection": {
+        "pay_now": "للدفع"
+      }
+    },
+    "addresses": {
+      "postal_code": "الرمز البريدي"
+    },
+    "errors": {
+      "invalid_expiry_year": "سنة انتهاء الصلاحية غير صالحة."
+    },
+    "attributes": {
+      "email": "بريد إلكتروني"
+    },
+    "challenge": {
+      "submit_button_text": "أيّ"
+    }
+  },
+  "customer_accounts": {
+    "payment_methods": {
+      "card_fields": {
+        "tooltip": {
+          "card_security_notice": "جميع المعاملات آمنة ومشفرة.",
+          "card_verification_value_explanation": "رمز CVC مكون من ثلاثة أرقام، عادةً ما يكون موجودًا على ظهر البطاقة. تحتوي بطاقات أمريكان إكسبريس على رمز مكون من أربعة أرقام على وجهها."
+        },
+        "card_number_label": "رقم البطاقة",
+        "card_number_placeholder": "رقم البطاقة",
+        "field_errors": {
+          "credit_card_number_invalid": "أدخل رقم بطاقة صالحًا."
+        },
+        "name_on_card_label": "الاسم الموجود على البطاقة",
+        "name_on_card_placeholder": "الاسم الموجود على البطاقة"
+      },
+      "payment_details": {
+        "billing_title": "عنوان الفاتورة"
+      },
+      "edit_payment_method": {
+        "billing_address": "عنوان الفاتورة"
+      },
+      "add_payment_method": {
+        "billing_address": {
+          "title": "عنوان الفاتورة"
+        }
+      }
+    },
+    "order_details": {
+      "billing_address": "عنوان الفاتورة"
+    },
+    "addresses": {
+      "billing_address_dropdown_placeholder": "عنوان الفاتورة"
+    },
+    "B2B": {
+      "addresses": {
+        "billing_address_card_title": "عنوان الفاتورة"
+      },
+      "locations": {
+        "contact_email": "بريد إلكتروني"
+      },
+      "location_selection": {
+        "continue_to_store": "متابعة إلى المتجر",
+        "selection_continue_button": "استمرار"
+      },
+      "draft_order_details": {
+        "payment_status": {
+          "pay_now": "للدفع"
+        }
+      }
+    },
+    "shop_policies": {
+      "privacy_policy": "سياسة الخصوصية"
+    },
+    "sign_in": {
+      "step_one": {
+        "heading": "اشتراك",
+        "subheading": "أدخل عنوان بريدك الإلكتروني وسيتم إرسال رمز التحقق إليك.",
+        "input_field_label": "بريد إلكتروني",
+        "button": "استمرار"
+      },
+      "step_two": {
+        "restart_link": "تسجيل الدخول باستخدام بريد إلكتروني مختلف",
+        "button": "أيّ",
+        "heading": "أدخل الرمز",
+        "input_field_label": "رمز مكون من 6 أرقام",
+        "subheading": "-تم الإرسال إلى {{email}}"
+      },
+      "error": {
+        "invalid": {
+          "invalid_code": "أدخل الرمز الصحيح المكون من 6 أرقام."
+        }
+      }
+    },
+    "account_information": {
+      "profile_card": {
+        "email_help_text": "لا يمكن تغيير البريد الإلكتروني المستخدم لتسجيل الدخول.",
+        "email": "بريد إلكتروني",
+        "cancel": "فارغ",
+        "edit": "تم تحريره"
+      },
+      "verify_new_email_modal": {
+        "one_time_password_label": "رمز مكون من 6 أرقام",
+        "email_resend_button": "إعادة إرسال الرمز"
+      }
+    },
+    "orders": {
+      "order_status": {
+        "submitted_label": "سعادة"
+      }
+    },
+    "ui_components": {
+      "submit": "أيّ"
+    },
+    "navigation_and_structure": {
+      "log_out_link": "قطع الاتصال"
+    }
+  },
+  "content": {
+    "search_results_view_all_button": "إظهار الكل",
+    "seller_note": "تعليمات خاصة",
+    "shipping_policy": "يتم احتساب الشحن عند الخروج.",
+    "shipping_policy_html": "يتم احتساب <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">الشحن</a> عند الخروج.",
+    "store_owner_link_html": "هل أنت صاحب المتجر؟ <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">سجّل دخولك هنا</a>",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_html": "يتم حساب الضرائب والخصومات <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">والشحن</a> عند الخروج.",
+    "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "يتم احتساب الضرائب <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">والشحن</a> عند الخروج.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy": "يتم حساب الضرائب والخصومات والشحن عند الخروج.",
+    "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "يتم احتساب الضرائب والشحن عند الخروج.",
+    "taxes_included": "الضرائب متضمنة.",
+    "taxes_included_shipping_at_checkout_with_policy_html": "الضرائب مشمولة. تُحسب الخصومات <a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">والشحن</a> عند الدفع.",
+    "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "شامل الضرائب. الشحن يُحسب عند الدفع.",
+    "taxes_included_shipping_at_checkout_without_policy": "الضرائب مشمولة. تُحسب الخصومات والشحن عند الدفع.",
+    "taxes_included_shipping_at_checkout_without_policy_without_discounts": "شامل الضرائب. الشحن يُحسب عند الدفع.",
+    "unavailable": "غير متوفر",
+    "use_fewer_filters_html": "حاول استخدام عدد أقل من المرشحات، أو <a class=\"&lt;span class='notranslate'&gt;{{ class }}&lt;/span&gt;\" href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;/span&gt;\">قم بمسح كافة المرشحات</a> .",
+    "view_more_details": "عرض المزيد من التفاصيل",
+    "your_cart_is_empty": "سلة التسوق الخاصة بك فارغة.",
+    "product_count": "كمية المنتجات",
+    "errors": "الأخطاء",
+    "wrong_password": "كلمة المرور غير صحيحة"
+  },
+  "fields": {
+    "separator": "ل"
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "استخدم رمز بطاقة الهدية الموجود على الموقع الإلكتروني أو رمز الاستجابة السريعة الموجود في المتجر",
+      "title": "إليك رصيد بطاقة الهدايا الخاص بك بقيمة {{ value }} لـ {{ shop }} !",
+      "subtext": "بطاقة الهدية الخاصة بك",
+      "shop_link": "قم بزيارة المتجر عبر الإنترنت",
+      "add_to_apple_wallet": "أضف إلى محفظة Apple",
+      "qr_image_alt": "رمز الاستجابة السريعة - امسح ضوئيًا لاسترداد بطاقة الهدايا",
+      "copy_code": "نسخ رمز بطاقة الهدية",
+      "expiration_date": "تنتهي صلاحيتها في {{ expires_on }}",
+      "copy_code_success": "تم نسخ الكود بنجاح.",
+      "expired": "منتهي الصلاحية"
+    }
+  },
+  "placeholders": {
+    "password": "كلمة المرور",
+    "search": "يبحث",
+    "product_title": "عنوان المنتج",
+    "collection_title": "عنوان المجموعة"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "أضف إلى السلة",
+      "adding_to_cart": "إضافة إلى سلة التسوق...",
+      "added_to_cart": "تمت الإضافة إلى سلة التسوق",
+      "add_to_cart_error": "خطأ في الإضافة إلى سلة التسوق",
+      "sold_out": "إنتهى من المخزن",
+      "unavailable": "غير متوفر"
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "السعر العادي",
+        "sold_out": "نفذ",
+        "unavailable": "غير متاح",
+        "on_sale": "أُوكَازيُون",
+        "quantity": "كمية",
+        "add_to_cart": "أضف إلى السلة",
+        "back_to_collection": "العودة إلى {{ title }}",
+        "view_details": "عرض التفاصيل"
+      }
+    },
+    "article": {
+      "tags": "العلامات:",
+      "all_topics": "جميع المواضيع",
+      "by_author": "بواسطة {{ author }}",
+      "posted_in": "تم نشره في",
+      "read_more": "اقرأ المزيد",
+      "back_to_blog": "العودة إلى {{ title }}"
+    },
+    "comments": {
+      "title": "اترك تعليقا",
+      "name": "اسم",
+      "email": "بريد إلكتروني",
+      "message": "رسالة",
+      "post": "أضف تعليق",
+      "moderated": "يرجى ملاحظة أنه يجب الموافقة على التعليقات قبل نشرها",
+      "success_moderated": "تم نشر تعليقك بنجاح. سننشره قريبًا، لأن مدونتنا تخضع لإشرافنا.",
+      "success": "تم نشر تعليقك بنجاح! شكرًا لك!",
+      "comments_with_count": {
+        "one": "{{ count }} تعليقات",
+        "other": "{{ count }} تعليقات"
+      }
+    },
+    "password_page": {
+      "login_form_message": "ادخل إلى المتجر باستخدام كلمة المرور:",
+      "login_form_password_label": "كلمة المرور",
+      "login_form_password_placeholder": "كلمة المرور الخاصة بك",
+      "login_form_submit": "يدخل",
+      "signup_form_email_label": "بريد إلكتروني",
+      "signup_form_success": "سوف نرسل لك بريدًا إلكترونيًا قبل الافتتاح مباشرةً!",
+      "password_link": "ادخل باستخدام كلمة المرور"
+    }
+  }
+}

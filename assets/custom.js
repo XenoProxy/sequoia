@@ -43,6 +43,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Auto-add IDs to li elements for internal page anchor links
+  document.addEventListener("DOMContentLoaded", function () {
+    const internalPageContent = document.querySelector('.internal-page-content');
+
+    if (internalPageContent) {
+      // Find all li elements in ul within the content
+      const listItems = internalPageContent.querySelectorAll('ul li');
+
+      listItems.forEach((li, index) => {
+        // Add ID based on index (1-based to match the anchor links)
+        const id = (index + 1).toString();
+        li.id = id;
+      });
+
+      // Handle smooth scrolling for anchor links
+      const anchorLinks = document.querySelectorAll('.internal-page-sidebar a[href^="#"]');
+
+      anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            const elementPosition = targetElement.offsetTop;
+            const offsetPosition = elementPosition - 80; // Отступ 80px сверху
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+  });
+
   // CUSTOM Animated Stats Counter for SP Our Stats Count section in Our-Scientists page
   document.addEventListener("DOMContentLoaded", function () {
     const statNumbers = document.querySelectorAll('.stat-number');

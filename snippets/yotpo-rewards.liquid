@@ -1,0 +1,51 @@
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/z1wOoGjIcRcSWaRmx7Vmyg" async></script>
+
+{% comment %} Banner Section {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186779"></div>
+ 
+{% comment %} My Activity {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186780"
+rewards-history-no-rewards-text="עדיין לא קיבלת הטבה"
+rewards-history-coupon-copied-text="הועתק"
+></div>
+ 
+ 
+{% comment %} Earning Points {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186781"></div>  
+ 
+ 
+{% comment %} Redeem Points (Interactive) {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186782" 
+confirmation-step-title="בטוח? "
+confirmation-step-confirm-option="כן"
+confirmation-step-cancel-option="לא "
+copied-icon-text="הועתק"
+coupon-code-copied-message-title="הועתק"
+coupon-code-copied-message-body="תודה שמימשת את הנקודות שלך. אנא העתק/י את הקוד בקופה"
+></div>
+ 
+ 
+{% comment %} VIP Tiers {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186783"></div>
+ 
+ 
+{% comment %} Refer Friends {% endcomment %}
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1186784"
+share-copy-link-text="העתק/י לינק"
+referral-views-invalid-email-error-text="אחת מכתובת המייל לא תקפות"
+></div>
+
+<script>
+  window.yotpoDateFormatter = function(dateStr) {
+  const date = Date.parse(dateStr);
+  if (isNaN(date)) {
+    if (dateStr === "Never") {
+      return "-";
+    }
+    return dateStr;
+  }
+  const formattedDate = `${new Date(date).getDate()}/${new Date(date).getMonth() + 1}/${new Date(date).getFullYear()}`;
+  return formattedDate;
+  };
+</script>
+

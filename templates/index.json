@@ -205,7 +205,7 @@
                   "name": "t:names.button",
                   "settings": {
                     "label": "גלו את כל המוצרים",
-                    "link": "shopify://collections/all",
+                    "link": "shopify://collections/frontpage",
                     "open_in_new_tab": false,
                     "style_class": "button-secondary",
                     "width": "fit-content",
@@ -255,8 +255,8 @@
         "group1_digit": "",
         "group1_description": "יש תוסף ויש תוסף שנספג באמת",
         "group2_subtitle": "מדע חדשני, תוצאות מוכחות",
-        "group2_title": "תוספי תזונה מדויקים עם טכנולוגיית ליפוזומים מתקדמת - לספיגה משופרת ותמיכה רחבת היקף, בהתבסס על מחקר מדעי עדכני",
-        "group2_button_link": "shopify://collections",
+        "group2_title": "תוספי תזונה מדויקים עם טכנולוגיית ליפוזום, לספיגה משופרת.",
+        "group2_button_link": "shopify://collections/frontpage",
         "group2_button_text": "גלו את כל המוצרים",
         "group3_video": "shopify://files/videos/freepik__the-camera-performs-a-smooth-tilt-from-the-bottle-__77133.mp4"
       }
@@ -337,7 +337,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>תוספי תזונה בפורמולה מדויקת, המבוססת על טכנולוגיית ספיגה ליפוזומלית מתקדמת, המאפשרת זמינות ביולוגית מרבית ותמיכה בריאותית רב-מערכתית הנשענת על מדע מבוסס הוכחות.</p>",
+                "text": "<p>גלו את הפורמולות לספיגה מקסימלית</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "right",
@@ -551,6 +551,123 @@
         "color_scheme": "scheme-2",
         "padding-block-start": 100,
         "padding-block-end": 40
+      }
+    },
+    "section_brWBpJ": {
+      "type": "section",
+      "blocks": {
+        "text_m6b9Dm": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>המוצרים שלנו, החוויות שלכם</h3>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "right",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 43,
+            "padding-block-end": 15,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "custom_css_class": ""
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_86c656b_q6MDJK": {
+          "type": "ai_gen_block_86c656b",
+          "name": "Video Carousel",
+          "settings": {
+            "video_height": 500,
+            "gap": 28,
+            "border_radius": 10,
+            "slide_border_radius": 8,
+            "slide_background": "#ffffff",
+            "text_color": "#ffffff",
+            "play_button_size": 40,
+            "play_button_color": "#dedede",
+            "play_button_hover_color": "#f0f0f0",
+            "play_button_icon_color": "#000000",
+            "nav_button_size": 44,
+            "nav_button_color": "#ffffff",
+            "nav_button_hover_color": "#f0f0f0",
+            "nav_button_icon_color": "#000000",
+            "title_size": 16,
+            "description_size": 16,
+            "video_1": "https://cdn.shopify.com/videos/c/o/v/084039f8cb48412dbb5c65aa462c8188.mp4",
+            "title_1": "״מצאתי את התוסף שהפסיק לי את הנשירה, אין יותר שערות על הכרית״",
+            "description_1": "<p>ליב זנבי</p>",
+            "video_2": "https://cdn.shopify.com/videos/c/o/v/459a3c9049ab4bb2b434680971350ddb.mp4",
+            "title_2": "\"מטרתם לתמוך בבריאות שלי ובתהליך שלי לאורח חיים בריא\"",
+            "description_2": "<p>שירה לוטסיגר</p>",
+            "video_3": "https://cdn.shopify.com/videos/c/o/v/1e527a5f3dd84448b93a0116fd535cc6.mp4",
+            "title_3": "\"הליפוזום מאפשר ספיגה גבוהה יותר של רכיב הפעולה, מה שגורם לתוצאות מהירות יותר\"",
+            "description_3": "<p>שלי</p>",
+            "video_4": "https://cdn.shopify.com/videos/c/o/v/3f462c045ea04e24aa7bad8f71af7c2e.mp4",
+            "title_4": "\"אני לוקחת כל יום ואני כבר רואה איך השיער שלי ארך\"",
+            "description_4": "<p>מאי דהן</p>",
+            "video_5": "https://cdn.shopify.com/videos/c/o/v/c88516fafcf848b8b488ea9404b9cb91.mp4",
+            "title_5": "\"תוך שלושה שבועות הפסיקה לי הנשירה ואחר חודש ראיתי צמיחה חדשה\"",
+            "description_5": "<p>שקד חודרה</p>",
+            "video_6": "https://cdn.shopify.com/videos/c/o/v/ee81e72537ee4548b75833e76b97c88b.mp4",
+            "title_6": "״לדאוג לשיער שלך יכול להיות ככ פשוט קל וטעים\"",
+            "description_6": "<p>עדי גילאור</p>",
+            "video_7": "https://cdn.shopify.com/videos/c/o/v/3a24c4a4f63a4d7788a18bd10fc75fef.mp4",
+            "title_7": "\"יש ככ הרבה תוספים, אבל בדבר כזה עוד לא נתקלתי\"",
+            "description_7": "<p>מאי ויצמן</p>",
+            "video_8": "https://cdn.shopify.com/videos/c/o/v/94ad690a244c49ba85a537d583882905.mp4",
+            "title_8": "״זה פשוט טעים והתוצאות הן לא הגיוניות״",
+            "description_8": "<p>שחר שוורץ</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_m6b9Dm",
+        "ai_gen_block_86c656b_q6MDJK"
+      ],
+      "custom_css": [
+        "{padding-right: 80px;}",
+        "@media screen and (max-width: 767px) {{padding-right: 0; margin-bottom: 50px; } h3 {font-size: 24px !important; }}",
+        "h3 {font-size: 32px; font-weight: 700;}"
+      ],
+      "name": "Video Section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "custom_css_class": "home__videoCarouselWrapper"
       }
     },
     "section_iDFMq9": {
@@ -1048,7 +1165,7 @@
             "title": "כל מה שהבריאות שלך צריכה",
             "description": "תוספי תזונה מתקדמים בטכנולוגיית ליפוזומים לספיגה מקסימלית ויעילות מוכחת. שילוב מדויק של מדע ואיכות ללא פשרות.",
             "button_label": "גלו את כל המוצרים",
-            "button_link": "shopify://collections"
+            "button_link": "shopify://collections/frontpage"
           }
         }
       },
@@ -1062,7 +1179,7 @@
       "name": "SP Hero Section",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/6e29f7496e17687ac695cdd76a0951ec40a9ad12.jpg",
+        "image_1": "shopify://shop_images/Frame_1984077810.png",
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
@@ -1528,8 +1645,8 @@
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "padding-block-start": 47,
-            "padding-block-end": 47,
-            "padding-inline-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 47,
             "padding-inline-end": 24
           },
           "blocks": {
@@ -1581,7 +1698,7 @@
                 "padding-block-start": 14,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 10,
+                "padding-inline-end": 0,
                 "custom_css_class": ""
               },
               "blocks": {}
@@ -2098,7 +2215,17 @@
             "description_4": "<p>המבנה הליפוזומלי מגן על הרכיבים מפני פירוק, שומר על יציבותם ומבטיח הגעה מלאה ליעדם בגוף.</p>",
             "image_5": "shopify://shop_images/Doctors_1.png",
             "title_5": "דוקטור דנה לוי",
-            "description_5": "<p>המבנה הליפוזומלי מגן על הרכיבים מפני פירוק, שומר על יציבותם ומבטיח הגעה מלאה ליעדם בגוף.</p>"
+            "description_5": "<p>המבנה הליפוזומלי מגן על הרכיבים מפני פירוק, שומר על יציבותם ומבטיח הגעה מלאה ליעדם בגוף.</p>",
+            "title_6": "Slide 6 Title",
+            "description_6": "<p>Description for slide 6. This text appears on hover.</p>",
+            "title_7": "Slide 7 Title",
+            "description_7": "<p>Description for slide 7. This text appears on hover.</p>",
+            "title_8": "Slide 8 Title",
+            "description_8": "<p>Description for slide 8. This text appears on hover.</p>",
+            "title_9": "Slide 9 Title",
+            "description_9": "<p>Description for slide 9. This text appears on hover.</p>",
+            "title_10": "Slide 10 Title",
+            "description_10": "<p>Description for slide 10. This text appears on hover.</p>"
           },
           "blocks": {}
         }
@@ -2517,123 +2644,6 @@
         "custom_css_class": "pull__quoteTextWrapper"
       }
     },
-    "section_brWBpJ": {
-      "type": "section",
-      "blocks": {
-        "text_m6b9Dm": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h3>המוצרים שלנו, החוויות שלכם</h3>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "right",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 43,
-            "padding-block-end": 15,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0,
-            "custom_css_class": ""
-          },
-          "blocks": {}
-        },
-        "ai_gen_block_86c656b_q6MDJK": {
-          "type": "ai_gen_block_86c656b",
-          "name": "Video Carousel",
-          "settings": {
-            "video_height": 500,
-            "gap": 28,
-            "border_radius": 10,
-            "slide_border_radius": 8,
-            "slide_background": "#ffffff",
-            "text_color": "#ffffff",
-            "play_button_size": 40,
-            "play_button_color": "#dedede",
-            "play_button_hover_color": "#f0f0f0",
-            "play_button_icon_color": "#000000",
-            "nav_button_size": 44,
-            "nav_button_color": "#ffffff",
-            "nav_button_hover_color": "#f0f0f0",
-            "nav_button_icon_color": "#000000",
-            "title_size": 16,
-            "description_size": 16,
-            "video_1": "https://cdn.shopify.com/videos/c/o/v/9baef24f34c44c328a55a8db435d96f7.mp4",
-            "title_1": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_1": "<p>דניאל סייג</p>",
-            "video_2": "https://cdn.shopify.com/videos/c/o/v/1e386faa0842403cb9c32488f7103e22.mp4",
-            "title_2": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_2": "<p>דניאל סייג</p>",
-            "video_3": "https://cdn.shopify.com/videos/c/o/v/240de6f76b1644c09f24ce1883b0205e.mp4",
-            "title_3": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_3": "<p>דניאל סייג</p>",
-            "video_4": "https://cdn.shopify.com/videos/c/o/v/240de6f76b1644c09f24ce1883b0205e.mp4",
-            "title_4": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_4": "<p>דניאל סייג</p>",
-            "video_5": "https://cdn.shopify.com/videos/c/o/v/240de6f76b1644c09f24ce1883b0205e.mp4",
-            "title_5": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_5": "<p>דניאל סייג</p>",
-            "video_6": "https://cdn.shopify.com/videos/c/o/v/9baef24f34c44c328a55a8db435d96f7.mp4",
-            "title_6": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_6": "<p>דניאל סייג</p>",
-            "video_7": "https://cdn.shopify.com/videos/c/o/v/9baef24f34c44c328a55a8db435d96f7.mp4",
-            "title_7": "\"אחרי שנים של חוסרים, בדיקות הדם שלי הראו שיפור משמעותי תוך כמה חודשים בלבד.\"",
-            "description_7": "<p>דניאל סייג</p>",
-            "video_8": "",
-            "title_8": "",
-            "description_8": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_m6b9Dm",
-        "ai_gen_block_86c656b_q6MDJK"
-      ],
-      "custom_css": [
-        "{padding-right: 80px;}",
-        "@media screen and (max-width: 767px) {{padding-right: 0; margin-bottom: 50px; } h3 {font-size: 24px !important; }}",
-        "h3 {font-size: 32px; font-weight: 700;}"
-      ],
-      "name": "Video Section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-2",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0,
-        "custom_css_class": "home__videoCarouselWrapper"
-      }
-    },
     "section_dQi4nd": {
       "type": "section",
       "blocks": {
@@ -2881,7 +2891,7 @@
               },
               "blocks": {}
             },
-            "button_aaHcHg": {
+            "button_7pYdt7": {
               "type": "button",
               "name": "t:names.button",
               "settings": {
@@ -2893,20 +2903,20 @@
                 "custom_width": 100,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100,
-                "custom_css_class": "btn__hidden--mobile"
+                "custom_css_class": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
             "text_kMWTRt",
-            "button_aaHcHg"
+            "button_7pYdt7"
           ]
         },
         "ai_gen_block_6d1a16f_P3ViiN": {
           "type": "ai_gen_block_6d1a16f",
           "settings": {
-            "blog": "news",
+            "blog": "הכל-על-הטכנולוגיה-הליפוזומלית",
             "heading": "",
             "description": "",
             "articles_to_show": 3,
@@ -2944,7 +2954,6 @@
         "group_TrTcCy",
         "ai_gen_block_6d1a16f_P3ViiN"
       ],
-      "disabled": true,
       "custom_css": [
         "{direction: rtl; padding: 0 16px;}",
         "@media (min-width: 767px) {{padding: 0 120px; }}"
@@ -2977,98 +2986,6 @@
         "padding-block-start": 53,
         "padding-block-end": 0,
         "custom_css_class": "home__blogGridWrapper"
-      }
-    },
-    "17502405794c7855d5": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_ecfa5be_Ex6gtW": {
-          "type": "ai_gen_block_ecfa5be",
-          "settings": {
-            "section_title": "Featured Videos",
-            "section_description": "Discover our latest video content",
-            "rtl_direction": true,
-            "background_color": "#ffffff",
-            "title_color": "#000000",
-            "description_color": "#666666",
-            "section_padding": 50,
-            "title_size": 32,
-            "description_size": 16,
-            "slider_border_radius": 12,
-            "video_gap": 16,
-            "video_height": 280,
-            "video_border_radius": 8,
-            "video_title_size": 16,
-            "video_desc_size": 12,
-            "play_button_color": "#ffffff",
-            "play_button_icon_color": "#000000",
-            "play_button_hover_color": "#f0f0f0",
-            "nav_button_color": "#ffffff",
-            "nav_button_text_color": "#000000",
-            "nav_button_hover_color": "#f0f0f0",
-            "dot_color": "#cccccc",
-            "dot_active_color": "#000000",
-            "video_1": "shopify://files/videos/4114797-uhd_3840_2160_25fps.mp4",
-            "video_title_1": "test",
-            "video_description_1": "<p>test1</p>",
-            "video_2": "shopify://files/videos/5532773-uhd_4096_2160_25fps.mp4",
-            "video_title_2": "",
-            "video_description_2": "",
-            "video_3": "shopify://files/videos/4074364-hd_1280_720_25fps.mp4",
-            "video_title_3": "",
-            "video_description_3": "",
-            "video_4": "shopify://files/videos/3195394-uhd_3840_2160_25fps.mp4",
-            "video_title_4": "",
-            "video_description_4": "",
-            "video_5": "shopify://files/videos/5532773-uhd_4096_2160_25fps.mp4",
-            "video_title_5": "",
-            "video_description_5": "",
-            "video_6": "shopify://files/videos/4114797-uhd_3840_2160_25fps.mp4",
-            "video_title_6": "",
-            "video_description_6": "",
-            "video_7": "shopify://files/videos/3195394-uhd_3840_2160_25fps.mp4",
-            "video_title_7": "",
-            "video_description_7": "",
-            "video_title_8": "",
-            "video_description_8": "",
-            "video_title_9": "",
-            "video_description_9": "",
-            "video_title_10": "",
-            "video_description_10": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_ecfa5be_Ex6gtW"
-      ],
-      "disabled": true,
-      "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "full-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
       }
     },
     "1751879746a4bf936a": {
@@ -3136,6 +3053,7 @@
     },
     "sp_blog_posts_section_inrhH7": {
       "type": "sp-blog-posts-section",
+      "disabled": true,
       "name": "SP Blog Posts",
       "settings": {
         "blog": "news",
@@ -3163,6 +3081,7 @@
     "slideshow_BdmcTE",
     "home_banner_video_6nwwJX",
     "product_list_x9Yaab",
+    "section_brWBpJ",
     "section_iDFMq9",
     "section_tBzCnq",
     "custom_info_blocks_EWNpKT",
@@ -3179,10 +3098,8 @@
     "sp_our_scientists_section_iaDTfJ",
     "section_GCY8gR",
     "section_hqDkft",
-    "section_brWBpJ",
     "section_dQi4nd",
     "section_eeUqch",
-    "17502405794c7855d5",
     "1751879746a4bf936a",
     "sp_blog_posts_section_inrhH7"
   ]

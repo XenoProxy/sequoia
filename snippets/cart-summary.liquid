@@ -47,16 +47,85 @@
   {% endif %}
   {% endcomment %}
   <div class="cart-discount-form">
-  <input required type="text" id="discount-code" placeholder="יש לך קוד קופון? הכניס/י כאן" />
-  <button onclick="applyDiscount()">הוסיפו</button>
+  <input
+    required
+    type="text"
+    id="discount-code"
+    placeholder="יש לך קוד קופון? הכניס/י כאן"
+    inputmode="text"
+    autocomplete="off"
+    autocapitalize="none"
+    spellcheck="false"
+  />
+  <button id="discount-button" onclick="applyDiscount()" disabled>הוסיפו</button>
 </div>
 <script>
   function applyDiscount() {
     var code = document.getElementById('discount-code').value;
-    if (code) {
+    if (code.trim()) {
       window.location.href = '/checkout?discount=' + encodeURIComponent(code);
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var input = document.getElementById('discount-code');
+    var button = document.getElementById('discount-button');
+
+    function updateButtonState() {
+      var hasValue = input && input.value && input.value.trim().length > 0;
+
+      if (button) {
+        if (hasValue) {
+          button.disabled = false;
+          button.classList.add('active');
+        } else {
+          button.disabled = true;
+          button.classList.remove('active');
+        }
+      }
+    }
+
+    // Initial check
+    updateButtonState();
+
+    if (input) {
+      // Standard events
+      input.addEventListener('input', updateButtonState);
+      input.addEventListener('keyup', updateButtonState);
+      input.addEventListener('keydown', updateButtonState);
+      input.addEventListener('change', updateButtonState);
+
+      // Mobile-specific events
+      input.addEventListener('textInput', updateButtonState);
+      input.addEventListener('compositionend', updateButtonState);
+
+      // Paste events with different delays for better compatibility
+      input.addEventListener('paste', function() {
+        setTimeout(updateButtonState, 1);
+        setTimeout(updateButtonState, 10);
+        setTimeout(updateButtonState, 100);
+      });
+
+      // Focus events to handle virtual keyboard interactions
+      input.addEventListener('focus', function() {
+        setTimeout(updateButtonState, 100);
+      });
+
+      input.addEventListener('blur', updateButtonState);
+
+      // Fallback: periodic check when input is focused (for problematic devices)
+      var checkInterval;
+      input.addEventListener('focus', function() {
+        checkInterval = setInterval(updateButtonState, 200);
+      });
+
+      input.addEventListener('blur', function() {
+        if (checkInterval) {
+          clearInterval(checkInterval);
+        }
+      });
+    }
+  });
 </script>
 
   {%- liquid

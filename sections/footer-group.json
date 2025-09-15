@@ -232,7 +232,7 @@
                           "type": "_social-link",
                           "name": "t:names.social_link",
                           "settings": {
-                            "link": "http://facebook.com/shopify"
+                            "link": "https://www.facebook.com/sequoialipo.il"
                           },
                           "blocks": {}
                         },
@@ -240,7 +240,7 @@
                           "type": "_social-link",
                           "name": "t:names.social_link",
                           "settings": {
-                            "link": "http://instagram.com/shopify"
+                            "link": "https://www.instagram.com/sequoialipo/"
                           },
                           "blocks": {}
                         },
@@ -248,7 +248,7 @@
                           "type": "_social-link",
                           "name": "t:names.social_link",
                           "settings": {
-                            "link": "https://tiktok.com/@shopify"
+                            "link": "https://www.tiktok.com/@sequoia.lipo"
                           },
                           "blocks": {}
                         }
@@ -345,7 +345,7 @@
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "footer",
+                "menu": "footer-menu-center",
                 "heading": "ערכות",
                 "menu_spacing": 12,
                 "show_as_accordion": true,
@@ -366,7 +366,7 @@
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "footer",
+                "menu": "footer-menu-about-us",
                 "heading": "עלינו",
                 "menu_spacing": 12,
                 "show_as_accordion": true,
@@ -387,7 +387,7 @@
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "main-menu",
+                "menu": "footer-blog",
                 "heading": "בלוג",
                 "menu_spacing": 12,
                 "show_as_accordion": true,

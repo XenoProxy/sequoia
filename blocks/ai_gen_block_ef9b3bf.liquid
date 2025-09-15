@@ -38,6 +38,7 @@
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
+    max-width: 890px;
     height: auto;
     gap:35.27px;
     will-change: transform;
@@ -259,17 +260,65 @@
 >
   <div class="ai-slider-container-{{ ai_gen_id }}">
     <div class="ai-slider-track-{{ ai_gen_id }}">
-      {% for i in (1..5) %}
-        {% assign image_field = 'image_' | append: i %}
-        {% assign title_field = 'title_' | append: i %}
-        {% assign description_field = 'description_' | append: i %}
-        
-        {% if block.settings[image_field] != blank or forloop.index == 1 %}
+      {% for i in (1..10) %}
+        {% comment %} Get data from metaobject for slides 1-5, from block settings for slides 6-10 {% endcomment %}
+        {% if i <= 5 %}
+          {% if i == 1 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image.value %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title.value %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description %}
+          {% elsif i == 2 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_2.value %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_2.value %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_2 %}
+          {% elsif i == 3 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_3.value %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_3.value %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_3 %}
+          {% elsif i == 4 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_4.value %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_4.value %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_4 %}
+          {% elsif i == 5 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_5.value %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_5.value %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_5 %}
+          {% endif %}
+        {% else %}
+          {% comment %} For slides 6-10, try to get from metaobject, fallback to block settings {% endcomment %}
+          {% assign image_field = 'image_' | append: i %}
+          {% assign title_field = 'title_' | append: i %}
+          {% assign description_field = 'description_' | append: i %}
+
+          {% if i == 6 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_6.value | default: block.settings[image_field] %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_6.value | default: block.settings[title_field] %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_6 | default: block.settings[description_field] %}
+          {% elsif i == 7 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_7.value | default: block.settings[image_field] %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_7.value | default: block.settings[title_field] %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_7 | default: block.settings[description_field] %}
+          {% elsif i == 8 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_8.value | default: block.settings[image_field] %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_8.value | default: block.settings[title_field] %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_8 | default: block.settings[description_field] %}
+          {% elsif i == 9 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_9.value | default: block.settings[image_field] %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_9.value | default: block.settings[title_field] %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_9 | default: block.settings[description_field] %}
+          {% elsif i == 10 %}
+            {% assign current_image = product.metafields.custom.meta_image.value.slide_image_10.value | default: block.settings[image_field] %}
+            {% assign current_title = product.metafields.custom.meta_image.value.title_10.value | default: block.settings[title_field] %}
+            {% assign current_description = product.metafields.custom.meta_image.value.description_10 | default: block.settings[description_field] %}
+          {% endif %}
+        {% endif %}
+
+        {% if current_image != blank or forloop.index == 1 %}
           <div class="ai-slide-{{ ai_gen_id }}" data-index="{{ forloop.index0 }}">
-            {% if block.settings[image_field] != blank %}
-              <img 
-                src="{{ block.settings[image_field] | image_url: width: 1000 }}" 
-                alt="{{ block.settings[image_field].alt | escape }}"
+            {% if current_image != blank %}
+              <img
+                src="{{ current_image | image_url: width: 1000 }}"
+                alt="{{ current_image.alt | escape }}"
                 class="ai-slide-image-{{ ai_gen_id }}"
                 loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}"
               >
@@ -278,14 +327,18 @@
                 {{ 'image' | placeholder_svg_tag }}
               </div>
             {% endif %}
-            
+
             <div class="ai-slide-content-{{ ai_gen_id }}">
-              <h3 class="ai-slide-title-{{ ai_gen_id }}">
-                {{ block.settings[title_field] | default: 'Slide Title ' }}
-              </h3>
-              <div class="ai-slide-description-{{ ai_gen_id }}">
-                {{ block.settings[description_field] | default: 'This is a description for slide ' }}
-              </div>
+              {% if current_title != blank %}
+                <h3 class="ai-slide-title-{{ ai_gen_id }}">
+                  {{ current_title }}
+                </h3>
+              {% endif %}
+              {% if current_description != blank %}
+                <div class="ai-slide-description-{{ ai_gen_id }}">
+                  {{ current_description | metafield_tag }}
+                </div>
+              {% endif %}
             </div>
           </div>
         {% endif %}
@@ -992,6 +1045,111 @@
       "id": "description_5",
       "label": "Description",
       "default": "<p>Description for slide 5. This text appears on hover.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_6",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Title",
+      "default": "Slide 6 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_6",
+      "label": "Description",
+      "default": "<p>Description for slide 6. This text appears on hover.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_7",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_7",
+      "label": "Title",
+      "default": "Slide 7 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_7",
+      "label": "Description",
+      "default": "<p>Description for slide 7. This text appears on hover.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_8",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_8",
+      "label": "Title",
+      "default": "Slide 8 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_8",
+      "label": "Description",
+      "default": "<p>Description for slide 8. This text appears on hover.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_9",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_9",
+      "label": "Title",
+      "default": "Slide 9 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_9",
+      "label": "Description",
+      "default": "<p>Description for slide 9. This text appears on hover.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Slide 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_10",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_10",
+      "label": "Title",
+      "default": "Slide 10 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description_10",
+      "label": "Description",
+      "default": "<p>Description for slide 10. This text appears on hover.</p>"
     }
   ],
   "presets": [

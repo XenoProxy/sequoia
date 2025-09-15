@@ -139,64 +139,60 @@
 
 <div class="custom-media-gallery spacing-style" {{ block.shopify_attributes }}>
   <div style="direction: ltr;" class="custom-media-slides" id="customMediaSlides">
-    {% comment %} Show only the second image (index 1) {% endcomment %}
-    {% if sorted_media.size > 1 %}
-      {% assign second_media = sorted_media[1] %}
-      <div class="custom-media-slide" data-index="0">
-        <div class="custom-media-container"
-          {% if block.settings.aspect_ratio == 'adapt' %}
-            style="padding-bottom: {{ second_media.preview_image.aspect_ratio | times: 100 }}%;"
-          {% endif %}
-        >
-          {% case second_media.media_type %}
-            {% when 'image' %}
-              <img
-                src="{{ second_media | img_url: '1000x' }}"
-                alt="{{ second_media.alt | escape }}"
-                loading="lazy"
-                data-zoom="{% if block.settings.zoom %}true{% else %}false{% endif %}"
-                class="custom-media-image"
-              />
-            {% when 'video' %}
-              {{ second_media | video_tag: controls: true, preload: 'none' }}
-            {% when 'external_video' %}
-              {{ second_media | external_video_tag }}
-            {% when 'model' %}
-              {{ second_media | model_viewer_tag }}
-          {% endcase %}
+    {% for media in sorted_media %}
+      {% unless forloop.first %}
+        <div class="custom-media-slide" data-index="{{ forloop.index0 | minus: 1 }}">
+          <div class="custom-media-container"
+            {% if block.settings.aspect_ratio == 'adapt' %}
+              style="padding-bottom: {{ media.preview_image.aspect_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {% case media.media_type %}
+              {% when 'image' %}
+                <img
+                  src="{{ media | img_url: '1000x' }}"
+                  alt="{{ media.alt | escape }}"
+                  loading="lazy"
+                  data-zoom="{% if block.settings.zoom %}true{% else %}false{% endif %}"
+                  class="custom-media-image"
+                />
+              {% when 'video' %}
+                {{ media | video_tag: controls: true, preload: 'none' }}
+              {% when 'external_video' %}
+                {{ media | external_video_tag }}
+              {% when 'model' %}
+                {{ media | model_viewer_tag }}
+            {% endcase %}
+          </div>
         </div>
-      </div>
-    {% else %}
-      {% comment %} Fallback: show first image if there's only one {% endcomment %}
-      {% assign first_media = sorted_media[0] %}
-      <div class="custom-media-slide" data-index="0">
-        <div class="custom-media-container"
-          {% if block.settings.aspect_ratio == 'adapt' %}
-            style="padding-bottom: {{ first_media.preview_image.aspect_ratio | times: 100 }}%;"
-          {% endif %}
-        >
-          {% case first_media.media_type %}
-            {% when 'image' %}
-              <img
-                src="{{ first_media | img_url: '1000x' }}"
-                alt="{{ first_media.alt | escape }}"
-                loading="lazy"
-                data-zoom="{% if block.settings.zoom %}true{% else %}false{% endif %}"
-                class="custom-media-image"
-              />
-            {% when 'video' %}
-              {{ first_media | video_tag: controls: true, preload: 'none' }}
-            {% when 'external_video' %}
-              {{ first_media | external_video_tag }}
-            {% when 'model' %}
-              {{ first_media | model_viewer_tag }}
-          {% endcase %}
-        </div>
-      </div>
-    {% endif %}
+      {% endunless %}
+    {% endfor %}
   </div>
   
-  {% comment %} Hide navigation since we only show one image {% endcomment %}
+  {% if sorted_media.size > 2 %}
+    <div class="custom-media-thumbnails" id="customMediaThumbnails">
+      {% for media in sorted_media %}
+        {% unless forloop.first %}
+          <div class="custom-media-thumbnail {% if forloop.index == 2 %}active{% endif %}" data-index="{{ forloop.index0 | minus: 1 }}">
+            <img
+              src="{{ media.preview_image | img_url: '120x' }}"
+              alt="{{ media.alt | escape }}"
+              loading="lazy"
+            />
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </div>
+    
+    <div class="custom-media-nav">
+       <button type="button" class="custom-media-prev"> 
+        {{- 'arrow-fig.svg' | inline_asset_content -}} 
+       </button>
+        <button type="button" class="custom-media-next"> 
+        {{- 'arrow-fig.svg' | inline_asset_content -}} 
+      </button>
+    </div>
+  {% endif %}
   
   {% if block.settings.zoom %}
     <div class="custom-zoom-dialog" id="customZoomDialog">
@@ -209,10 +205,13 @@
   
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Basic variables - simplified for single image display
+    // Basic variables
     const slides = document.getElementById('customMediaSlides');
-    const mediaCount = 1; // Always 1 since we only show the second image
-    let currentIndex = 0;
+    const thumbnails = document.querySelectorAll('.custom-media-thumbnail');
+    const prevBtn = document.querySelector('.custom-media-prev');
+    const nextBtn = document.querySelector('.custom-media-next');
+    const mediaCount = {{ sorted_media.size | minus: 1 }}; // Exclude first image
+    let currentIndex = 0; // Start from first available image (which is originally second)
 
     // Zoom functionality
     {% if block.settings.zoom %}
@@ -240,8 +239,74 @@
     });
     {% endif %}
 
-    // No navigation needed since we only show one image
-    // The slide is already positioned correctly
+    // Navigation function
+    function goToSlide(index) {
+      // Clamp index within bounds
+      index = Math.max(0, Math.min(index, mediaCount - 1));
+      currentIndex = index;
+
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update thumbnails
+      thumbnails.forEach(thumb => thumb.classList.remove('active'));
+      thumbnails[currentIndex].classList.add('active');
+
+      // Disable prev/next buttons when needed
+      if (prevBtn) {
+        prevBtn.disabled = currentIndex === 0;
+        prevBtn.classList.toggle('disabled', currentIndex === 0);
+      }
+      if (nextBtn) {
+        nextBtn.disabled = currentIndex === mediaCount - 1;
+        nextBtn.classList.toggle('disabled', currentIndex === mediaCount - 1);
+      }
+    }
+
+    // Event handlers
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    }
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-index'));
+        goToSlide(index);
+      });
+    });
+
+    // Touch/swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slides.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    slides.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        goToSlide(currentIndex + 1);
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        goToSlide(currentIndex - 1);
+      }
+    }
+
+    // Keyboard
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+      if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+    });
+
+    // Initialize with first available slide (originally second image)
+    goToSlide(0);
   });
 </script>
 
@@ -384,40 +449,42 @@
 >
   {% capture slides %}
     {% for media in sorted_media %}
-      {% capture children %}
-        {%- render 'product-media', media: media -%}
-      {% endcapture %}
-      {% capture class %}
-        product-media-container product-media-container--{{ media.media_type }}{% if block.settings.constrain_to_viewport %} constrain-height{% endif %}{% if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}{% if block.settings.zoom %} product-media-container--zoomable{% endif %}
-      {% endcapture %}
-      {% if block.settings.aspect_ratio == 'adapt' %}
-        {% capture style %}
-          --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};
+      {% unless forloop.first %}
+        {% capture children %}
+          {%- render 'product-media', media: media -%}
         {% endcapture %}
-      {% endif %}
-      {% if block.settings.zoom and media.media_type == 'model' %}
-        {%- capture attributes -%}"{% if settings.transition_to_main_product and forloop.first %} data-view-transition-type="product-image-transition"{% endif %}{% endcapture -%}
-      {% elsif block.settings.zoom %}
-        {%- capture attributes -%}on:click="#zoom-dialog-{{ block.id }}/open/{{ forloop.index0 }}"{% if settings.transition_to_main_product and forloop.first %} data-view-transition-type="product-image-transition"{% endif %}{% endcapture -%}
-      {% endif %}
+        {% capture class %}
+          product-media-container product-media-container--{{ media.media_type }}{% if block.settings.constrain_to_viewport %} constrain-height{% endif %}{% if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}{% if block.settings.zoom %} product-media-container--zoomable{% endif %}
+        {% endcapture %}
+        {% if block.settings.aspect_ratio == 'adapt' %}
+          {% capture style %}
+            --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};
+          {% endcapture %}
+        {% endif %}
+        {% if block.settings.zoom and media.media_type == 'model' %}
+          {%- capture attributes -%}"{% if settings.transition_to_main_product and forloop.index == 2 %} data-view-transition-type="product-image-transition"{% endif %}{% endcapture -%}
+        {% elsif block.settings.zoom %}
+          {%- capture attributes -%}on:click="#zoom-dialog-{{ block.id }}/open/{{ forloop.index0 | minus: 1 }}"{% if settings.transition_to_main_product and forloop.index == 2 %} data-view-transition-type="product-image-transition"{% endif %}{% endcapture -%}
+        {% endif %}
 
-      {% render 'slideshow-slide',
-        index: forloop.index,
-        children: children,
-        class: class,
-        style: style,
-        attributes: attributes,
-      %}
+        {% render 'slideshow-slide',
+          index: forloop.index | minus: 1,
+          children: children,
+          class: class,
+          style: style,
+          attributes: attributes,
+        %}
+      {% endunless %}
     {% endfor %}
   {% endcapture %}
 
-  {% if sorted_media.size > 1 %}
+  {% if sorted_media.size > 2 %}
     {% capture controls %}
       {% if render_slideshow_controls %}
         {%- render 'slideshow-controls',
           class: slideshow_controls_class,
           style: slideshow_controls_style,
-          item_count: sorted_media.size,
+          item_count: sorted_media.size | minus: 1,
           thumbnails: sorted_media,
           controls_on_media: controls_on_media,
           pagination_position: pagination_position,
@@ -429,7 +496,7 @@
         {%- render 'slideshow-controls',
           class: 'desktop:hidden media-gallery__mobile-controls',
           style: block.settings.slideshow_mobile_controls_style,
-          item_count: sorted_media.size,
+          item_count: sorted_media.size | minus: 1,
           controls_on_media: true,
           pagination_position: 'center',
         -%}
@@ -447,7 +514,7 @@
     ref: 'slideshow',
     class: slideshow_class,
     slides: slides,
-    slide_count: sorted_media.size,
+    slide_count: sorted_media.size | minus: 1,
     slideshow_arrows: slideshow_arrows,
     arrows_position: icons_position,
     controls: controls
@@ -459,31 +526,33 @@
       data-testid="media-gallery-grid"
     >
       {% for media in sorted_media %}
-        <li
-          ref="media[]"
-          class="
-            product-media-container
-            product-media-container--{{ media.media_type }}
-            {%- if block.settings.constrain_to_viewport %} constrain-height{% endif %}
-            {%- if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}
-          "
-          style="{% if block.settings.aspect_ratio == 'adapt' %} --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};{% endif %}"
-          {% if settings.transition_to_main_product and forloop.first %}
-            data-view-transition-type="product-image-transition"
-          {% endif %}
-        >
-          {%- if block.settings.zoom and media.media_type == 'image' -%}
-            <button
-              type="button"
-              class="button button-unstyled product-media-container__zoom-button"
-              aria-label="{{ 'actions.zoom' | t }}"
-              on:click="/zoom/{{ forloop.index0 }}"
-            >
-              <span class="visually-hidden">{{ 'actions.open_image_in_full_screen' | t }}</span>
-            </button>
-          {%- endif -%}
-          {%- render 'product-media', media: media -%}
-        </li>
+        {% unless forloop.first %}
+          <li
+            ref="media[]"
+            class="
+              product-media-container
+              product-media-container--{{ media.media_type }}
+              {%- if block.settings.constrain_to_viewport %} constrain-height{% endif %}
+              {%- if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}
+            "
+            style="{% if block.settings.aspect_ratio == 'adapt' %} --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};{% endif %}"
+            {% if settings.transition_to_main_product and forloop.index == 2 %}
+              data-view-transition-type="product-image-transition"
+            {% endif %}
+          >
+            {%- if block.settings.zoom and media.media_type == 'image' -%}
+              <button
+                type="button"
+                class="button button-unstyled product-media-container__zoom-button"
+                aria-label="{{ 'actions.zoom' | t }}"
+                on:click="/zoom/{{ forloop.index0 | minus: 1 }}"
+              >
+                <span class="visually-hidden">{{ 'actions.open_image_in_full_screen' | t }}</span>
+              </button>
+            {%- endif -%}
+            {%- render 'product-media', media: media -%}
+          </li>
+        {% endunless %}
       {% endfor %}
     </ul>
   {% endif %}
@@ -512,36 +581,38 @@
             class="dialog-thumbnails-list list-unstyled"
             ref="thumbnails"
           >
-            {% if sorted_media.size > 1 %}
+            {% if sorted_media.size > 2 %}
               {%- for media in sorted_media -%}
-                {% liquid
-                  assign aspect_ratio = block.settings.aspect_ratio
-                  if block.settings.aspect_ratio == 'adapt'
-                    assign aspect_ratio = media.preview_image.aspect_ratio | default: 1.0
-                  endif
-                %}
-                <button
-                  type="button"
-                  class="button button-unstyled dialog-thumbnails-list__thumbnail"
-                  aria-label="{{ 'accessibility.scroll_to' | t: title: media.alt | default: media.media_type }}"
-                  on:click="/handleThumbnailClick/{{ forloop.index0 }}"
-                  on:pointerenter="/handleThumbnailPointerEnter/{{ forloop.index0 }}"
-                  style="--aspect-ratio: {{ aspect_ratio }}; --gallery-aspect-ratio: {{ aspect_ratio }};"
-                  {% if forloop.first %}
-                    aria-selected="true"
-                  {% endif %}
-                >
-                  {{
-                    media.preview_image
-                    | image_url: width: 1024
-                    | image_tag:
-                      loading: 'lazy',
-                      sizes: 'auto, 110, (min-width: 750px) 160',
-                      widths: '300, 375, 450, 525, 600, 675, 750, 768, 850, 900, 1024',
-                      alt: media.alt
-                    | escape
-                  }}
-                </button>
+                {% unless forloop.first %}
+                  {% liquid
+                    assign aspect_ratio = block.settings.aspect_ratio
+                    if block.settings.aspect_ratio == 'adapt'
+                      assign aspect_ratio = media.preview_image.aspect_ratio | default: 1.0
+                    endif
+                  %}
+                  <button
+                    type="button"
+                    class="button button-unstyled dialog-thumbnails-list__thumbnail"
+                    aria-label="{{ 'accessibility.scroll_to' | t: title: media.alt | default: media.media_type }}"
+                    on:click="/handleThumbnailClick/{{ forloop.index0 | minus: 1 }}"
+                    on:pointerenter="/handleThumbnailPointerEnter/{{ forloop.index0 | minus: 1 }}"
+                    style="--aspect-ratio: {{ aspect_ratio }}; --gallery-aspect-ratio: {{ aspect_ratio }};"
+                    {% if forloop.index == 2 %}
+                      aria-selected="true"
+                    {% endif %}
+                  >
+                    {{
+                      media.preview_image
+                      | image_url: width: 1024
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: 'auto, 110, (min-width: 750px) 160',
+                        widths: '300, 375, 450, 525, 600, 675, 750, 768, 850, 900, 1024',
+                        alt: media.alt
+                      | escape
+                    }}
+                  </button>
+                {% endunless %}
               {%- endfor -%}
             {% endif %}
           </scroll-hint>
@@ -550,29 +621,31 @@
           class="dialog-zoomed-gallery list-unstyled"
         >
           {%- for media in sorted_media -%}
-            <li
-              id="product-{{ media.id}}-{{ forloop.index }}"
-              class="
-                product-media-container
-                product-media-container--{{ media.media_type }}
-                {% if block.settings.constrain_to_viewport %} constrain-height{% endif %}
-                {% if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}
-                {% if media.media_type == 'image' %} product-media-container--zoomable{% endif %}
-              "
-              style="{% if block.settings.aspect_ratio == 'adapt' %} --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};{% endif %}"
-              ref="media[]"
-              {% if media.media_type == 'image' %}
-                on:click="/close"
-              {% endif %}
-            >
-              {% if media.media_type == 'image' %}
-                <drag-zoom-wrapper class="product-media__drag-zoom-wrapper">
+            {% unless forloop.first %}
+              <li
+                id="product-{{ media.id}}-{{ forloop.index | minus: 1 }}"
+                class="
+                  product-media-container
+                  product-media-container--{{ media.media_type }}
+                  {% if block.settings.constrain_to_viewport %} constrain-height{% endif %}
+                  {% if block.settings.aspect_ratio != 'adapt' %} media-fit{% endif %}
+                  {% if media.media_type == 'image' %} product-media-container--zoomable{% endif %}
+                "
+                style="{% if block.settings.aspect_ratio == 'adapt' %} --media-preview-ratio: {{ media.preview_image.aspect_ratio | default: 1.0 }};{% endif %}"
+                ref="media[]"
+                {% if media.media_type == 'image' %}
+                  on:click="/close"
+                {% endif %}
+              >
+                {% if media.media_type == 'image' %}
+                  <drag-zoom-wrapper class="product-media__drag-zoom-wrapper">
+                    {%- render 'product-media', media: media -%}
+                  </drag-zoom-wrapper>
+                {% else %}
                   {%- render 'product-media', media: media -%}
-                </drag-zoom-wrapper>
-              {% else %}
-                {%- render 'product-media', media: media -%}
-              {% endif %}
-            </li>
+                {% endif %}
+              </li>
+            {% endunless %}
           {%- endfor -%}
         </ul>
       </dialog>
