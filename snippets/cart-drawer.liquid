@@ -205,6 +205,12 @@ button.button.button--tertiary.cart-items__remove {
     min-height: 44px; /* iOS recommended touch target */
     -webkit-appearance: none; /* Remove iOS styling */
     appearance: none;
+    -webkit-user-select: text; /* Allow text selection on iOS */
+    user-select: text;
+    -webkit-touch-callout: default; /* Allow callout on iOS */
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1); /* Subtle tap highlight */
+    box-sizing: border-box;
+    width: 100%;
 }
   .cart-discount-form button {
     padding: 6px 15px;

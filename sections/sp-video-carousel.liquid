@@ -168,6 +168,13 @@
 .glide__arrow.glide__arrow--left {
   scale: -1 1;
 }
+.glide__track {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+.glide__slides {
+  touch-action: pan-y pinch-zoom;
+}
 @media (max-width: 767px) {
   .sp-video-carousel-wrapper {
     flex-direction: column;
@@ -175,6 +182,15 @@
   .carousel-left,
   .carousel-right {
     width: 100%;
+  }
+  .glide__track {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
 </style>
@@ -235,18 +251,75 @@
     const slideOffset = {{ section.settings.slide_visibility | default: 0 }};
     const perView = slideCount + (slideOffset / 100);
 
-    new Glide('#videoCarousel', {
+    // Initialize Glide
+    const glide = new Glide('#videoCarousel', {
       type: 'slider',
       startAt: 0,
       perView: perView,
       focusAt: 'center',
       gap: 20,
       direction: rtl ? 'rtl' : 'ltr',
+      touchRatio: 0.5,
+      dragThreshold: 120,
+      swipeThreshold: 80,
       breakpoints: {
         768: {
-          perView: 1
+          perView: 1,
+          touchRatio: 0.8,
+          dragThreshold: 80,
+          swipeThreshold: 50
         }
       }
-    }).mount();
+    });
+
+    // Mount Glide
+    glide.mount();
+
+    // Additional touch handling for better mobile experience
+    const glideTrack = document.querySelector('#videoCarousel .glide__track');
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+
+    if (glideTrack) {
+      glideTrack.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+      }, { passive: true });
+
+      glideTrack.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = Math.abs(currentX - startX);
+        const diffY = Math.abs(currentY - startY);
+
+        // If horizontal swipe is more significant than vertical, prevent default scrolling
+        if (diffX > diffY && diffX > 10) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      glideTrack.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        const threshold = 50;
+
+        if (Math.abs(diffX) > threshold) {
+          if (diffX > 0) {
+            // Swipe left - go to next slide
+            glide.go('>');
+          } else {
+            // Swipe right - go to previous slide
+            glide.go('<');
+          }
+        }
+      }, { passive: true });
+    }
   });
 </script>
