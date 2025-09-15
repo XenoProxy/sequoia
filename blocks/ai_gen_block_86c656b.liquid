@@ -172,6 +172,23 @@
       z-index: 2;
     }
 
+    @media screen and (max-width: 749px) and (-webkit-min-device-pixel-ratio: 0) {  /* Targets iOS devices */
+      .ai-video-carousel__video-{{ ai_gen_id }} {
+        -webkit-transform: translateZ(0);  /* Forces GPU rendering */
+        will-change: transform, opacity;  /* Hints browser to prepare for changes */
+        backface-visibility: hidden;  /* Prevents flicker */
+      }
+
+      .ai-video-carousel__track-{{ ai_gen_id }} {
+        -webkit-overflow-scrolling: touch;  /* Smooth momentum scrolling */
+      }
+
+      .ai-video-carousel__video-wrapper-{{ ai_gen_id }} {
+        position: relative;
+        z-index: 1;  /* Ensures video layers above gradients */
+      }
+    }
+
     /* .ai-video-carousel__nav-{{ ai_gen_id }}:hover {
       background-color: {{ block.settings.nav_button_hover_color }};
       transform: translateY(-50%) scale(1.1);
@@ -274,7 +291,7 @@
                   class="ai-video-carousel__video-{{ ai_gen_id }}"
                   muted
                   loop
-                  preload="metadata"
+                  preload="auto"
                   data-video
                 >
                   <source src="{{ video }}" type="video/mp4">
@@ -853,7 +870,8 @@
       "type": "textarea",
       "id": "description_8",
       "label": "Description"
-    }
+    },
+    
   ],
   "presets": [
     {
