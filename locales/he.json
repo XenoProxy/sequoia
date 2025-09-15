@@ -368,14 +368,14 @@
         "email_or_phone_label": "אימייל או מספר טלפון",
         "email_or_phone_placeholder": "אימייל או מספר טלפון",
         "title": "מידע",
-        "address_title": "כתובת",
+        "address_title": "רחוב ומספר",
         "delivery_option_title": "שיטת משלוח",
         "first_name_label": "שם פרטי",
         "optional_first_name_label": "שם פרטי",
         "last_name_label": "שם משפחה",
         "company_label": "חברה",
         "optional_company_label": "חברה (אופציונלי)",
-        "address1_label": "כתובת",
+        "address1_label": "רחוב ומספר",
         "city_label": "עיר",
         "country_label": "מדינה/מחוז",
         "phone_label": "מספר טלפון",
@@ -455,7 +455,9 @@
         "fact_billing_address_label": "כתובת חיוב",
         "name_on_card_label": "השם שעל הכרטיס",
         "name_on_card_placeholder": "השם שעל הכרטיס",
-        "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי."
+        "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי.",
+        "same_billing_address_label": "זהה לכתובת המשלוח",
+        "different_billing_address_label": "השתמש בכתובת חיוב שונה"
       },
       "payment_gateway": {
         "credit_card_label": "כרטיס אשראי"
@@ -480,7 +482,8 @@
         "estimated_taxes_label": "מיסים",
         "shipping_label": "משלוח",
         "free_shipping_total_label": "חינם",
-        "estimated_taxes_finalization_tooltip_content": "המס הסופי והסכום הכולל יאושרו באמצעות אימייל או הודעת טקסט לאחר ביצוע ההזמנה."
+        "estimated_taxes_finalization_tooltip_content": "המס הסופי והסכום הכולל יאושרו באמצעות אימייל או הודעת טקסט לאחר ביצוע ההזמנה.",
+        "title": "סיכום הזמנה"
       },
       "wallets": {
         "errors": {
@@ -550,6 +553,9 @@
       },
       "order_payment_collection": {
         "pay_now": "לתשלום"
+      },
+      "billing": {
+        "same_as_shipping": "זהה לכתובת המשלוח"
       }
     },
     "addresses": {

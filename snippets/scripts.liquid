@@ -84,6 +84,210 @@
     type="module"
   ></script>
 {% endif %}
+
+<!-- Глобальный обработчик формы скидки -->
+<script>
+  // Глобальный обработчик формы скидки - работает независимо от состояния корзины
+  (function() {
+    'use strict';
+
+    // Функция применения скидки
+    function applyDiscount() {
+      var input = document.getElementById('discount-code');
+      if (input && input.value && input.value.trim()) {
+        window.location.href = '/checkout?discount=' + encodeURIComponent(input.value.trim());
+      }
+    }
+
+    // Функция обновления состояния кнопки
+    function updateButtonState() {
+      var input = document.getElementById('discount-code');
+      var button = document.getElementById('discount-button');
+
+      if (!input || !button) return false;
+
+      var hasValue = input.value && input.value.trim().length > 0;
+      button.disabled = !hasValue;
+
+      if (hasValue) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+
+      return true;
+    }
+
+    // Функция инициализации обработчиков
+    function initDiscountHandlers() {
+      var input = document.getElementById('discount-code');
+      var button = document.getElementById('discount-button');
+
+      if (!input || !button) return false;
+
+      // Проверяем, не инициализированы ли уже обработчики
+      if (input._discountInitialized) return true;
+
+      // Добавляем обработчики событий
+      input.addEventListener('input', updateButtonState);
+      input.addEventListener('keyup', updateButtonState);
+      input.addEventListener('change', updateButtonState);
+      input.addEventListener('paste', function() {
+        setTimeout(updateButtonState, 10);
+      });
+
+      // Обработка Enter
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !button.disabled) {
+          e.preventDefault();
+          applyDiscount();
+        }
+      });
+
+      // Мобильные события
+      input.addEventListener('textInput', updateButtonState);
+      input.addEventListener('compositionend', updateButtonState);
+
+      // Обработчик клика на кнопку (дублируем onclick)
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!button.disabled) {
+          applyDiscount();
+        }
+      });
+
+      // Отмечаем как инициализированный
+      input._discountInitialized = true;
+
+      // Начальное обновление состояния
+      updateButtonState();
+
+      console.log('Discount form initialized successfully');
+      return true;
+    }
+
+    // Функция поиска и инициализации формы
+    function findAndInitForm() {
+      if (initDiscountHandlers()) {
+        return true; // Успешно инициализировано
+      }
+      return false; // Элементы не найдены
+    }
+
+    // Глобальная доступность функций
+    window.applyDiscount = applyDiscount;
+    window.updateDiscountButton = updateButtonState;
+    window.initDiscountForm = findAndInitForm;
+
+    // Агрессивная инициализация
+    var initAttempts = 0;
+    var maxAttempts = 50; // Максимум 50 попыток
+
+    function tryInit() {
+      initAttempts++;
+
+      if (findAndInitForm()) {
+        console.log('Discount form found and initialized on attempt', initAttempts);
+        return; // Успешно инициализировано
+      }
+
+      if (initAttempts < maxAttempts) {
+        // Продолжаем попытки с увеличивающимися интервалами
+        var delay = Math.min(initAttempts * 200, 3000); // Максимум 3 секунды
+        setTimeout(tryInit, delay);
+      }
+    }
+
+    // Начинаем попытки инициализации
+    tryInit();
+
+    // Дополнительные попытки при различных событиях
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(tryInit, 100);
+      setTimeout(tryInit, 500);
+      setTimeout(tryInit, 1000);
+    });
+
+    window.addEventListener('load', function() {
+      setTimeout(tryInit, 100);
+      setTimeout(tryInit, 500);
+      setTimeout(tryInit, 1000);
+      setTimeout(tryInit, 2000);
+    });
+
+    // При обновлении корзины
+    document.addEventListener('cart:update', function() {
+      setTimeout(function() {
+        // Сбрасываем флаг инициализации
+        var input = document.getElementById('discount-code');
+        if (input) {
+          input._discountInitialized = false;
+        }
+        tryInit();
+      }, 200);
+    });
+
+    // При обновлении скидок
+    document.addEventListener('discount:update', function() {
+      setTimeout(function() {
+        var input = document.getElementById('discount-code');
+        if (input) {
+          input._discountInitialized = false;
+        }
+        tryInit();
+      }, 200);
+    });
+
+    // Наблюдатель за DOM
+    if (typeof MutationObserver !== 'undefined') {
+      var observer = new MutationObserver(function(mutations) {
+        var shouldTryInit = false;
+
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.nodeType === 1) {
+                if (node.id === 'discount-code' || node.id === 'discount-button' ||
+                    (node.querySelector && (node.querySelector('#discount-code') || node.querySelector('#discount-button')))) {
+                  shouldTryInit = true;
+                }
+              }
+            });
+          }
+        });
+
+        if (shouldTryInit) {
+          setTimeout(tryInit, 100);
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+
+    // Периодическая проверка как последний резерв
+    var periodicCheck = setInterval(function() {
+      var input = document.getElementById('discount-code');
+      var button = document.getElementById('discount-button');
+
+      if (input && button && !input._discountInitialized) {
+        if (findAndInitForm()) {
+          // Если успешно инициализировано, можем уменьшить частоту проверок
+          clearInterval(periodicCheck);
+          setInterval(function() {
+            var input = document.getElementById('discount-code');
+            if (input && !input._discountInitialized) {
+              findAndInitForm();
+            }
+          }, 5000); // Проверяем каждые 5 секунд
+        }
+      }
+    }, 1000); // Каждую секунду первые попытки
+
+  })();
+</script>
 <script
   src="{{ 'dialog.js' | asset_url }}"
   type="module"

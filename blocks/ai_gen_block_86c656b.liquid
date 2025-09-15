@@ -341,9 +341,11 @@
         this.slidesPerMove = 1;
         this.isDragging = false;
         this.startX = 0;
+        this.startY = 0;
         this.currentTranslate = 0;
         this.prevTranslate = 0;
         this.animationID = 0;
+        this.isHorizontalSwipe = false;
       }
 
       connectedCallback() {
@@ -373,12 +375,12 @@
 
         // Add drag listeners
         this.track.addEventListener('mousedown', this.touchStart.bind(this));
-        this.track.addEventListener('touchstart', this.touchStart.bind(this), { passive: true });
+        this.track.addEventListener('touchstart', this.touchStart.bind(this), { passive: false });
         this.track.addEventListener('mouseup', this.touchEnd.bind(this));
         this.track.addEventListener('mouseleave', this.touchEnd.bind(this));
         this.track.addEventListener('touchend', this.touchEnd.bind(this));
         this.track.addEventListener('mousemove', this.touchMove.bind(this));
-        this.track.addEventListener('touchmove', this.touchMove.bind(this), { passive: true });
+        this.track.addEventListener('touchmove', this.touchMove.bind(this), { passive: false });
 
         window.addEventListener('resize', () => this.updateVisibleSlides());
       }
@@ -412,6 +414,8 @@
       }
 
       updateCarousel() {
+        if (this.slides.length === 0) return;
+
         const slideWidth = this.slides[0].offsetWidth;
         const gap = parseInt(getComputedStyle(this.track).gap) || 0;
         const translateX = -(this.currentIndex * (slideWidth + gap));
@@ -456,36 +460,89 @@
       touchStart(event) {
         this.isDragging = true;
         this.startX = this.getPositionX(event);
+        this.startY = this.getPositionY(event);
+        this.prevTranslate = this.currentTranslate;
+        this.isHorizontalSwipe = false;
         this.track.style.transition = 'none';
+
+        // Предотвращаем выделение текста при перетаскивании мышью
+        if (event.type === 'mousedown') {
+          event.preventDefault();
+        }
       }
 
       touchMove(event) {
         if (!this.isDragging) return;
+
         const currentX = this.getPositionX(event);
+        const currentY = this.getPositionY(event);
         const dx = currentX - this.startX;
-        this.track.style.transform = `translateX(${this.currentTranslate + dx}px)`;
+        const dy = currentY - this.startY;
+
+        // Определяем направление свайпа только при первом движении
+        if (!this.isHorizontalSwipe && (Math.abs(dx) > 10 || Math.abs(dy) > 10)) {
+          this.isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
+        }
+
+        // Если это горизонтальный свайп, обрабатываем карусель
+        if (this.isHorizontalSwipe) {
+          // Предотвращаем прокрутку страницы только при горизонтальном свайпе
+          event.preventDefault();
+          this.currentTranslate = this.prevTranslate + dx;
+          this.track.style.transform = `translateX(${this.currentTranslate}px)`;
+        }
+        // Если вертикальный свайп, позволяем браузеру обрабатывать его (прокрутка страницы)
       }
 
       touchEnd(event) {
         if (!this.isDragging) return;
         this.isDragging = false;
-        const endX = this.getPositionX(event);
-        const dx = endX - this.startX;
 
-        const threshold = 50; // Minimum swipe distance
+        // Обрабатываем переключение слайдов только если это был горизонтальный свайп
+        if (this.isHorizontalSwipe) {
+          const endX = this.getPositionX(event);
+          const dx = endX - this.startX;
+          const threshold = 50; // Minimum swipe distance
 
-        if (dx > threshold && this.currentIndex > 0) {
-          this.currentIndex--;
-        } else if (dx < -threshold && this.currentIndex < this.maxIndex) {
-          this.currentIndex++;
+          // Правый свайп (dx > 0) - показать предыдущие слайды
+          // Левый свайп (dx < 0) - показать следующие слайды
+          if (dx > threshold && this.currentIndex > 0) {
+            this.currentIndex--;
+          } else if (dx < -threshold && this.currentIndex < this.maxIndex) {
+            this.currentIndex++;
+          }
         }
 
+        // Восстанавливаем плавный переход и обновляем карусель
+        this.track.style.transition = 'transform 0.3s ease';
         this.updateCarousel();
-        this.track.style.transition = ''; // restore smooth transition
+
+        // Сбрасываем флаг направления свайпа
+        this.isHorizontalSwipe = false;
       }
 
       getPositionX(event) {
-        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        if (event.type.includes('mouse')) {
+          return event.pageX;
+        } else if (event.touches && event.touches.length > 0) {
+          return event.touches[0].clientX;
+        } else if (event.changedTouches && event.changedTouches.length > 0) {
+          // Для touchend события используем changedTouches
+          return event.changedTouches[0].clientX;
+        }
+        return 0;
+      }
+
+      getPositionY(event) {
+        if (event.type.includes('mouse')) {
+          return event.pageY;
+        } else if (event.touches && event.touches.length > 0) {
+          return event.touches[0].clientY;
+        } else if (event.changedTouches && event.changedTouches.length > 0) {
+          // Для touchend события используем changedTouches
+          return event.changedTouches[0].clientY;
+        }
+        return 0;
       }
     }
 

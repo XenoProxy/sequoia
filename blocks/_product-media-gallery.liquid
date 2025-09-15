@@ -245,20 +245,36 @@
       index = Math.max(0, Math.min(index, mediaCount - 1));
       currentIndex = index;
 
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      if (slides) {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
 
-      // Update thumbnails
-      thumbnails.forEach(thumb => thumb.classList.remove('active'));
-      thumbnails[currentIndex].classList.add('active');
+      // Update thumbnails - check if thumbnails exist and have elements
+      if (thumbnails && thumbnails.length > 0) {
+        thumbnails.forEach(thumb => {
+          if (thumb && thumb.classList) {
+            thumb.classList.remove('active');
+          }
+        });
+
+        // Check if the current thumbnail exists before accessing its classList
+        if (thumbnails[currentIndex] && thumbnails[currentIndex].classList) {
+          thumbnails[currentIndex].classList.add('active');
+        }
+      }
 
       // Disable prev/next buttons when needed
       if (prevBtn) {
         prevBtn.disabled = currentIndex === 0;
-        prevBtn.classList.toggle('disabled', currentIndex === 0);
+        if (prevBtn.classList) {
+          prevBtn.classList.toggle('disabled', currentIndex === 0);
+        }
       }
       if (nextBtn) {
         nextBtn.disabled = currentIndex === mediaCount - 1;
-        nextBtn.classList.toggle('disabled', currentIndex === mediaCount - 1);
+        if (nextBtn.classList) {
+          nextBtn.classList.toggle('disabled', currentIndex === mediaCount - 1);
+        }
       }
     }
 
