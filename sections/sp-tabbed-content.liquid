@@ -103,30 +103,7 @@
       "id": "tab2_description",
       "label": "Tab 2 Description",
       "default": "Content for Tab 2"
-    },
-    {
-      "type": "text",
-      "id": "tab3_heading",
-      "label": "Tab 3 Heading",
-      "default": "Tab 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "tab3_bg_image",
-      "label": "Tab 3 Background Image",
-    },
-    {
-      "type": "text",
-      "id": "tab3_title",
-      "label": "Tab 3 Title",
-      "default": "Title for Tab 3"
-    },
-    {
-      "type": "textarea",
-      "id": "tab3_description",
-      "label": "Tab 3 Description",
-      "default": "Content for Tab 3"
-    },
+    }
   ],
   "presets": [
     {
@@ -289,22 +266,9 @@
       </div>
     </div>
   </div>
-  <div class="tab-content" data-content="3">
-    <div class="tab__innerContentWrapper">
-      <div class="thumb__wrap">
-        <img src="{{ section.settings.tab3_bg_image | image_url: width: 1200 }}" alt="{{ section.settings.tab3_title }} thumb">
-      </div>
-      <div class="desc__wrap">
-        <h3>{{ section.settings.tab3_title }}</h3>
-        <p>{{ section.settings.tab3_description }}</p>
-      </div>
-    </div>
-  </div>
-
   <div class="tabs-nav">
     <div class="tab-link active" data-tab="1">{{ section.settings.tab1_heading }}</div>
     <div class="tab-link" data-tab="2">{{ section.settings.tab2_heading }}</div>
-    <div class="tab-link" data-tab="3">{{ section.settings.tab3_heading }}</div>
   </div>
 </div>
 
