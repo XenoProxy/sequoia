@@ -242,6 +242,52 @@
 }
 
 @media (max-width: 767px) {
+  .ai-slider-container-{{ ai_gen_id }} {
+    width: 100%;
+    padding-right: 16px; /* Отступ от правого края экрана */
+    box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
+  }
+  
+  .ai-slider-track-{{ ai_gen_id }} {
+    height: auto;
+    gap: 12px; /* Расстояние между слайдами */
+    padding-right: 0; /* Убираем лишний отступ, если был */
+  }
+  
+  .ai-slide-{{ ai_gen_id }} {
+    height: 360px;
+    width: 281px; /* Фиксированная ширина слайда */
+    min-width: 281px; /* Чтобы не сжимался меньше */
+    flex-shrink: 0; /* Предотвращаем сжатие слайдов в flex */
+  }
+  
+  .ai-slide-image-{{ ai_gen_id }} {
+    width: 281px; /* Фиксированная ширина изображения */
+    height: 360px; /* Фиксированная высота изображения */
+    object-fit: cover; /* Сохраняет пропорции, обрезая если нужно */
+  }
+  
+  .ai-slide-content-{{ ai_gen_id }} {
+    bottom: 10px; /* Немного уменьшили отступ снизу для мобильных */
+    padding: 12px; /* Уменьшенный padding для узкой ширины */
+    width: 90%; /* Чуть меньше, чтобы текст помещался */
+    font-size: 14px; /* Уменьшили шрифт для описания */
+  }
+  
+  .ai-slide-title-{{ ai_gen_id }} {
+    font-size: 20px; /* Уменьшенный заголовок для мобильных */
+    line-height: 1.2; /* Компактный интервал строк */
+  }
+  
+  .ai-slide-description-{{ ai_gen_id }} {
+    font-size: 12px; /* Ещё меньше для описания, чтобы влезло в 281px */
+    margin-top: 6px;
+  }
+  
+  .ai-slider-nav-{{ ai_gen_id }} {
+    margin-top: 15px; /* Компактнее навигация */
+  }
+
   .ai-slide-{{ ai_gen_id }} {
     height: 360px;
   }
