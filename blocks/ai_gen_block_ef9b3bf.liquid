@@ -307,8 +307,7 @@
 >
   <div class="ai-slider-container-{{ ai_gen_id }}">
     <div class="ai-slider-track-{{ ai_gen_id }}">
-      {% for i in (1..10) %}
-        {% comment %} Get data from metaobject for slides 1-5, from block settings for slides 6-10 {% endcomment %}
+      {% for i in (1..10) reversed %}
         {% if i <= 5 %}
           {% if i == 1 %}
             {% assign current_image = product.metafields.custom.meta_image.value.slide_image.value %}
@@ -360,7 +359,7 @@
           {% endif %}
         {% endif %}
 
-        {% if current_image != blank or forloop.index == 1 %}
+        {% if current_image != blank or forloop.index == 0 %}
           <div class="ai-slide-{{ ai_gen_id }}" data-index="{{ forloop.index0 }}">
             {% if current_image != blank %}
               <img
@@ -667,7 +666,6 @@
   class ImageSliderWithContent extends HTMLElement {
     constructor() {
       super();      
-
       this.sliderTrack = this.querySelector('.ai-slider-track-{{ ai_gen_id }}');
       this.slides = this.querySelectorAll('.ai-slide-{{ ai_gen_id }}');
       this.prevButton = this.querySelector('.ai-prev-button-{{ ai_gen_id }}');
@@ -758,17 +756,13 @@
     }
 
     handleSwipe(delta) {
-      const isRTL = true; // RTL для иврита
+      const isRTL = true; // RTL
       if (Math.abs(delta) > 50) {
         if (isRTL) {
-          // if (delta > 0 && this.currentIndex < this.slideCount - 1) {
-          //   this.goToNext();
-          // } else if (delta < 0 && this.currentIndex > 0) {
-          //   this.goToPrev();
           if (delta > 0 && this.currentIndex > 0) {
-            this.goToNext(); // Свайп вправо -> Next (уменьшаем index, растим offset)
+            this.goToNext();
           } else if (delta < 0 && this.currentIndex < this.slideCount - 1) {
-            this.goToPrev(); // Свайп влево -> Prev (увеличиваем ind
+            this.goToPrev();
           }
         } else {
           if (delta < 0 && this.currentIndex < this.slideCount - 1) {
