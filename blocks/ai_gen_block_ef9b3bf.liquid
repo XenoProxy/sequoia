@@ -42,6 +42,7 @@
     height: auto;
     gap:35.27px;
     will-change: transform;
+    direction: rtl;
   } 
 
   @media screen and (max-width: 990px) {
@@ -242,60 +243,59 @@
 }
 
 @media (max-width: 767px) {
+  .ai-image-content-block-{{ ai_gen_id }} {
+    width: 100%;
+    display: display: flex;
+  }
+
   .ai-slider-container-{{ ai_gen_id }} {
     width: 100%;
-    padding-right: 16px; /* Отступ от правого края экрана */
-    box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
+    padding-right: 16px;
+    padding-left: 16px; 
+    box-sizing: border-box;
   }
   
   .ai-slider-track-{{ ai_gen_id }} {
     height: auto;
-    gap: 12px; /* Расстояние между слайдами */
-    padding-right: 0; /* Убираем лишний отступ, если был */
+    gap: 12px; 
+    display: flex;
+    flex-wrap: nowrap;
   }
   
   .ai-slide-{{ ai_gen_id }} {
     height: 360px;
-    width: 281px; /* Фиксированная ширина слайда */
-    min-width: 281px; /* Чтобы не сжимался меньше */
-    flex-shrink: 0; /* Предотвращаем сжатие слайдов в flex */
+    width: 281px;
+    min-width: 281px;
+    flex-shrink: 0; 
+    margin: 0 !important;
   }
   
   .ai-slide-image-{{ ai_gen_id }} {
-    width: 281px; /* Фиксированная ширина изображения */
-    height: 360px; /* Фиксированная высота изображения */
-    object-fit: cover; /* Сохраняет пропорции, обрезая если нужно */
+    width: 281px;
+    height: 360px;
+    object-fit: cover;
   }
   
   .ai-slide-content-{{ ai_gen_id }} {
-    bottom: 10px; /* Немного уменьшили отступ снизу для мобильных */
-    padding: 12px; /* Уменьшенный padding для узкой ширины */
-    width: 90%; /* Чуть меньше, чтобы текст помещался */
-    font-size: 14px; /* Уменьшили шрифт для описания */
+    bottom: 10px; 
+    padding: 12px; 
+    width: 90%; 
+    font-size: 14px; 
   }
   
   .ai-slide-title-{{ ai_gen_id }} {
-    font-size: 20px; /* Уменьшенный заголовок для мобильных */
-    line-height: 1.2; /* Компактный интервал строк */
+    font-size: 20px; 
+    line-height: 1.2; 
   }
   
   .ai-slide-description-{{ ai_gen_id }} {
-    font-size: 12px; /* Ещё меньше для описания, чтобы влезло в 281px */
+    font-size: 12px; /
     margin-top: 6px;
   }
   
   .ai-slider-nav-{{ ai_gen_id }} {
-    margin-top: 15px; /* Компактнее навигация */
-  }
-
-  .ai-slide-{{ ai_gen_id }} {
-    height: 360px;
-  }
-
-  .ai-slider-track-{{ ai_gen_id }} {
-    height: auto;
-    gap: 12px;
-    right: -52px;
+    margin-top: 15px; 
+    padding: 0 !important;
   }
 }
 
@@ -664,185 +664,369 @@
 
 <script>
   (function() {
-    class ImageSliderWithContent extends HTMLElement {
-      constructor() {
-        super();
-        this.sliderTrack = this.querySelector('.ai-slider-track-{{ ai_gen_id }}');
-        this.slides = this.querySelectorAll('.ai-slide-{{ ai_gen_id }}');
-        this.prevButton = this.querySelector('.ai-prev-button-{{ ai_gen_id }}');
-        this.nextButton = this.querySelector('.ai-next-button-{{ ai_gen_id }}');
-        this.dotsContainer = this.querySelector('.ai-dots-container-{{ ai_gen_id }}');
+  class ImageSliderWithContent extends HTMLElement {
+    constructor() {
+      super();      
 
-        this.currentIndex = 0;
-        this.slideWidth = 0;
-        this.slideCount = this.slides.length;
+      this.sliderTrack = this.querySelector('.ai-slider-track-{{ ai_gen_id }}');
+      this.slides = this.querySelectorAll('.ai-slide-{{ ai_gen_id }}');
+      this.prevButton = this.querySelector('.ai-prev-button-{{ ai_gen_id }}');
+      this.nextButton = this.querySelector('.ai-next-button-{{ ai_gen_id }}');
+      this.dotsContainer = this.querySelector('.ai-dots-container-{{ ai_gen_id }}');
 
-        this.startX = 0;
-        this.endX = 0;
-        this.isDragging = false;
-        this.isTouch = false;
+      this.currentIndex = 0;      
+      this.slideWidth = 0;
+      this.slideCount = this.slides.length;
 
-        if (this.slideCount > 0) {
-          this.init();
-        }
-      }
+      this.startX = 0;
+      this.endX = 0;
+      this.isDragging = false;
+      this.isTouch = false;
 
-      init() {
-        this.createDots();
-        this.updateSlideWidth();
-        this.updateSlider();
-
-        this.prevButton.addEventListener('click', () => this.goToPrev());
-        this.nextButton.addEventListener('click', () => this.goToNext());
-
-        // Mouse drag
-        this.sliderTrack.addEventListener('mousedown', this.onDragStart.bind(this));
-        this.sliderTrack.addEventListener('mousemove', this.onDragMove.bind(this));
-        this.sliderTrack.addEventListener('mouseup', this.onDragEnd.bind(this));
-        this.sliderTrack.addEventListener('mouseleave', this.onDragEnd.bind(this));
-
-        // Touch drag
-        this.sliderTrack.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: true });
-        this.sliderTrack.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: true });
-        this.sliderTrack.addEventListener('touchend', this.onTouchEnd.bind(this));
-
-        // Prevent image dragging
-        this.slides.forEach(slide => {
-          slide.addEventListener('dragstart', e => e.preventDefault());
-        });
-
-        window.addEventListener('resize', () => {
-          this.updateSlideWidth();
-          this.updateSlider(false);
-        });
-      }
-
-      // Mouse events
-      onDragStart(e) {
-        this.isDragging = true;
-        this.startX = e.clientX;
-        this.sliderTrack.style.cursor = 'grabbing';
-      }
-
-      onDragMove(e) {
-        if (!this.isDragging) return;
-        this.endX = e.clientX;
-      }
-
-      onDragEnd() {
-        if (!this.isDragging) return;
-        this.isDragging = false;
-        const delta = this.endX - this.startX;
-        this.handleSwipe(delta);
-        this.sliderTrack.style.cursor = 'grab';
-        this.startX = this.endX = 0;
-      }
-
-      // Touch events
-      onTouchStart(e) {
-        this.isTouch = true;
-        this.startX = e.touches[0].clientX;
-      }
-
-      onTouchMove(e) {
-        if (!this.isTouch) return;
-        this.endX = e.touches[0].clientX;
-      }
-
-      onTouchEnd() {
-        if (!this.isTouch) return;
-        this.isTouch = false;
-        const delta = this.endX - this.startX;
-        this.handleSwipe(delta);
-        this.startX = this.endX = 0;
-      }
-
-      // Handle swipe in RTL
-      handleSwipe(delta) {
-        const isRTL = true; // force RTL
-
-        if (Math.abs(delta) > 50) {
-          if (isRTL) {
-            if (delta > 0 && this.currentIndex < this.slideCount - 1) {
-              this.goToNext();
-            } else if (delta < 0 && this.currentIndex > 0) {
-              this.goToPrev();
-            }
-          } else {
-            if (delta < 0 && this.currentIndex < this.slideCount - 1) {
-              this.goToNext();
-            } else if (delta > 0 && this.currentIndex > 0) {
-              this.goToPrev();
-            }
-          }
-        }
-      }
-
-      createDots() {
-        for (let i = 0; i < this.slideCount; i++) {
-          const dot = document.createElement('div');
-          dot.classList.add('ai-dot-{{ ai_gen_id }}');
-          if (i === 0) dot.classList.add('active');
-
-          dot.addEventListener('click', () => this.goToSlide(i));
-          this.dotsContainer.appendChild(dot);
-        }
-        this.dots = this.dotsContainer.querySelectorAll('.ai-dot-{{ ai_gen_id }}');
-      }
-
-      updateSlideWidth() {
-        if (this.slides.length > 0) {
-          const style = window.getComputedStyle(this.slides[0]);
-          this.slideWidth =
-            this.slides[0].offsetWidth +
-            parseFloat(style.marginLeft) +
-            parseFloat(style.marginRight);
-        }
-      }
-
-      updateSlider(animate = true) {
-        if (!this.sliderTrack) return;
-
-        this.sliderTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-
-        // RTL logic
-        const offset = (this.slideCount - 1 - this.currentIndex) * this.slideWidth;
-        this.sliderTrack.style.transform = `translateX(-${offset}px)`;
-
-        if (this.dots) {
-          this.dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
-          });
-        }
-
-        this.prevButton.disabled = this.currentIndex === 0;
-        this.nextButton.disabled = this.currentIndex === this.slideCount - 1;
-
-        if (!animate) {
-          setTimeout(() => {
-            this.sliderTrack.style.transition = 'transform 0.5s ease-in-out';
-          }, 50);
-        }
-      }
-
-      goToSlide(index) {
-        if (index < 0) index = 0;
-        if (index >= this.slideCount) index = this.slideCount - 1;
-        this.currentIndex = index;
-        this.updateSlider();
-      }
-
-      goToNext() {
-        this.goToSlide(this.currentIndex + 1);
-      }
-
-      goToPrev() {
-        this.goToSlide(this.currentIndex - 1);
+      if (this.slideCount > 0) {
+        this.init();
       }
     }
 
-    customElements.define('image-slider-with-content-{{ ai_gen_id }}', ImageSliderWithContent);
-  })();
+    init() {
+      this.createDots();
+      this.updateSlideWidth();
+      this.currentIndex = this.slideCount - 1;
+      this.updateSlider();
+
+      this.prevButton.addEventListener('click', () => this.goToPrev());
+      this.nextButton.addEventListener('click', () => this.goToNext());
+
+      // Mouse drag
+      this.sliderTrack.addEventListener('mousedown', this.onDragStart.bind(this));
+      this.sliderTrack.addEventListener('mousemove', this.onDragMove.bind(this));
+      this.sliderTrack.addEventListener('mouseup', this.onDragEnd.bind(this));
+      this.sliderTrack.addEventListener('mouseleave', this.onDragEnd.bind(this));
+
+      // Touch drag
+      this.sliderTrack.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: true });
+      this.sliderTrack.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: true });
+      this.sliderTrack.addEventListener('touchend', this.onTouchEnd.bind(this));
+
+      // Prevent image dragging
+      this.slides.forEach(slide => {
+        slide.addEventListener('dragstart', e => e.preventDefault());
+      });
+
+      window.addEventListener('resize', () => {
+        this.updateSlideWidth();
+        this.updateSlider(false);
+      });
+    }
+
+    onDragStart(e) {
+      this.isDragging = true;
+      this.startX = e.clientX;
+      this.sliderTrack.style.cursor = 'grabbing';
+    }
+
+    onDragMove(e) {
+      if (!this.isDragging) return;
+      this.endX = e.clientX;
+    }
+
+    onDragEnd() {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+      const delta = this.endX - this.startX;
+      this.handleSwipe(delta);
+      this.sliderTrack.style.cursor = 'grab';
+      this.startX = this.endX = 0;
+    }
+
+    onTouchStart(e) {
+      this.isTouch = true;
+      this.startX = e.touches[0].clientX;
+    }
+
+    onTouchMove(e) {
+      if (!this.isTouch) return;
+      this.endX = e.touches[0].clientX;
+    }
+
+    onTouchEnd() {
+      if (!this.isTouch) return;
+      this.isTouch = false;
+      const delta = this.endX - this.startX;
+      this.handleSwipe(delta);
+      this.startX = this.endX = 0;
+    }
+
+    handleSwipe(delta) {
+      const isRTL = true; // RTL для иврита
+      if (Math.abs(delta) > 50) {
+        if (isRTL) {
+          // if (delta > 0 && this.currentIndex < this.slideCount - 1) {
+          //   this.goToNext();
+          // } else if (delta < 0 && this.currentIndex > 0) {
+          //   this.goToPrev();
+          if (delta > 0 && this.currentIndex > 0) {
+            this.goToNext(); // Свайп вправо -> Next (уменьшаем index, растим offset)
+          } else if (delta < 0 && this.currentIndex < this.slideCount - 1) {
+            this.goToPrev(); // Свайп влево -> Prev (увеличиваем ind
+          }
+        } else {
+          if (delta < 0 && this.currentIndex < this.slideCount - 1) {
+            this.goToNext();
+          } else if (delta > 0 && this.currentIndex > 0) {
+            this.goToPrev();
+          }
+        }
+      }
+    }
+
+    createDots() {
+      if (!this.dotsContainer) return;
+      for (let i = 0; i < this.slideCount; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('ai-dot-{{ ai_gen_id }}');
+        if (i === this.slideCount - 1) dot.classList.add('active');
+        dot.addEventListener('click', () => this.goToSlide(i));
+        this.dotsContainer.appendChild(dot);
+      }
+      this.dots = this.dotsContainer.querySelectorAll('.ai-dot-{{ ai_gen_id }}');
+    }
+
+    updateSlideWidth() {
+      if (this.slides.length > 0) {
+        const style = window.getComputedStyle(this.sliderTrack);
+        const gap = parseFloat(style.gap) || 0; 
+        const slideWidth = this.slides[0].offsetWidth;       
+        this.slideWidth = this.slides[0].offsetWidth + gap;
+        console.log('SlideWidth updated:', this.slideWidth, 'Gap:', gap, 'Slide offsetWidth:', this.slides[0].offsetWidth);
+      }
+    }
+
+    updateSlider(animate = true) {
+      if (!this.sliderTrack) return;
+
+      this.sliderTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';      
+      const offset = (this.slideCount - 1 - this.currentIndex) * this.slideWidth;
+      this.sliderTrack.style.transform = `translateX(${offset}px)`; 
+
+      console.log('Offset:', offset, 'CurrentIndex:', this.currentIndex, 'SlideWidth:', this.slideWidth, 'SlideCount:', this.slideCount);
+      
+      if (this.dots) {
+        this.dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.currentIndex);
+        });
+      }
+
+      this.prevButton.disabled = this.currentIndex === this.slideCount - 1;
+      this.nextButton.disabled = this.currentIndex === 0; 
+
+      if (!animate) {
+        setTimeout(() => {
+          this.sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+        }, 50);
+      };     
+    }
+
+    goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= this.slideCount) index = this.slideCount - 1;
+      this.currentIndex = index;
+      this.updateSlider();
+    }
+
+    goToNext() {
+      this.goToSlide(this.currentIndex - 1); 
+    }
+
+    goToPrev() {
+      this.goToSlide(this.currentIndex + 1); 
+    }
+
+  }
+
+  customElements.define('image-slider-with-content-{{ ai_gen_id }}', ImageSliderWithContent);
+})();
+
+  // (function() {
+  //   class ImageSliderWithContent extends HTMLElement {
+  //     constructor() {
+  //       super();
+  //       this.sliderTrack = this.querySelector('.ai-slider-track-{{ ai_gen_id }}');
+  //       this.slides = this.querySelectorAll('.ai-slide-{{ ai_gen_id }}');
+  //       this.prevButton = this.querySelector('.ai-prev-button-{{ ai_gen_id }}');
+  //       this.nextButton = this.querySelector('.ai-next-button-{{ ai_gen_id }}');
+  //       this.dotsContainer = this.querySelector('.ai-dots-container-{{ ai_gen_id }}');
+
+  //       this.currentIndex = 0;
+  //       this.slideWidth = 0;
+  //       this.slideCount = this.slides.length;
+
+  //       this.startX = 0;
+  //       this.endX = 0;
+  //       this.isDragging = false;
+  //       this.isTouch = false;
+
+  //       if (this.slideCount > 0) {
+  //         this.init();
+  //       }
+  //     }
+
+  //     init() {
+  //       this.createDots();
+  //       this.updateSlideWidth();
+  //       this.updateSlider();
+
+  //       this.prevButton.addEventListener('click', () => this.goToPrev());
+  //       this.nextButton.addEventListener('click', () => this.goToNext());
+
+  //       // Mouse drag
+  //       this.sliderTrack.addEventListener('mousedown', this.onDragStart.bind(this));
+  //       this.sliderTrack.addEventListener('mousemove', this.onDragMove.bind(this));
+  //       this.sliderTrack.addEventListener('mouseup', this.onDragEnd.bind(this));
+  //       this.sliderTrack.addEventListener('mouseleave', this.onDragEnd.bind(this));
+
+  //       // Touch drag
+  //       this.sliderTrack.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: true });
+  //       this.sliderTrack.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: true });
+  //       this.sliderTrack.addEventListener('touchend', this.onTouchEnd.bind(this));
+
+  //       // Prevent image dragging
+  //       this.slides.forEach(slide => {
+  //         slide.addEventListener('dragstart', e => e.preventDefault());
+  //       });
+
+  //       window.addEventListener('resize', () => {
+  //         this.updateSlideWidth();
+  //         this.updateSlider(false);
+  //       });
+  //     }
+
+  //     // Mouse events
+  //     onDragStart(e) {
+  //       this.isDragging = true;
+  //       this.startX = e.clientX;
+  //       this.sliderTrack.style.cursor = 'grabbing';
+  //     }
+
+  //     onDragMove(e) {
+  //       if (!this.isDragging) return;
+  //       this.endX = e.clientX;
+  //     }
+
+  //     onDragEnd() {
+  //       if (!this.isDragging) return;
+  //       this.isDragging = false;
+  //       const delta = this.endX - this.startX;
+  //       this.handleSwipe(delta);
+  //       this.sliderTrack.style.cursor = 'grab';
+  //       this.startX = this.endX = 0;
+  //     }
+
+  //     // Touch events
+  //     onTouchStart(e) {
+  //       this.isTouch = true;
+  //       this.startX = e.touches[0].clientX;
+  //     }
+
+  //     onTouchMove(e) {
+  //       if (!this.isTouch) return;
+  //       this.endX = e.touches[0].clientX;
+  //     }
+
+  //     onTouchEnd() {
+  //       if (!this.isTouch) return;
+  //       this.isTouch = false;
+  //       const delta = this.endX - this.startX;
+  //       this.handleSwipe(delta);
+  //       this.startX = this.endX = 0;
+  //     }
+
+  //     // Handle swipe in RTL
+  //     handleSwipe(delta) {
+  //       const isRTL = true; // force RTL
+
+  //       if (Math.abs(delta) > 50) {
+  //         if (isRTL) {
+  //           if (delta > 0 && this.currentIndex < this.slideCount - 1) {
+  //             this.goToNext();
+  //           } else if (delta < 0 && this.currentIndex > 0) {
+  //             this.goToPrev();
+  //           }
+  //         } else {
+  //           if (delta < 0 && this.currentIndex < this.slideCount - 1) {
+  //             this.goToNext();
+  //           } else if (delta > 0 && this.currentIndex > 0) {
+  //             this.goToPrev();
+  //           }
+  //         }
+  //       }
+  //     }
+
+  //     createDots() {
+  //       for (let i = 0; i < this.slideCount; i++) {
+  //         const dot = document.createElement('div');
+  //         dot.classList.add('ai-dot-{{ ai_gen_id }}');
+  //         if (i === 0) dot.classList.add('active');
+
+  //         dot.addEventListener('click', () => this.goToSlide(i));
+  //         this.dotsContainer.appendChild(dot);
+  //       }
+  //       this.dots = this.dotsContainer.querySelectorAll('.ai-dot-{{ ai_gen_id }}');
+  //     }
+
+  //     updateSlideWidth() {
+  //       if (this.slides.length > 0) {
+  //         const style = window.getComputedStyle(this.slides[0]);
+  //         this.slideWidth =
+  //           this.slides[0].offsetWidth +
+  //           parseFloat(style.marginLeft) +
+  //           parseFloat(style.marginRight);
+  //       }
+  //     }
+
+  //     updateSlider(animate = true) {
+  //       if (!this.sliderTrack) return;
+
+  //       this.sliderTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
+
+  //       // RTL logic
+  //       const offset = (this.slideCount - 1 - this.currentIndex) * this.slideWidth;
+  //       this.sliderTrack.style.transform = `translateX(-${offset}px)`;
+
+  //       if (this.dots) {
+  //         this.dots.forEach((dot, index) => {
+  //           dot.classList.toggle('active', index === this.currentIndex);
+  //         });
+  //       }
+
+  //       this.prevButton.disabled = this.currentIndex === 0;
+  //       this.nextButton.disabled = this.currentIndex === this.slideCount - 1;
+
+  //       if (!animate) {
+  //         setTimeout(() => {
+  //           this.sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+  //         }, 50);
+  //       }
+  //     }
+
+  //     goToSlide(index) {
+  //       if (index < 0) index = 0;
+  //       if (index >= this.slideCount) index = this.slideCount - 1;
+  //       this.currentIndex = index;
+  //       this.updateSlider();
+  //     }
+
+  //     goToNext() {
+  //       this.goToSlide(this.currentIndex + 1);
+  //     }
+
+  //     goToPrev() {
+  //       this.goToSlide(this.currentIndex - 1);
+  //     }
+  //   }
+
+  //   customElements.define('image-slider-with-content-{{ ai_gen_id }}', ImageSliderWithContent);
+  // })();
 </script>
 
 
