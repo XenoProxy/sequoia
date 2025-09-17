@@ -550,7 +550,7 @@
                     "border_style": "underline",
                     "border_width": 2,
                     "border_radius": 0,
-                    "input_type_preset": "h5",
+                    "input_type_preset": "",
                     "style_class": "button-unstyled",
                     "display_type": "arrow",
                     "label": "הירשם",

@@ -390,7 +390,8 @@
         "address2_label": "דירה, סוויטה וכו'",
         "optional_address2_label": "דירה, סוויטה וכו' (אופציונלי)",
         "phone_tooltip": "למקרה שנצטרך ליצור איתך קשר לגבי ההזמנה שלך",
-        "contact_method_title": "פרטי קשר"
+        "contact_method_title": "פרטי קשר",
+        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו."
       },
       "field_errors": {
         "handle_email_invalid": "הזן אימייל חוקי",
@@ -416,7 +417,8 @@
         "credit_card_number_blank": "הזן מספר כרטיס",
         "credit_card_expiry_invalid": "הזן תוקף חוקי",
         "credit_card_month_invalid": "הזן חודש תפוגה חוקי",
-        "credit_card_year_invalid": "הזן שנת תפוגה חוקית"
+        "credit_card_year_invalid": "הזן שנת תפוגה חוקית",
+        "reduction_code_discount_not_found": "הזן קוד הנחה תקף"
       },
       "customer_account": {
         "save_my_information_label": "שמור מידע זה לפעם הבאה",
@@ -428,7 +430,8 @@
         "delivery_title": "משלוח",
         "duties_and_taxes_options": {
           "ddp_title": "לתשלום"
-        }
+        },
+        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו."
       },
       "payment": {
         "title": "תשלום",
@@ -457,7 +460,8 @@
         "name_on_card_placeholder": "השם שעל הכרטיס",
         "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי.",
         "same_billing_address_label": "זהה לכתובת המשלוח",
-        "different_billing_address_label": "השתמש בכתובת חיוב שונה"
+        "different_billing_address_label": "השתמש בכתובת חיוב שונה",
+        "billing_must_match_shipping_notice": " "
       },
       "payment_gateway": {
         "credit_card_label": "כרטיס אשראי"
@@ -483,7 +487,8 @@
         "shipping_label": "משלוח",
         "free_shipping_total_label": "חינם",
         "estimated_taxes_finalization_tooltip_content": "המס הסופי והסכום הכולל יאושרו באמצעות אימייל או הודעת טקסט לאחר ביצוע ההזמנה.",
-        "title": "סיכום הזמנה"
+        "title": "סיכום הזמנה",
+        "total_savings": "סה״כ חסכתם"
       },
       "wallets": {
         "errors": {
@@ -534,7 +539,8 @@
           "disclaimer": {
             "privacy_policy": "מדיניות הפרטיות"
           }
-        }
+        },
+        "accept_marketing_checkbox_label": "עדכנו אותי במבצעים והטבות!"
       },
       "shop_policies": {
         "privacy_policy": "מדיניות הפרטיות"
@@ -602,7 +608,8 @@
       }
     },
     "order_details": {
-      "billing_address": "כתובת חיוב"
+      "billing_address": "כתובת חיוב",
+      "marketing_checkbox_label": "עדכנו אותי במבצעים והטבות!"
     },
     "addresses": {
       "billing_address_dropdown_placeholder": "כתובת חיוב"
