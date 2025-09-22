@@ -9,7 +9,14 @@
 .menu-drawer__close-button {
   position: relative;
   top: 10px;
-  right: 10px
+  right: 10px;
+}
+
+/* Add top padding to mobile navigation content to prevent overlap with close button */
+@media only screen and (max-width: 767px) {
+  .menu-drawer__close-button {
+    margin-bottom: 20px;
+  }
 }
 
 .tmenu_item_mobile {
