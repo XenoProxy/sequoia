@@ -533,17 +533,20 @@
       },
       "marketing": {
         "disclaimer": {
-          "privacy_policy": "מדיניות הפרטיות"
+          "privacy_policy": "מדיניות הפרטיות",
+          "terms_of_service": "תנאי השירות"
         },
         "sms": {
           "disclaimer": {
-            "privacy_policy": "מדיניות הפרטיות"
+            "privacy_policy": "מדיניות הפרטיות",
+            "terms_of_service": "תנאי השירות"
           }
         },
         "accept_marketing_checkbox_label": "עדכנו אותי במבצעים והטבות!"
       },
       "shop_policies": {
-        "privacy_policy": "מדיניות הפרטיות"
+        "privacy_policy": "מדיניות הפרטיות",
+        "terms_of_service": "תנאי השירות"
       },
       "stock": {
         "continue_shopping_button_label": "המשך",
