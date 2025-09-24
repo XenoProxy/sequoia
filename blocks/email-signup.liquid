@@ -91,7 +91,7 @@
   {% endform %}
 </div>
 
-{% javascript %}
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('email-signup-form-{{ block.id }}');
     const messageContainer = document.getElementById('Email-signup__message-{{ block.id }}');
@@ -170,7 +170,7 @@
       }
     });
   });
-{% endjavascript %}
+</script>
 
 {% stylesheet %}
   .email-signup-block {
