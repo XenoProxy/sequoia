@@ -91,6 +91,76 @@
   {% endform %}
 </div>
 
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('email-signup-form-{{ block.id }}');
+    const messageContainer = document.getElementById('Email-signup__message-{{ block.id }}');
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault(); // Отменяем стандартную отправку формы
+
+      // Очищаем предыдущие сообщения
+      messageContainer.style.display = 'none';
+      messageContainer.innerHTML = '';
+
+      const formData = new FormData(form);
+      // Добавляем CSRF-токен
+      const csrfToken = '{{ shop.metafields.global.csrf_token | default: shop.csrf_token }}';
+      if (csrfToken) {
+        formData.append('authenticity_token', csrfToken);
+      }
+
+      try {
+        const response = await fetch('/contact', { // Используем корневой endpoint /contact
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest' // Указываем, что это AJAX-запрос
+          },
+          credentials: 'same-origin' // Для работы с куками и авторизацией
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+          // Успешная отправка
+          messageContainer.className = 'email-signup__message email-signup__message--success';
+          messageContainer.innerHTML = `
+            <span class="svg-wrapper icon-success">
+              {{ 'icon-checkmark.svg' | inline_asset_content }}
+            </span>
+            <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
+          `;
+          form.querySelector('input[type="email"]').value = ''; // Очищаем поле
+        } else {
+          // Ошибка
+          const errorMessage = result.errors?.email || 'An error occurred';
+          messageContainer.className = 'email-signup__message email-signup__message--error';
+          messageContainer.innerHTML = `
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="icon-error">
+              {% render 'icon', icon: 'error' %}
+            </svg>
+            ${errorMessage}
+          `;
+        }
+        messageContainer.style.display = 'flex';
+      } catch (error) {
+        // Обработка сетевой ошибки
+        console.error('Error:', error);
+        messageContainer.className = 'email-signup__message email-signup__message--error';
+        messageContainer.innerHTML = `
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="icon-error">
+            {% render 'icon', icon: 'error' %}
+          </svg>
+          An error occurred. Please try again.
+        `;
+        messageContainer.style.display = 'flex';
+      }
+    });
+  });
+{% endjavascript %}
+
 {% stylesheet %}
   .email-signup-block {
     @media screen and (width < 750px) {
