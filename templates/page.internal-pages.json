@@ -86,32 +86,151 @@
         "link_wMYGwX": {
           "type": "link",
           "settings": {
-            "link_label": "תקנון האתר ותנאי השימוש",
-            "link": "shopify://pages/terms"
+            "link_label": "כללי",
+            "link": "#1"
           }
         },
         "link_3aiMPt": {
           "type": "link",
           "settings": {
-            "link_label": "מדיניות הפרטיות",
-            "link": "shopify://pages/privacy-policy"
+            "link_label": "מטרות השימוש במידע",
+            "link": "#2"
           }
         },
         "link_bYdnaF": {
           "type": "link",
           "settings": {
-            "link_label": "הצהרת נגישות",
-            "link": "shopify://pages/accessibility"
+            "link_label": "העברת מידע",
+            "link": "#3"
+          }
+        },
+        "link_JakBQU": {
+          "type": "link",
+          "settings": {
+            "link_label": "אמצעי קשר, פרסומות ודיוור ישיר",
+            "link": "#4"
+          }
+        },
+        "link_TiCJCU": {
+          "type": "link",
+          "settings": {
+            "link_label": "קוקיות (Cookies) ואיסוף מידע אוטומטי באתר",
+            "link": "#5"
+          }
+        },
+        "link_CdbUhY": {
+          "type": "link",
+          "settings": {
+            "link_label": "אבטחת מידע והצפנה",
+            "link": "#6"
+          }
+        },
+        "link_rKJwV9": {
+          "type": "link",
+          "settings": {
+            "link_label": "עיון במידע",
+            "link": "#7"
+          }
+        },
+        "link_fJA6K8": {
+          "type": "link",
+          "settings": {
+            "link_label": "מחיקת מידע",
+            "link": "#8"
           }
         }
       },
       "block_order": [
         "link_wMYGwX",
         "link_3aiMPt",
-        "link_bYdnaF"
+        "link_bYdnaF",
+        "link_JakBQU",
+        "link_TiCJCU",
+        "link_CdbUhY",
+        "link_rKJwV9",
+        "link_fJA6K8"
       ],
-      "name": "Internal Page Layout",
+      "name": "IntPage Layout privacy-policy",
       "settings": {
+        "section_name": "privacy-policy",
+        "override_title": "{{ page.title }}",
+        "updated_text": "עדכון אחרון: 12/01/2025",
+        "sidebar_title": ""
+      }
+    },
+    "internal_page_layout_section_BEyJGp": {
+      "type": "internal-page-layout-section",
+      "blocks": {
+        "link_Tn87YV": {
+          "type": "link",
+          "settings": {
+            "link_label": "א. כללי",
+            "link": "#1"
+          }
+        },
+        "link_tgpEKD": {
+          "type": "link",
+          "settings": {
+            "link_label": "ב. רכישת מוצרים ",
+            "link": "#2"
+          }
+        },
+        "link_RMaVN7": {
+          "type": "link",
+          "settings": {
+            "link_label": " ג. תשלום",
+            "link": "#3"
+          }
+        },
+        "link_CDCprm": {
+          "type": "link",
+          "settings": {
+            "link_label": " ד. זיכויים, ביטולים והחזרות",
+            "link": "#4"
+          }
+        },
+        "link_VzBAyi": {
+          "type": "link",
+          "settings": {
+            "link_label": "ה. הרשמה לאתר והרשמה למועדון לקוחות",
+            "link": "#5"
+          }
+        },
+        "link_kNpXMN": {
+          "type": "link",
+          "settings": {
+            "link_label": "ו. שימוש במידע",
+            "link": "#6"
+          }
+        },
+        "link_wmic7z": {
+          "type": "link",
+          "settings": {
+            "link_label": "ז. זכויות היוצרים",
+            "link": "#7"
+          }
+        },
+        "link_hdPU8F": {
+          "type": "link",
+          "settings": {
+            "link_label": "ח. תקנון משלוחים",
+            "link": "#8"
+          }
+        }
+      },
+      "block_order": [
+        "link_Tn87YV",
+        "link_tgpEKD",
+        "link_RMaVN7",
+        "link_CDCprm",
+        "link_VzBAyi",
+        "link_kNpXMN",
+        "link_wmic7z",
+        "link_hdPU8F"
+      ],
+      "name": "IntPage Layout terms",
+      "settings": {
+        "section_name": "terms",
         "override_title": "{{ page.title }}",
         "updated_text": "עדכון אחרון: 12/01/2025",
         "sidebar_title": ""
@@ -120,6 +239,7 @@
   },
   "order": [
     "main",
-    "internal_page_layout_section_FTrXwJ"
+    "internal_page_layout_section_FTrXwJ",
+    "internal_page_layout_section_BEyJGp"
   ]
 }

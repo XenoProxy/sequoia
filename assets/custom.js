@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("DOMContentLoaded", function () {
     const internalPageContent = document.querySelector('.internal-page-content');
 
-    if (internalPageContent) {
+    if (internalPageContent && window.location.pathname === '/pages/privacy-policy') {
       // Find all li elements in ul within the content
       const listItems = internalPageContent.querySelectorAll('ul li');
 
@@ -80,6 +80,58 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+  const internalPageContent = document.querySelector('.internal-page-content');
+
+  if (internalPageContent && window.location.pathname === '/pages/terms') {
+
+
+    const titleParagraphs = Array.from(internalPageContent.querySelectorAll('p'))
+      .filter(p => {
+        const strong = p.querySelector('strong');
+        if (!strong) return false;
+        
+        const children = Array.from(p.childNodes);
+        const nonTextNonStrong = children.some(node => node.nodeType !== Node.TEXT_NODE && node.tagName !== 'STRONG');
+        if (nonTextNonStrong) return false;
+        
+        const text = strong.textContent.trim();
+        const hebrewSectionPattern = /^[\u05D0-\u05EA]\.\s/;
+        const isSectionTitle = hebrewSectionPattern.test(text) || text.startsWith('לכל שאלה');
+        
+        return isSectionTitle;
+      });
+
+    titleParagraphs.forEach((p, index) => {
+      p.id = (index + 1).toString();
+    });
+
+    const anchorLinks = document.querySelectorAll('.internal-page-sidebar a[href^="#"]');
+
+    anchorLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.offsetTop;
+          const offsetPosition = elementPosition - 80;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+});
+
+
+
 
   // CUSTOM Animated Stats Counter for SP Our Stats Count section in Our-Scientists page
   document.addEventListener("DOMContentLoaded", function () {
