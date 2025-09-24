@@ -4,6 +4,12 @@
   "settings": [
     {
       "type": "text",
+      "id": "section_name",
+      "label": "Section Name",
+      "info": "Used to identify which page this section belongs to (e.g., 'privacy-policy' or 'terms')"
+    },
+    {
+      "type": "text",
       "id": "override_title",
       "label": "Page Title",
       "default": "Page Title"
@@ -72,7 +78,6 @@
   margin: 0 0 10px;
 }
 
-.last__updatedWrapper {}
 .last__updatedWrapper p {
   color: #323438;
   font-size: 16px;
@@ -184,6 +189,15 @@
 }
 {% endstylesheet %}
 
+{% comment %} Check if this section should be displayed based on page handle and section name {% endcomment %}
+{% assign should_display = false %}
+{% if page.handle == 'privacy-policy' and section.settings.section_name contains 'privacy-policy' %}
+  {% assign should_display = true %}
+{% elsif page.handle == 'terms' and section.settings.section_name contains 'terms' %}
+  {% assign should_display = true %}
+{% endif %}
+
+{% if should_display %}
 <div class="internal-page-wrapper">
   <div class="internal-page-header">
     <h1 class="internal-page-title">
@@ -218,3 +232,4 @@
     </div>
   </div>
 </div>
+{% endif %}

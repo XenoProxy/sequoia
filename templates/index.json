@@ -1174,7 +1174,7 @@
       ],
       "custom_css": [
         "{direction: rtl;}",
-        "@media (max-width: 768px) {.hero {margin-inline: 16px; }}"
+        "@media (max-width: 768px) {.hero {margin-inline: 16px; } .hero__content-wrapper.page-width {top: -12px; }}"
       ],
       "name": "SP Hero Section",
       "settings": {
