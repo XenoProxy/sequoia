@@ -93,12 +93,12 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('email-signup-form-{{ block.id }}');
+    const form = document.getElementById('EmailInput-{{ block.id }}');
     const messageContainer = document.getElementById('Email-signup__message-{{ block.id }}');
 
     // Проверяем, существует ли форма
     if (!form) {
-      console.error('Form with ID email-signup-form-{{ block.id }} not found');
+      console.error('Form with ID EmailInput-{{ block.id }} not found');
       return;
     }
 
