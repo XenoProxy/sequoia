@@ -96,6 +96,17 @@
     const form = document.getElementById('email-signup-form-{{ block.id }}');
     const messageContainer = document.getElementById('Email-signup__message-{{ block.id }}');
 
+    // Проверяем, существует ли форма
+    if (!form) {
+      console.error('Form with ID email-signup-form-{{ block.id }} not found');
+      return;
+    }
+
+    if (!messageContainer) {
+      console.error('Message container with ID Email-signup__message-{{ block.id }} not found');
+      return;
+    }
+
     form.addEventListener('submit', async function (event) {
       event.preventDefault(); // Отменяем стандартную отправку формы
 
@@ -104,6 +115,7 @@
       messageContainer.innerHTML = '';
 
       const formData = new FormData(form);
+
       // Добавляем CSRF-токен
       const csrfToken = '{{ shop.metafields.global.csrf_token | default: shop.csrf_token }}';
       if (csrfToken) {
@@ -111,14 +123,14 @@
       }
 
       try {
-        const response = await fetch('/contact', { // Используем корневой endpoint /contact
+        const response = await fetch('/contact', {
           method: 'POST',
           body: formData,
           headers: {
             'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest' // Указываем, что это AJAX-запрос
+            'X-Requested-With': 'XMLHttpRequest'
           },
-          credentials: 'same-origin' // Для работы с куками и авторизацией
+          credentials: 'same-origin'
         });
 
         const result = await response.json();
@@ -146,7 +158,6 @@
         }
         messageContainer.style.display = 'flex';
       } catch (error) {
-        // Обработка сетевой ошибки
         console.error('Error:', error);
         messageContainer.className = 'email-signup__message email-signup__message--error';
         messageContainer.innerHTML = `
