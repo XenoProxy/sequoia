@@ -88,42 +88,67 @@
         <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
       </div>
     {%- endif -%}
+
+
+    <div class="h-captcha" data-callback="onHcaptchaSubmit"></div>
+    <input type="hidden" id="h-captcha-response" name="h-captcha-response">
+    <div id="Email-signup__message-{{ block.id }}" class="email-signup__message" style="display: none;"></div>
+
   {% endform %}
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('EmailInput-{{ block.id }}');
-    const messageContainer = document.getElementById('Email-signup__message-{{ block.id }}');
-
-    // Проверяем, существует ли форма
-    if (!form) {
-      console.error('Form with ID EmailInput-{{ block.id }} not found');
+document.addEventListener('DOMContentLoaded', function () {
+    const forms = document.querySelectorAll('.email-signup__form');
+    if (forms.length === 0) {
+      console.error('No forms with class email-signup__form found');
       return;
     }
+    console.log('Found forms:', forms);
 
-    if (!messageContainer) {
-      console.error('Message container with ID Email-signup__message-{{ block.id }} not found');
-      return;
-    }
+    forms.forEach(form => {
+      const formId = form.getAttribute('id');
+      console.log('Form ID:', formId);
+      const blockId = formId ? formId.split('-').pop() : null;
+      // const messageContainer = blockId ? document.getElementById(`Email-signup__message-${blockId}`) : null;
 
-    form.addEventListener('submit', async function (event) {
-      event.preventDefault(); // Отменяем стандартную отправку формы
+      // if (!messageContainer) {
+      //   console.error(`Message container for form ${formId} not found. Block ID: ${blockId}`);
+      //   return;
+      // }
 
-      // Очищаем предыдущие сообщения
-      messageContainer.style.display = 'none';
-      messageContainer.innerHTML = '';
+      window.onHcaptchaSubmit = function(token) {
+        const captchaResponseInput = form.querySelector('#h-captcha-response');
+        if (captchaResponseInput) {
+          captchaResponseInput.value = token;
+          handleFormSubmit(form);
+        } else {
+          console.error('h-captcha-response input not found');
+        }
+      };
 
-      const formData = new FormData(form);
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // hCaptcha автоматически вызывается при взаимодействии с формой, но можно инициировать вручную
+        if (window.hCaptcha) {
+          window.hCaptcha.execute(); // Запускаем hCaptcha
+        } else {
+          console.error('hCaptcha is not loaded');
+          handleFormSubmit(form); // Попытка отправки без токена для отладки
+        }
+      });
 
-      // Добавляем CSRF-токен
-      const csrfToken = '{{ shop.metafields.global.csrf_token | default: shop.csrf_token }}';
-      if (csrfToken) {
-        formData.append('authenticity_token', csrfToken);
-      }
+      function handleFormSubmit(form) {        
 
-      try {
-        const response = await fetch('/contact', {
+        const formData = new FormData(form);
+        const csrfToken = '{{ shop.metafields.global.csrf_token | default: shop.csrf_token }}';
+        if (csrfToken) {
+          formData.append('authenticity_token', csrfToken);
+        } else {
+          console.warn('CSRF token not found');
+        }
+
+        fetch('/contact', {
           method: 'POST',
           body: formData,
           headers: {
@@ -131,42 +156,22 @@
             'X-Requested-With': 'XMLHttpRequest'
           },
           credentials: 'same-origin'
+        })
+        .then(response => response.json())
+        .then(result => {
+          console.log('Response:', response, 'Result:', result);
+          if (response.ok && result.status === 'success') {
+            console.log(response);
+            console.log(result);
+            form.querySelector('input[type="email"]').value = '';
+          } else {
+            console.log(response);
+            console.log(result);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
         });
-
-        const result = await response.json();
-
-        if (response.ok && result.status === 'success') {
-          // Успешная отправка
-          messageContainer.className = 'email-signup__message email-signup__message--success';
-          messageContainer.innerHTML = `
-            <span class="svg-wrapper icon-success">
-              {{ 'icon-checkmark.svg' | inline_asset_content }}
-            </span>
-            <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
-          `;
-          form.querySelector('input[type="email"]').value = ''; // Очищаем поле
-        } else {
-          // Ошибка
-          const errorMessage = result.errors?.email || 'An error occurred';
-          messageContainer.className = 'email-signup__message email-signup__message--error';
-          messageContainer.innerHTML = `
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="icon-error">
-              {% render 'icon', icon: 'error' %}
-            </svg>
-            ${errorMessage}
-          `;
-        }
-        messageContainer.style.display = 'flex';
-      } catch (error) {
-        console.error('Error:', error);
-        messageContainer.className = 'email-signup__message email-signup__message--error';
-        messageContainer.innerHTML = `
-          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" class="icon-error">
-            {% render 'icon', icon: 'error' %}
-          </svg>
-          An error occurred. Please try again.
-        `;
-        messageContainer.style.display = 'flex';
       }
     });
   });
