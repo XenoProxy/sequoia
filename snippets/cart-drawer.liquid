@@ -13,6 +13,11 @@
   type="module"
 ></script>
 
+<script
+  src="{{ 'component-cart-items.js' | asset_url }}"
+  type="module"
+></script>
+
 <cart-drawer-component
   class="cart-drawer"
   {{ block.shopify_attributes }}
@@ -91,6 +96,51 @@
             aria-label="{{ 'accessibility.cart' | t }}"
             style="--header-height: 60px;"
           >
+            {%- liquid
+              if settings.currency_code_enabled_cart_total
+                assign total_price = cart.total_price | money_with_currency
+              else
+                assign total_price = cart.total_price | money
+              endif
+              -%}
+
+              {% assign total_price = cart.total_price %}
+              {% assign result = 35000 | minus: total_price %}
+
+              {% assign max_amount = 350.0 %}
+              {% assign total_price_in_dollars = cart.total_price | divided_by: 100.0 %}
+              {% assign progress_amount = max_amount | minus: total_price_in_dollars %}
+              {% if progress_amount < 0 %}
+                {% assign progress_amount = 0 %}
+              {% endif %}
+              {% assign progress_percent = progress_amount | times: 100 | divided_by: max_amount %}
+              {% assign progress_percent = 100 | minus: progress_percent %}
+              {% if progress_percent > 100 %}
+                {% assign progress_percent = 100 %}
+              {% endif %}
+
+            <div class="cart-shipping">
+              <div class="cart-shipping__line overflow-hidden rounded-500" style="direction: rtl;">
+                <div class="line absolute rounded-500" style="width: {{ progress_percent }}%; direction: rtl;"></div>
+              </div>
+              <div class="cart-shipping__info"> 
+              {% if result > 0 %}                 
+                נשארו 
+                <strong><span class="">
+                  <text-component
+                    ref="cartTotal"
+                    value="{{ total_price | strip_html }}"
+                    class="cart__total-value cart-secondary-typography estimate-price"
+                    data-cart-subtotal
+                  >                  
+                    {{ result | money }}
+                  </text-component>
+                </span></strong> לקבלת משלוח חינם
+              {% else %}
+                יופי! מגיע לך משלוח חינם
+              {% endif %}
+              </div>
+            </div>
             <scroll-hint
               class="cart-drawer__items"
             >
@@ -110,6 +160,38 @@
 </cart-drawer-component>
 
 {% stylesheet %}
+
+  .cart-shipping {
+    padding: 10px 20px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cart-shipping__line {
+    background: #f8fbff;
+    border: 1px solid #d7e7f6;
+    height: 10px;
+    position: relative;
+  }
+
+  .cart-shipping .line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+    background: #d7e7f6;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .rounded-500 {
+    border-radius: 500px;
+  }
+
   .cart-items-component {
     width: 100%;
     height: 100%;
