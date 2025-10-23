@@ -478,9 +478,71 @@
         "shipping_method_title": "שיטת משלוח",
         "delivery_title": "משלוח",
         "duties_and_taxes_options": {
-          "ddp_title": "לתשלום"
+          "ddp_title": "לתשלום",
+          "ddu_title": "תשלום במשלוח",
+          "ddu_caption": "ייתכן שיחולו עמלות נוספות",
+          "ddp_caption": "אין עמלות נוספות במשלוח"
         },
-        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו."
+        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו.",
+        "no_other_methods_available": "אין שיטות אחרות זמינות",
+        "shipping_method_combinations": {
+          "without_separator": "%{שיטה ראשונה}, %{שיטה שנייה}",
+          "with_separator": "%{מנוחה}, %{נוכחי},",
+          "combination": "%{rest} ו-%{current}"
+        },
+        "address_update": "עדכון כתובת",
+        "shipping_address_title": "לשלוח אל",
+        "shipping_address_rollup_accessibility_label": "אפשרויות משלוח לכתובת",
+        "add_address": "השתמש בכתובת אחרת",
+        "add_delivery_instructions": "הוסף הוראות משלוח",
+        "edit": "לַעֲרוֹך",
+        "delete": "לִמְחוֹק",
+        "address_more": "פעולות נוספות עבור כתובת זו",
+        "address_edit": "עריכת כתובת",
+        "address_delete": "מחיקת כתובת",
+        "address_confirm": "האם אתה בטוח שברצונך למחוק את הכתובת הזו מחשבונך?",
+        "address_default": "הגדר כברירת מחדל",
+        "address_form": {
+          "add_address": "הוסף כתובת",
+          "save": "לְהַצִיל",
+          "cancel": "לְבַטֵל",
+          "generic_error": "הייתה בעיה בשמירת הכתובת שלך. אנא נסה שוב.",
+          "one_time_address_subtitle": "השתמש בכתובת חד פעמית עבור הזמנה זו"
+        },
+        "different_shipping_method_summary": "הזן כתובת משלוח שונה כדי להציג את שיטות המשלוח הזמינות",
+        "invalid_shipping_method_summary": "הזן כתובת משלוח תקפה כדי להציג את שיטות המשלוח הזמינות",
+        "method_summary": {
+          "incomplete_address_entered": "הזן כתובת משלוח מלאה כדי להציג את שיטות המשלוח הזמינות",
+          "incomplete_address_selected": "בחר כתובת משלוח מלאה כדי להציג את שיטות המשלוח הזמינות"
+        },
+        "local_pickup": {
+          "search_address": "חיפוש כתובת",
+          "rollup_title": "מיקום איסוף",
+          "rollup_accessibility_label": "אפשרויות מיקום איסוף"
+        },
+        "missing_shipping_address": "כתובת המשלוח חסרה",
+        "split_shipping_merchandise_quantity_label_standard": "%{quantity} פריטים",
+        "split_shipping_merchandise_quantity_label_additional": "+%{כמות} יותר",
+        "split_shipping_merchandise_shipment_number": "משלוח %{number} מתוך %{total}",
+        "pre_order_ships_now": "נשלח עכשיו",
+        "pre_order_ships_later": "נשלח מאוחר יותר",
+        "pre_order_ships_date": "משלוחים %{date}",
+        "split_shipping_shipped_by_shop": "נשלח על ידי %{shop_name}",
+        "split_shipping_multiple_shipment_label": "משלוחים מרובים",
+        "split_shipping_shipping_label": "שִׁיטָה",
+        "split_shipping_shipment_notice": "ההזמנה שלך תגיע בכמות של %{quantity_shipments}",
+        "split_shipping_first_shipment_notice": "ההזמנה הראשונה שלך תגיע ב-%{quantity_shipments}",
+        "split_shipping_multiple_shipment_quantity_label": "משלוחים %{quantity}",
+        "split_shipping_multiple_shipment_notice": "ההזמנה שלך תגיע במספר משלוחים",
+        "split_shipping_multiple_shipment_notice_one_time_purchase": "ההזמנה שלך תגיע במשלוחים של %{quantity}",
+        "split_shipping_more_shipping_options": "אפשרויות משלוח נוספות",
+        "split_shipping_shipment_number": "משלוח %{number}",
+        "split_shipping_merchandise_quantity_label_inline_primary": "כמות: %{כמות}",
+        "split_shipping_option_free": "משלוח חינם",
+        "split_shipping_option_lowest_price": "המחיר הנמוך ביותר",
+        "split_shipping_option_fastest": "המהיר ביותר",
+        "split_shipping_option_recommended": "מוּמלָץ",
+        "split_shipping_option_custom": "מִנְהָג"
       },
       "payment": {
         "title": "תשלום",
@@ -593,7 +655,14 @@
         "bank_account_generic_error": "לא ניתן היה להוסיף חשבון בנק. נסה שוב מאוחר יותר.",
         "separate_payments_label": "הפריטים שלך מגיעים מיותר מחנות אחת. תחויב ב-%{separate_payments_link}.",
         "separate_payments_text": "תשלומים נפרדים",
-        "payments": "תשלומים"
+        "payments": "תשלומים",
+        "network_card_payment_options": "בחירת רשת כרטיסים",
+        "network_card_persistence_description": "הרשת שנבחרה תישמר יחד עם אמצעי התשלום שלך לצורך עסקאות עתידיות.",
+        "amazon_payments_label": "אמזון פיי",
+        "amazon_payments_login_hint": "תתבקשו להתחבר באמצעות אמזון.",
+        "amazon_payments_logout": "התנתק מאמזון פיי",
+        "amazon_payments_failed_mfa_challenge": "לא ניתן היה להשתמש בשיטת התשלום שנבחרה. בחר שיטה אחרת או צור קשר עם הבנק או מנפיק הכרטיס שלך.",
+        "amazon_payments_abandoned_mfa_challenge": "לא ניתן היה להשלים את התשלום שלך. נסה אמצעי תשלום אחר או צור קשר עם הבנק או מנפיק הכרטיס שלך."
       },
       "payment_gateway": {
         "credit_card_label": "כרטיס אשראי",
@@ -1759,6 +1828,32 @@
       },
       "artifact_errors": {
         "artifact_dissatisfaction_without_violation": "הייתה בעיה בעיבוד ההזמנה שלך. נסה שוב בעוד מספר דקות."
+      },
+      "localized_fields": {
+        "additional_information": {
+          "title": "מידע נוסף",
+          "shipping_credential_kr": "קוד מכס אישי",
+          "shipping_credential_cn": "מספר תעודת זהות של תושב",
+          "tax_credential_it": "קוד פיסקאל (אופציונלי)",
+          "tax_email_it": "PEC (אופציונלי)",
+          "tax_credential_cl": "שִׁגרָה",
+          "shipping_credential_cl": "שִׁגרָה",
+          "tax_credential_co": "סדולה/IRA",
+          "tax_credential_type_co": "טיפו סדולה",
+          "shipping_credential_co": "סדולה/IRA",
+          "shipping_credential_type_co": "טיפו סדולה",
+          "tax_credential_cr": "מספר זיהוי/RUT",
+          "shipping_credential_cr": "מספר זיהוי/RUT",
+          "tax_credential_gt": "ניט/אי קיימא",
+          "shipping_credential_gt": "ניט/אי קיימא",
+          "tax_credential_my": "מספר רישום/TIN",
+          "shipping_credential_my": "מספר רישום/TIN",
+          "tax_credential_type_mx": "משטר פיסקאלי",
+          "tax_credential_use_mx": "שימוש ב-CFDI",
+          "tax_credential_pt": "קרן נכסים לאומית/מע\"מ",
+          "shipping_credential_pt": "קרן נכסים לאומית/מע\"מ",
+          "shipping_credential_tw": "מספר תעודת זהות/מע\"מ"
+        }
       }
     },
     "addresses": {
