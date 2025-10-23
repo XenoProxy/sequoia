@@ -2138,8 +2138,85 @@
       },
       "draft_order_details": {
         "payment_status": {
-          "pay_now": "לתשלום"
-        }
+          "pay_now": "לתשלום",
+          "pending": {
+            "banner_overdue": {
+              "one": "התשלום שלך איחר ב {{count}} יום",
+              "other": "התשלום שלך איחר ב {{count}} ימים"
+            },
+            "banner_due": {
+              "one": "התשלום שלך אמור להתבצע תוך יום {{count}}",
+              "other": "התשלום שלך אמור להתבצע בעוד {{count}} ימים"
+            },
+            "banner_due_today": "התשלום שלך אמור להתבצע היום",
+            "title": "תשלום עד מועד התשלום",
+            "title_with_date": "מועד התשלום: {{date}}",
+            "title_due_on_receipt": "התשלום טרם הגיע",
+            "title_due_on_fulfillment": "תשלום בעת ביצוע",
+            "description_overdue": "התשלום שלך איחר.",
+            "description_partially_paid": "הזמנה זו שולמה באופן חלקי. נותרה לך יתרה.",
+            "description_authorized": "אמצעי התשלום שלך יחויב בתאריך היעד, או שתוכל לשלם עכשיו.",
+            "description_waiting_for_manual_payment": "להזמנה זו יש תשלום ממתין. היתרה תעודכן עם קבלת התשלום.",
+            "description_due_on_receipt": "תקבל חשבונית כשיגיע הזמן לתשלום.",
+            "description_due_on_receipt_partially_paid": "הזמנה זו שולמה באופן חלקי. נותרה לך יתרה. תקבל חשבונית כשיגיע מועד התשלום.",
+            "description_due_on_fulfillment": "התשלום יבוצע לאחר מילוי כל הפריטים בהזמנה זו.",
+            "description_due_on_fulfillment_partially_paid": "הזמנה זו שולמה באופן חלקי. נותרה לך יתרה. התשלום יבוצע לאחר שכל הפריטים בהזמנה זו ימומשו."
+          },
+          "draft": {
+            "description": "פרטי התשלום נקבעים עם אישור ההזמנה.",
+            "title": "התשלום טרם הגיע",
+            "in_review": {
+              "description": "פרטי התשלום נקבעים עם אישור ההזמנה.",
+              "title": "התשלום טרם הגיע"
+            },
+            "submitted": {
+              "description": "שלח תשלום כדי לאשר הזמנה זו.",
+              "title": "שלם כדי לאשר",
+              "deposit": {
+                "title": "התשלום אמור להתבצע",
+                "due_later": "היתרה היא בתנאי {{translatedName}} ויש לתשלום בתאריך {{dueDate}} .",
+                "due_on_fulfillment": "היתרה תשולם לאחר שכל הפריטים בהזמנה זו ימולאו.",
+                "due_on_receipt": "תקבלו חשבונית עבור היתרה הנותרת.",
+                "due_on_date": "היתרה מועד פירעון בתאריך {{dueDate}} ."
+              }
+            },
+            "deposit": {
+              "due_later": "{{depositAmount}} יבוצע לאחר אישור ההזמנה. היתרה תהיה בתנאי {{translatedName}} .",
+              "due_on_fulfillment": "{{depositAmount}} יחול לאחר אישור ההזמנה. היתרה תחול לאחר ביצוע ההזמנה.",
+              "due_on_receipt": "{{depositAmount}} יבוצע לאחר אישור ההזמנה. היתרה תשולם בהמשך.",
+              "due_on_date": "{{depositAmount}} יבוצע לאחר אישור הזמנתך. היתרה תשולם בתאריך {{dueDate}} ."
+            }
+          },
+          "paid": {
+            "title": "בתשלום",
+            "title_with_date": "שולם בתאריך {{date}}",
+            "description": "ההזמנה שלך שולמה במלואה."
+          },
+          "refund": {
+            "title": "החזר כספי",
+            "title_with_date": "הוחזר {{date}}",
+            "description_full_refund": "קיבלת החזר כספי מלא עבור הזמנה זו.",
+            "description_single_refund": "קיבלת החזר חלקי עבור הזמנה זו.",
+            "description_multiple_refunds": "קיבלת החזרים חלקיים עבור הזמנה זו."
+          },
+          "canceled": {
+            "title": "התשלום בוטל",
+            "description": "לא הואשמת."
+          },
+          "pay_now_accessibility_label": "שלם עכשיו עבור הזמנה {{orderName}}",
+          "title": "סטטוס תשלום"
+        },
+        "draft_order_subtitle": "אושר בתאריך {{date}} מההזמנה {{draftOrderName}}",
+        "loading": "טוען את פרטי ההזמנה",
+        "loading_finished_accessibility_message": "פרטי ההזמנה נטענו",
+        "order_timeline": {
+          "expand_events_label": "הצג פרטים",
+          "expand_events_accessibility_label": "הצג פרטי טיוטת הזמנת",
+          "hide_events_label": "הסתר פרטים",
+          "hide_events_accessibility_label": "הסתר את פרטי הזמנת הטיוטה"
+        },
+        "subtitle": "הוגש בתאריך {{date}}",
+        "title": "הזמנה {{name}}"
       },
       "orders": {
         "order_list_column_headers_contact": "מַגָע",
@@ -2159,12 +2236,43 @@
             },
             "more_than_pagination_length": "יש לך יותר מ {{count}} הזמנות ממתינות"
           },
-          "pending_orders_count_more_than_pagination_length": "{{count}} +"
-        }
+          "pending_orders_count_more_than_pagination_length": "{{count}} +",
+          "pagination": {
+            "nav_accessibility_label": "כפתורי ניווט להזמנות בבדיקה"
+          }
+        },
+        "order_list_column_headers_location": "מִקוּם",
+        "order_list_column_headers_status": "סטָטוּס",
+        "removed_company_contact_tooltip": "הוסר מהחברה"
       },
       "account_information": {
         "company_card_name_label": "שם החברה",
         "company_card_section_accessibility_label": "חֶברָה"
+      },
+      "payment_methods": {
+        "payment_delete": {
+          "description_without_replacement": "אמצעי תשלום זה לא יהיה זמין עוד עבור רכישות עתידיות ממיקום זה.",
+          "description_with_replacement": "מחיקת אמצעי תשלום זה תשפיע על תשלומים שאושרו מראש עבור מיקום זה. החלף אותו באמצעי תשלום חלופי כדי להמשיך לקבל הזמנות עתידיות."
+        },
+        "payment_details": {
+          "order_label": "הזמנה {{name}}",
+          "draft_label": "טיוטת צו {{name}}"
+        }
+      },
+      "purchase_order_number": {
+        "add_accessibility_label": "הוסף מספר הזמנה",
+        "add_modal_title": "הוסף מספר הזמנה",
+        "cancel": "לְבַטֵל",
+        "close_modal_accessibility_label": "סגירת מספר הזמנה מודאלי",
+        "discard": "לְהַשְׁלִיך",
+        "discard_changes_modal_title": "למחוק את השינויים?",
+        "edit_accessibility_label": "עריכת מספר הזמנת רכש",
+        "edit_modal_title": "עריכת מספר הזמנת רכש",
+        "empty_state": "אין מספר הזמנה",
+        "modal_po_number_input_label": "מספר הזמנת רכש",
+        "modal_po_number_input_max_length_error": "מספרי הזמנת רכש מכילים מקסימום {{maxLength}} תווים.",
+        "save": "לְהַצִיל",
+        "title": "מספר הזמנה {{poNumber}}"
       }
     },
     "shop_policies": {
@@ -2512,6 +2620,66 @@
       "save_accessibility_label": "שמור כתובת {{address}}",
       "section_title_accessibility_label": "הוסף כתובת",
       "update_success_notification": "הכתובת עודכנה"
+    },
+    "errors": {
+      "address_deletion_error": {
+        "description": "אירעה בעיה במחיקת כתובת זו. נסה שוב או רענן את הדף."
+      },
+      "addresses_loading_issue": {
+        "description": "שגיאת חיבור. בדוק את חיבור האינטרנט ונסה שוב."
+      },
+      "banner_title": {
+        "one": "יש שגיאה {{count}}",
+        "other": "ישנן {{count}} שגיאות"
+      },
+      "failed_address_creation": {
+        "description": "אירעה בעיה ביצירת הכתובת שלך. נסה לרענן דף זה או לבדוק את חיבור האינטרנט שלך."
+      },
+      "failed_address_update": {
+        "description": "אירעה בעיה בעדכון הכתובת שלך. נסה לרענן דף זה או לבדוק את חיבור האינטרנט שלך."
+      },
+      "load_address_form_error": {
+        "title": "לא ניתן לטעון את טופס הכתובת",
+        "description": "לא ניתן היה לטעון את טופס הכתובת.",
+        "refresh_button": "רענן את הדף"
+      },
+      "load_orders_error": {
+        "title": "לא ניתן לטעון הזמנות",
+        "description": "נסה שוב או חזור מאוחר יותר.",
+        "retry_button": "נסה שוב"
+      },
+      "load_paypal_error": {
+        "description": "יש בעיה בטעינת PayPal. אנא נסה שוב."
+      },
+      "logout_everywhere": {
+        "description": "משהו השתבש במהלך היציאה. אנא נסה שוב."
+      },
+      "no_access_to_locations": {
+        "description": "אין לך גישה לאף מיקום"
+      },
+      "not_found": {
+        "description": "בדוק את כתובת ה-URL או נסה שוב בעוד מספר דקות.",
+        "title": "יש בעיה בטעינת דף זה"
+      },
+      "order_not_found": {
+        "description": "הזמנה זו אינה קיימת או שאין לך הרשאה לצפות בה.",
+        "title": "ההזמנה לא נמצאה"
+      },
+      "profile_update_error": {
+        "description": "אירעה בעיה בעדכון הפרופיל שלך. נסה לרענן דף זה או לבדוק את חיבור האינטרנט שלך."
+      },
+      "profile_name_update_error": {
+        "description": "הייתה בעיה בעדכון שמך. נסה לרענן דף זה או לבדוק את חיבור האינטרנט שלך."
+      },
+      "retry_action_label": "נסה שוב",
+      "resend_link": {
+        "too_many_requests": "יותר מדי בקשות. נסה שוב מאוחר יותר.",
+        "generic": "בקשה נכשלה"
+      },
+      "load_extension_error": {
+        "title": "שְׁגִיאָה",
+        "description": "רענן דף זה או נסה שוב בעוד מספר דקות."
+      }
     }
   }
 }
