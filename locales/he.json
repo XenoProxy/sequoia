@@ -623,7 +623,8 @@
           "formatting": {
             "postal_code_contains_emoji": "מחק אימוג'ים מהמיקוד"
           }
-        }
+        },
+        "return_to_store": "חזור לחנות"
       },
       "payment_errors": {
         "invalid_number": "הזן מספר כרטיס חוקי",
@@ -749,9 +750,38 @@
       },
       "notice_banner": {
         "individual_violations_title": {
-          "PaymentViolations": "כתובת חיוב"
+          "PaymentViolations": "כתובת חיוב",
+          "DeliveryViolations": "כתובת למשלוח",
+          "OtherViolations": "פרטי הזמנה",
+          "UnhandledViolations": "פרטי הזמנה"
         },
-        "all_violations_email_link": "אימייל"
+        "all_violations_email_link": "אימייל",
+        "return_to_cart_link_text": "חזור לעגלה",
+        "return_to_cart_to_update_quantities": "%{return_to_cart_link_text} כדי לעדכן את הכמויות",
+        "subscription_changed": "אחד המנויים שלך השתנה.",
+        "company_location_changed": "העגלה שלך עודכנה. בדוק את ההזמנה שלך לפני שליחתה.",
+        "company_location_changed_product_removed": "עגלת הקניות שלך עודכנה מכיוון שחלק מהמוצרים אינם זמינים במיקום זה. בדוק את ההזמנה שלך לפני שליחתה.",
+        "violations_title": "{{violation}} חסר או לא חוקי",
+        "all_violations_content": "התקשרו אלינו או שלחו לנו {{emailLink}} כדי לעדכן מידע זה ולהשלים את הזמנתכם:",
+        "editable_shipping_address_violations_message_title": "הוסף מידע זה כדי להשלים את ההזמנה שלך:",
+        "editable_shipping_address_violations_message_footer": "כדי לעדכן לצמיתות את הכתובת עבור מיקום זה, {{emailLink}} .",
+        "editable_shipping_address_violations_email_link": "צרו קשר",
+        "shipping_address_incomplete_title": "כתובת המשלוח אינה מלאה",
+        "calculating_shipping": "המשלוח עדיין בחישוב. נסה שוב בעוד מספר שניות. לא חויבת.",
+        "calculating_taxes": "המיסים עדיין מחושבים. נסה שוב בעוד מספר שניות. לא חויבת.",
+        "generic_processing_error": {
+          "title": "הייתה בעיה בעיבוד ההזמנה שלך",
+          "body": "לא חויבת. נסה שוב או השתמש באמצעי תשלום אחר."
+        },
+        "payment_method_not_available_with_payment_terms": "אמצעי התשלום שבחרת אינו זמין עוד מכיוון שהתשלום עבור הזמנה זו מתבצע כעת בתנאי {{paymentTerms}}",
+        "payment_method_not_available_with_fulfillment_terms": "אמצעי התשלום שבחרת אינו זמין עוד מכיוון שהתשלום עבור הזמנה זו יבוצע כעת עם ביצועה",
+        "payment_method_not_available_with_fixed_terms": "אמצעי התשלום שבחרת אינו זמין עוד מכיוון שהתשלום עבור הזמנה זו מועד אחרון",
+        "payment_method_not_available_with_review_requirement": "אמצעי התשלום שבחרת אינו זמין עוד מכיוון שהתשלום יבוצע לאחר אישור ההזמנה שלך.",
+        "contact_information": {
+          "title": "פרטי הקשר אינם חוקיים",
+          "header": "כדי לעדכן את המידע שלך, {{emailLink}} .",
+          "email_link": "צרו קשר"
+        }
       },
       "marketing": {
         "disclaimer": {
@@ -854,7 +884,10 @@
         }
       },
       "b2b_errors": {
-        "log_out_link_text": "התנתק"
+        "log_out_link_text": "התנתק",
+        "lost_b2b_purchasing_permissions": "אין לך עוד הרשאה לבצע הזמנות B2B. %{logout_url} כדי לבצע הזמנה אישית במקום זאת.",
+        "lost_permissions_subtitle": "אין לך עוד הרשאה לבצע הזמנות B2B. צא כדי לבצע הזמנה אישית.",
+        "lost_permissions_title": "אין הרשאות מיקום"
       },
       "order_payment_collection": {
         "pay_now": "לתשלום"
@@ -942,6 +975,137 @@
         },
         "checkout_on_shop_label": "ניתן לשלם ב-%{shop_name}",
         "single_shop_transition": "מפנה אותך אל %{advertiser} כדי להשלים את הרכישה."
+      },
+      "pickup_point": {
+        "could_not_resolve_address": "לא ניתן היה לאתר את הכתובת שלך. נסה שוב או השתמש בכתובת אחרת.",
+        "no_pickup_points_near_you": "לא נמצאו נקודות איסוף ליד הכתובת שנבחרה",
+        "no_pickup_points_near_location": "לא נמצאו נקודות איסוף בקרבת מיקומך",
+        "pickup_unavailable_banner_title": {
+          "one": "אין נקודות איסוף זמינות עבור הפריט שלך",
+          "other": "אין נקודות איסוף זמינות עבור הפריטים שלך"
+        },
+        "no_pickup_points_found": "לא נמצאו נקודות איסוף",
+        "paginator": {
+          "next_accessibility_label": "עמוד הבא",
+          "previous_accessibility_label": "עמוד קודם",
+          "header": {
+            "one": "מציג %{first} - %{last} מתוך %{count} נקודות",
+            "other": "מציג %{first} - %{last} מתוך %{count} נקודות"
+          },
+          "selected_pickup_point_label": {
+            "one": "%{pickup_point_index} מתוך %{count} נקודות",
+            "other": "%{pickup_point_index} מתוך %{count} נקודות"
+          },
+          "selected_page": {
+            "one": "%{first} - %{last} מתוך %{count} נקודות",
+            "other": "%{first} - %{last} מתוך %{count} נקודות"
+          }
+        },
+        "number_of_pickup_points_near_location": {
+          "one": "נקודת איסוף %{count} ליד מיקומך",
+          "other": "%{count} נקודות איסוף ליד מיקומך"
+        },
+        "change": "שנה מיקום",
+        "waiting_on_pickup_point_location_notice": "מחפש נקודות איסוף...",
+        "geolocation": {
+          "shared_location_button": "השתמש במיקום שלי",
+          "errors": {
+            "unsuported_by_browser": "קבלת מיקום גיאוגרפי אינה נתמכת על ידי הדפדפן שלך. נסה שוב או השתמש בדפדפן אחר.",
+            "permission_not_allowed": "אפשר שיתוף של המיקום שלך.",
+            "permission_denied": "לא ניתן היה לאתר את המיקום שלך. נסה שוב."
+          }
+        }
+      },
+      "error_page": {
+        "terminal": {
+          "title": "הייתה בעיה בקופה שלנו",
+          "message": "רענן דף זה או נסה שוב בעוד מספר דקות",
+          "action": {
+            "cta": "רענן דף"
+          },
+          "request_id": "מזהה בקשה: {{requestId}}"
+        }
+      },
+      "review_address_modal": {
+        "title": "כתובת הביקורת",
+        "subtitle": {
+          "one": "הזמנה זו תישלח לכתובת שסופקה על ידי {{merchant}} .",
+          "other": "הזמנה זו תישלח לכתובת שסופקה על ידי {{merchant}} . בחר כתובת למשלוח."
+        },
+        "subtitle_no_match": "כתובת זו אינה תואמת לאף אחת מהכתובות השמורות שלך.",
+        "subtitle_must_use": "ההזמנה שלך תישלח לכתובת זו.",
+        "continue": "המשך עם כתובת זו",
+        "use_saved_address": "השתמש בכתובת אחרת",
+        "return_to_cart": "חזור לעגלה"
+      },
+      "marketplaces": {
+        "legal_notice": {
+          "legal_text": "סְקִירָה",
+          "link_label": "תנאים והגבלות {{partnerDisplayName}}"
+        }
+      },
+      "online_store_chat": {
+        "title": "שאלות? צ'אט איתנו"
+      },
+      "local_pickup": {
+        "location_address_search_label": "כְּתוֹבֶת",
+        "location_information": {
+          "one": "יש %{count} סניף עם מלאי קרוב אליך",
+          "other": "ישנם %{count} סניפים עם מלאי קרוב אליך"
+        },
+        "toggle_location": "שנה מיקום",
+        "or": "אוֹ",
+        "cancel": "לְבַטֵל",
+        "your_location": "המיקום שלך",
+        "search_button": "מצא חנויות",
+        "no_stores_found": "לא נמצאו חנויות",
+        "all_stores_far_away": {
+          "title": "המיקומים הקרובים ביותר נמצאים במרחק של יותר מ-%{distance}",
+          "description": "בחר מיקום או %{ship_to_address_link}",
+          "ship_to_address_link": "לשלוח לכתובת"
+        },
+        "selected_pickup_option_no_longer_available": {
+          "title": "המיקום שבחרת בעבר אינו זמין עוד",
+          "description": "בחר מיקום חדש או %{ship_to_address_link}",
+          "ship_to_address_link": "לשלוח לכתובת"
+        },
+        "could_not_resolve_address": "לא ניתן היה לאתר את הכתובת שלך. נסה שוב או השתמש בכתובת אחרת.",
+        "paginator": {
+          "accessibility_label": "דפדוף איסוף מקומי",
+          "previous": "עמוד קודם",
+          "next": "עמוד הבא",
+          "label": {
+            "one": "%{first} - %{last} מתוך %{count} חנות",
+            "other": "%{first} - %{last} מתוך %{count} חנויות"
+          }
+        },
+        "reveal_more_label": {
+          "one": "הצג %{count} מיקומים נוספים",
+          "other": "הצג %{count} מיקומים נוספים"
+        }
+      },
+      "captcha": {
+        "title": "השלם את ה-CAPTCHA כדי להמשיך",
+        "errors": {
+          "not_solved": "השלם את ה-CAPTCHA כדי להמשיך"
+        }
+      },
+      "clipboard": {
+        "copied": "מוּעֲתָק",
+        "failed_to_copy": "ההעתקה נכשלה"
+      },
+      "discount_errors": {
+        "generic_error": "לא ניתן היה לעבד את ההזמנה שלך מכיוון שקוד ההנחה שלך אינו זמין עוד. בדוק את סך ההזמנה ונסה שוב."
+      },
+      "shop_pay_external": {
+        "title": "חנות תשלום קופה",
+        "errors": {
+          "problem_loading": "יש בעיה בטעינת Shop Pay",
+          "try_again_later": "בדוק את החיבור שלך או סגור חלון זה ונסה שוב בעוד מספר רגעים.",
+          "checkout_has_expired": "תוקף התשלום פג. סגור חלון זה ונסה לבצע תשלום שוב מ {{shopName}} ."
+        },
+        "return_to_store": "חזור אל {{shopName}}",
+        "return_to_store_simple": "חזור לחנות"
       }
     },
     "addresses": {
@@ -992,18 +1156,90 @@
       "marketing_checkbox_label": "עדכנו אותי במבצעים והטבות!"
     },
     "addresses": {
-      "billing_address_dropdown_placeholder": "כתובת חיוב"
+      "billing_address_dropdown_placeholder": "כתובת חיוב",
+      "edit_modal_title": {
+        "billing": "עריכת כתובת לחיוב",
+        "shipping": "עריכת כתובת למשלוח"
+      },
+      "loading_accessibility_message": "טוען כתובת",
+      "loading_addresses_accessibility_message": "טוען כתובות",
+      "loading_billing_accessibility_message": "טוען כתובת לחיוב",
+      "loading_finished_accessibility_message": "דף כתובות חדש נטען",
+      "loading_shipping_accessibility_message": "טוען כתובת למשלוח",
+      "pagination": {
+        "load_more": "טען עוד",
+        "load_more_accessibility_label": "טען כתובות נוספות"
+      },
+      "save_new_address_accessibility_label": "שמור כתובת",
+      "title": "כתובות"
     },
     "B2B": {
       "addresses": {
-        "billing_address_card_title": "כתובת חיוב"
+        "billing_address_card_title": "כתובת חיוב",
+        "add_billing_address_button": "הוסף כתובת לחיוב",
+        "add_billing_address_section_accessibility_label": "הוסף כתובת לחיוב",
+        "add_shipping_address_button": "הוסף כתובת למשלוח",
+        "add_shipping_address_section_accessibility_label": "הוסף כתובת למשלוח",
+        "cancel_adding_billing_address_accessibility_label": "ביטול הוספת כתובת לחיוב",
+        "cancel_adding_shipping_address_accessibility_label": "ביטול הוספת כתובת למשלוח",
+        "save_new_billing_address_accessibility_label": "שמור כתובת לחיוב",
+        "save_new_shipping_address_accessibility_label": "שמירת כתובת למשלוח",
+        "shipping_address_card_title": "כתובת למשלוח"
       },
       "locations": {
-        "contact_email": "אימייל"
+        "contact_email": "אימייל",
+        "contact_list_title": "אֲנָשִׁים",
+        "contact_name": "שֵׁם",
+        "contact_permissions": "הרשאות",
+        "contact_phone_number": "מספר טלפון",
+        "location_picker_label": "שם המיקום",
+        "location_picker_accessibility_label": "שם מיקום: {{locationName}}",
+        "net_payment_terms_description": "{{name}} : תשלומים יש לשלם תוך {{numberOfDays}} ימים",
+        "deposit_percentage": "הפקדה {{percentage}}",
+        "own_role_contact_name": "אַתָה",
+        "pagination": {
+          "load_more": "טען עוד",
+          "load_more_accessibility_label": "טען מיקומים נוספים"
+        },
+        "payment_details_title": "פרטי תשלום",
+        "payment_terms": "תנאי תשלום",
+        "permissions_label": "ההרשאות שלך",
+        "permissions_title": "הרשאות",
+        "section_title": "מִקוּם",
+        "shipping_address_required": "הוסף כתובת למשלוח למיקום זה כדי להתחיל לבצע הזמנות.",
+        "staff_and_permissions_title": "צוות והרשאות",
+        "tax_details_title": "פרטי מס",
+        "tax_id": "מספר זיהוי מס",
+        "tax_exemptions": "פטורים ממס",
+        "multiple_tax_exemptions": "עוד {{taxExemptionsCount}}",
+        "multiple_tax_exemptions_and": "ו",
+        "tax_exemptions_modal_close": "לִסְגוֹר",
+        "taxes_none": "אַף לֹא אֶחָד",
+        "tax_exemption_not_applicable": "לא רלוונטי",
+        "tax_exemptions_modal_button_accessibility_label": "הצג את כל הפטורים ממס"
       },
       "location_selection": {
         "continue_to_store": "המשך לחנות",
-        "selection_continue_button": "המשך"
+        "selection_continue_button": "המשך",
+        "description": "אם כבר יש לך פריטים בעגלת הקניות שלך, שינוי מיקומים עשוי להשפיע על מחירי העגלה והכמויות.",
+        "description_switch_later": "תמיד אפשר להחליף מאוחר יותר",
+        "list_accessibility_label": "רשימת מיקומים",
+        "list_item_without_address_accessibility_label": "{{name}} : אין כתובת",
+        "list_loading_accessibility_message": "טוען רשימת מיקומים",
+        "list_loading_address_accessibility_message": "טוען כתובת עבור {{locationName}}",
+        "list_loading_finished_accessibility_message": "רשימת המיקומים נטענה",
+        "loading_store_accessibility_message": "הולך לחנות",
+        "no_location_title": "הזמנות אישיות בלבד",
+        "no_location_description": "אין לך עוד הרשאה לבצע הזמנות עבור {{company}} . אתה עדיין יכול לבצע הזמנות אישיות.",
+        "no_locations_found": "לא נמצאו מיקומים",
+        "search": "חיפוש מיקומים",
+        "search_location_title": "בחר מיקום",
+        "selection_cancel_button": "לְבַטֵל",
+        "selection_confirmation_button": "בחר מיקום",
+        "title": "לאיזה מיקום אתה קונה?",
+        "title_choose_location": "בחר מיקום",
+        "clear_search": "נקה חיפוש",
+        "try_new_search": "נסה חיפוש חדש"
       },
       "draft_order_details": {
         "payment_status": {
@@ -1011,7 +1247,29 @@
         }
       },
       "orders": {
-        "order_list_column_headers_contact": "מַגָע"
+        "order_list_column_headers_contact": "מַגָע",
+        "draft_order_list": {
+          "hide_all": "הסתר הכל",
+          "show_all": "הצג הכל",
+          "hide_all_accessibility_label": "הסתר את כל ההזמנות הנמצאות בבדיקה",
+          "show_all_accessibility_label": "הצג את כל ההזמנות הנמצאות בבדיקה",
+          "show_all_orders_in_review": "הצג את כל ההזמנות הנמצאות בבדיקה",
+          "show_less_orders_in_review": "הצג פחות הזמנות בבדיקה",
+          "title": "תָלוּי וְעוֹמֵד",
+          "pending_tab_accessibility_label": {
+            "no_pending_orders": "אין לך הזמנות ממתינות",
+            "pending_orders": {
+              "one": "יש לך הזמנה ממתינה {{count}}",
+              "other": "יש לך {{count}} הזמנות ממתינות"
+            },
+            "more_than_pagination_length": "יש לך יותר מ {{count}} הזמנות ממתינות"
+          },
+          "pending_orders_count_more_than_pagination_length": "{{count}} +"
+        }
+      },
+      "account_information": {
+        "company_card_name_label": "שם החברה",
+        "company_card_section_accessibility_label": "חֶברָה"
       }
     },
     "shop_policies": {
@@ -1337,6 +1595,28 @@
     },
     "navigation_and_structure": {
       "log_out_link": "התנתק"
+    },
+    "address_form": {
+      "attention": "תְשׁוּמַת לֵב",
+      "attention_company": "חברה/תשומת לב",
+      "attention_help_text": "שם של אדם או מחלקה",
+      "auto_complete_close_accessibility_label": "סגור הצעות",
+      "auto_complete_title": "הצעות",
+      "billing_address": "השתמש ככתובת לחיוב",
+      "cancel": "לְבַטֵל",
+      "cancel_accessibility_label": "ביטול עריכת כתובת {{address}}",
+      "creation_success_notification": "כתובת שנוספה",
+      "default_address": "זוהי כתובת ברירת המחדל שלי",
+      "default_address_creation_success_notification": "כתובת ברירת מחדל נוספה",
+      "default_address_update_success_notification": "כתובת ברירת המחדל עודכנה",
+      "loading_add_form_accessibility_message": "טוען טופס כתובת חדש",
+      "loading_edit_form_accessibility_message": "טוען את טופס עריכת הכתובת",
+      "loading_form_accessibility_message": "טוען את טופס הכתובת",
+      "loading_finished_accessibility_message": "טופס הכתובת נטען",
+      "save": "לְהַצִיל",
+      "save_accessibility_label": "שמור כתובת {{address}}",
+      "section_title_accessibility_label": "הוסף כתובת",
+      "update_success_notification": "הכתובת עודכנה"
     }
   }
 }
