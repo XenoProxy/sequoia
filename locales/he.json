@@ -391,7 +391,25 @@
         "optional_address2_label": "דירה, סוויטה וכו' (אופציונלי)",
         "phone_tooltip": "למקרה שנצטרך ליצור איתך קשר לגבי ההזמנה שלך",
         "contact_method_title": "פרטי קשר",
-        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו."
+        "shipping_used_as_billing_notice": "כתובת זו תשמש גם ככתובת החיוב שלך עבור הזמנה זו.",
+        "emirate_label": "אמירות",
+        "emirate_placeholder": "אמירות",
+        "state_and_territory_label": "מדינה/טריטוריה",
+        "state_and_territory_placeholder": "מדינה/טריטוריה",
+        "phone_rollup_accessibility_label": "אפשרויות טלפון",
+        "zip_code_label": "מיקוד",
+        "optional_zip_code_label": "מיקוד (אופציונלי)",
+        "zip_code_placeholder": "מיקוד",
+        "pincode_label": "קוד סודי",
+        "optional_pincode_label": "קוד סודי (אופציונלי)",
+        "pincode_placeholder": "קוד סודי",
+        "civic_number_warning": "הוסף מספר בית אם יש לך אחד",
+        "optional_last_name_label": "שם משפחה (אופציונלי)",
+        "different_shipping_address_label": "לשלוח לכתובת אחרת",
+        "different_shipping_address_text": "השתמש בכתובת חד פעמית עבור הזמנה זו",
+        "change_company_location_link_label": "שינוי מיקום החברה",
+        "change_location_link_label": "שנה מיקום",
+        "ship_to_company": "לשלוח אל {{companyName}}"
       },
       "field_errors": {
         "handle_email_invalid": "הזן אימייל חוקי",
@@ -423,7 +441,20 @@
       "customer_account": {
         "save_my_information_label": "שמור מידע זה לפעם הבאה",
         "sign_in_link_label": "התחבר",
-        "sign_out_link_label": "התנתק"
+        "sign_out_link_label": "התנתק",
+        "not_user_label": "לא %{first_name}?",
+        "have_an_account_label": "יש לך חשבון?",
+        "invalid_address": "הכתובת שנבחרה אינה חוקית. %{update_address_link} או בחר כתובת אחרת.",
+        "incomplete_address": "הכתובת שנבחרה אינה שלמה. %{update_address_link} או בחר כתובת אחרת.",
+        "rollup_label": "חֶשְׁבּוֹן",
+        "rollup_accessibility_label": "אפשרויות חשבון",
+        "invalid_shipping_method_summary": "בחר כתובת משלוח תקפה כדי להציג את שיטות המשלוח הזמינות",
+        "saved_address_option_description": {
+          "one": "שמרת כתובת אחת {{count}} .",
+          "other": "יש לך {{count}} כתובות שמורות."
+        },
+        "saved_address_option_link": "השתמש בכתובת שמורה",
+        "saved_address_modal_title": "השתמש בכתובת השמורה שלי"
       },
       "shipping": {
         "shipping_method_title": "שיטת משלוח",
@@ -743,7 +774,9 @@
         "continue_shopping_button_label": "המשך",
         "continue_cta_label": "המשך לחשבון",
         "price_update": {
-          "updated_price": "מחיר מעודכן"
+          "updated_price": "מחיר מעודכן",
+          "title": "עדכון מחיר",
+          "description": "המחירים עבור פריטים אלה השתנו והם מעודכנים בעגלת הקניות שלך."
         },
         "price_and_quantity_update": {
           "title": "עדכון מחיר וכמות",
@@ -753,7 +786,67 @@
           "description": "פריטים אלה אינם זמינים עוד והוסרו מעגלת הקניות שלך.",
           "items_unavailable": "חלק מהפריטים אינם זמינים עוד והוסרו מעגלת הקניות שלך."
         },
-        "out_of_stock_in_context_label": "מוצר זה אינו זמין במדינה/אזור שלך."
+        "out_of_stock_in_context_label": "מוצר זה אינו זמין במדינה/אזור שלך.",
+        "page_title": "בעיות במלאי",
+        "title": "אזל מהמלאי",
+        "items_unavailable_notice": "חלק מהפריטים אינם זמינים עוד.",
+        "product_column_header": "מוצרים",
+        "quantity_column_header": "כַּמוּת",
+        "price_column_header": "מְחִיר",
+        "status_column_header": "סטָטוּס",
+        "removed_from_cart_notice": "הוסר מהעגלה",
+        "sold_out_label": "הַכַּרטִיסִים אָזלוּ",
+        "reduced_label": "מוּפחָת",
+        "reduced_with_quantity_label": "נותרו רק %{quantity_available}",
+        "remove_from_cart_button_label": "הסר מהעגלה",
+        "go_back_to_cart_button_label": "חזור לעגלת הקניות שלי",
+        "remove": "לְהַסִיר",
+        "return_to_store_label": "חזור לחנות",
+        "item_label": {
+          "one": "פריט {{count}}",
+          "other": "{{count}}"
+        },
+        "empty_cart_label": "העגלה שלך ריקה",
+        "quantity_update": {
+          "page_title": "עדכון כמות",
+          "title": "עדכון כמות",
+          "description": "הכמויות הזמינות עבור פריטים אלה השתנו והן מעודכנות בעגלת הקניות שלך."
+        },
+        "unpurchasable_product": {
+          "title": "מוצר שאינו ניתן לרכישה",
+          "header": "חלק מהפריטים הוסרו מעגלת הקניות שלך",
+          "message": "פריטים אלה אינם זמינים להזמנות B2B.",
+          "status_column_header": "לא זמין"
+        },
+        "unpurchasable_product_generic": {
+          "title": "מוצר שאינו ניתן לרכישה",
+          "header": "חלק מהפריטים הוסרו מעגלת הקניות שלך",
+          "message": "פריטים אלה אינם זמינים.",
+          "status_column_header": "לא זמין"
+        },
+        "unfulfillable_product": {
+          "title": "משלוח אינו זמין",
+          "message": {
+            "one": "%{delivery_method} אינו זמין עוד עבור פריט זה.",
+            "other": "%{delivery_method} אינו זמין עוד עבור פריטים אלה."
+          },
+          "default_message": {
+            "one": "שיטת המשלוח שנבחרה אינה זמינה עוד עבור פריט זה.",
+            "other": "שיטת המשלוח שנבחרה אינה זמינה עוד עבור פריטים אלה."
+          }
+        },
+        "unshippable_product": {
+          "title": "אין משלוח זמין",
+          "header": {
+            "one": "אין משלוח זמין עבור פריט %{count}",
+            "other": "אין משלוח זמין עבור %{count} פריטים"
+          },
+          "message": {
+            "one": "פריט זה יוסר מעגלת הקניות שלך מכיוון שאין שיטות משלוח זמינות עבור כתובתך.",
+            "other": "פריטים אלה יוסרו מעגלת הקניות שלך מכיוון שאין שיטות משלוח זמינות עבור כתובתך."
+          },
+          "status_column_header": "אין משלוח"
+        }
       },
       "post_purchase": {
         "components": {
@@ -814,6 +907,41 @@
           },
           "label": "אין משלוח"
         }
+      },
+      "delivery_options": {
+        "free_total_label": "לְשַׁחְרֵר",
+        "ship": "סְפִינָה",
+        "ship_to_address": "לשלוח לכתובת",
+        "shipping_address": "כתובת למשלוח",
+        "pick_up": "לֶאֱסוֹף",
+        "pick_up_from_store": "איסוף בחנות",
+        "pick_up_locations": "מיקומי איסוף",
+        "pick_up_in_one_hour": "בדרך כלל מוכן תוך שעה",
+        "pick_up_in_two_hours": "בדרך כלל מוכן תוך שעתיים",
+        "pick_up_in_four_hours": "בדרך כלל מוכן תוך 4 שעות",
+        "pick_up_in_twenty_four_hours": "בדרך כלל מוכן תוך 24 שעות",
+        "pick_up_in_two_to_four_days": "בדרך כלל מוכן תוך 2-4 ימים",
+        "pick_up_in_five_or_more_days": "בדרך כלל מוכן תוך 5+ ימים",
+        "pick_up_in_zero_to_two_hours": "מוכן לאיסוף תוך שעתיים",
+        "pick_up_in_two_to_four_hours": "מוכן לאיסוף תוך 4 שעות",
+        "pick_up_immediately": "מוכן לאיסוף עכשיו",
+        "pick_up_next_day": "מוכן לאיסוף למחרת",
+        "pickup_point_method_definition": "לשלוח לנקודת איסוף",
+        "retail_method_definition": "משלוח קמעונאי",
+        "company_location_no_address_banner": "הזמנות למשלוח למיקומים ללא כתובת יישלחו לבדיקה.",
+        "none_method_definition": "אין משלוח",
+        "subscription_pickup_information": "שיטת משלוח זו תחול על כל הפריטים בהזמנה זו ועל כל ההזמנות העתידיות עבור מנוי זה."
+      },
+      "remote_merchandise_only": {
+        "title": "השלם את הרכישה שלך",
+        "remote_only_notice": "פריטים אלה נמכרים ונשלחים על ידי חנויות אחרות. בדוק בכל חנות כדי להשלים את הרכישה.",
+        "return_to_store_label": "חזור לחנות",
+        "detail_item_label": {
+          "one": "פריט {{count}}",
+          "other": "{{count}}"
+        },
+        "checkout_on_shop_label": "ניתן לשלם ב-%{shop_name}",
+        "single_shop_transition": "מפנה אותך אל %{advertiser} כדי להשלים את הרכישה."
       }
     },
     "addresses": {
@@ -918,8 +1046,31 @@
       },
       "verify_new_email_modal": {
         "one_time_password_label": "קוד בן 6 ספרות",
-        "email_resend_button": "שלח קוד מחדש"
-      }
+        "email_resend_button": "שלח קוד מחדש",
+        "description": "הזן את הקוד שנשלח אל {{email}}",
+        "email_resend_button_accessibility_label": "שלח שוב את קוד האימות",
+        "verify_button": "לְאַמֵת",
+        "verify_button_accessibility_label": "אימות סיסמה חד פעמית",
+        "cancel_button": "לְבַטֵל",
+        "cancel_button_accessibility_label": "ביטול עריכת אימייל",
+        "email_resend_button_success_toast_message": "קוד אימות נשלח",
+        "email_resend_button_error_banner_message": "לא ניתן היה לשלוח את קוד האימות"
+      },
+      "email_update_success_modal": {
+        "title": "אימות כתובת דוא\"ל",
+        "description": "האימייל עודכן בהצלחה. מפנה מחדש להתחברות."
+      },
+      "profile_update_confirmation_message": "הפרופיל עודכן",
+      "email_update_confirmation_message": "האימייל עודכן ל {{email}}",
+      "title": "פּרוֹפִיל",
+      "people": {
+        "pagination": {
+          "load_more": "טען עוד",
+          "load_more_accessibility_label": "טען עוד אנשים",
+          "loading_accessibility_label": "טוען אנשים"
+        }
+      },
+      "add_button": "לְהוֹסִיף"
     },
     "orders": {
       "order_status": {
@@ -1044,7 +1195,20 @@
       "order_list": {
         "sort": {
           "order_total": {
-            "descending": "סה\"כ הזמנה (מגבוה לנמוך)"
+            "descending": "סה\"כ הזמנה (מגבוה לנמוך)",
+            "ascending": "סה\"כ הזמנה (נמוך לגבוה)"
+          },
+          "date": {
+            "newest": "מהחדש ביותר לישן ביותר",
+            "oldest": "מהישן ביותר לחדש ביותר"
+          },
+          "location": {
+            "ascending": "מיקום (אריזונה)",
+            "descending": "מיקום (ZA)"
+          },
+          "order_number": {
+            "ascending": "מספר הזמנה (מהנמוך לגבוה)",
+            "descending": "מספר הזמנה (מהגבוה לנמוך)"
           }
         },
         "location_filter_picker": {
@@ -1069,8 +1233,104 @@
             "custom": "מִנְהָג"
           }
         },
-        "show_order_actions_accessibility_label": "הצג פעולות הזמנה עבור הזמנה {{name}}"
-      }
+        "show_order_actions_accessibility_label": "הצג פעולות הזמנה עבור הזמנה {{name}}",
+        "column_headers": {
+          "order": "לְהַזמִין",
+          "total": "סַך הַכֹּל",
+          "actions_accessibility_label": "פעולות",
+          "products_accessibility_label": "מוצרים"
+        },
+        "delivered": "נמסר בתאריך {{date}}",
+        "empty_state_order_source_description": "רק הזמנות שבוצעו על ידי {{email}} יוצגו כאן.",
+        "empty_state_subtitle": "עבור לחנות כדי לבצע הזמנה.",
+        "empty_state_title": "אין עדיין הזמנות",
+        "empty_state_with_location_title": "אין הזמנות עבור {{locationName}}",
+        "empty_state_title_for_pending_orders": "אין הזמנות ממתינות",
+        "no_order_banner": "כדי לבדוק את התוסף שלך בדף סטטוס ההזמנה, צור הזמנה.",
+        "estimated_shortform": "נוסד בתאריך {{date}}",
+        "estimated_delivery": "צפוי בתאריך {{date}}",
+        "one_images_accessibility_label": "ההזמנה כוללת {{lineItemName1}}",
+        "two_images_accessibility_label": "ההזמנה כוללת {{lineItemName1}} , {{lineItemName2}}",
+        "three_images_accessibility_label": "ההזמנה כוללת {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}}",
+        "four_images_accessibility_label": "ההזמנה כוללת {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}} , {{lineItemName4}}",
+        "more_than_three_products_accessibility_label": "ההזמנה כוללת {{lineItemName1}} , {{lineItemName2}} , ועוד {{numberOfAdditionalProducts}} מוצרים",
+        "more_than_four_products_accessibility_label": "ההזמנה כוללת {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}} , ועוד {{numberOfAdditionalProducts}} מוצרים",
+        "plus_more": "+ {{numberOfAdditionalProducts}}",
+        "plus_more_products": "+ {{numberOfAdditionalProducts}} מוצרים",
+        "carousel": {
+          "one_products_accessibility_label": "ההזמנה כוללת כמות של {{lineItemName1}} {{lineItemQuantity1}}",
+          "two_products_accessibility_label": "ההזמנה כוללת כמות של {{lineItemName1}} {{lineItemQuantity1}} , כמות של {{lineItemName2}} {{lineItemQuantity2}}",
+          "three_products_accessibility_label": "ההזמנה כוללת כמות של {{lineItemName1}} {{lineItemName2}} {{lineItemQuantity1}} , כמות של {{lineItemName2}} {{lineItemName3}} {{lineItemQuantity2}} , כמות {{lineItemQuantity3}}",
+          "four_products_accessibility_label": "ההזמנה כוללת כמות {{lineItemQuantity1}} {{lineItemName1}} } {{lineItemName2}} , כמות {{lineItemQuantity2}} {{lineItemName3}} }}, כמות {{lineItemQuantity3}} {lineItemName3}} {{lineItemName4}} }, כמות {{lineItemQuantity4}}",
+          "five_products_accessibility_label": "ההזמנה כוללת כמות {{lineItemQuantity1}} {{lineItemName1}} } {{lineItemName2}} , כמות של {{lineItemName2}} {{lineItemName3}} {{lineItemQuantity2}} , כמות {{lineItemQuantity3}} {lineItemName3}} {{lineItemName4}} }, כמות {{lineItemQuantity4}} {{lineItemName5}} {{lineItemQuantity5}}",
+          "six_products_accessibility_label": "ההזמנה כוללת כמות {{lineItemQuantity1}} {{lineItemName1}} } {{lineItemName2}} , כמות {{lineItemQuantity2}} {{lineItemName3}} }}, כמות {{lineItemQuantity3}} {{lineItemName4}} , כמות {{lineItemQuantity4}} {{lineItemName5}} lineItemQuantity4}}, כמות {{lineItemQuantity5}} {{lineItemName6}} , כמות {{lineItemQuantity6}}",
+          "six_and_more_products_accessibility_label": "ההזמנה כוללת כמות {{lineItemQuantity1}} {{lineItemName1}} } {{lineItemName2}} , כמות {{lineItemQuantity2}} {{lineItemName3}} }}, כמות {{lineItemQuantity3}} {{lineItemName4}} , כמות {{lineItemQuantity4}} {{lineItemName5}} lineItemQuantity4}}, כמות {{lineItemQuantity5}} {lineItemName5}} {{lineItemName6}} , כמות של {{lineItemQuantity6}} ועוד.",
+          "view_order_details": "הצג פרטי הזמנה",
+          "previous": "קוֹדֵם",
+          "next": "הַבָּא"
+        },
+        "items": {
+          "one": "פריט {{count}}",
+          "other": "{{count}}"
+        },
+        "no_filtered_results_description": "הסר או התאם מסננים כדי לראות את ההזמנות שלך",
+        "no_filtered_results_title": "אין תוצאות מסוננות",
+        "order_link": "הצג הזמנה {{name}}",
+        "order_number": "הזמנה {{name}}",
+        "orders_title": "מְאוּשָׁר",
+        "pagination": {
+          "nav_accessibility_label": "כפתורי ניווט להזמנות",
+          "next": "הַבָּא",
+          "next_accessibility_label": "הזמנות הבאות",
+          "previous": "קודם",
+          "previous_accessibility_label": "הזמנות קודמות",
+          "load_more": "טען עוד",
+          "load_more_accessibility_label": "טען הזמנות נוספות"
+        },
+        "order_status_message": {
+          "list_view": {
+            "view_order_for_details": "ראה פרטים על ההזמנה",
+            "estimated_delivery": "צפוי בתאריך {{date}}",
+            "last_updated": "עודכן לאחרונה בתאריך {{date}}"
+          },
+          "table_view": {
+            "estimated_delivery": "תאריך אספקה ​​משוער {{date}}"
+          }
+        },
+        "payment_status": {
+          "gallery_view": {
+            "overdue": "התשלום איחור",
+            "due": "מועד התשלום: {{date}}",
+            "due_today": "התשלום עד היום",
+            "due_without_date": "תשלום עד מועד התשלום",
+            "due_on_fulfillment": "תשלום בעת ביצוע",
+            "pay_to_confirm": "שלם כדי לאשר",
+            "payment_not_due": "התשלום טרם הגיע"
+          },
+          "list_view": {
+            "overdue": "איחור במועד",
+            "due": "תאריך יעד {{date}}",
+            "due_today": "מועד אחרון להיום",
+            "paid": "בתשלום",
+            "due_without_date": "מועד אחרון",
+            "due_on_fulfillment": "מועד הגשמה",
+            "pay_to_confirm": "שלם כדי לאשר",
+            "payment_not_due": "עדיין לא צפוי"
+          }
+        },
+        "sort_by": "מיין לפי: {{option}}",
+        "sort_hide_options_accessibility_label": "הסתר אפשרויות מיון עבור הזמנות שאושרו.",
+        "sort_show_options_accessibility_label": "הצג אפשרויות מיון עבור הזמנות שאושרו.",
+        "sort_currently_sorted_by_accessibility_label": "ממוין כעת לפי: {{option}}",
+        "sort_title": "סוּג"
+      },
+      "list_layout_accessibility_label": "אפשרויות פריסה",
+      "list_title": "הזמנות",
+      "list_title_with_pending_orders": "הזמנות:",
+      "list_title_confirmed_orders_accessibility_label": "הזמנות: אושרו",
+      "list_title_pending_orders_accessibility_label": "הזמנות: ממתינות",
+      "switch_order_type_pending_orders_accessibility_label": "החלפת סוג הזמנה, מציגה כעת הזמנות ממתינות",
+      "switch_order_type_confirmed_orders_accessibility_label": "החלפת סוג הזמנה, מוצג כעת הזמנות שאושרו"
     },
     "ui_components": {
       "submit": "אשר"
