@@ -553,8 +553,15 @@
           "fields": {
             "card_number": "מספר כרטיס",
             "expiry": "תוקף",
-            "name": "השם שעל הכרטיס"
-          }
+            "name": "השם שעל הכרטיס",
+            "default": "הגדר כברירת מחדל",
+            "security_code": "קוד אבטחה",
+            "billing": "חשבונית אל"
+          },
+          "title": "עריכת כרטיס",
+          "done": "נַעֲשָׂה",
+          "cancel": "לְבַטֵל",
+          "description": "ניתן לשנות רק את כתובת החיוב של הכרטיס."
         },
         "card_verification_value_label": "CVC",
         "card_verification_value_placeholder": "CVC",
@@ -572,9 +579,10 @@
         "card_verification_value_explanation": "קוד CVC בן 3 ספרות שנמצא בדרך כלל בגב הכרטיס. בכרטיסי American Express מופיע קוד בן 4 ספרות בצדו הקדמי.",
         "same_billing_address_label": "זהה לכתובת המשלוח",
         "different_billing_address_label": "השתמש בכתובת חיוב שונה",
-        "billing_must_match_shipping_notice": " ",
+        "billing_must_match_shipping_notice": "כתובת החיוב של אמצעי התשלום שלך חייבת להתאים לכתובת המשלוח.",
         "order_edit_banner_items_added": {
-          "other": "נוסף %{count}"
+          "other": "נוסף %{count}",
+          "one": "נוסף"
         },
         "order_edit_banner_items_removed": {
           "in_full": "הוסר",
@@ -662,7 +670,130 @@
         "amazon_payments_login_hint": "תתבקשו להתחבר באמצעות אמזון.",
         "amazon_payments_logout": "התנתק מאמזון פיי",
         "amazon_payments_failed_mfa_challenge": "לא ניתן היה להשתמש בשיטת התשלום שנבחרה. בחר שיטה אחרת או צור קשר עם הבנק או מנפיק הכרטיס שלך.",
-        "amazon_payments_abandoned_mfa_challenge": "לא ניתן היה להשלים את התשלום שלך. נסה אמצעי תשלום אחר או צור קשר עם הבנק או מנפיק הכרטיס שלך."
+        "amazon_payments_abandoned_mfa_challenge": "לא ניתן היה להשלים את התשלום שלך. נסה אמצעי תשלום אחר או צור קשר עם הבנק או מנפיק הכרטיס שלך.",
+        "swish_label": "לְהַצְלִיף",
+        "vipps_label": "ויפפס",
+        "grabpay_label": "גראבפיי",
+        "kcp_creditcard_label": "כרטיס אשראי KCP",
+        "usdc_label": "דולר אמריקאי",
+        "usdc_cashback_title": "1% החזר כספי",
+        "usdc_cashback_additional_info": "קבלו 1% החזר בדולר אמריקאי ישירות לארנק שלכם.",
+        "usdc_cashback_terms": "תנאים חלים",
+        "purchase_options_card_update_agreement_label_html": "על ידי עדכון אמצעי התשלום שלך, הנך מאשר תשלומים עבור כל רכישה חוזרת או נדחית בהתאם <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{cancellation_policy}\" href=\"%{policy_href}\">למדיניות הביטולים</a> של חנות זו.",
+        "subscription_card_update_agreement_label": "שינוי אמצעי התשלום יעודכן את המנוי שלך ואת התשלומים החוזרים העתידיים.",
+        "subscription_agreement_label": "פריט אחד או יותר בעגלת הקניות שלך הוא רכישה נדחית או רכישה כמנוי. על ידי המשך התשלום, אתה מסכים שאמצעי התשלום שלך יחויב אוטומטית במחיר ובתדירות המפורטים בדף זה עד לסיום התשלום או עד שתבטל. כל הביטולים כפופים ל-%{cancelled}.",
+        "subscription_agreement_cancelled": "מדיניות ביטול",
+        "subscription_heading": "הסכם מנוי",
+        "subscription_agreement_label_html": "אני מבין/ה שאני מסכים/ה למנוי. הוא יתחדש במחיר ובתדירות המפורטים עד לסיומו או עד שייגמר.\n <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">בוטל</a> .\n",
+        "purchase_options_agreement_label": "פריט אחד או יותר בעגלת הקניות שלך הוא רכישה נדחית או חוזרת. על ידי המשך התשלום, אתה מסכים שאמצעי התשלום שלך יחויב אוטומטית במחיר ובתדירות המפורטים בדף זה עד לסיום התשלום או עד שתבטל. כל הביטולים כפופים ל-%{cancellation_policy_label}.",
+        "purchase_options_agreement_label_html": "אני מבין/ה שאחד או יותר מהפריטים בעגלת הקניות שלי הם רכישה נדחית או חוזרת. בהמשך, אני מסכים/ה ל\n <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{subscription_policy}\" href=\"%{policy_href}\">מדיניות ביטול</a>\n ומאשר לך לחייב את אמצעי התשלום שלי במחירים, בתדירות ובתאריכים המפורטים בדף זה עד\n ההזמנה בוצעה או שאני מבטל, אם מותר.\n",
+        "purchase_options_agreement_label_wallets": "על ידי המשך התשלום, הנך מסכים לחיובים העתידיים המפורטים בדף זה ולמדיניות הביטול.",
+        "change_currency_section_description": "בחר אפשרות מטבע",
+        "no_real_orders_dev_store": "חנות זו אינה יכולה לקבל הזמנות אמיתיות או תשלומים אמיתיים.",
+        "waiting_on_payment_methods": "מקבל אמצעי תשלום זמינים...",
+        "apple_pay_payment_error": "לא ניתן היה להשלים את התשלום שלך. נסה שוב או השתמש באמצעי תשלום אחר.",
+        "taxes_not_included": "מיסים אינם כלולים",
+        "no_taxes_banner_content": "לא יחויבו מיסים על הזמנה זו. לאחר גביית התשלום, לא ניתן עוד להוסיף מיסים.",
+        "paypal": {
+          "connect": "לחץ כדי לחבר את חשבון ה-PayPal שלך"
+        },
+        "apple": {
+          "connect": "לחץ כדי לחבר את חשבון Apple Pay שלך",
+          "not_available": "Apple Pay אינו זמין בדפדפן זה. כדי לחבר את חשבון Apple Pay שלך, תצטרך להשתמש ב-Safari במכשיר Apple."
+        },
+        "google": {
+          "connect": "לחץ כדי להתחבר לחשבון Google Pay שלך",
+          "error_authorizing": "שגיאה באישור התשלום"
+        },
+        "account_connected": "חשבון מחובר.",
+        "mor_disclaimer_html": "על ידי לחיצה למטה והשלמת ההזמנה שלך, הנך מסכים לרכוש את הפריט/ים שלך מ-Global-e כסוחר רשום\n עבור עסקה זו, <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{mor_terms}\" href=\"%{terms_href}\">בתנאים וההגבלות</a> של Global-e\n <a class=\"link--small\" data-modal=\"true\" data-title-text=\"%{privacy_policy}\" href=\"%{policy_href}\">ומדיניות פרטיות</a> . Global-e היא חברה בינלאומית\n ספק שירותי אספקה ​​ל-%{shop_name}\n",
+        "pending_payment": {
+          "due_notice": "התשלום שלך בסך %{amount_due} מועד אחרון ליום %{due_date}.",
+          "multibanco": {
+            "buyer_action_info": "התשלום שלך בסך %{amount_due} הגיע לפירעון.",
+            "instruction_html": "בצעו את התשלום שלכם במולטיבנקו או באינטרנט באמצעות הפרטים שלהלן. לשאלות או לעדכון פרטי תשלום, אנא צרו קשר.",
+            "entity": "יֵשׁוּת",
+            "reference": "הַפנָיָה",
+            "amount": "סְכוּם",
+            "find_nearest_atm": "מצא את הכספומט הקרוב ביותר"
+          }
+        },
+        "update_payment_method": "עדכון אמצעי תשלום",
+        "order_covered_by_store_credit_notice": "ההזמנה שלך מכוסה על ידי זיכוי החנות שלך.",
+        "order_covered_by_redeemables_notice": "ההזמנה שלך מכוסה.",
+        "store_credit": {
+          "label": "אשראי בחנות",
+          "apply_label": "החלת זיכוי חנות",
+          "add_label": "הוסף אשראי לחנות",
+          "manage_label": "ניהול אשראי בחנות",
+          "buying_gift_card": "לא ניתן להשתמש באשראי בחנות כדי לקנות כרטיס מתנה",
+          "no_fixed_selling_plans": "לא ניתן להשתמש באשראי חנות עם אפשרויות רכישה נדחית"
+        },
+        "clear": "בָּרוּר",
+        "location_billing_address_label": "כתובת חיוב של מיקום",
+        "location_shipping_address_label": "כתובת משלוח מיקום",
+        "use_order_billing_address_label": "השתמש בכתובת החיוב של ההזמנה",
+        "use_location_billing_address_label": "השתמש בכתובת החיוב של המיקום",
+        "use_location_shipping_address_label": "השתמש בכתובת המשלוח של המיקום",
+        "no_working_method_error": "חנות זו אינה מקבלת תשלומים כרגע. רענן דף זה או חזור מאוחר יותר.",
+        "brand_not_available": "חנות זו אינה מקבלת {{brand}} . אנא השתמש בכרטיס אחר לתשלום.",
+        "shipping_rate_updated": "שיטות המשלוח הזמינות עודכנו. אשר את בחירתך לפני ביצוע התשלום.",
+        "billing_address_invalid_phone": "עדכן את מספר הטלפון בכתובת החיוב שלך עבור {{label}} {{last_digits}} כדי להמשיך.",
+        "billing_address_invalid_phone_no_card": "עדכן את מספר הטלפון בכתובת החיוב שלך כדי להמשיך.",
+        "preview_not_available": {
+          "title": "תצוגה מקדימה אינה זמינה",
+          "content": "אל דאגה, תשלום מהיר זה עובד גם עבור הלקוחות שלכם.",
+          "button": "בְּסֵדֶר"
+        },
+        "card_fields": {
+          "errors": {
+            "required": {
+              "issue_date": "הזן תאריך הנפקה תקף",
+              "issue_number": "הזן מספר גיליון תקין"
+            },
+            "invalid": {
+              "verification_value": "הזן קוד CVV או קוד אבטחה תקף"
+            }
+          }
+        },
+        "simulated_checkout": "תצוגה מקדימה בקרוב",
+        "simulated_express_checkout": "ארנקים אינם זמינים בתצוגה המקדימה של העורך עקב האזור או הדפדפן שלך",
+        "vaulting_agreement_label": "שמור את פרטי התשלום שלי עם %{company} לצורך ביצוע קופה מהירה יותר.",
+        "business_customer_vaulting_payment_label": "שמור אמצעי תשלום זה בקופה ונאשר ל-%{company} לחייב אותו עבור רכישות עתידיות עבור מיקום זה. כל אנשי הקשר שהוקצו למיקום זה יכולים להשתמש באמצעי התשלום.",
+        "business_customer_with_bank_account_vaulting_payment_label": "שמור אמצעי תשלום זה בקופה ונאשר ל-%{company} לחייב את חשבונך עבור רכישות עתידיות שתאשר עבור מיקום זה, עד שתבטל. כל אנשי הקשר שהוקצו למיקום זה יכולים להשתמש באמצעי התשלום.",
+        "purchase_options_and_vaulting_agreement_label": "פריט אחד או יותר בעגלת הקניות שלך הוא רכישה נדחית או רכישה מנוי. על ידי המשך התשלום, אתה מסכים שאמצעי התשלום שלך יחויב אוטומטית במחיר ובתדירות המפורטים בדף זה עד לסיום התשלום או עד שתבטל. כל הביטולים כפופים ל-%{cancellation_policy_label}.",
+        "purchase_options_cancellation_policy_label": "מדיניות ביטול",
+        "use_different_credit_card_label": "השתמש בכרטיס אחר",
+        "saved_credit_card": "כרטיס האשראי השמור שלך",
+        "saved_credit_card_info": "ארבע הספרות האחרונות",
+        "saved_credit_card_cvv_verification": "לצורכי אימות, אנא הזן את קוד האבטחה של הכרטיס שלך.",
+        "saved_credit_card_actions": {
+          "edit": "לַעֲרוֹך",
+          "delete": "לִמְחוֹק"
+        },
+        "saved_credit_cards_modal": {
+          "view_all_label": "הצג את כל הכרטיסים השמורים",
+          "done": "נַעֲשָׂה",
+          "cancel": "לְבַטֵל"
+        },
+        "add_credit_card_modal": {
+          "title": "הוסף כרטיס",
+          "save": "לְהַצִיל",
+          "cancel": "לְבַטֵל"
+        },
+        "delete_credit_card_modal": {
+          "title": "מחיקת כרטיס",
+          "confirmation": "האם אתה בטוח שברצונך למחוק את האות {{brandName}} שמסתיימת ב {{lastDigits}} ?",
+          "cancel": "לְבַטֵל",
+          "delete": "לִמְחוֹק"
+        },
+        "expired_cards_info": {
+          "one": "יש %{count} כרטיס שפג תוקפו, אותו ניתן לצפות ולערוך בחשבונך.",
+          "other": "ישנם %{count} כרטיסים שפג תוקפם, אותם ניתן לצפות ולערוך בחשבונך."
+        },
+        "local_payment_method_receiver_notice": "לאחר ביצוע ההזמנה, תקבלו פרטי תשלום. בצעו את התשלום בכספומט או באינטרנט תוך {{dueDays}} ימים.",
+        "order_edit_banner_title": "נדרש תשלום של {{amount_owed}}",
+        "order_edit_banner_subtitle": "ההזמנה שלך {{order_number}} עודכנה. בדוק את השינויים הללו ולאחר מכן שלם כדי לאשר את ההזמנה."
       },
       "payment_gateway": {
         "credit_card_label": "כרטיס אשראי",
