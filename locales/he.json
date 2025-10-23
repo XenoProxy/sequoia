@@ -409,7 +409,46 @@
         "different_shipping_address_text": "השתמש בכתובת חד פעמית עבור הזמנה זו",
         "change_company_location_link_label": "שינוי מיקום החברה",
         "change_location_link_label": "שנה מיקום",
-        "ship_to_company": "לשלוח אל {{companyName}}"
+        "ship_to_company": "לשלוח אל {{companyName}}",
+        "email_rollup_accessibility_label": "אפשרויות דוא\"ל",
+        "stored_addresses_label": "כתובות שנשמרו",
+        "available_addresses_label": "כתובות זמינות",
+        "new_address_label": "השתמש בכתובת חדשה",
+        "company_attention_label": "חברה/תשומת לב",
+        "optional_company_attention_label": "חברה/תשומת לב (אופציונלי)",
+        "street_name_label": "רְחוֹב",
+        "street_number_label": "מספר בניין",
+        "optional_street_number_label": "מספר בניין (אופציונלי)",
+        "neighborhood_label": "שְׁכוּנָה",
+        "optional_neighborhood_label": "שכונה (אופציונלי)",
+        "barangay_label": "ברנגיי",
+        "optional_barangay_label": "ברנגיי (אופציונלי)",
+        "colony_label": "מוֹשָׁבָה",
+        "optional_colony_label": "מושבה (אופציונלי)",
+        "commune_label": "מָחוֹז מִנהָלִי",
+        "optional_commune_label": "קומונה (אופציונלי)",
+        "district_label": "מָחוֹז",
+        "optional_district_label": "מחוז (אופציונלי)",
+        "ward_label": "מַחלָקָה",
+        "optional_ward_label": "וורד (אופציונלי)",
+        "block_label": "לַחסוֹם",
+        "optional_block_label": "בלוק (אופציונלי)",
+        "area_label": "אֵזוֹר",
+        "optional_area_label": "אזור (אופציונלי)",
+        "country_code": "קוד מדינה/אזור",
+        "province_label": "מָחוֹז",
+        "province_placeholder": "מָחוֹז",
+        "county_label": "מָחוֹז",
+        "county_placeholder": "מָחוֹז",
+        "state_label": "מְדִינָה",
+        "state_placeholder": "מְדִינָה",
+        "region_label": "אֵזוֹר",
+        "region_placeholder": "אֵזוֹר",
+        "region_none": "אף אחד לא נבחר",
+        "prefecture_label": "מחוז",
+        "prefecture_placeholder": "מחוז",
+        "governorate_label": "מחוז",
+        "governorate_placeholder": "מחוז"
       },
       "field_errors": {
         "handle_email_invalid": "הזן אימייל חוקי",
@@ -965,7 +1004,92 @@
             "token_expired": "פג תוקף אסימון ה-CAPTCHA שסופק. יש למלא CAPTCHA חדש כדי להמשיך בתשלום.",
             "token_invalid": "אסימון ה-CAPTCHA שסופק היה לא חוקי. יש להשלים CAPTCHA חדש כדי להמשיך בתשלום.",
             "token_not_valid_for_session": "לא ניתן להשתמש ב-captcha שסופק עם תשלום זה."
+          },
+          "fx_reconciliation_override": {
+            "shop_currency_mismatch": "הסכום שהתקבל חייב להיות במטבע החנות."
+          },
+          "checkout_source": {
+            "revoked": "קופה זו אינה זמינה עוד."
           }
+        },
+        "full_price": "מחיר מלא:",
+        "title": "תשלום - {{shopName}}",
+        "full_title": "{{pageTitle}} - {{shopName}} - תשלום",
+        "loading_title": "תשלום - {{shopName}}",
+        "google_map_title": "מפת גוגל",
+        "confirm_order_button_label": "אישור הזמנה",
+        "submit_order_button_label": "שלח הזמנה",
+        "submit_for_review_button_label": "שלח לבדיקה",
+        "submit_for_review_notice_label": "התשלום לא יבוצע עד לבדיקת ההזמנה שלך",
+        "continue_to_payment_plans_button_label": "המשך לתוכניות התשלום",
+        "back_button_label": "לַחֲזוֹר",
+        "choose_delivery_strategy": "בחר שיטת משלוח",
+        "autocomplete_zero_item": "אין פריטים זמינים",
+        "autocomplete_powered_by_google": "מופעל על ידי {{brandName}}",
+        "processing": "עיבוד...",
+        "stepper": {
+          "increase": "הגדלת {{type}}",
+          "decrease": "הקטן {{type}}",
+          "minimum_reached": "מינימום של {{value}} הושג",
+          "maximum_reached": "הגעת למקסימום של {{value}}"
+        },
+        "remove_chip": "הסר פריט",
+        "remove_item": "הסר את %{label}",
+        "remove_tag": "הסר תגית",
+        "dates": {
+          "weekdays": {
+            "monday": "יוֹם שֵׁנִי",
+            "tuesday": "יוֹם שְׁלִישִׁי",
+            "wednesday": "יוֹם רְבִיעִי",
+            "thursday": "יוֹם חֲמִישִׁי",
+            "friday": "יוֹם שִׁישִׁי",
+            "saturday": "שַׁבָּת",
+            "sunday": "יוֹם רִאשׁוֹן"
+          },
+          "weekdays_abbreviation": {
+            "monday": "מו",
+            "tuesday": "טו",
+            "wednesday": "אָנוּ",
+            "thursday": "ה'",
+            "friday": "פר",
+            "saturday": "סא",
+            "sunday": "סו"
+          },
+          "months": {
+            "january": "יָנוּאָר",
+            "february": "פֶבּרוּאָר",
+            "march": "מַרס",
+            "april": "אַפּרִיל",
+            "may": "מַאִי",
+            "june": "יוּנִי",
+            "july": "יוּלִי",
+            "august": "אוֹגוּסט",
+            "september": "סֶפּטֶמבֶּר",
+            "october": "אוֹקְטוֹבֶּר",
+            "november": "נוֹבֶמבֶּר",
+            "december": "דֵצֶמבֶּר"
+          }
+        },
+        "datepicker": {
+          "show_previous_month": "הצג את החודש הקודם, {{month}} {{year}}",
+          "show_next_month": "הצג בחודש הבא, {{month}} {{year}}",
+          "range_start": "תחילת טווח",
+          "in_range": "בטווח",
+          "range_end": "סוף טווח"
+        },
+        "map": {
+          "cluster_title": {
+            "one": "אשכול של סמן {{number}}",
+            "other": "אשכול של סמנים {{number}}"
+          }
+        },
+        "sheet": {
+          "expand": "לְהַרְחִיב"
+        },
+        "dropzone": {
+          "add_file": "הוסף קובץ",
+          "invalid_file_type": "סוג הקובץ אינו נתמך",
+          "dragged_over": "שחררו קובץ להעלאה"
         }
       },
       "order_summary": {
