@@ -2269,8 +2269,156 @@
       },
       "line_item": {
         "item_status": {
-          "add_variant": "נוסף %{delta}"
+          "add_variant": "נוסף %{delta}",
+          "increment_item": "נוסף %{delta}",
+          "decrement_item": "הוסר %{delta} מתוך %{total}",
+          "decrement_fulfilled_line_item": "הוחזר %{delta} מתוך %{total}",
+          "decrement_return_line_item": "הוסר %{delta} מההחזרה"
         }
+      },
+      "order": {
+        "not_available": "הזמנה זו אינה זמינה",
+        "financial_status": {
+          "authorized": "מוּסמָך",
+          "pending": "תָלוּי וְעוֹמֵד",
+          "paid": "בתשלום",
+          "unpaid": "לא שולם",
+          "voided": "בוטל",
+          "partially_paid": "שולם חלקית",
+          "partially_refunded": "החזר חלקי",
+          "refunded": "החזר כספי",
+          "expired": "פג תוקף"
+        },
+        "fulfillment_status": {
+          "fulfilled": "הוגש",
+          "complete": "לְהַשְׁלִים",
+          "partial": "חֶלקִי",
+          "unfulfilled": "לא מומש",
+          "restocked": "מלאי מחדש"
+        },
+        "transaction_status": {
+          "success": "הַצלָחָה",
+          "pending": "תָלוּי וְעוֹמֵד",
+          "failure": "כֶּשֶׁל",
+          "error": "שְׁגִיאָה"
+        },
+        "cancel_reason": {
+          "declined": "התשלום נדחה",
+          "inventory": "פריטים לא זמינים",
+          "fraud": "הזמנה הונאה",
+          "customer": "לקוח שינה/ביטל הזמנה",
+          "staff": "שגיאת צוות",
+          "other": "אַחֵר"
+        },
+        "cash_on_delivery": "תשלום במזומן במשלוח (COD)"
+      },
+      "cart": {
+        "only_n_items_available": "ניתן להוסיף רק %{count} %{name} לעגלה.",
+        "too_many_items_in_cart": "לא ניתן להוסיף %{name} נוספים לעגלה.",
+        "only_one_added_to_cart": "רק פריט אחד נוסף לעגלת הקניות שלך עקב זמינות.",
+        "only_n_added_to_cart": "רק %{quantity} פריטים נוספו לעגלת הקניות שלך עקב זמינות.",
+        "maximum_available_quantity_reached": "הכמות המקסימלית של פריט זה כבר נמצאת בעגלת הקניות שלך.",
+        "less_than_minimum": "לפריט זה יש מינימום של %{min}.",
+        "more_than_maximum": "לפריט זה יש מקסימום של %{max}.",
+        "not_respect_step": "ניתן להוסיף פריט זה רק במרווחים של %{step}.",
+        "all_items_in_cart": "כל %{count} %{name} נמצאים בעגלת הקניות שלך.",
+        "empty_update": "לא ניתן לעדכן את עגלת הקניות הריקה",
+        "missing_parameters": "אין מזהה או פרמטר שורה תקף",
+        "generic_error": "שגיאת עגלה",
+        "invalid_input": "הפרמטר %{parameter} אינו חוקי.",
+        "product_not_available": "המוצר אינו זמין",
+        "too_many_line_items_error": "העגלה שלך לא יכולה להכיל יותר מ-%{max} פריטים.",
+        "link_expired": "פג תוקף הקישור",
+        "link_no_longer_exists": "הקישור כבר לא קיים.",
+        "stock_problems_html": "פריט אחד או יותר אינם זמינים עוד. סיפקנו <a href=\"%{link}\">עגלת קניות מעודכנת</a> .",
+        "changed": "עגלת הקניות השתנתה",
+        "items_changed": "פריט אחד או יותר השתנו.",
+        "product_sold_out": "המוצר '%{name}' כבר אזל.",
+        "variant_not_found": "לא ניתן למצוא גרסה",
+        "variant_requires_selling_plan": "ניתן לרכוש וריאנט רק עם תוכנית מכירה.",
+        "selling_plan_not_available_for_company_locations": "רכישה חד פעמית בלבד זמינה עבור הזמנות B2B",
+        "digital_product_not_available_for_company_locations": "לא ניתן להוסיף פריט זה להזמנה B2B",
+        "buyer_cannot_purchase_for_company_locations": "לא ניתן לרכוש עבור מיקום זה",
+        "selling_plan_not_applicable": "לא ניתן להחיל תוכנית מכירה על גרסה",
+        "shipping_address_not_required": "עגלה זו אינה דורשת משלוח",
+        "shipping_address_invalid": "אירעה בעיה בחישוב תעריפי המשלוח. המשך בתהליך התשלום כדי לבחור תעריף משלוח לפני שתשלים את ההזמנה.",
+        "bundle_requires_components": "לא ניתן להוסיף את מוצר החבילה '%{name}' לעגלת הקניות.",
+        "gift_card_with_components_not_supported": "לא ניתן להוסיף את מוצר החבילה '%{name}' לעגלת הקניות.",
+        "gift_card_price_must_be_greater_than_zero": "לא ניתן להוסיף את מוצר החבילה '%{name}' לעגלת הקניות.",
+        "gift_card_recipient_validation_error": "מקבל כרטיס המתנה שצוין אינו חוקי",
+        "view_lines_limit_reached": "שורות חייבות להיות קטנות או שוות ל-%{limit}",
+        "cart_too_large": "העגלה גדולה מדי.",
+        "cart_attributes_error": "מאפייני עגלת הקניות מכילים נתונים לא חוקיים.",
+        "merchandise_line_transformers": {
+          "run_error": "אירעה שגיאה בעגלת הקניות שלך."
+        },
+        "merchandise_not_applicable": "לא ניתן לרכוש את הפריט כפי שהוגדר."
+      },
+      "storefront": {
+        "invalid_password": "הסיסמה שגויה, אנא נסה שוב."
+      },
+      "tags": {
+        "add_articles": "צמצם את החיפוש למאמרים שגם כוללים את התגית %{tag}",
+        "add_products": "צמצם את הבחירה למוצרים התואמים לתג %{tag}",
+        "remove_articles": "הרחב את החיפוש למאמרים שאינם מתויגים %{tag}",
+        "remove_products": "הסר את התגית %{tag}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "תודה שנרשמת לרשימת התפוצה שלנו.",
+        "disclaimer": "ניתן לבטל את המנוי בכל עת.",
+        "unsubscribe": "ביטול מנוי"
+      },
+      "unsubscribed": {
+        "confirmation": "ביטלת את המנוי שלך לרשימת התפוצה שלנו.",
+        "disclaimer": "לא תקבלו מאיתנו עדכונים שיווקיים נוספים. תוכלו להירשם שוב בכל עת.",
+        "preview": "אתה מציג תצוגה מקדימה של מה שלקוחות יראו כשהם יבטל את המנוי."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>בחרתם במעקב אחר פתיחת דוא\"ל.</b>",
+          "visibility": "שיעורי פתיחת אימיילים ידווחו באופן אנונימי. נראה רק אם פתחת אימייל כחלק משיעור פתיחת אימייל מצטבר.",
+          "opt_out_html": "באפשרותך <a style=\"text-decoration:underline;\" href=\"%{link}\">לבטל</a> את מעקב פתיחת הדוא\"ל אם אינך מעוניין לשתף מידע זה.",
+          "preview_bar": "אתם מציגים בתצוגה מקדימה מה לקוחות יראו כשהם יבחרו במעקב אחר פתיחת דוא\"ל."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>ביטלת את הסכמתך למעקב אחר פתיחת אימיילים.</b>",
+          "visibility": "לא נראה אם ​​פתחת את האימיילים שלנו.",
+          "opt_in_html": "<a style=\"text-decoration:underline;\" href=\"%{link}\">הצטרף</a> למעקב אחר פתיחת דוא\"ל.",
+          "preview_bar": "אתם מציגים בתצוגה מקדימה מה לקוחות יראו כשהם מבטלים את הסכמתם למעקב אחר פתיחת אימייל."
+        },
+        "no_longer_track": {
+          "status_html": "<b>אנחנו כבר לא עוקבים אחר פתיחות של אימיילים.</b>",
+          "privacy_policy": "לאחר שליחת אימייל זה, עדכנו את מדיניות הפרטיות שלנו ואנו כבר לא עוקבים אחר פתיחות."
+        },
+        "track": {
+          "status_html": "<b>מדווח על מעקב אחר פתיחת אימיילים.</b>",
+          "visibility": "נראה רק אם פתחת את האימייל, כחלק משיעור הפתיחה הכולל של האימייל."
+        },
+        "updated_policy": {
+          "status_html": "<b>מדווח על מעקב אחר פתיחת אימיילים.</b>",
+          "visibility": "עדכנו את המדיניות שלנו, וכעת אנו עוקבים אחר פתיחות אימיילים. שיעורי פתיחת אימיילים ידווחו באופן אנונימי. נראה רק אם פתחת אימייל כחלק משיעור הפתיחה הכולל של האימייל.",
+          "opt_out_html": "אם אינך מעוניין לשתף מידע זה, תוכל <a style=\"text-decoration:underline;\" href=\"%{link}\">לבטל את המנוי.</a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "in_stock": "בִּמלַאִי",
+          "out_of_stock": "אזל מהמלאי"
+        }
+      },
+      "boolean": {
+        "true_label": "כֵּן",
+        "false_label": "לֹא"
+      }
+    },
+    "search": {
+      "error": "אירעה בעיה בטעינת תוצאות החיפוש. אנא רענן את הדף או נסה שוב מאוחר יותר.",
+      "sorting": {
+        "relevance": "רלוונטיות"
       }
     }
   },
@@ -2307,10 +2455,42 @@
         }
       },
       "payment_details": {
-        "billing_title": "כתובת חיוב"
+        "billing_title": "כתובת חיוב",
+        "title": "פרטי אמצעי התשלום",
+        "credit_card_details_accessibility_label": "מסתיים ב {{lastDigits}}",
+        "card_info_title": "פרטי כרטיס",
+        "payment_method_expiring_on": "פג תוקף בתאריך {{expiryDate}}",
+        "payment_method_expired_on": "פג תוקף בתאריך {{expiryDate}}",
+        "preauthorized_payments": "תשלומים מאושרים מראש",
+        "close_payment_modal": "לִסְגוֹר",
+        "close_payment_modal_accessibility_label": "סגור את פרטי אמצעי התשלום המודאלי",
+        "payment_method_not_found_error": "לא ניתן למצוא את אמצעי התשלום",
+        "payment_details_loading": "טוען את פרטי אמצעי התשלום",
+        "pre_authorized_payments": "תשלומים מאושרים מראש",
+        "total_amount_of_subscription_line_items_left": "ועוד {{total}}",
+        "total_amount_of_subscription_line_items_left_accessibility_label": "סה\"כ {{totalItems}} פריטים, מוצגים {{totalItemsToDisplay}} פריטים.",
+        "next_payment_due": "התשלום הבא מועד אחרון לשיווק {{dueDateInMonthDayYear}}",
+        "edit_payment_method_button": "לַעֲרוֹך",
+        "edit_payment_method_button_accessibility_label": "עריכת אמצעי תשלום המסתיים ב {{lastDigits}}",
+        "loading_shop_pay": "טוען את Shop Pay",
+        "invalid_payment_method": "אמצעי תשלום לא חוקי",
+        "invalid_payment_method_message": "השתמש בכרטיס אשראי חדש כדי להמשיך לקבל הזמנות עתידיות.",
+        "replace_payment_method": "החלפת אמצעי תשלום",
+        "checkout_card_banner": "ניתן להשתמש בשיטת תשלום זו רק עבור תשלומים מאושרים מראש. היא לא תופיע בקופה אם התחברת לחנות זו. ",
+        "default_checkbox": "הגדר כברירת מחדל",
+        "default_checkbox_accessibility_label": "הגדר אמצעי תשלום זה כברירת מחדל",
+        "replace_payment_method_button": "לְהַחלִיף"
       },
       "edit_payment_method": {
-        "billing_address": "כתובת חיוב"
+        "billing_address": "כתובת חיוב",
+        "title": "עריכת אמצעי תשלום",
+        "save_payment_method_button": "לְהַצִיל",
+        "cancel_edit_payment_method_button": "לְבַטֵל",
+        "payment_method_updated_toast": "אמצעי התשלום עודכן",
+        "billing_address_add_new": "הוסף חדש",
+        "billing_address_choose_from_list": "בחר מהרשימה",
+        "future_purchases_notice": "אמצעי תשלום זה יישמר לרכישות עתידיות.",
+        "generic_error": "הייתה בעיה בעדכון. אנא נסה שוב."
       },
       "add_payment_method": {
         "billing_address": {
@@ -2329,7 +2509,12 @@
         "add_new_button": "הוסף חדש"
       },
       "update_payment_method": {
-        "current": "נוֹכְחִי"
+        "current": "נוֹכְחִי",
+        "title": "עדכון אמצעי תשלום",
+        "button_title": "לְעַדְכֵּן",
+        "billing_address": "כתובת לחיוב",
+        "disclaimer": "אמצעי תשלום זה יישמר לרכישות עתידיות וניתן להשתמש בו לכל רכישה חוזרת או נדחית.",
+        "error_message": "לא ניתן לעדכן את אמצעי התשלום"
       },
       "payment_delete": {
         "title": "מחיקת אמצעי תשלום",
@@ -2356,6 +2541,88 @@
       },
       "three_d_secure": {
         "title": "מאובטח תלת-ממדי"
+      },
+      "replacement_payment_method_title": "אמצעי תשלום חלופי",
+      "title": "אמצעי תשלום",
+      "add_payment_method_button": "הוסף אמצעי תשלום",
+      "add_payment_method_dropdown": {
+        "bank_account_consent": "על ידי הוספת אמצעי תשלום, הנך מאשר/ת חיוב כרטיס האשראי שלך או חיוב חשבון הבנק עבור רכישות עתידיות שתאשר/י, עד שתבטל/י."
+      },
+      "bank_account": {
+        "loading_accessibility_message": "כפתור חשבון הבנק נטען",
+        "iframe_title_accessibility_label": "הגדרת חשבון בנק",
+        "display_name": "חשבון בנק",
+        "generic_error": "לא ניתן היה להוסיף חשבון בנק. נסה שוב מאוחר יותר."
+      },
+      "add_payment_method_banner": "הוסף אמצעי תשלום לתשלום מהיר יותר או לשירותים מאושרים מראש",
+      "no_payment_methods_banner": "לא נוספו אמצעי תשלום",
+      "edit_payment_method_button_accessibility_label": "עריכת {{paymentMethodName}} המסתיימת ב {{lastDigits}}",
+      "edit_payment_method_brand_button_accessibility_label": "עריכת {{paymentMethodName}}",
+      "delete_payment_method_button": "לִמְחוֹק",
+      "delete_payment_method_button_accessibility_label": "מחק את {{paymentMethodName}}",
+      "back_button": "בְּחֲזָרָה",
+      "back_button_accessibility_label": "חזרה אל {{paymentMethodStepTitle}}",
+      "default": "בְּרִירַת מֶחדָל",
+      "generic_card": "כַּרְטִיס",
+      "expiration_warning_button_accessibility_label": "הצג אזהרת תפוגה עבור {{paymentMethodName}} המסתיים ב {{lastDigits}}",
+      "expires_soon": "תוקף הכרטיס הזה עומד לפוג בקרוב",
+      "expired": "כרטיס זה פג תוקפו",
+      "card_update_consent": "אמצעי תשלום זה יישמר לרכישות עתידיות.",
+      "card_update_consent_subscriptions": "אמצעי תשלום זה יישמר לרכישות עתידיות וניתן להשתמש בו לכל רכישה חוזרת או נדחית.",
+      "digital_wallet_title": "ארנק דיגיטלי",
+      "credit_or_debit_card_title": "כרטיס אשראי או חיוב",
+      "google_pay": {
+        "iframe_title_accessibility_label": "הוסף אמצעי תשלום ב-Google Pay",
+        "loading_accessibility_message": "טוען את גוגל פיי",
+        "loading": "טוען את גוגל פיי",
+        "errors": {
+          "generic": "הייתה בעיה עם Google Pay. נסה שוב או השתמש באמצעי תשלום אחר.",
+          "missing_billing_address": "Google Pay דורש כתובת לחיוב. אנא הוסף אחת לחשבונך."
+        }
+      },
+      "pay_pal": {
+        "iframe_title_accessibility_label": "הוסף אמצעי תשלום של PayPal",
+        "loading_accessibility_message": "טוען את פייפאל"
+      },
+      "apple_pay": {
+        "loading": "טוען את Apple Pay",
+        "errors": {
+          "generic": "הייתה בעיה עם Apple Pay. נסה שוב או השתמש באמצעי תשלום אחר.",
+          "not_available": "אפל פיי אינו זמין במכשיר זה.",
+          "missing_billing_address": "Apple Pay דורש כתובת לחיוב. אנא הוסף אחת לחשבונך."
+        }
+      },
+      "store_credit": {
+        "label": "אשראי בחנות",
+        "accesibility_label": "אשראי בחנות - {{formattedBalance}}",
+        "expirable_amounts_button": "הצג סכומים שפג תוקפם",
+        "expirable_amounts_label": "סכומים שפג תוקפם",
+        "details_modal": {
+          "title": "זיכוי חנות שפג תוקפו",
+          "balance_label": "לְאַזֵן",
+          "expiration_date_label": "תַאֲרִיך תְפוּגָה",
+          "amount_label": "סְכוּם",
+          "date_label": "תַאֲרִיך",
+          "event_label": "מִקרֶה",
+          "events": {
+            "adjustment": "הַתאָמָה",
+            "order_payment": "תשלום הזמנה",
+            "order_refund": "החזר כספי על ההזמנה",
+            "payment_failure": "כשל בתשלום",
+            "payment_returned": "התשלום הוחזר",
+            "order_cancellation": "ביטול הזמנה",
+            "tax_finalization": "סיום מס"
+          },
+          "expirable_balance_info": "חלק מהיתרה שלך יפוג תוקף במועד עתידי",
+          "expirable_amount_label": "סכום כולל לפוגתו",
+          "expirable_amounts_info": "סכומים שפג תוקפם מוקדם יותר יוחלו תחילה בקופה",
+          "expirable_amounts_button": "נוֹף",
+          "expired_amounts_button": "הצג סכומים שפג תוקפם",
+          "pagination": {
+            "load_more_label": "טען עוד",
+            "load_more_accessibility_label": "טען עוד סכומים שפג תוקפם"
+          }
+        }
       }
     },
     "order_details": {
@@ -3024,7 +3291,8 @@
       },
       "load_extension_error": {
         "title": "שְׁגִיאָה",
-        "description": "רענן דף זה או נסה שוב בעוד מספר דקות."
+        "description": "רענן דף זה או נסה שוב בעוד מספר דקות.",
+        "refresh_button": "רענן את הדף"
       }
     },
     "payment_method_brands": {
@@ -3050,6 +3318,12 @@
     },
     "privacy_banner": {
       "cookie_preferences_link": "העדפות קובצי Cookie"
+    },
+    "throttle": {
+      "too_many_attempts": {
+        "message": "יותר מדי ניסיונות",
+        "description": "אנא נסה שוב בעוד מספר דקות"
+      }
     }
   }
 }
