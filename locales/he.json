@@ -1857,17 +1857,113 @@
       }
     },
     "addresses": {
-      "postal_code": "מיקוד"
+      "postal_code": "מיקוד",
+      "zip_code": "מיקוד",
+      "postcode": "מיקוד",
+      "pincode": "קוד סודי",
+      "region": "אֵזוֹר",
+      "prefecture": "מחוז",
+      "province": "מָחוֹז",
+      "state": "מְדִינָה",
+      "state_and_territory": "מדינה/טריטוריה",
+      "county": "מָחוֹז",
+      "emirate": "אמירות",
+      "governorate": "מחוז",
+      "confirm": "האם אתה בטוח שברצונך למחוק את הכתובת הזו?"
     },
     "errors": {
-      "invalid_expiry_year": "שנת התפוגה אינה חוקית"
+      "invalid_expiry_year": "שנת התפוגה אינה חוקית",
+      "blank": "לא יכול להיות ריק",
+      "blocked_address": "מיקום זה אינו נתמך",
+      "credit_card_session_expired": "פג תוקף האישור לכרטיס האשראי, אנא הזן שוב את פרטי התשלום שלך. הכרטיס שלך לא חויב.",
+      "empty": "לא יכול להיות ריק",
+      "invalid_email": "חייבת להיות כתובת דוא\"ל תקפה",
+      "discount_disabled": "הנחה זו הושבתה",
+      "discount_expired": "הנחה זו אינה תקפה יותר",
+      "discount_limit_reached": "הנחה זו הגיעה למגבלת השימוש שלה",
+      "discount_not_found": "לא ניתן למצוא הנחה תקפה התואמת את הקוד שהוזן",
+      "customer_already_used_once_per_customer_discount_notice": "הנחה זו הגיעה למגבלת השימוש שלה",
+      "gift_card_already_applied": "הקוד כבר הוחל בקופה שלך",
+      "gift_card_code_invalid": "הקוד אינו תקין",
+      "gift_card_currency_mismatch": "כרטיס המתנה שלך הוא ב-%{gift_card_currency}. צור איתנו קשר כדי להנפיק אותו מחדש ב-%{checkout_currency}.",
+      "gift_card_depleted": "לא נותרו כספים בכרטיס מתנה זה",
+      "gift_card_disabled": "כרטיס מתנה מושבת",
+      "gift_card_expired": "כרטיס המתנה פג תוקף",
+      "invalid": "לא חוקי",
+      "bad_domain": "מכיל שם דומיין לא חוקי",
+      "taken": "כבר נלקח",
+      "contains_html_tags": "לא יכול להכיל תגי HTML",
+      "too_short": "קצר מדי (המינימום הוא %{count} תווים)",
+      "too_long": "ארוך מדי (מקסימום %{count} תווים)",
+      "password_mismatch": "חייב להתאים לסיסמה שסופקה",
+      "contains_spaces": "מתחיל או מסתיים ברווחים.",
+      "invalid_for_country": "אינו תקף עבור %{country}",
+      "invalid_for_country_and_province": "אינו תקף עבור %{province} ו-%{country}",
+      "invalid_province_in_country": "אינו מחוז תקף ב-%{country}",
+      "invalid_state_in_country": "אינה מדינה תקפה ב-%{country}",
+      "invalid_region_in_country": "אינו אזור תקף ב-%{country}",
+      "less_than_or_equal_to": "חייב להיות קטן או שווה ל- %{count}",
+      "not_supported": "אינו נתמך",
+      "full_name_required": "הזן שם פרטי ושם משפחה",
+      "invalid_for_card_type": "אינו תקף",
+      "invalid_type": "מצטערים, איננו מקבלים כרטיסים מסוג זה",
+      "invalid_format": "הפורמט אינו תקין",
+      "expired": "פג תוקף",
+      "invalid_start_date_or_issue_number_for_debit": "נדרש תאריך התחלה או מספר הנפקה תקפים",
+      "reset_password_html": "כתובת דוא\"ל זו כבר משויכת לחשבון. אם חשבון זה שלך, תוכל <a href=\"/account/login#recover\">לאפס את הסיסמה שלך.</a>",
+      "verify_email": "שלחנו אימייל אל %{customer_email}, אנא לחץ על הקישור המצורף כדי לאמת את כתובת האימייל שלך.",
+      "product_not_available": "המוצר לא פורסם עבור לקוח זה.",
+      "shop_404": {
+        "title": "צור אתר מסחר אלקטרוני ומכור באינטרנט! תוכנת מסחר אלקטרוני מבית Shopify",
+        "heros": {
+          "store_unavailable": "מצטערים, חנות זו אינה זמינה כרגע.",
+          "store_not_exist": "החנות הזו לא קיימת.",
+          "no_storefront": "לחנות הזו עדיין אין אתר אינטרנט."
+        },
+        "links": {
+          "explore_other_stores": "גלו חנויות אחרות",
+          "start_free_trial": "התחל תקופת ניסיון בחינם"
+        },
+        "owner_ctas": {
+          "header": "האם אתה בעל החנות?",
+          "fix_domain": "סיימו את הגדרת כתובת האינטרנט החדשה שלכם, גשו אל %{domain_settings_link}. לחצו על \"חבר דומיין\" והזינו: %{domain}.<br> אם אתם מתקשים להיכנס לחנות שלכם, נסו את הדף %{forgot_your_store_link}.",
+          "fix_domain_link_text": "הגדרות הדומיין שלך",
+          "forgot_your_store_link_text": "שכחת את החנות שלך",
+          "add_storefront": "ניתן להגדיר את אתר האינטרנט שלך על ידי הוספת ערוץ החנות המקוונת בדף %{admin_link} שלך. אם אתה מתקשה להיכנס לחנות שלך, נסה את דף %{forgot_your_store_link}.",
+          "admin_link_text": "מנהל"
+        },
+        "ctas": {
+          "sell_in_person": {
+            "header": "למכור באופן אישי",
+            "caption": "קבלו את התכונות הדרושות לכם כדי להפעיל את החנות הקמעונאית שלכם, בין אם אתם מתחילים או מגדילים את העסק.",
+            "link_text": "התחל ניסיון חינם"
+          },
+          "open_a_store": {
+            "header": "פתיחת חנות Shopify חדשה",
+            "caption": "התחל תקופת ניסיון בחינם ל-3 ימים, ולאחר מכן המשך תמורת דולר אחד לחודש למשך 3 החודשים הבאים.",
+            "link_text": "הירשמו עכשיו"
+          },
+          "editions": {
+            "header": "בדקו את מהדורות Shopify",
+            "caption": "עם יותר מ-100 עדכוני מוצרים, תוכלו להיות פרודוקטיביים, יצירתיים וחזקים יותר במסחר ממה שאי פעם דמיינתם.",
+            "link_text": "גלה את המהדורות האחרונות"
+          },
+          "store_owner": {
+            "header": "האם אתה בעל החנות?",
+            "caption": "האם אתה מתקשה להיכנס לחנות שלך? נסה את התכונה %{forgot_your_store_link}. אם ברצונך להפעיל מחדש את החנות שלך, צור קשר עם %{shopify_support_link}.",
+            "shopify_support_link_text": "תמיכת Shopify"
+          }
+        }
+      }
     },
     "attributes": {
       "email": "אימייל",
       "password": "סִיסמָה",
       "password_confirmation": "אישור הסיסמה",
       "first_name": "שֵׁם פְּרַטִי",
-      "last_name": "שֵׁם מִשׁפָּחָה"
+      "last_name": "שֵׁם מִשׁפָּחָה",
+      "body": "גוּף",
+      "signature": "כְּתוֹבֶת"
     },
     "challenge": {
       "submit_button_text": "אשר"
@@ -1885,6 +1981,42 @@
     },
     "feed": {
       "more": "יוֹתֵר"
+    },
+    "collections": {
+      "sorting": {
+        "manual": "מוּבלָט",
+        "best_selling": "הנמכר ביותר",
+        "az": "לפי סדר אלפביתי, AZ",
+        "za": "לפי סדר אלפביתי, ZA",
+        "price_ascending": "מחיר, מהנמוך לגבוה",
+        "price_descending": "מחיר, מהגבוה לנמוך",
+        "date_ascending": "תאריך, מהישן לחדש",
+        "date_descending": "תאריך, מהחדש לישן"
+      }
+    },
+    "notices": {
+      "customer": {
+        "password_reset_error": "שגיאת איפוס סיסמה",
+        "subscribe_error": "שגיאת הרשמה",
+        "unsubscribe_error": "שגיאת ביטול מנוי",
+        "no_account_found": "לא נמצא חשבון עם כתובת האימייל הזו.",
+        "invalid_credentials": "כתובת דוא\"ל או סיסמה שגויים.",
+        "denylisted_reset_password": "לא ניתן היה לגשת לחשבונך מכיוון שהסיסמה הנוכחית אינה מאובטחת. תקבל אימייל לעדכון הסיסמה.",
+        "signup_disabled": "יצירת חשבון לקוח הושבתה."
+      },
+      "address": {
+        "updated": "הכתובת עודכנה בהצלחה.",
+        "error_updating": "שגיאה בעדכון הכתובת",
+        "created": "הכתובת נוצרה בהצלחה",
+        "error_creating": "שגיאה ביצירת כתובת.",
+        "deleted": "הכתובת נמחקה בהצלחה",
+        "error_deleting": "שגיאה במחיקת כתובת."
+      },
+      "line_item": {
+        "item_status": {
+          "add_variant": "נוסף %{delta}"
+        }
+      }
     }
   },
   "customer_accounts": {
