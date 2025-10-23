@@ -488,7 +488,90 @@
         "free_shipping_total_label": "חינם",
         "estimated_taxes_finalization_tooltip_content": "המס הסופי והסכום הכולל יאושרו באמצעות אימייל או הודעת טקסט לאחר ביצוע ההזמנה.",
         "title": "סיכום הזמנה",
-        "total_savings": "סה״כ חסכתם"
+        "total_savings": "סה״כ חסכתם",
+        "group_title_label": "חלק מ-\"%{group_title}\"",
+        "for_add_on": "עבור: %{group_title}",
+        "from_shop_heading": "מאת %{shop_name}",
+        "from_other_stores_heading": "מחנויות אחרות",
+        "number_items": {
+          "one": "פריט %{count}",
+          "other": "%{count} פריטים"
+        },
+        "view_all_items": {
+          "one": "הצג פריט %{count}",
+          "other": "הצג את כל %{count} הפריטים"
+        },
+        "more_items_modal": {
+          "search_item": "לְחַפֵּשׂ",
+          "clear_search": "נקה חיפוש",
+          "empty_results": "לא נמצאו תוצאות עבור \"%{searchText}\". בדוק את האיות או השתמש במילה או בביטוי אחר.",
+          "number_items_shown": "%{shownNumber} מתוך %{totalNumber} פריטים"
+        },
+        "order_name_label": "הזמנה %{name}",
+        "shopping_cart_label": "עגלת קניות",
+        "discount_title_stacking": {
+          "one": "דִיסקוֹנט",
+          "other": "הנחות"
+        },
+        "discount_order_stacking": {
+          "one": "הנחת הזמנה",
+          "other": "הנחות על הזמנות"
+        },
+        "discount_not_found": "לא ניתן למצוא הנחה תקפה התואמת את הקוד שהוזן",
+        "discount_placeholder": "קוד הנחה",
+        "discount_code_applied": "קוד הנחה הוחל",
+        "discount_code_allocations_mismatch": "קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong> שלך השתנה. בדוק את עגלת הקניות ונסה שוב.",
+        "order_discounts_apply_to_local_shop": "הנחות הזמנות חלות רק על פריטים מ- %{shop_name}",
+        "gift_card_applied": "כרטיס מתנה הוחל",
+        "enter_shipping_address": "הזן כתובת למשלוח",
+        "gift_card_title": "כרטיס מתנה",
+        "gift_card_label": "כרטיס מתנה",
+        "gift_card_placeholder": "כרטיס מתנה",
+        "gift_card_and_discount_title": "קוד הנחה או כרטיס מתנה",
+        "gift_card_and_discount_label": "קוד הנחה או כרטיס מתנה",
+        "gift_card_and_discount_placeholder": "קוד הנחה או כרטיס מתנה",
+        "gift_cards_apply_to_local_shop": "כרטיסי מתנה תקפים רק לפריטים מ-%{shop_name}",
+        "add_discount_or_gift_card": "הוסף קוד הנחה או כרטיס מתנה",
+        "remove_gift_card_label": "כרטיס מתנה ברור",
+        "remove_discount_label": "הסר הנחה",
+        "return_restocking_fee_label": "דמי חידוש מלאי",
+        "return_shipping_fee_label": "משלוח חזרה",
+        "free_shipping_discount_label": "משלוח חינם",
+        "applied_free_shipping_discount_label": "יישומי",
+        "applied_discount_message": "%{amount} הנחה על מחיר ההזמנה הכולל",
+        "discount_has_been_applied": "ההנחה יושמה",
+        "discount_has_been_removed": "ההנחה הוסרה",
+        "gift_card_has_been_applied": "כרטיס מתנה הוחל",
+        "gift_card_has_been_removed": "כרטיס המתנה הוסר",
+        "gift_card_subscriptions_notice": "כרטיסי מתנה יחולו רק על התשלום הראשון שלך",
+        "discount_already_applied": "הנחה הוחלה על הזמנה זו. לא ניתן להוסיף הנחה נוספת.",
+        "cart_does_not_meet_discount_requirements_notice": "קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong> אינו תקף לפריטים בעגלת הקניות שלך",
+        "discount_requires_customer_notice": "הזן את פרטי המשלוח שלך כדי להחיל את קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong>",
+        "customer_does_not_meet_discount_requirements_notice": "קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong> אינו זמין עבורך כרגע",
+        "eligible_customer_missing_notice": "קוד הנחה <strong style=\"text-transform:uppercase\">%{code}</strong> דורש לקוחות זכאים",
+        "shipping_information_does_not_meet_discount_requirements_notice": "קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong> אינו זמין עבור כתובת המשלוח שלך",
+        "customer_already_used_once_per_customer_discount_notice": "קוד ההנחה <strong style=\"text-transform:uppercase\">%{code}</strong> כבר נוצל",
+        "pickup_label": "איסוף בחנות",
+        "no_pickup_location": "אין נקודות איסוף זמינות.",
+        "pickup_unavailable_banner_title": {
+          "one": "אין חנויות זמינות עם הפריט שלך",
+          "other": "אין חנויות זמינות עם הפריטים שלך"
+        },
+        "pickup_unavailable_banner_body": {
+          "ship_to_address": "לשלוח לכתובת",
+          "ship_to_address_instead_html": "%{link} במקום זאת"
+        },
+        "tip_label": "עֵצָה",
+        "unconfirmed_label": "לא אושר",
+        "calculating_shipping": "מחשב...",
+        "calculating": "מחשב...",
+        "shipping_default_value": "מחושב בשלב הבא",
+        "shipping_discount_title": "הנחת משלוח",
+        "shipping_pending_message": "עדיין לא זמין",
+        "shipping_policy_link": "עלויות משלוח",
+        "taxes_label": "מיסים",
+        "estimated_taxes_label_short": "מְשׁוֹעָר",
+        "information_estimated_taxes_label": "מיסים (משוערים)"
       },
       "wallets": {
         "errors": {
@@ -550,7 +633,19 @@
       },
       "stock": {
         "continue_shopping_button_label": "המשך",
-        "continue_cta_label": "המשך לחשבון"
+        "continue_cta_label": "המשך לחשבון",
+        "price_update": {
+          "updated_price": "מחיר מעודכן"
+        },
+        "price_and_quantity_update": {
+          "title": "עדכון מחיר וכמות",
+          "description": "המחירים והכמויות הזמינות עבור פריטים אלה השתנו ומעודכנים בעגלת הקניות שלך."
+        },
+        "out_of_stock": {
+          "description": "פריטים אלה אינם זמינים עוד והוסרו מעגלת הקניות שלך.",
+          "items_unavailable": "חלק מהפריטים אינם זמינים עוד והוסרו מעגלת הקניות שלך."
+        },
+        "out_of_stock_in_context_label": "מוצר זה אינו זמין במדינה/אזור שלך."
       },
       "post_purchase": {
         "components": {
@@ -565,6 +660,52 @@
       },
       "billing": {
         "same_as_shipping": "זהה לכתובת המשלוח"
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "מוצר לא זמין",
+          "other": "מוצרים לא זמינים"
+        },
+        "products_not_available": {
+          "one": "מוצר זה יוסר מעגלת הקניות שלך מכיוון שהוא אינו זמין במדינה/אזור שלך.",
+          "other": "מוצרים אלה יוסרו מעגלת הקניות שלך מכיוון שהם אינם זמינים במדינה/אזור שלך."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "מוצר זה אינו זמין במדינה/אזור שלך.",
+          "other": "מוצרים אלה אינם זמינים במדינה/אזור שלך."
+        },
+        "unavailable_label": "לא זמין"
+      },
+      "merchandise_unavailable_in_buyer_location": {
+        "banner_title": {
+          "some_products_one": "מוצר זה אינו זמין למשלוח אל %{location_name}.",
+          "some_products_other": "מוצרים אלה אינם זמינים למשלוח ל-%{location_name}.",
+          "all_products_one": "המוצר בעגלת הקניות שלך אינו זמין למשלוח אל %{location_name}.",
+          "all_products_other": "המוצרים בעגלת הקניות שלך אינם זמינים למשלוח אל %{location_name}."
+        },
+        "missing_country_fallback": "המדינה שלך",
+        "indeterminate_location_fallback": "המיקום שלך",
+        "cart_updated": "העגלה שלך עודכנה.",
+        "change_address_only": "שנה את כתובת המשלוח כדי להמשיך.",
+        "change_address_or_remove": "שנה כתובת למשלוח או %{remove_action}.",
+        "remove_items_action": {
+          "one": "הסר פריט לא זמין",
+          "other": "הסר פריטים שאינם זמינים"
+        },
+        "empty_cart_action": "רוקנו את העגלה והחזרתם לחנות"
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "one": "אין משלוח זמין עבור פריט %{count}",
+            "other": "אין משלוח זמין עבור %{count} פריטים"
+          },
+          "message": {
+            "one": "פריט זה יוסר מעגלת הקניות שלך מכיוון שאין שיטות משלוח זמינות עבור כתובתך.",
+            "other": "פריטים אלה יוסרו מעגלת הקניות שלך מכיוון שאין שיטות משלוח זמינות עבור כתובתך."
+          },
+          "label": "אין משלוח"
+        }
       }
     },
     "addresses": {
@@ -632,6 +773,9 @@
         "payment_status": {
           "pay_now": "לתשלום"
         }
+      },
+      "orders": {
+        "order_list_column_headers_contact": "מַגָע"
       }
     },
     "shop_policies": {
