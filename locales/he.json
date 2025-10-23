@@ -1126,7 +1126,22 @@
         "lost_permissions_title": "אין הרשאות מיקום"
       },
       "order_payment_collection": {
-        "pay_now": "לתשלום"
+        "pay_now": "לתשלום",
+        "custom_line_item_description": "סכום לתשלום עבור הזמנה %{order_name}",
+        "changes_summary": {
+          "added": {
+            "one": "נוסף",
+            "other": "נוסף %{count}"
+          },
+          "removed": "הוסר",
+          "subtracted": "הוסר %{count}",
+          "returned": "הוחזר %{count}",
+          "return_line_item_removed": "הוסר %{count} מההחזרה"
+        },
+        "additional_payment_requested": "נדרש תשלום של %{total_outstanding}",
+        "checkout_review_and_pay": "ההזמנה שלך %{order_name} עודכנה. בדוק את השינויים הללו ולאחר מכן שלם כדי לאשר את ההזמנה.",
+        "order_updated_on": "ההזמנה שלך עודכנה בתאריך %{last_edited_at}.",
+        "order_review_and_pay": "ההזמנה שלך עודכנה. בדוק ושלם כדי לאשר את ההזמנה."
       },
       "billing": {
         "same_as_shipping": "זהה לכתובת המשלוח",
@@ -1264,7 +1279,18 @@
             "permission_not_allowed": "אפשר שיתוף של המיקום שלך.",
             "permission_denied": "לא ניתן היה לאתר את המיקום שלך. נסה שוב."
           }
-        }
+        },
+        "location_is_currently_closed": "סָגוּר",
+        "business_hours": "שְׁעוֹת פְּתִיחָה",
+        "no_business_hours": "אין שעות פתיחה זמינות",
+        "open_twenty_four_hours": "פתוח 24/7",
+        "title": "נקודת איסוף",
+        "or": "אוֹ",
+        "search_button": "לְחַפֵּשׂ",
+        "address_label": "כְּתוֹבֶת",
+        "selector_tabs": "בורר נקודות איסוף",
+        "selector_tab_map": "מַפָּה",
+        "selector_tab_list": "רְשִׁימָה"
       },
       "error_page": {
         "terminal": {
@@ -1476,6 +1502,147 @@
       "company_location": {
         "location_title": "מיקום החברה",
         "location_rollup_accessibility_label": "אפשרויות מיקום החברה"
+      },
+      "mor_policies": {
+        "terms_and_conditions": "תנאים והגבלות של סוחר רשומות",
+        "privacy_policy": "מדיניות הפרטיות של סוחר הרשומות"
+      },
+      "markets": {
+        "invalid_market_manager_error": "בדוק את פרטי הקשר שלך לפני השלמת התשלום"
+      },
+      "notifications": {
+        "title": "התראות"
+      },
+      "change_currency": {
+        "credit_card_will_be_charged_html": "כרטיס האשראי שלך יחויב בסכום של %{amount}",
+        "payment_total_label": "סכום התשלום",
+        "change_currency_link": "שנה ל-%{currency_name}",
+        "card_provider_fx_charges_warning": "ספק כרטיס האשראי שלך עשוי לגבות עמלות על עסקאות %{currency_code}.",
+        "currency_not_supported_by_shop": "המטבע שבחרת אינו זמין עוד. כל המחירים כעת מופיעים ב-%{currency_code}."
+      },
+      "change_country": {
+        "cart_updated_based_on_country": "העגלה שלך עודכנה בהתאם למדינת המשלוח שלך.",
+        "cart_and_currency_updated_based_on_country": "עגלת הקניות והמטבע שלך עודכנו בהתאם למדינת המשלוח שלך."
+      },
+      "change_cart_localization": {
+        "verify_shipping_address": "המדינה/אזור שלך עודכנו. הזן את כתובת המשלוח שלך כדי להמשיך בתשלום."
+      },
+      "tips": {
+        "title": "הוסף טיפ",
+        "description": "הראו את תמיכתכם בצוות ב- %{shop_name}",
+        "presets_description": "בחר אחוז טיפ",
+        "custom_label": "טיפ מותאם אישית",
+        "add_tip": "הוסף טיפ",
+        "update_tip": "טיפ לעדכון",
+        "message": "תודה, אנו מעריכים זאת.",
+        "no_tip_label": "אַף לֹא אֶחָד"
+      },
+      "open_graph_meta_tag": {
+        "title_with_products": {
+          "zero": "רכישה %{product_name}",
+          "one": "רכישת %{product_name} ו-%{count} פריט נוסף",
+          "other": "רכישת %{product_name} ו-%{count} פריטים נוספים"
+        }
+      },
+      "subscriptions": {
+        "recurring_total_intervals": {
+          "day": {
+            "one": "יְוֹם",
+            "other": "%{count} ימים"
+          },
+          "week": {
+            "one": "שָׁבוּעַ",
+            "other": "%{count} שבועות"
+          },
+          "month": {
+            "one": "חוֹדֶשׁ",
+            "other": "חודשים"
+          },
+          "year": {
+            "one": "שָׁנָה",
+            "other": "%{count} שנים"
+          }
+        },
+        "recurring_totals": "%{total_price} כל %{interval}",
+        "recurring_totals_with_initial_order_shipping_discount": "תשלום ראשון %{total_price_with_discount}, לאחר מכן %{recurring_total}",
+        "recurring_totals_with_policies": {
+          "first_cycles": {
+            "one": "תשלום ראשון %{total_price}",
+            "other": "%{count} תשלומים ראשונים %{total_price} כל אחד"
+          },
+          "following_cycles": ", ואז %{total_price} כל %{interval}"
+        },
+        "recurring_totals_with_initial_order_shipping_discount_with_policies": {
+          "first_cycles": {
+            "one": ", לאחר מכן תשלום %{count} ב- %{total_price}",
+            "other": ", לאחר מכן %{count} תשלומים ב- %{total_price} כל אחד"
+          }
+        }
+      },
+      "customer_payment_methods": {
+        "page_title": "אמצעי תשלום",
+        "title": "אמצעי תשלום",
+        "update_card_button_label": "עדכון כרטיס",
+        "delete_customer_mandate": {
+          "generic_error": "הייתה בעיה בעיבוד הבקשה שלך.",
+          "success_message": "אמצעי התשלום שלך נמחק בהצלחה"
+        }
+      },
+      "throttle": {
+        "too_many_attempts": {
+          "message": "יותר מדי ניסיונות",
+          "description": "אנא נסה שוב בעוד מספר דקות"
+        },
+        "line_to_check_out": "אתה בתור לצ'ק אאוט",
+        "cart_summary_heading": "העגלה שלך",
+        "merchandise": {
+          "available": "זָמִין",
+          "sold_out": "הַכַּרטִיסִים אָזלוּ"
+        },
+        "inventory": {
+          "partial_inventory_banner": "חלק מהעגלה שלך אזל ולא יהיה זמין לרכישה בקופה.",
+          "sold_out": {
+            "heading": "העגלה שלך אזלה",
+            "storefront_body": "חזור לחנות כדי להמשיך בקניות",
+            "no_storefront_body": "למרבה הצער, הפריט שברצונך לרכוש אינו זמין עוד.",
+            "link": "חזרה לחנות"
+          }
+        },
+        "title": "תוֹר",
+        "time_to_checkout_title": "הגיע הזמן לקופה - {{shopName}}",
+        "estimated_wait_time": {
+          "calculating": "חישוב זמן המתנה משוער",
+          "less_than_one": "זמן המתנה משוער: פחות מדקה",
+          "one": "זמן המתנה משוער: {{count}}",
+          "other": "זמן המתנה משוער: {{count}} דקות"
+        },
+        "last_checked": "(נבדק לאחרונה: {{time}} )",
+        "footer": {
+          "heading": "אל תרענן דף זה, הוא יתעדכן אוטומטית.",
+          "body": "הפריטים בעגלת הקניות שלך אינם שמורים עד שתסיים את תהליך התשלום."
+        }
+      },
+      "cart_checkout_validation": {
+        "runtime_error": "הייתה בעיה בעיבוד בקשתך, אנא צור קשר עם בעל החנות."
+      },
+      "no_address_location": {
+        "title": "מיקום ללא כתובת",
+        "header": "אין לך כתובת למשלוח עבור מיקום זה",
+        "alt_header": "כתובת משלוח חסרה",
+        "message": "צרו קשר כדי להוסיף כתובת למיקום זה ולהשלים את תהליך התשלום.",
+        "email_us_button_label": "שלח לנו אימייל"
+      },
+      "order_errors": {
+        "creation_failure": "אירעה בעיה ביצירת ההזמנה שלך. נסה שוב, או צור איתנו קשר לקבלת פרטים נוספים.",
+        "network_failure": "לא ניתן היה לשלוח את ההזמנה שלך עקב שגיאת רשת. בדוק את החיבור שלך ונסה שוב.",
+        "inventory_reservation_failure": "חלק מהפריטים אינם זמינים עוד."
+      },
+      "session_errors": {
+        "session_not_unique": "אירעה בעיה בעיבוד ההזמנה שלך. רענן דף זה כדי לחזור לחנות.",
+        "session_already_finished": "הזמנה זו כבר נשלחה. באפשרותך לחזור לחנות כדי להתחיל הזמנה חדשה."
+      },
+      "artifact_errors": {
+        "artifact_dissatisfaction_without_violation": "הייתה בעיה בעיבוד ההזמנה שלך. נסה שוב בעוד מספר דקות."
       }
     },
     "addresses": {
